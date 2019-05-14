@@ -1,5 +1,6 @@
 <?php
-class Promcertificacion{
+class Promcertificacion
+{
     private $idpromcertificacion;
     private $idestudiante;
     private $promcertificacion;
@@ -8,7 +9,7 @@ class Promcertificacion{
 
     /**
      * Get the value of idpromcertificacion
-     */ 
+     */
     public function getIdpromcertificacion()
     {
         return $this->idpromcertificacion;
@@ -18,7 +19,7 @@ class Promcertificacion{
      * Set the value of idpromcertificacion
      *
      * @return  self
-     */ 
+     */
     public function setIdpromcertificacion($idpromcertificacion)
     {
         $this->idpromcertificacion = $idpromcertificacion;
@@ -28,7 +29,7 @@ class Promcertificacion{
 
     /**
      * Get the value of idestudiante
-     */ 
+     */
     public function getIdestudiante()
     {
         return $this->idestudiante;
@@ -38,7 +39,7 @@ class Promcertificacion{
      * Set the value of idestudiante
      *
      * @return  self
-     */ 
+     */
     public function setIdestudiante($idestudiante)
     {
         $this->idestudiante = $idestudiante;
@@ -48,7 +49,7 @@ class Promcertificacion{
 
     /**
      * Get the value of promcertificacion
-     */ 
+     */
     public function getPromcertificacion()
     {
         return $this->promcertificacion;
@@ -58,7 +59,7 @@ class Promcertificacion{
      * Set the value of promcertificacion
      *
      * @return  self
-     */ 
+     */
     public function setPromcertificacion($promcertificacion)
     {
         $this->promcertificacion = $promcertificacion;
@@ -66,5 +67,4 @@ class Promcertificacion{
         return $this;
     }
 }
-    
-
+?>

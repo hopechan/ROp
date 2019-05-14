@@ -1,5 +1,6 @@
 <?php
-class Promfunda{
+class Promfunda
+{
     private $idpromfunda;
     private $idestudiante;
     private $promce;
@@ -7,7 +8,7 @@ class Promfunda{
 
     /**
      * Get the value of idpromfunda
-     */ 
+     */
     public function getIdpromfunda()
     {
         return $this->idpromfunda;
@@ -17,7 +18,7 @@ class Promfunda{
      * Set the value of idpromfunda
      *
      * @return  self
-     */ 
+     */
     public function setIdpromfunda($idpromfunda)
     {
         $this->idpromfunda = $idpromfunda;
@@ -27,7 +28,7 @@ class Promfunda{
 
     /**
      * Get the value of idestudiante
-     */ 
+     */
     public function getIdestudiante()
     {
         return $this->idestudiante;
@@ -37,7 +38,7 @@ class Promfunda{
      * Set the value of idestudiante
      *
      * @return  self
-     */ 
+     */
     public function setIdestudiante($idestudiante)
     {
         $this->idestudiante = $idestudiante;
@@ -47,7 +48,7 @@ class Promfunda{
 
     /**
      * Get the value of promce
-     */ 
+     */
     public function getPromce()
     {
         return $this->promce;
@@ -57,7 +58,7 @@ class Promfunda{
      * Set the value of promce
      *
      * @return  self
-     */ 
+     */
     public function setPromce($promce)
     {
         $this->promce = $promce;
