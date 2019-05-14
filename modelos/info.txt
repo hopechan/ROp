@@ -1,2 +1,3 @@
 Aqui van los modelos :v
 Cualquier modificacion escribirla aqui
+1.-Se creo la primera version de la base de datos
