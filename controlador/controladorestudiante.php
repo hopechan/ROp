@@ -98,6 +98,32 @@ class ControladorEstudiante
         }
     }
 
+    public function EditarEstudiante(Estudiante $e){
+        try {
+            $conn = new Conexion();
+            $idestudiante=$e->getIdestudiante();
+            $nombre = $e->getNombre();
+            $apellidos=$e->getApellidos();
+            $fechanacimiento=$e->getFechanacimiento();
+            $telefono=$e->getTelefono();
+            $email=$e->getEmail();
+            $direccion=$e->getDireccion();
+            $anio=$e->getAnio();
+            $seccion = $e->getSeccion() ;
+            $centroescolar=$e->getCentroescolar();
+            $telefono=$e->getTelefono();
+            $sql = "UPDATE estudiante SET nombre='".$nombre."', apellidos='".$apellidos."', fecha_nacimiento='".$fechanacimiento."', telefono='".$telefono."', email='".$email."', direccion='".$direccion."', anio='".$anio."', seccion='".$seccion."', centroescolar='".$centroescolar."' WHERE idestudiante="$idestudiante;
+            $conn->ejecutar($sql);
+            echo "<script>
+                    alert('Estudiante actualizado con exito');
+                 </script>";
+        } catch (mysqli_sql_exception $e) {
+            throw new MySQLiQueryException($sql, $e->getMessage(), $e->getCode());
+        }
+    }
 
 }
+
+    
+
 ?>
