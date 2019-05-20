@@ -1,6 +1,6 @@
 <?php
 require_once("../modelos/conexion.php");
-require_once("../modelos/estudiante.php");
+require_once("../modelos/promfunda.php");
 class ControladorPromfunda
 {
     public function agregarPromfunda(Promfunda $t)
