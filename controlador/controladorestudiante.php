@@ -55,5 +55,49 @@ class ControladorEstudiante
             throw new MySQLiQueryException($sql, $e->getMessage(), $e->getCode());
         }
     }
+
+
+    public function BuscarExId($idestudiante){
+
+        try {
+           $conn=new Conexion();
+           $sql="SELECT idestudiante, nombre, apellidos, fechanacimiento, telefono, email, direccion, anio, seccion, centroescolar FROM estudiante WHERE idestudiante=" . $idestudiante;
+           $resultado= $conn->ejecutar($sql);
+           $coleccionEstudiante= arrya();
+           while ($rs = $resultado->fetch_assoc()) {
+              $estudiante = new Estudiante();
+              $estudiante->setIdestudiante($resultado['idestudiante']);
+              $estudiante->setNombre($resultado['nombre']);
+              $estudiante->setApellidos($resultado['apellidos']);
+              $estudiante->setFechanacimiento($resultado['fecha_nacimiento']);
+              $estudiante->setTelefono($resultado['telefono']);
+              $estudiante->setEmail($resultado['email']);
+              $estudiante->setDireccion($resultado['direccion']);
+              $estudiante->setAnio($resultado['anio']);
+              $estudiante->setSeccion($resultado['seccion']);
+              $estudiante->setCentroescolar($resultado['centroescolar'])
+              array_push($coleccionEstudiante, $estudiante);
+           }
+
+           return $coleccionEstudiante;
+        } catch (mysqli_sql_exception $e) {
+            throw new MySQLiQueryException($sql, $e->getMessage(), $e->getCode());
+        }
+
+    }
+
+    public function BorrarEstudiante($idEstudiante){
+        try {
+            $conn= new Conexion();
+            $sql = "DELETE FROM estudiante WHERE idestudiante=" . $idEstudiante;
+            $conn->ejecutar($sql);
+            $conn=null;
+            echo "<script> alert('Estudiante eliminado con exito');</script>";
+        } catch (mysqli_sql_exception $e) {
+            throw new MySQLiQueryException($sql, $e->getMessage(), $e->getCode());
+        }
+    }
+
+
 }
 ?>
