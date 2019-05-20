@@ -1,5 +1,6 @@
 <?php
-require_once("conexion.php");
+require_once("../modelos/conexion.php");
+require_once("../modelos/estudiante.php");
 class ControladorEstudiante
 {
     public function agregarEstudiante(Estudiante $t)
@@ -9,27 +10,27 @@ class ControladorEstudiante
 
             $idestudiante = $t->getIdestudiante();
 
-            $nombre = $t->getIdnombre();
+            $nombre = $t->getNombre();
 
-            $apellido = $t->getapellido();
+            $apellido = $t->getApellidos();
 
-            $fecha_nacimiento = $t->getIdfecha_nacimiemto();
+            $fecha_nacimiento = $t->getFechanacimiento();
 
-            $telefono = $t->getIdtelefono();
+            $telefono = $t->getTelefono();
 
-            $email = $t->getIdemail();
+            $email = $t->getEmail();
 
-            $direccion = $t->getIddirreccion();
+            $direccion = $t->getDireccion();
 
-            $anio = $t->getIdanio();
+            $anio = $t->getAnio();
 
-            $seccion = $t->getIdseccion();
+            $seccion = $t->getSeccion();
 
-            $centroescolar = $t->getIdcentroescolar();
+            $centroescolar = $t->getCentroescolar();
 
             $sql = "INSERT INTO estudiante VALUES('".$idestudiante."','".$nombre."','".$apellido."','".$fecha_nacimiento."','".$telefono."','".$email."','".$direccion."','".$anio."','".$seccion."','".$centroescolar."')";
 
-            $conn->execQueryO($sql);
+            $conn->ejecutar($sql);
 
             $conn = null;
         } catch (mysqli_sql_exception $e) {
