@@ -1,5 +1,6 @@
 <?php
-require_once("conexion.php");
+require_once("../modelos/conexion.php");
+require_once("../modelos/estudiante.php");
 class ControladorPromcertificacion
 {
     public function agregarPromcertificacion(Promcertificacion $t)
@@ -7,15 +8,9 @@ class ControladorPromcertificacion
         try {
             $conn = new Conexion();
 
-            $idPromcertificacion = $t->getIdPromcertificacion();
+            $sql = "INSERT INTO Promcertificacion(idpromcertificacion,idestudiante,promcertificacion) VALUES('".$t->getIdpromcertificacion()."','".$t->getIdestudiante()."','".$t->getPromcertificacion()."')";
 
-            $idestudiante = $t->getIdEstudiante()();
-
-            $promcertificacion = $t->getPromcertificacion();
-
-            $sql = "INSERT INTO Promcertificacion(idPromcertificacion,idestudiante,Promcertificacion) VALUES('".$idPromcertificacion."','".$idestudiante."','".$promcertificacion."')";
-
-            $conn->execQueryO($sql);
+            $conn->ejecutar($sql);
 
             $conn = null;
         } catch (mysqli_sql_exception $e) {
@@ -32,14 +27,20 @@ class ControladorPromcertificacion
 
             $sql = "SELECT idpromcertificacion,idestudiante,promcertificacion FROM promcertificacion";
 
-            $rs = $conn->execQueryO($sql);
+            $rs = $conn->ejecutar($sql);
 
             $ColeccionPromcertificacion = array();
             //Se crea y llena un objeto Promcertificacion con los datos correspondientes
             while ($Promcertificacion = $rs->fetch_assoc()) {
+
                 $t = new Promcertificacion;
-                $t->setIdPromcertificacion($Promcertificacion['idpromcertificacion']);
+
+                $t->setIdpromcertificacion($Promcertificacion['idpromcertificacion']);
+
+                $t->setIdestudiante($Promcertificacion['idestudiante']);
+
                 $t->setPromcertificacion($Promcertificacion['promcertificacion']);
+
                 //se agrega el objeto a una coleccion
                 array_push($ColeccionPromcertificacion, $t);
             }
@@ -61,7 +62,7 @@ class ControladorPromcertificacion
 
             $sql = "SELECT idpromcertificacion,idestudiante,promcertificacion FROM promcertificacion WHERE promcertificacion LIKE '%".$Promcertificacion."%'";
 
-            $rs = $conn->execQueryO($sql);
+            $rs = $conn->ejecutar($sql);
 
             $PromcertificacionEncontrado = array();
 
@@ -69,7 +70,9 @@ class ControladorPromcertificacion
 
                 $t = new Promcertificacion();
 
-                $t->setIdPromcertificacion($Promcertificacion['idpromcertificacion']);
+                $t->setIdpromcertificacion($Promcertificacion['idpromcertificacion']);
+
+                $t->setIdestudiante($Promcertificacion['idestudiante']);
 
                 $t->setPromcertificacion($Promcertificacion['promcertificacion']);
 
@@ -89,11 +92,9 @@ class ControladorPromcertificacion
 
             $conn = new Conexion();
 
-            $id = $_GET['idpromcertificacion'];
+            $sql = "DELETE FROM Promcertificacion WHERE idpromcertificacion = ".$idPromcertificacion;
 
-            $sql = "DELETE FROM Promcertificacion WHERE idpromcertificacion = ".$id;
-
-            $conn->execQueryO($sql);
+            $conn->ejecutar($sql);
 
             echo '<script type="text/javascript">
      
@@ -115,7 +116,7 @@ class ControladorPromcertificacion
 
               $sql="SELECT idpromcertificacion, promcertificacion FROM promcertificacion WHERE idpromcertificacion =" . $idpromcertificacion;
 
-            $rs = $conn->execQueryO($sql);
+            $rs = $conn->ejecutar($sql);
 
             $coleccion = array();
 
@@ -123,7 +124,9 @@ class ControladorPromcertificacion
 
                 $t = new Promce;
 
-                $t->setIdPromcertificacion($Promcertificacion['idpromcertificacion']);
+                $t->setIdpromcertificacion($Promcertificacion['idpromcertificacion']);
+
+                $t->setIdestudiante($Promcertificacion['idestudiante']);
 
                 $t->setPromcertificacion($Promcertificacion['promcertificacion']);
 

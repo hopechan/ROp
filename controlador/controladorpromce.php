@@ -1,5 +1,6 @@
 <?php
-require_once("conexion.php");
+require_once("../modelos/conexion.php");
+require_once("../modelos/estudiante.php");
 class ControladorPromce
 {
     public function agregarPromce(Promce $t)
@@ -7,15 +8,9 @@ class ControladorPromce
         try {
             $conn = new Conexion();
 
-            $idPromce = $t->getIdPromce();
+            $sql = "INSERT INTO promce(idpromce,idestudiante,promce) VALUES('".$t->getIdpromce()."','".$t->getIdestudiante()."','".$t->getPromce()."')";
 
-            $idestudiante = $t->getIdEstudiante()();
-
-            $promce = $t->getPromce();
-
-            $sql = "INSERT INTO promce(idpromce,idestudiante,promce) VALUES('".$idPromce."','".$idestudiante."','".$promce."')";
-
-            $conn->execQueryO($sql);
+            $conn->ejecutar($sql);
 
             $conn = null;
         } catch (mysqli_sql_exception $e) {
@@ -32,15 +27,20 @@ class ControladorPromce
 
             $sql = "SELECT idpromce,idestudiante,promce FROM promce";
 
-            $rs = $conn->execQueryO($sql);
+            $rs = $conn->ejecutar($sql);
 
             $ColeccionPromces = array();
             //Se crea y llena un objeto Promce con los datos correspondientes
             while ($Promce = $rs->fetch_assoc()) {
+
                 $t = new Promce;
-                $t->setIdPromce($Promce['idpromce']);
-                $t->setPromce($Promce['promce']);
-                //se agrega el objeto a una coleccion
+
+                $t->setIdpromce($Promce['idpromce']);
+
+                $t->setIdestudiante($Promce['idestudiante']);
+                
+                $t->setPromce($Promce['promce']);         //se agrega el objeto a una coleccion
+                
                 array_push($ColeccionPromces, $t);
             }
 
@@ -54,14 +54,13 @@ class ControladorPromce
     }
     public function buscarPromce($Promce)
     {
-
         try {
 
             $conn = new Conexion();
 
             $sql = "SELECT idpromce,idestudiante,promce FROM promce WHERE promce LIKE '%".$Promce."%'";
 
-            $rs = $conn->execQueryO($sql);
+            $rs = $conn->ejecutar($sql);
 
             $PromceEncontrado = array();
 
@@ -69,7 +68,9 @@ class ControladorPromce
 
                 $t = new Promce();
 
-                $t->setIdPromce($Promce['idpromce']);
+                $t->setIdpromce($Promce['idpromce']);
+
+                $t->setIdestudiante($Promce['idestudiante']);
 
                 $t->setPromce($Promce['promce']);
 
@@ -89,11 +90,9 @@ class ControladorPromce
 
             $conn = new Conexion();
 
-            $id = $_GET['idpromce'];
-
             $sql = "DELETE FROM Promce WHERE idpromce = ".$idPromce;
 
-            $conn->execQueryO($sql);
+            $conn->ejecutar($sql);
 
             echo '<script type="text/javascript">
      
@@ -115,7 +114,7 @@ class ControladorPromce
 
               $sql="SELECT idpromce, promce FROM promce WHERE idpromce =" . $idpromce;
 
-            $rs = $conn->execQueryO($sql);
+            $rs = $conn->ejecutar($sql);
 
             $coleccion = array();
 
@@ -123,9 +122,11 @@ class ControladorPromce
 
                 $t = new Promce;
 
-                $t->setIdPromce($Promce['idPromce']);
+                $t->setIdpromce($Promce['idpromce']);
 
-                $t->setPromce($Promce['Promce']);
+                $t->setIdestudiante($Promce['idestudiante']);
+
+                $t->setPromce($Promce['promce']);
 
                 array_push($coleccion, $t);
             }
