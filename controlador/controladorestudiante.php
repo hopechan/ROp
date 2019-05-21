@@ -75,7 +75,7 @@ class ControladorEstudiante
               $estudiante->setDireccion($resultado['direccion']);
               $estudiante->setAnio($resultado['anio']);
               $estudiante->setSeccion($resultado['seccion']);
-              $estudiante->setCentroescolar($resultado['centroescolar'])
+              $estudiante->setCentroescolar($resultado['centroescolar']);
               array_push($coleccionEstudiante, $estudiante);
            }
 
@@ -112,7 +112,7 @@ class ControladorEstudiante
             $seccion = $e->getSeccion() ;
             $centroescolar=$e->getCentroescolar();
             $telefono=$e->getTelefono();
-            $sql = "UPDATE estudiante SET nombre='".$nombre."', apellidos='".$apellidos."', fecha_nacimiento='".$fechanacimiento."', telefono='".$telefono."', email='".$email."', direccion='".$direccion."', anio='".$anio."', seccion='".$seccion."', centroescolar='".$centroescolar."' WHERE idestudiante="$idestudiante;
+            $sql = "UPDATE estudiante SET nombre='".$nombre."', apellidos='".$apellidos."', fecha_nacimiento='".$fechanacimiento."', telefono='".$telefono."', email='".$email."', direccion='".$direccion."', anio='".$anio."', seccion='".$seccion."', centroescolar='".$centroescolar."' WHERE idestudiante=".$idestudiante;
             $conn->ejecutar($sql);
             echo "<script>
                     alert('Estudiante actualizado con exito');

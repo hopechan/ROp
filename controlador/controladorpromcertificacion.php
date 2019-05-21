@@ -1,6 +1,6 @@
 <?php
 require_once("../modelos/conexion.php");
-require_once("../modelos/estudiante.php");
+require_once("../modelos/promcertificacion.php");
 class ControladorPromcertificacion
 {
     public function agregarPromcertificacion(Promcertificacion $t)
