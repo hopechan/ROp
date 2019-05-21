@@ -1,6 +1,6 @@
 <?php
 require_once("../modelos/conexion.php");
-require_once("../modelos/estudiante.php");
+require_once("../modelos/promce.php");
 class ControladorPromce
 {
     public function agregarPromce(Promce $t)
@@ -31,15 +31,15 @@ class ControladorPromce
 
             $ColeccionPromces = array();
             //Se crea y llena un objeto Promce con los datos correspondientes
-            while ($Promce = $rs->fetch_assoc()) {
+            while ($promce = $rs->fetch_assoc()) {
 
                 $t = new Promce;
 
-                $t->setIdpromce($Promce['idpromce']);
+                $t->setIdpromce($promce['idpromce']);
 
-                $t->setIdestudiante($Promce['idestudiante']);
+                $t->setIdestudiante($promce['idestudiante']);
                 
-                $t->setPromce($Promce['promce']);         //se agrega el objeto a una coleccion
+                $t->setPromce($promce['promce']);         //se agrega el objeto a una coleccion
                 
                 array_push($ColeccionPromces, $t);
             }
