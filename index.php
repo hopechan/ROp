@@ -7,7 +7,7 @@
     <title>Inicio</title>
 </head>
 <body>
-    <?php include('navbar.php'); ?>
+    <?php include('vistas/navbar.php'); ?>
     <div class="container">
     
     </div>
