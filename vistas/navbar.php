@@ -22,8 +22,8 @@
             </div>
         </li>
         <!--links-->
-        <li ><a class="black-text" href="../index.php"><i class="material-icons black-text">home</i>Inicio</a></li>
-        <li><a class="black-text" href="#"><i class="material-icons black-text">school</i>Estudiantes</a></li>
+        <li ><a class="black-text" href="/Rop/index.php"><i class="material-icons black-text">home</i>Inicio</a></li>
+        <li><a class="black-text" href="./vistas/agregarEstudiante.php"><i class="material-icons black-text">school</i>Estudiantes</a></li>
         <li><a class="black-text" href="#!"><i class="material-icons black-text">book</i>Notas</a></li>
         <li><a class="black-text" href="#!"><i class="material-icons black-text">brightness_5</i>Certificación</a></li>
         <li>
