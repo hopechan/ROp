@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Navbar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-
-<body>
-    <!--navbar-->
     <div class="navbar-fixed">
         <nav class="red accent-4">
             <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="medium material-icons black-text">menu</i></a>
@@ -44,13 +29,9 @@
         <li><a class="subheader black-text">Más opciones</a></li>
         <li><a class="black-text" href="#!"><i class="material-icons black-text">content_paste</i>Item 1</a></li>
     </ul>
-
-</body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         M.AutoInit();
     });
 </script>
-
-</html>
