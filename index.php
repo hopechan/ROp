@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inicio</title>
-</head>
+<?php include("vistas/head.php")?>
 <body>
     <?php include('vistas/navbar.php'); ?>
     <div class="container">
-    
+        <div class="row">
+            <?php include("vistas/dashboard.php")?>
+        </div>
     </div>
 </body>
 </html>
