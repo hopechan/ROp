@@ -12,8 +12,8 @@
     <ul id="slide-out" class="sidenav black">
         <!--Datos de usuario-->
         <li>
-            <div class="right-align white-text">
-                <i class="material-icons sidenav-close">close</i>
+            <div class="right-align">
+                <a class="white-text" href=""><i class="material-icons sidenav-close">close</i></a>
             </div>
             <div class="user-view red-text text-accent-4">
                 <a href=""></a><i class="large material-icons">account_circle</i>
@@ -25,7 +25,7 @@
         <li ><a class="white-text" href="/Rop/index.php"><i class="material-icons red-text text-accent-4">home</i>Inicio</a></li>
         <li><a class="white-text" href="/Rop/vistas/agregarEstudiante.php"><i class="material-icons red-text text-accent-4">school</i>Estudiantes</a></li>
         <li><a class="white-text" href="#!"><i class="material-icons red-text text-accent-4">book</i>Notas</a></li>
-        <li><a class="white-text" href="#!"><i class="material-icons red-text text-accent-4">brightness_5</i>Certificación</a></li>
+        <li><a class="white-text" href="/Rop/vistas/vistaTipo.php"><i class="material-icons red-text text-accent-4">brightness_5</i>Certificación</a></li>
         <li>
             <div class="divider white"></div>
         </li>
