@@ -18,10 +18,10 @@
             </div>
         </div>
         <!-- formulario modal 1 -->
-        <div class="row">
+        <div class="row tamaño">
             <div class="col s12">
-                <div id="modal1" class="modal">
-                    <div class="modal-content">
+                <div id="modal1" class="modal modal-fixed-footer tamaño">
+                    <div class="modal-content center-align">
                         <h4>Nuevo Estudiante</h4>
                         <form action="" method="post" class="col s12">
                             <div class="row">
@@ -80,18 +80,29 @@
                                 </div>
                             </div>
                         </form>
-                        <!-- footer del formulario modal -->
-                        <div class="modal-footer">
-                            <a href="" class="modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
+                    </div>
+                        <!-- footer del formulario modal 1 -->
+                    <div class="modal-footer">
+                        <div class="center-align"><button class="btn boton-save btn-flat" type="submit" name="save">
+                        <i class="material-icons left">save</i>
+                        Guardar </button> &nbsp;
+                        <button class="btn boton-delete btn-flat modal-close">
+                        <i class="material-icons left">delete</i>
+                        Cancelar </button>
                         </div>
                     </div>
+                    <!-- fin del footer del modal 1 -->
                 </div>
             </div>
         </div>
+        <!--  -->
         
     </div>
     <?php
     include("footer.php");
+    if (isset($_POST['save'])) {
+        echo "jelou guord";
+    }
     ?>
 </body>
 </html>

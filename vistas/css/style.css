@@ -7,3 +7,52 @@
 /*
     Fin estilo webNotas.php
 */
+
+/* Estilo para webEstudiantes.php*/
+
+/* .center {
+    margin: auto !important;
+} */
+/* Fin de estilo para webEstudiantes.php */
+
+/* clase para tamaño de los modales Roberto*/
+
+.tamaño{
+  min-height: 90% !important; 
+  margin-top: -3% !important;
+}
+
+/* fin del estilo modal*/
+
+/*boton-save sin hover*/
+.boton-save{
+    background-color: black !important;
+    color: white !important;
+    border: solid 1px black !important;
+}
+/*fin de la clase boton-save sin hover*/
+
+/*clase hover para botones de formulario modal*/
+.boton-save:hover{
+    background-color: green !important;
+    color: white !important;
+    border: 1px green solid !important; 
+}
+/*fin del estilo hover para botones*/
+
+/*boton-delete sin hover*/
+.boton-delete{
+    background-color: black !important;
+    color: white !important;
+    border: solid 1px black !important;
+}
+/*fin de la clase boton-delete sin hover*/
+
+/*clase hover para botones de formulario modal*/
+.boton-delete:hover{
+    background-color: red !important;
+    color: white !important;
+    border: 1px red solid !important; 
+}
+/*fin del estilo hover para botones*/
+
