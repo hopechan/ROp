@@ -40,30 +40,29 @@ include("navbar.php");
     </div>
 </div>
 </div>
-<div class="row">
-    <div class="col s12">
-<table class="centered highlight responsive-table">
-    <thead class="black white-text">
-        <tr>
-            <th>Tipo</th>
-            <th>Descripción</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <?php
-    include("../controlador/controladorTipo.php");
-    $ct = new ControladorTipo();
-    $listaTipos = $ct->obtenerTipos();
-    for ($i = 0; $i < sizeof($listaTipos); $i++) {
+<div class="container">
+    <table class="centered highlight responsive-table">
+        <thead class="black white-text">
+            <tr>
+                <th>Tipo</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <?php
+        include("../controlador/controladorTipo.php");
+        $ct = new ControladorTipo();
+        $listaTipos = $ct->obtenerTipos();
+        for ($i = 0; $i < sizeof($listaTipos); $i++) {
         echo "<tr>";
         echo "<td>" . $listaTipos[$i]->getTipo() . "</td>";
         echo "<td>" . $listaTipos[$i]->getDescripcion() . "</td>";
         echo "<td><a href='' class='btn-floating btn-large waves-effect red accent-4 btn'><i class='material-icons'>delete</i></a>&nbsp;&nbsp;
         <a href='' class='btn-floating btn-large waves-effect black accent-4 btn'><i class='material-icons'>replay</i></a></td>";
-    }
-    ?>
-</table>
-</div></div>
+        }
+        ?>
+    </table>
+</div>
 <?php
 include("footer.php");
 ?>
