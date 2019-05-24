@@ -20,7 +20,7 @@ include("navbar.php");
                         <i class="material-icons prefix">rate_review</i>
                         <input type="text" name="tipo" id="Tipo" class="validate" required>
                         <label for="Tipo">Tipo</label>
-                        <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
                     </div>
                 </div>
                 <div class="row red-text text-accent-4">
@@ -28,14 +28,22 @@ include("navbar.php");
                         <i class="material-icons prefix">mode_edit</i>
                         <input type="text" name="descripcion" id="Descripcion" class="validate" data-length="120" required>
                         <label for="Descripcion">Descripción</label>
+                        <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
                     </div>
                 </div>
-            <!-- footer del formulario modal -->
+                <!-- footer del formulario modal -->
                 <div class="center">
-                    <input type="submit" value="Guardar" name="ok" class="waves-effect waves-green btn green white-text">&nbsp;&nbsp;
-                    <a href="" class="modal-close waves-effect waves-red btn-flat white-text red accent-4 btn">Cancelar</a>
-            </div>
+                    <button class="waves-effect waves-green btn green white-text" type="submit" name="ok">Enviar
+                        <i class="material-icons left">send</i>
+                    </button>&nbsp;&nbsp;
+                    <a href="" class="modal-close waves-effect waves-red btn-flat white-text red accent-4 btn">Cancelar <i class="material-icons left">close</i></a>
+                </div>
             </form>
+            <?php
+            if(isset($_POST['ok'])){
+                
+            }
+            ?>
         </div>
     </div>
 </div>
@@ -54,10 +62,10 @@ include("navbar.php");
         $ct = new ControladorTipo();
         $listaTipos = $ct->obtenerTipos();
         for ($i = 0; $i < sizeof($listaTipos); $i++) {
-        echo "<tr>";
-        echo "<td>" . $listaTipos[$i]->getTipo() . "</td>";
-        echo "<td>" . $listaTipos[$i]->getDescripcion() . "</td>";
-        echo "<td><a href='' class='btn-floating btn-large waves-effect red accent-4 btn'><i class='material-icons'>delete</i></a>&nbsp;&nbsp;
+            echo "<tr>";
+            echo "<td>" . $listaTipos[$i]->getTipo() . "</td>";
+            echo "<td>" . $listaTipos[$i]->getDescripcion() . "</td>";
+            echo "<td><a href='' class='btn-floating btn-large waves-effect red accent-4 btn'><i class='material-icons'>delete</i></a>&nbsp;&nbsp;
         <a href='' class='btn-floating btn-large waves-effect black accent-4 btn'><i class='material-icons'>replay</i></a></td>";
         }
         ?>
