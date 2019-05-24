@@ -4,7 +4,7 @@
             <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="red-text text-accent-4 medium material-icons">menu</i></a>
             <a href="#" class="right red-text text-accent-4">Cerrar sesión </a>
             <div class="nav-wrapper container red-text text-accent-4">
-                <img class="responsive-img right" src="./vistas/img/images.png" width="260px" alt="Logo">
+                <img class="responsive-img right" src="/ROp/vistas/img/images.png" width="260px" alt="Logo">
             </div>
         </nav>
     </div>
