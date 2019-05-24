@@ -1,9 +1,18 @@
 /*
     Estilo para vista webNotas.php
+    Se puede reutilizar alguna de estas clases :v
 */
+.contenedor{
+    margin-top: 2.4% !important;
+    
+}
 .tarjeta{
     margin-left: 1% !important;
 }
+.tarjeta img{
+    margin-top: 40% !important;
+}
+
 /*
     Fin estilo webNotas.php
 */

@@ -3,44 +3,42 @@
 <?php include("head.php")?>
 <body>
     <?php include("navbar.php")?>
-    <div class="container">
+    
+    <div class="container contenedor">
         <div class="row">
-            <div class="tarjeta card medium col s3">
-                <div class="card-image">
-                    <img src="" alt=""/>
-                    <span class="card-title"></span>
+            <div class="col s4 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/Rop/vistas/img/images.png" alt="">
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>Centro Escolar</h5>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.I am convenient because I require little markup to use effectively.</p>
+            </div> <!-- Fin Card1-->
+            <div class="col s4 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/Rop/vistas/img/images.png" alt="">
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>Programa Oportunidades</h5>
+                    </div>
                 </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
+            </div> <!-- Fin Card2-->
+            <div class="col s4 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/Rop/vistas/img/images.png" alt="">
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>Certificaciones</h5>
+                    </div>
                 </div>
-            </div> <!-- Fin card1-->
-            <div class="tarjeta card medium col s3">
-                <div class="card-image">
-                    <img src="" alt=""/>
-                    <span class="card-title"></span>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div> <!-- Fin card2-->
-            <div class="tarjeta card medium col s3">
-                <div class="card-image">
-                    <img src="" alt=""/>
-                    <span class="card-title"></span>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div><!-- Fin card3-->
+            </div> <!-- Fin Card3-->
         </div>
     <!--
         <div class="row">
