@@ -84,16 +84,5 @@ include("../controlador/controladorTipo.php");
         ?>
     </table>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 <?php include("footer.php")?>
 

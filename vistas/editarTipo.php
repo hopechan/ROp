@@ -5,7 +5,14 @@ include("../controlador/controladorTipo.php");
 $ct = new ControladorTipo();
 $tipo = $ct->ObtenerTipoxid($_GET['idTipo']);
 ?>
-<a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a>
+ <script type="text/javascript">
+
+function cargar_pagina(){
+    document.getElementById("a").click();
+    }
+    </script>
+<body onload="cargar_pagina()">
+<a id="a" class="waves-effect waves-light btn N/A transparent modal-trigger" href="#modal2">Modal</a>
 <div class="container">
     <div id="modal2" class="modal">
         <div class="modal-content">
@@ -79,3 +86,4 @@ if (isset($_POST['ok2'])) {
 <br>
 <br>
 <?php include("footer.php") ?>
+</body>
