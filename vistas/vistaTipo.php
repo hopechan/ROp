@@ -15,7 +15,7 @@ include("../controlador/controladorTipo.php");
     <!-- formulario modal 1 -->
     <div id="modal1" class="modal">
         <div class="modal-content">
-            <h4 class="center">Nuevo Tipo</h4>
+            <h4 class="center">Nuevo Tipo</h4>s
             <form method="post" class="col s12">
                 <div class="row red-text text-accent-4">
                     <div class="input-field col s12">

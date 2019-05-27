@@ -6,7 +6,6 @@ $ct = new ControladorTipo();
 $tipo = $ct->ObtenerTipoxid($_GET['idTipo']);
 ?>
  <script type="text/javascript">
-
 function cargar_pagina(){
     document.getElementById("a").click();
     }
@@ -45,6 +44,13 @@ function cargar_pagina(){
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+    $('.modal').modal({
+      dismissible: false,
+});
+});
+</script>
 <?php
 if (isset($_POST['ok2'])) {
     $tipo = $_POST['tipo'];
@@ -61,29 +67,5 @@ if (isset($_POST['ok2'])) {
                         </script>';
 }
 ?>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <?php include("footer.php") ?>
 </body>

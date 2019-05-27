@@ -57,3 +57,14 @@
     border: 1px red solid !important; 
 }
 /*fin del estilo hover para botones*/
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  div {
+    flex: 1 0 auto;
+  }
+     
