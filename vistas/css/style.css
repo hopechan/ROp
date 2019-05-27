@@ -20,8 +20,8 @@
 /* clase para tamaño de los modales Roberto*/
 
 .tamaño{
-  min-height: 91% !important; 
-  margin-top: -3% !important;
+  min-height: 90.5% !important; 
+  margin-top: -4% !important;
 }
 
 /* fin del estilo modal*/
@@ -67,4 +67,10 @@ body {
   div {
     flex: 1 0 auto;
   }
+  .boton-g{
+    background-color: black !important;
+    color: white !important;
+    border: 1px solid black !important;
+}
+
      
