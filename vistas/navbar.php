@@ -23,7 +23,7 @@
         </li>
         <!--links-->
         <li ><a class="white-text" href="/Rop/index.php"><i class="material-icons red-text text-accent-4">home</i>Inicio</a></li>
-        <li><a class="white-text" href="/Rop/vistas/agregarEstudiante.php"><i class="material-icons red-text text-accent-4">school</i>Estudiantes</a></li>
+        <li><a class="white-text" href="/Rop/vistas/webEstudiante.php"><i class="material-icons red-text text-accent-4">school</i>Estudiantes</a></li>
         <li><a class="white-text" href="#!"><i class="material-icons red-text text-accent-4">book</i>Notas</a></li>
         <li><a class="white-text" href="/Rop/vistas/vistaTipo.php"><i class="material-icons red-text text-accent-4">brightness_5</i>Certificación</a></li>
         <li>

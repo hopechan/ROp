@@ -30,6 +30,8 @@
                                     <input type="text" name="txtNombre" class="validate" id="nombre">
                                     <label for="nombre">Nombre:</label>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="input-field col s6">
                                     <i class="material-icons prefix">account_circle</i>
                                     <input type="text" name="txtApellido" class="validate" id="apellido">
