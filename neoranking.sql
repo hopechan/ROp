@@ -13,9 +13,9 @@ apellidos varchar(45),
 fecha_nacimiento date not null,
 telefono varchar(9) not null,
 email varchar(45) not null,
-direccion varchar(45) not null,
+direccion varchar(120) not null,
 anio int(4) not null,
-seccion varchar(10) not null,
+seccion varchar(35) not null,
 centroescolar varchar(45) not null
 );
 

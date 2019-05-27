@@ -22,7 +22,7 @@
             <div class="col s12">
                 <div id="modal1" class="modal modal-fixed-footer tamaño">
                     <div class="modal-content center-align">
-                        <h4>Nuevo Estudiante</h4>
+                        <h4>Nuevo Estudiante</h4><hr>
                         <form action="" method="post" class="col s12">
                             <div class="row">
                                 <div class="input-field col s6">
@@ -79,30 +79,77 @@
                                     <label for="seccion">Sección:</label>
                                 </div>
                             </div>
-                        </form>
                     </div>
                         <!-- footer del formulario modal 1 -->
                     <div class="modal-footer">
-                        <div class="center-align"><button class="btn boton-save btn-flat" type="submit" name="save">
-                        <i class="material-icons left">save</i>
-                        Guardar </button> &nbsp;
-                        <button class="btn boton-delete btn-flat modal-close">
-                        <i class="material-icons left">delete</i>
-                        Cancelar </button>
+                        <div class="center-align">
+                            <button class="btn boton-save" type="submit" name="ok">
+                            <i class="material-icons left">save</i>
+                            Guardar </button> &nbsp;
+                            <button class="btn boton-delete" name="nel">
+                            <i class="material-icons left">delete</i>
+                            Cancelar 
+                            </button>
                         </div>
                     </div>
                     <!-- fin del footer del modal 1 -->
+                    </form>
                 </div>
             </div>
-        </div>
-        <!--  -->
-        
+        </div> 
     </div>
+    <!-- inicio del codigo php -->
+    <?php
+        if (isset($_POST['ok'])) {
+
+            #llamada a la entidad y al controlador
+            require_once("../modelos/estudiante.php");
+            require_once("../controlador/controladorestudiante.php");
+
+            #toma de los datos de los campos del formulario modal 1
+            $nombre=$_POST['txtNombre'];
+            $apellidos=$_POST['txtApellido'];
+            $fechanacimiento=$_POST['fecha'];
+            $telefono=$_POST['telefono'];
+            $email=$_POST['email'];
+            $anio=$_POST['anio'];
+            $direccion=$_POST['direccion'];
+            $centroescolar=$_POST['centroescolar'];
+            $seccion=$_POST['seccion'];
+
+            #se crea un objeto estudiante y se llama al controlador estudiante
+            $e = new Estudiante();
+            $ce = new controladorestudiante();
+
+            #se le pasan los parametros del formulario al objeto estudiante
+            $e->setNombre($nombre);
+            $e->setApellidos($apellidos);
+            $e->setFechanacimiento($fechanacimiento);
+            $e->setTelefono($telefono);
+            $e->setEmail($email);
+            $e->setAnio($anio);
+            $e->setDireccion($direccion);
+            $e->setCentroescolar($centroescolar);
+            $e->setSeccion($seccion);
+
+            #se pasan envian los parametros a la funcion agregarEstudiante del controladorEstudiante
+            $ce->agregarEstudiante($e);
+
+            #se ejecuta un script que confirma que los datos se guardaron correctamente
+            echo "<script>
+                    alert('Estudiante guardado con exito');
+                    window.location='agregarEstudiante.php';
+                  </script>";
+        }elseif (isset($_POST['nel'])) {
+            echo "<script>
+                    alert('Proceso cancelado');
+                    window.location='agregarEstudiante.php';
+                  </script>";
+        }
+
+    ?>
     <?php
     include("footer.php");
-    if (isset($_POST['save'])) {
-        echo "jelou guord";
-    }
     ?>
 </body>
 </html>
