@@ -27,10 +27,10 @@ class ControladornotaCertificacion{
             $coleccion= array();
             while ($nota = $resultado->fetch_assoc()) {
                 $n = new notacertificacion();
-                $n->setIdnotacertificacion();
-                $n->setIdestudiante();
-                $n->setIdtipo();
-                $n->setNota();
+                $n->setIdnotacertificacion($nota['idnotacertificacion']);
+                $n->setIdestudiante($nota['idestudiante']);
+                $n->setIdtipo($nota['idtipo']);
+                $n->setNota($nota['nota']);
                 array_push($coleccion, $n);
             }
             $conn=null;

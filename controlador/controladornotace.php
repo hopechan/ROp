@@ -26,10 +26,10 @@ class ControladorNotaCe{
             $coleccion= array();
             while ($nota = $resultado->fetch_assoc()) {
                 $n = new NotaCe();
-                $n->setIdnotace();
-                $n->setIdestudiante();
-                $n->setIdtipo();
-                $n->setNota();
+                $n->setIdnotace($nota['idnotace']);
+                $n->setIdestudiante($nota['idestudiante']);
+                $n->setIdtipo($nota['idtipo']);
+                $n->setNota($nota['nota']);
                 array_push($coleccion, $n);
             }
             $conn=null;
