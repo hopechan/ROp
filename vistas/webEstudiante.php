@@ -121,6 +121,7 @@
             $direccion=$_POST['direccion'];
             $centroescolar=$_POST['centroescolar'];
             $seccion=$_POST['seccion'];
+            $foto=$_FILES['foto']['tmp_name'];
 
             #se crea un objeto estudiante y se llama al controlador estudiante
             $e = new Estudiante();
