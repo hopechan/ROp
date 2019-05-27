@@ -80,6 +80,27 @@ class ControladorNotaCe{
         }
     }
 
+    public function notasEstudiante(){
+        $conn = new Conexion();
+        $sql ="SELECT nc.idnotace, e.nombre, e.apellidos, t.tipo, nc.nota 
+                FROM notace as nc
+                INNER JOIN estudiante as e ON nc.idestudiante = e.idestudiante
+                INNER JOIN tipo as t ON nc.idtipo = t.idtipo";
+        $rs = $conn->ejecutar($sql);
+        $coleccion= array();
+            while ($nota = $rs->fetch_assoc()) {
+                $n = new NotaCe();
+                $n->setIdnotace($nota['idnotace']);
+                $n->setIdestudiante($nota['nombre']." ".$nota['apellidos']);
+                $n->setIdtipo($nota['tipo']);
+                $n->setNota($nota['nota']);
+                array_push($coleccion, $n);
+            }
+            $conn=null;
+            return $coleccion;
+
+    }
+
 }
 
 ?>
