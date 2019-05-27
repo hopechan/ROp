@@ -1,6 +1,4 @@
 <?php
-    include_once("../controlador/controladorEstudiante.php");
-    include_once("../controlador/controladorTipo.php");
     include_once("../controlador/controladornotace.php");
 ?>
 <table class="striped table-responsive">
@@ -13,6 +11,16 @@
         </tr>
     </thead>
     <tbody>
-        <?php llenarEstudiante()?>
+        <?php
+        $cn = new ControladorNotaCe();
+        $notas = $cn->notasEstudiante();
+        for ($i=0; $i < sizeof($notas); $i++) { 
+            echo "<tr>";
+                echo "<td>".$notas[$i]->getIdestudiante()."</td>";
+                echo "<td>".$notas[$i]->getIdtipo()."</td>";
+                echo "<td>".$notas[$i]->getNota()."</td>";
+            echo "</tr>";
+        }
+        ?>
     </tbody>
 </table>
