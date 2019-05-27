@@ -138,12 +138,12 @@
             #se ejecuta un script que confirma que los datos se guardaron correctamente
             echo "<script>
                     alert('Estudiante guardado con exito');
-                    window.location='agregarEstudiante.php';
+                    window.location='webEstudiante.php';
                   </script>";
-        }elseif (isset($_POST['nel'])) {
+        }elseif (isset($_POST['nel'])) { #si pulsa el boton cancelar se activa un alert y regresa a la parte anterior
             echo "<script>
                     alert('Proceso cancelado');
-                    window.location='agregarEstudiante.php';
+                    window.location='webEstudiante.php';
                   </script>";
         }
 
