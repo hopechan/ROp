@@ -5,8 +5,8 @@
         //echo $_GET['tabla'];
         $cn = new ControladorNotaCe();
         $notas = $cn->buscarNota($_GET['busqueda']);
-        $n = json_encode($notas, JSON_FORCE_OBJECT);
-        //var_dump($notas);
-        echo $n;
+        //var_dump($notas[0]);
+        $json = json_encode($notas);
+        echo $json;
     }
 ?>

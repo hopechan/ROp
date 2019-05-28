@@ -109,22 +109,22 @@ class ControladorNotaCe{
                 INNER JOIN tipo as t ON nc.idtipo = t.idtipo
                 WHERE e.nombre LIKE '%".$nombre."%'";
             $rs = $conn->ejecutar($sql);
-            $coleccion= array();
-                while ($nota = $rs->fetch_assoc()) {
-                    $n = new NotaCe();
-                    $n->setIdnotace($nota['idnotace']);
-                    $n->setIdestudiante($nota['nombre']." ".$nota['apellidos']);
-                    $n->setIdtipo($nota['tipo']);
-                    $n->setNota($nota['nota']);
-                    array_push($coleccion, $n);
-                }
+            $coleccion = array();
+            while ($nota = $rs->fetch_assoc()) {
+                $n = array(
+                    "idNota" => $nota['idnotace'],
+                    "nombre" => $nota['nombre']." ".$nota['apellidos'],
+                    "materia" => $nota['tipo'],
+                    "nota" => $nota['nota']
+                );
+                array_push($coleccion, $n);
+            }
             $conn=null;
             return $coleccion;
         } catch (mysqli_sql_exception $e) {
             throw new MySQLiQueryException($sql, $e->getMessage(), $e->getCode());
         }
     }
-
 }
 
 ?>

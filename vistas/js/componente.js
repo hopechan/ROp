@@ -9,7 +9,8 @@ class Componente extends HTMLElement{
         let accion = function(dato1, dato2){
             Busquedas.buscar(dato1, dato2);
         }
-        accion(this.getAttribute("tabla"), this.getAttribute("busqueda"));
+        var parametro = document.querySelector("#txtBusqueda");
+        parametro.onkeyup = accion(this.getAttribute("tabla"), this.getAttribute("busqueda"));
     }
 
     attributeChangeCallback(){}
