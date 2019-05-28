@@ -121,7 +121,6 @@
             $direccion=$_POST['direccion'];
             $centroescolar=$_POST['centroescolar'];
             $seccion=$_POST['seccion'];
-            $foto=$_FILES['foto']['tmp_name'];
 
             #se crea un objeto estudiante y se llama al controlador estudiante
             $e = new Estudiante();
@@ -142,15 +141,48 @@
             #se pasan envian los parametros a la funcion agregarEstudiante del controladorEstudiante
             $ce->agregarEstudiante($e);
 
+            #llama el archivo seleccionado en la fotografia
+            $foto=$_FILES['foto']['name'];
+            $tipo_foto=$_FILES['foto']['type'];
+
+            #ruta de la carpteta que guardara las imagenes
+            $carpeta_destino=$_SERVER['DOCUMENT_ROOT']. '/Rop/vistas/img/Fotos/' . $_FILES['foto']['name'];
+
+            #mueve la iamgen a la carpeta de destino
+            move_uploaded_file($_FILES['foto']['tmp_name'], $carpeta_destino.$foto);
+
+            require_once ("../modelos/documento.php");
+            require_once ("../controlador/controladorDocumento.php");
+
+            #instacian el objeto documento y el controlador documento para guardar la ruta de la fotografia en db
+            $d = new Documento();
+            $cd = new ControladorDocumento();
+
+            #se llama a la funcion MaxId para conocer el id del ultimo estudiante ingresado a la db y asignarle el id a la fotografia
+            $idestudiantedoc = $cd->MaxId();
+
+            //echo $carpeta_destino;
+
+            #se recolectan los datos a enviar a la tabla documento de la db
+            $d->setIdDocumento(null);
+            $d->setIdestudiante($idestudiantedoc);
+            $d->setTipoDocumento('Fotografía');
+            $d->setDocumento($carpeta_destino);
+            $d->setDescripcion('hola');
+
+            #envian los datos a la tabla documento atraves de la funcion guardarDocumento
+            $cd->guardarDocumento($d);
+
             #se ejecuta un script que confirma que los datos se guardaron correctamente
-            echo "<script>
-                    alert('Estudiante guardado con exito');
-                    window.location='webEstudiante.php';
-                  </script>";
+            // echo "<script>
+            //         alert('Estudiante guardado con exito');
+            //         window.location='webEstudiante.php';
+            //       </script>";
         }
     ?>
     <?php
-    include("footer.php");
+        include("footer.php");
+        
     ?>
 </body>
 </html>
