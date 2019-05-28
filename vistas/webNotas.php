@@ -18,6 +18,8 @@
             <label for="txtBusqueda">Buscar...</label>
           </div>
           <div id="tbCE" class=""><?php include_once("notaCE.php")?></div>
+          <script type="module" src="./js/componente.js"></script>
+          <rop-buscar tabla="estudiante" busqueda="esperanza"></rop-buscar>
           <div id="tbOpor" class=""></div>
           <div id="tbCert" class=""></div>
       </div>
@@ -26,8 +28,3 @@
 <?php include("footer.php")?>
 </html>
 
-<div class="input-field col s4 m4 l6">
-            <i class="material-icons prefix">search</i>
-            <input type="text" name="txtBusqueda" id="txtBusqueda" class="validate">
-            <label for="txtBusqueda">Buscar ...</label>
-          </div>
