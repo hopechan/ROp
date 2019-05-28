@@ -12,9 +12,17 @@
         <div class="row">
             <div class="col s12">
                 <h4>Control de Estudiantes</h4><br><br>
-                <a href="#modal1" class="waves-effect grey darken-3 btn modal-trigger">Agregar Estudiante 
-                <i class="material-icons left">add</i>
+                <a href="#modal1" class="waves-effect boton-g btn modal-trigger">Agregar Estudiante 
+                <i class="material-icons left">group_add</i>
                 </a>
+            </div>
+        </div>
+        <!-- enlace a vistaEstudiante.php -->
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <a href="vistaEstudiante.php" class="btn waves-effect waves-light boton-g">
+                <i class="material-icons left">group</i>
+                Ver Estudiantes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
             </div>
         </div>
         <!-- formulario modal 1 -->
