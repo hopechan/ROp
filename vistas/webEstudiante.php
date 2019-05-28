@@ -154,7 +154,7 @@
             $tipo_foto=$_FILES['foto']['type'];
 
             #ruta de la carpteta que guardara las imagenes
-            $carpeta_destino=$_SERVER['DOCUMENT_ROOT']. '/Rop/vistas/img/Fotos/' . $_FILES['foto']['name'];
+            $carpeta_destino=$_SERVER['DOCUMENT_ROOT']. '/ROp/vistas/img/Fotos/' . $_FILES['foto']['name'];
 
             #mueve la iamgen a la carpeta de destino
             move_uploaded_file($_FILES['foto']['tmp_name'], $carpeta_destino.$foto);
