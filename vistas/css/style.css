@@ -86,3 +86,12 @@ body {
 }
 
 /*fin de las medidas de cards*/
+.img {
+    max-width: 250px!important;
+    max-height: 75px!important;
+    padding: 1px 0!important;
+}
+.icono{
+    padding: 3px 0!important;
+    font-size: 30px!important;
+}

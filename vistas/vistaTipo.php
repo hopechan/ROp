@@ -53,8 +53,7 @@ include("../controlador/controladorTipo.php");
                 $nuevoTipo->setDescripcion($descripcion);
                 $ct->agregarTipo($nuevoTipo);
                 echo '<script type="text/javascript">
-            alert("Se ha ingresado el elemento");
-            window.location="/Rop/vistas/vistaTipo.php";
+                M.toast({html: "Se ha ingresado el elemento!", classes: "black rounded white-text"})
             </script>';
             }
             ?>
@@ -62,7 +61,7 @@ include("../controlador/controladorTipo.php");
     </div>
 </div>
 <div class="container">
-    <table class="centered highlight responsive-table">
+    <table id="tabla" class="centered highlight responsive-table">
         <thead class="black white-text">
             <tr>
                 <th>Tipo</th>

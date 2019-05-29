@@ -2,9 +2,9 @@
  <div class="navbar-fixed">
         <nav class="black">
             <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="red-text text-accent-4 medium material-icons">menu</i></a>
-            <a href="#" class="right red-text text-accent-4">Cerrar sesión </a>
+            <a href="#" class="right red-text text-accent-4"><i class="icono large material-icons">exit_to_app&nbsp;</i></a>
             <div class="nav-wrapper container red-text text-accent-4">
-                <img class="responsive-img right" src="/ROp/vistas/img/images.png" width="260px" alt="Logo">
+            <a href="" class="brand-logo right"><img class="img responsive-img" src="/ROp/vistas/img/images.png" alt="Logo"></a>
             </div>
         </nav>
     </div>
