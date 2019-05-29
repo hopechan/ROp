@@ -27,7 +27,7 @@
         </div>
         <!-- formulario modal 1 -->
         <div class="row tamaño">
-            <div class="col s12">
+            <div class="col s12 m12 l12">
                 <div id="modal1" class="modal modal-fixed-footer tamaño">
                     <div class="modal-content center-align">
                         <h4>Nuevo Estudiante</h4>

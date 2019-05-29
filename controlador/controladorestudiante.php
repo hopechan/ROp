@@ -46,10 +46,8 @@ class ControladorEstudiante
                 //se agrega el objeto a una coleccion
                 array_push($ColeccionEstudiantes, $t);
             }
-
             $conn = null;
-
-            return $ColeccionPromces;
+            return $ColeccionEstudiantes;
         } catch (mysqli_sql_exception $e) {
 
             throw new MySQLiQueryException($sql, $e->getMessage(), $e->getCode());

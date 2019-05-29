@@ -4,7 +4,7 @@ include_once("../modelos/documento.php");
 
 class ControladorDocumento{
 
-    public function obtenerDocumentos($idEstudiante){
+    public function obtenerDocumento($idEstudiante){
         try {
             $conn = new Conexion();
             $sql = "SELECT idDocumentos, idEstudiantes, tipoDocumentos, documento, descripcion FROM Documento WHERE idEstudiante =".$idEstudiante;

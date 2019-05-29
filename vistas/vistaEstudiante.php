@@ -24,7 +24,7 @@ include ("navbar.php");
                             Primer Año
                             <i class="material-icons right">more_vert</i>
                         </span>
-                        <p><a href="#" class="btn grey darken-2">Visualizar</a></p>
+                        <p><a href="#modal1" class="btn grey darken-2 modal-trigger">Visualizar</a></p>
                     </div>
                     <div class="card-reveal grey">
                         <span class="card-title grey-text text-darken-4">
@@ -86,6 +86,49 @@ include ("navbar.php");
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores provident laboriosam, quisquam dicta assumenda ab ex culpa nisi sequi voluptatem expedita. Officiis modi, rerum alias ut illo voluptate fugit.
                         </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- fin de las cards que contienen los triggers modales años 1,2,3 -->
+        <div class="row tamaño">
+            <div class="col s12 m12 l12">
+                <div id="modal1" class="modal modal-fixed-footer">
+                    <div class="modal-content center-align">
+                        <?php
+                        
+                        include_once ("../controlador/controladorestudiante.php");
+
+                        include_once ("../controlador/controladorDocumento.php");
+
+                        //instancia del objeto estudiante y del controlador para llamar los estudiantes de la db y presentarlos en una tabla
+                        $ce = new ControladorEstudiante();
+
+                        $todos = $ce->obtenerEstudiante();
+                        for ($o=0; $o < 1 ; $o++){ 
+                            echo "<div class='row'>";
+                            for ($i=0; $i < 4 ; $i++) { 
+                                echo "<div class='col s12 m12 l3'>
+                                    <div class='card'>
+                                        <div class='card-image'>
+                                            <img src='img/default-images/defaultuser.png'> 
+                                            <span class='card-title'>Alugno de prueba</span>
+                                            <a href='' class='btn-floating halfway-fab black'>
+                                            <i class='material-icons'>more_vert</i>
+                                            </a>
+                                        </div>
+                                        <div class='card-content'>
+                                            <p>Nombre: el que le puso su mama. <br>
+                                            Apellido: el que le dio su papa. <br>
+                                            Eskuela: pos donde estudia.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>";
+                            }
+                            echo "</div>";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
