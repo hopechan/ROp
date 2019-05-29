@@ -12,6 +12,9 @@
     </thead>
     <tbody>
         <?php
+        include_once("../controlador/buscar.php");
+        $b = new Buscador();
+        $b->getData();
         $cn = new ControladorNotaCe();
         $notas = $cn->notasEstudiante();
         for ($i=0; $i < sizeof($notas); $i++) { 

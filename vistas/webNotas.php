@@ -7,7 +7,6 @@
     <?php include("navbar.php")?>
     
     <div class="container contenedor">
-      <div></div>
       <div class="row">
           <ul id="tabsNotas" class="tabs col s8 m8">
             <li class="tab col s3"><a class="active" href="#tbCE">Centro Escolar</a></li>
