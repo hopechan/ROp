@@ -7,7 +7,7 @@ class Busquedas{
     async buscar(tabla, busqueda){
         //console.log(`${tabla} ${busqueda}`);
         const resultado = await ControlData.getDatos(`${this.url_base}?tabla=${tabla}&busqueda=${busqueda}`);
-        return resultado;
+        console.log(resultado);
     }
 }
-export default new Busquedas;
+export default Busquedas;

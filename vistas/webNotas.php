@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include("head.php")?>
+<script type ="module" src="./js/buscar.js"></script>
+<script type ="module" src="./js/index.js"></script>
 <body>
     <?php include("navbar.php")?>
     
@@ -18,8 +20,6 @@
             <label for="txtBusqueda">Buscar...</label>
           </div>
           <div id="tbCE" class=""><?php include_once("notaCE.php")?></div>
-          <script type="module" src="./js/componente.js"></script>
-          <rop-buscar tabla="estudiante" busqueda="esperanza"></rop-buscar>
           <div id="tbOpor" class=""></div>
           <div id="tbCert" class=""></div>
       </div>
