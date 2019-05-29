@@ -58,6 +58,8 @@
 }
 /*fin del estilo hover para botones*/
 
+
+/*codigo de joshi si comentar*/
 body {
     display: flex;
     min-height: 100vh;
@@ -73,4 +75,14 @@ body {
     border: 1px solid black !important;
 }
 
-     
+/*fin del codigo de joshi sin comentar*/
+
+
+/*medidas para imagenes de cards horizontales*/
+
+.size-cards{
+    width: auto;
+    height: 224px;
+}
+
+/*fin de las medidas de cards*/
