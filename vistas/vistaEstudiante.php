@@ -111,13 +111,19 @@ include ("navbar.php");
                                 echo "<div class='col s12 m12 l3'>
                                     <div class='card'>
                                         <div class='card-image'>
-                                            <img src='img/default-images/defaultuser.png'> 
-                                            <a href='' class='btn-floating halfway-fab grey darken-2'>
-                                            <i class='material-icons'>more_vert</i>
-                                            </a>
+                                            <img src='img/default-images/defaultuser.png'>
+                                            <span>Soyel Alugno de prueba</span> 
                                         </div>
                                         <div class='card-content black white-text'>
-                                        <span class='card-title'>Alugno de prueba</span>
+                                        
+                                        <a href='' class='btn-floating  grey darken-2 center'>
+                                        <i class='material-icons left'>account_circle</i>
+                                        </a>
+                                        &nbsp;
+                                        <a href='' class='btn-floating  grey darken-2'>
+                                        <i class='material-icons left'>book</i>
+                                        </a>
+                                          
                                         </div>
                                     </div>
                                 </div>";
@@ -130,8 +136,6 @@ include ("navbar.php");
             </div>
         </div>
     </div>
-
-
 <?php
 include ("footer.php");
 ?>
