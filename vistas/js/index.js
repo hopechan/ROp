@@ -10,3 +10,5 @@ document.addEventListener('DOMContentLoaded',
             inst.buscar("estudiante", busqueda.value)                                                                                                                                         
          })
 })
+
+

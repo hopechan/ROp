@@ -2,8 +2,8 @@ class ControlData {
     async getDatos(url){
         let data = await(fetch(url)
         .then(respuesta => {
-            //console.log(respuesta)
-            return respuesta.json
+            console.log(respuesta)
+            return respuesta.text
         })
         .catch(error => {
             console.log("Hubo un error " + error)

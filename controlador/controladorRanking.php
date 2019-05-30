@@ -17,7 +17,7 @@ class ControladorRanking{
                     $r->setIdpromce($ranking['idpromcertificacion']);
                     $r->setPromfundayce($ranking['promfundayce']);
                     $r->setDiferencia($ranking['diferencia']);
-                    $r->setIdnota_ap($ranking['nota_ap']);
+                    $r->setIdnota_ap($ranking['idnota_ap']);
                     $r->setPuntaje($ranking['puntuacion']);
                 array_push($coleccionRanking, $r);
             }
