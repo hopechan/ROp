@@ -103,18 +103,22 @@ include ("navbar.php");
 
                         //instancia del objeto estudiante y del controlador para llamar los estudiantes de la db y presentarlos en una tabla
                         $ce = new ControladorEstudiante();
+                        $cd = new controladorDocumento();
+                        
+                        $todos = $ce->obtenerEstudiante(1000);
+                        
 
-                        $todos = $ce->obtenerEstudiante();
                         for ($o=0; $o < 1 ; $o++){ 
                             echo "<div class='row'>";
-                            for ($i=0; $i < 4 ; $i++) { 
+                            for ($i=0; $i < sizeof($todos) ; $i++) { 
+                                $id = $todos[$i]->getIdEstudiante();
                                 echo "<div class='col s12 m12 l3'>
                                     <div class='card'>
                                         <div class='card-image'>
-                                            <img src='img/default-images/defaultuser.png'>
-                                            <span>Roberto Antonio</span><br>
-                                            <span>Morales Aguilar</span>
-                                        </div>
+                                            <img src='img/default-images/defaultuser.png'>";
+                                            echo "<span>" . $todos[$i]->getNombre() . "</span><br>";
+                                            echo "<span>" . $todos[$i]->getApellidos() . "</span>";
+                                    echo "</div>
                                         <div class='card-content black white-text'>
                                         <a href='' class='btn-floating  grey darken-2 center'>
                                         <i class='material-icons left'>account_circle</i>
@@ -135,8 +139,9 @@ include ("navbar.php");
             </div>
         </div>
     </div>
+
+</body>
+</html>
 <?php
 include ("footer.php");
 ?>
-</body>
-</html>
