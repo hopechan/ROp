@@ -8,7 +8,7 @@ $('#tipe-form').submit(function(e){
             id: $('#idtipo').val()
     };
     //ternario
-    let url = edit === false ? 'agregartipo.php' : 'editarTipo.php';
+    const url = edit == false ? 'agregartipo.php' : 'editarTipo.php';
 
     $.post(url, postData, function (response){
         vertipo();
@@ -18,7 +18,7 @@ $('#tipe-form').submit(function(e){
        }else{
         M.toast({html: "Se ha actualizado el elemento!", classes: "green rounded white-text"}); 
        }
-       
+       edit = false;
     });
     e.preventDefault();
 });
