@@ -4,7 +4,7 @@ include_once("../modelos/documento.php");
 
 class ControladorDocumento{
 
-    public function obtenerDocumentos($idEstudiante){
+    public function obtenerDocumento($idEstudiante){
         try {
             $conn = new Conexion();
             $sql = "SELECT idDocumentos, idEstudiantes, tipoDocumentos, documento, descripcion FROM Documento WHERE idEstudiante =".$idEstudiante;
@@ -28,7 +28,7 @@ class ControladorDocumento{
     function guardarDocumento(Documento $d){
         try {
             $conn = new Conexion();
-            $sql = "INSERT INTO Documentos(idDocumentos, idEstudiante, tipoDocumento, documento, descripcion) VALUES ('".$d->getIdDocumento()."',
+            $sql = "INSERT INTO documento(iddocumento, idestudiante, tipodocumento, documento, descripcion) VALUES ('".$d->getIdDocumento()."',
                     '".$d->getIdEstudiante()."', '".$d->getTipodocumento()."', '".$d->getDocumento()."', '".$d->getDescripcion()."')";
             $conn->ejecutar($sql);
             $conn = null;
@@ -40,7 +40,7 @@ class ControladorDocumento{
     function borrarDocumento($idDocumento){
         try {
             $conn = new Conexion();
-            $sql = "DELETE FROM Documentos WHERE idEstudiante=".$idDocumento;
+            $sql = "DELETE FROM Documento WHERE idEstudiante=".$idDocumento;
             $conn->ejecutar($sql);
             $conn = null;
         } catch (mysqli_sql_exception $e) {
@@ -50,6 +50,20 @@ class ControladorDocumento{
 
     public function actualizarDocumento(Documento $t){
         # code...
+    }
+
+    public function MaxId(){
+        try {
+            $conn= new Conexion();
+            $sql = "SELECT MAX(idestudiante) FROM estudiante";
+            $resultado = $conn->ejecutar($sql);
+            while ($maximo = $resultado->fetch_assoc()) {
+                $max = $maximo['MAX(idestudiante)'];
+            }
+            return $max;
+        } catch (mysqli_sql_exception $e) {
+            throw new MySQLiQueryException($sql, $e->getMessage(), $e->getCode());
+        }
     }
 
 }

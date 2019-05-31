@@ -26,7 +26,7 @@ class ControladorTipo{
     public function agregarTipo(Tipo $t){
         try {
             $conn = new Conexion();
-            $sql = "INSERT INTO Tipo(idTipo, tipo, descripcion) VALUES '".$t->getIdTipo()."', '".$t->getTipo()."', '".$t->getDescripcion()."'";
+            $sql = "INSERT INTO Tipo(idTipo, tipo, descripcion) VALUES ('".$t->getIdTipo()."', '".$t->getTipo()."', '".$t->getDescripcion()."')";
             $conn->ejecutar($sql);
             $conn = null;
         } catch (mysqli_sql_exception $e) {
@@ -67,7 +67,7 @@ class ControladorTipo{
                 $t->setIdTipo($tipo['idTipo']);
                 $t->setTipo($tipo['tipo']);
                 $t->setDescripcion($tipo['descripcion']);
-                array_push($ColeccionTipos, $t);
+                array_push($tipoEncontrado, $t);
             }
             $conn = null;
             return $tipoEncontrado;
