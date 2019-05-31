@@ -120,6 +120,11 @@ class ControladorEstudiante
         }
     }
 
+    public function SacarYear(){
+        $año = date("Y");
+        return $año;
+    }
+
 }
 
     

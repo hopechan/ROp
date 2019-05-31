@@ -104,10 +104,8 @@ include ("navbar.php");
                         //instancia del objeto estudiante y del controlador para llamar los estudiantes de la db y presentarlos en una tabla
                         $ce = new ControladorEstudiante();
                         $cd = new controladorDocumento();
-                        
-                        $todos = $ce->obtenerEstudiante(1000);
-                        
-
+                        $año = $ce->SacarYear();
+                        $todos = $ce->obtenerEstudiante($año);
                         for ($o=0; $o < 1 ; $o++){ 
                             echo "<div class='row'>";
                             for ($i=0; $i < sizeof($todos) ; $i++) { 
@@ -139,9 +137,10 @@ include ("navbar.php");
             </div>
         </div>
     </div>
+    <?php
+    $ce = new Controladorestudiante();
 
-</body>
-</html>
-<?php
 include ("footer.php");
 ?>
+</body>
+</html>
