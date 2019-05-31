@@ -17,6 +17,7 @@ include("../controlador/controladorTipo.php");
         <div class="modal-content">
             <h4 class="center">Nuevo Tipo</h4>
             <form method="post" class="col s12" id="tipe-form">
+                <input type="hidden" id="idtipo">
                 <div class="row red-text text-accent-4">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">rate_review</i>

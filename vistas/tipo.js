@@ -1,15 +1,24 @@
 $(document).ready(function(){
 vertipo();
-
+let edit = false;
 $('#tipe-form').submit(function(e){
     const postData = {
             name: $('#Tipo').val(),
-            descripcion: $('#Descripcion').val()
+            descripcion: $('#Descripcion').val(),
+            id: $('#idtipo').val()
     };
-    $.post('agregartipo.php', postData, function (response){
+    //ternario
+    let url = edit === false ? 'agregartipo.php' : 'editarTipo.php';
+
+    $.post(url, postData, function (response){
         vertipo();
-       $('#tipe-form').trigger('reset');
-       M.toast({html: "Se ha ingresado el elemento!", classes: "green rounded white-text"});
+       $('#tipe-form').trigger('reset')
+       if(url=='agregartipo.php'){
+        M.toast({html: "Se ha ingresado el elemento!", classes: "green rounded white-text"});
+       }else{
+        M.toast({html: "Se ha actualizado el elemento!", classes: "green rounded white-text"}); 
+       }
+       
     });
     e.preventDefault();
 });
@@ -29,7 +38,7 @@ function vertipo(){
                    <td>${task.descripcion}</td>
                    <td>
                    <button class="borrarTipo btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"><i class="material-icons">delete</i></button>
-                   <button class="editarTipo btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn"><i class="material-icons">refresh</i></button>
+                   <button href="#modal1" class="editarTipo modal-trigger btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn"><i class="material-icons">refresh</i></button>
                    </td>
                 </tr>
                 `
@@ -46,14 +55,17 @@ $(document).on('click', '.borrarTipo', function(){
         M.toast({html: "Se ha eliminado el elemento!", classes: "red accent-4 rounded white-text"});
         vertipo();
      })
-})
+});
 
 $(document).on('click', '.editarTipo', function(){
     let element = $(this)[0].parentElement.parentElement;
     let id= $(element).attr('tipoid');
-    $.post('borrarTipo.php', {id}, function(response){
-       M.toast({html: "Se ha eliminado el elemento!", classes: "red accent-4 rounded white-text"});
-       vertipo();
+    $.post('tareatipo.php', {id}, function(response){
+        const task = JSON.parse(response);
+        $('#idtipo').val(task.id);
+        $('#Tipo').val(task.name);
+        $('#Descripcion').val(task.descripcion);
+        edit = true;
     })
-})
+});
 });

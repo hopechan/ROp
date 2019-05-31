@@ -59,7 +59,7 @@
 /*fin del estilo hover para botones*/
 
 
-/*codigo de joshi si comentar*/
+/*codigo para hacer el footer pegado*/
 body {
     display: flex;
     min-height: 100vh;
@@ -69,15 +69,12 @@ body {
   div {
     flex: 1 0 auto;
   }
+/*fin del codigo*/  
   .boton-g{
     background-color: black !important;
     color: white !important;
     border: 1px solid black !important;
 }
-
-/*fin del codigo de joshi sin comentar*/
-
-
 /*medidas para imagenes de cards horizontales*/
 
 .size-cards{
@@ -87,7 +84,7 @@ body {
 
 /*fin de las medidas de cards*/
 
-/*mas css de joshi que nunca comenta para que es*/
+/*codigo para el logo y el icono de la navbar*/
 .img {
     max-width: 250px!important;
     max-height: 75px!important;
@@ -98,4 +95,4 @@ body {
     font-size: 30px!important;
 }
 
-/*fin del css de joshi*/
+/*fin del css*/
