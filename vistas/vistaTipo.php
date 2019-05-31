@@ -8,7 +8,7 @@ include("../controlador/controladorTipo.php");
     <div class="row">
         <div class="col s12 center">
             <p>Agregar Tipo</p>
-            <a href="#modal1" class="btn-floating btn-large waves-effect green darken-1 btn modal-trigger"><i class="material-icons">add</i></a>
+            <a href="#modal1" id="add" class="btn-floating btn-large waves-effect green darken-1 btn modal-trigger"><i class="material-icons">add</i></a>
         
         </div>
     </div>

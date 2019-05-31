@@ -1,6 +1,12 @@
 $(document).ready(function(){
+    let edit = false;
 vertipo();
-let edit = false;
+
+$('#add').click(function(e){
+    $('#tipe-form').trigger('reset');
+    edit = false;
+});
+
 $('#tipe-form').submit(function(e){
     const postData = {
             name: $('#Tipo').val(),
@@ -8,17 +14,16 @@ $('#tipe-form').submit(function(e){
             id: $('#idtipo').val()
     };
     //ternario
-    const url = edit == false ? 'agregartipo.php' : 'editarTipo.php';
-
+    const url = edit === false ? 'agregartipo.php' : 'editarTipo.php';
     $.post(url, postData, function (response){
         vertipo();
-       $('#tipe-form').trigger('reset')
+        edit = false;
+       $('#tipe-form').trigger('reset');
        if(url=='agregartipo.php'){
         M.toast({html: "Se ha ingresado el elemento!", classes: "green rounded white-text"});
        }else{
         M.toast({html: "Se ha actualizado el elemento!", classes: "green rounded white-text"}); 
        }
-       edit = false;
     });
     e.preventDefault();
 });
@@ -67,5 +72,6 @@ $(document).on('click', '.editarTipo', function(){
         $('#Descripcion').val(task.descripcion);
         edit = true;
     })
+    e.preventDefault();
 });
 });
