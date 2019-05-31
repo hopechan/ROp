@@ -92,7 +92,7 @@ include ("navbar.php");
         </div>
         <!-- fin de las cards que contienen los triggers modales años 1,2,3 -->
         <div class="row estu-size">
-            <div class="col s12 m12 l12">
+            <div class="col s12 m12 l12 estu-size">
                 <div id="modal1" class="modal modal-fixed-footer">
                     <div class="modal-content center-align">
                         <?php
@@ -112,18 +112,17 @@ include ("navbar.php");
                                     <div class='card'>
                                         <div class='card-image'>
                                             <img src='img/default-images/defaultuser.png'>
-                                            <span>Soyel Alugno de prueba</span> 
+                                            <span>Roberto Antonio</span><br>
+                                            <span>Morales Aguilar</span>
                                         </div>
                                         <div class='card-content black white-text'>
-                                        
                                         <a href='' class='btn-floating  grey darken-2 center'>
                                         <i class='material-icons left'>account_circle</i>
                                         </a>
                                         &nbsp;
                                         <a href='' class='btn-floating  grey darken-2'>
                                         <i class='material-icons left'>book</i>
-                                        </a>
-                                          
+                                        </a>  
                                         </div>
                                     </div>
                                 </div>";
