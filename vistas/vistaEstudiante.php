@@ -12,6 +12,11 @@ include ("navbar.php");
     
     <div class="container">
         <br><br>
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <a href="webEstudiante.php" class="btn black"><i class="material-icons left">arrow_back</i>Atrás</a>
+            </div>
+        </div>
         <!-- modal triggers para vistas estudiantes 1,2,3 años -->
         <div class="row">
             <div class="col s12 m12 l4">
@@ -34,7 +39,9 @@ include ("navbar.php");
                         <i class="material-icons right red-text">close</i>
                         </span>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores provident laboriosam, quisquam dicta assumenda ab ex culpa nisi sequi voluptatem expedita. Officiis modi, rerum alias ut illo voluptate fugit.
+                           <a href="" class="btn black white-text">Sección A</a><br><br>
+                           <a href="" class="btn black white-text">Sección B</a><br><br>
+                           <a href="" class="btn black white-text">Sección C</a>
                         </p>
                     </div>
                 </div>
@@ -59,7 +66,9 @@ include ("navbar.php");
                         <i class="material-icons right red-text">close</i>
                         </span>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores provident laboriosam, quisquam dicta assumenda ab ex culpa nisi sequi voluptatem expedita. Officiis modi, rerum alias ut illo voluptate fugit.
+                            <a href="" class="btn black white-text">Sección A</a><br><br>
+                           <a href="" class="btn black white-text">Sección B</a><br><br>
+                           <a href="" class="btn black white-text">Sección C</a>
                         </p>
                     </div>
                 </div>
@@ -84,7 +93,9 @@ include ("navbar.php");
                         <i class="material-icons right red-text">close</i>
                         </span>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores provident laboriosam, quisquam dicta assumenda ab ex culpa nisi sequi voluptatem expedita. Officiis modi, rerum alias ut illo voluptate fugit.
+                           <a href="" class="btn black white-text">Sección A</a><br><br>
+                           <a href="" class="btn black white-text">Sección B</a><br><br>
+                           <a href="" class="btn black white-text">Sección C</a>
                         </p>
                     </div>
                 </div>
