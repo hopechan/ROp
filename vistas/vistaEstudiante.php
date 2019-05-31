@@ -39,7 +39,9 @@ include ("navbar.php");
                         <i class="material-icons right red-text">close</i>
                         </span>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores provident laboriosam, quisquam dicta assumenda ab ex culpa nisi sequi voluptatem expedita. Officiis modi, rerum alias ut illo voluptate fugit.
+                           <a href="" class="btn black white-text">Sección A</a><br><br>
+                           <a href="" class="btn black white-text">Sección B</a><br><br>
+                           <a href="" class="btn black white-text">Sección C</a>
                         </p>
                     </div>
                 </div>
@@ -64,7 +66,9 @@ include ("navbar.php");
                         <i class="material-icons right red-text">close</i>
                         </span>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores provident laboriosam, quisquam dicta assumenda ab ex culpa nisi sequi voluptatem expedita. Officiis modi, rerum alias ut illo voluptate fugit.
+                            <a href="" class="btn black white-text">Sección A</a><br><br>
+                           <a href="" class="btn black white-text">Sección B</a><br><br>
+                           <a href="" class="btn black white-text">Sección C</a>
                         </p>
                     </div>
                 </div>
@@ -89,7 +93,9 @@ include ("navbar.php");
                         <i class="material-icons right red-text">close</i>
                         </span>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores provident laboriosam, quisquam dicta assumenda ab ex culpa nisi sequi voluptatem expedita. Officiis modi, rerum alias ut illo voluptate fugit.
+                           <a href="" class="btn black white-text">Sección A</a><br><br>
+                           <a href="" class="btn black white-text">Sección B</a><br><br>
+                           <a href="" class="btn black white-text">Sección C</a>
                         </p>
                     </div>
                 </div>
