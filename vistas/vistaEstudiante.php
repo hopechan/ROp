@@ -12,6 +12,11 @@ include ("navbar.php");
     
     <div class="container">
         <br><br>
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <a href="webEstudiante.php" class="btn black"><i class="material-icons left">arrow_back</i>Atrás</a>
+            </div>
+        </div>
         <!-- modal triggers para vistas estudiantes 1,2,3 años -->
         <div class="row">
             <div class="col s12 m12 l4">
