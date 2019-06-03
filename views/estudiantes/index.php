@@ -114,7 +114,7 @@
                 </div>
             </div>
         </div> 
-    </div>s
+    </div>
         
     <?php require 'views/footer.php' ?>
 </body>

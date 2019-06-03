@@ -7,5 +7,5 @@
     define('DB', 'neoranking');
     define('USER', 'root');
     define('PASSWORD', '');
-    define('CHARSET', 'utf-8mb4');
+    define('CHARSET', 'utf8mb4');
 ?>

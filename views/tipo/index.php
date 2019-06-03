@@ -22,7 +22,7 @@
     <div id="modal1" class="modal">
         <div class="modal-content">
             <h4 class="center">Nuevo Tipo</h4>
-            <form method="post" class="col s12" id="tipe-form">
+            <form method="post" class="col s12" id="tipe-form" action="<?php echo constant('URL');?>tipo/agregarTipo">
                 <input type="hidden" id="idtipo">
                 <div class="row red-text text-accent-4">
                     <div class="input-field col s12">
@@ -56,12 +56,15 @@
     <table id="tabla" class="centered highlight responsive-table">
         <thead class="black white-text">
             <tr>
+                <th>Id tipo</th>
                 <th>Tipo</th>
                 <th>Descripción</th>
                 <th>Acciones</th>
             </tr>
         </thead> 
-        <tbody id="tipe"></tbody>  
+        <tbody id="tipe">
+            <?php var_dump($this->tipo);?>
+        </tbody>  
     </table>
 </div>
     <?php require 'views/footer.php' ?>
