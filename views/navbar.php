@@ -4,7 +4,7 @@
             <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="red-text text-accent-4 medium material-icons">menu</i></a>
             <a href="#" class="right red-text text-accent-4"><i class="icono large material-icons">exit_to_app&nbsp;</i></a>
             <div class="nav-wrapper container red-text text-accent-4">
-            <a href="" class="brand-logo right"><img class="img responsive-img" src="/ROp/vistas/img/images.png" alt="Logo"></a>
+            <a href="" class="brand-logo right"><img class="img responsive-img" src="/ROp/public/img/logo.png" alt="Logo"></a>
             </div>
         </nav>
     </div>
@@ -22,10 +22,10 @@
             </div>
         </li>
         <!--links-->
-        <li ><a class="white-text" href="/Rop/index.php"><i class="material-icons red-text text-accent-4">home</i>Inicio</a></li>
-        <li><a class="white-text" href="/Rop/vistas/webEstudiante.php"><i class="material-icons red-text text-accent-4">group</i>Estudiantes</a></li>
-        <li><a class="white-text" href="#!"><i class="material-icons red-text text-accent-4">book</i>Notas</a></li>
-        <li><a class="white-text" href="/Rop/vistas/vistaTipo.php"><i class="material-icons red-text text-accent-4">brightness_5</i>Certificación</a></li>
+        <li ><a class="white-text" href="<?php constant('URL');?>main"><i class="material-icons red-text text-accent-4">home</i>Inicio</a></li>
+        <li><a class="white-text" href="<?php constant('URL');?>estudiantes"><i class="material-icons red-text text-accent-4">group</i>Estudiantes</a></li>
+        <li><a class="white-text" href="<?php constant('URL');?>notas"><i class="material-icons red-text text-accent-4">book</i>Notas</a></li>
+        <li><a class="white-text" href="<?php constant('URL');?>tipo"><i class="material-icons red-text text-accent-4">brightness_5</i>Certificación</a></li>
         <li>
             <div class="divider white"></div>
         </li>

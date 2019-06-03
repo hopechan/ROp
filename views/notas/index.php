@@ -13,7 +13,7 @@
     <?php require 'views/navbar.php' ?>
     <br><br>
     <div class="container">
-        <h1 style="color:red">Esta es la vista de error</h1>
+        <h1 style="color:brown">Vista de notas</h1>
     </div>
     <?php require 'views/footer.php' ?>
 
