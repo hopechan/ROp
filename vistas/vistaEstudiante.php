@@ -31,7 +31,7 @@ include ("navbar.php");
                         </span>
                         <p><a href="#modal1" class="btn grey darken-2 modal-trigger">Visualizar</a></p>
                     </div>
-                    <div class="card-reveal grey">
+                    <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">
                         <strong>
                             Primer Año
@@ -58,7 +58,7 @@ include ("navbar.php");
                         </span>
                         <p><a href="#modal2" class="btn grey darken-2 modal-trigger">Visualizar</a></p>
                     </div>
-                    <div class="card-reveal grey">
+                    <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">
                         <strong>
                             Segundo Año
@@ -85,7 +85,7 @@ include ("navbar.php");
                         </span>
                         <p><a href="#modal3" class="btn grey darken-2 modal-trigger">Visualizar</a></p>
                     </div>
-                    <div class="card-reveal grey">
+                    <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">
                         <strong>
                             Tercer Año
