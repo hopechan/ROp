@@ -12,96 +12,110 @@
     <?php require 'views/header.php' ?>
     <?php require 'views/navbar.php' ?>
     <div class="container">
-        <br><br>
-        <!-- modal triggers para vistas estudiantes 1,2,3 años -->
+        <!-- modal trigger 1 -->
         <div class="row">
-            <div class="col s12 m12 l4">
-                <div class="card">
-                    <div class="card-image waves-block">
-                        <img src="public/img/chicos.jpg" class="acativator size-cards">
-                    </div>
-                    <div class="card-content black">
-                        <span class="card-title activator white-text">
-                            Primer Año
-                            <i class="material-icons right">more_vert</i>
-                        </span>
-                        <p><a href="#modal1" class="btn grey darken-2 modal-trigger">Visualizar</a></p>
-                    </div>
-                    <div class="card-reveal grey">
-                        <span class="card-title grey-text text-darken-4">
-                            <strong>
-                                Primer Año
-                            </strong>
-                            <i class="material-icons right red-text">close</i>
-                        </span>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores provident laboriosam, quisquam dicta assumenda ab ex culpa nisi sequi voluptatem expedita. Officiis modi, rerum alias ut illo voluptate fugit.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m12 l4">
-                <div class="card">
-                    <div class="card-image waves-block">
-                        <img src="public/img/programa.jpg" class="acativator size-cards">
-                    </div>
-                    <div class="card-content black">
-                        <span class="card-title activator white-text">
-                            Segundo Año
-                            <i class="material-icons right">more_vert</i>
-                        </span>
-                        <p><a href="#" class="btn grey darken-2">Visualizar</a></p>
-                    </div>
-                    <div class="card-reveal grey">
-                        <span class="card-title grey-text text-darken-4">
-                            <strong>
-                                Segundo Año
-                            </strong>
-                            <i class="material-icons right red-text">close</i>
-                        </span>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores provident laboriosam, quisquam dicta assumenda ab ex culpa nisi sequi voluptatem expedita. Officiis modi, rerum alias ut illo voluptate fugit.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m12 l4">
-                <div class="card">
-                    <div class="card-image waves-block">
-                        <img src="public/img/chicas.jpg" class="acativator size-cards">
-                    </div>
-                    <div class="card-content black">
-                        <span class="card-title activator white-text">
-                            Tercer Año
-                            <i class="material-icons right">more_vert</i>
-                        </span>
-                        <p><a href="#" class="btn grey darken-2">Visualizar</a></p>
-                    </div>
-                    <div class="card-reveal grey">
-                        <span class="card-title grey-text text-darken-4">
-                            <strong>
-                                Tercer Año
-                            </strong>
-                            <i class="material-icons right red-text">close</i>
-                        </span>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis maiores provident laboriosam, quisquam dicta assumenda ab ex culpa nisi sequi voluptatem expedita. Officiis modi, rerum alias ut illo voluptate fugit.
-                        </p>
-                    </div>
-                </div>
+            <div class="col s12">
+                <h4>Control de Estudiantes</h4><br><br>
+                <a href="#modal1" class="waves-effect boton-g btn modal-trigger">Agregar Estudiante 
+                <i class="material-icons left">group_add</i>
+                </a>
             </div>
         </div>
-        <!-- fin de las cards que contienen los triggers modales años 1,2,3 -->
-        <div class="row estu-size">
-            <div class="col s12 m12 l12 estu-size">
-                <div id="modal1" class="modal modal-fixed-footer">
+        <!-- enlace a vistaEstudiante.php -->
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <a href="<?php constant('URL');?>" class="btn waves-effect waves-light boton-g">
+                <i class="material-icons left">group</i>
+                Ver Estudiantes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            </div>
+        </div>
+        <!-- formulario modal 1 -->
+        <div class="row tamaño">
+            <div class="col s12 m12 l12">
+                <div id="modal1" class="modal modal-fixed-footer tamaño">
                     <div class="modal-content center-align">
-                        
+                        <h4>Nuevo Estudiante</h4>
+                        <form action="" method="post" class="col s12" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input type="text" name="txtNombre" class="validate" id="nombre">
+                                    <label for="nombre">Nombre:</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input type="text" name="txtApellido" class="validate" id="apellido">
+                                    <label for="apellido">Apellido:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">date_range</i>
+                                    <input type="date" name="fecha" id="fecha" class="validate">
+                                    <label for="fecha">Fecha de Nacimiento:</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">phone</i>
+                                    <input type="tel" name="telefono" id="tel" class="validate">
+                                    <label for="tel">Teléfono:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">mail</i>
+                                    <input type="email" name="email" id="mail" class="validate">
+                                    <label for="mail">e-mail:</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">event</i>
+                                    <input type="number" name="anio" id="anio" class="validate">
+                                    <label for="anio">Año:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">home</i>
+                                    <input type="text" name="direccion" id="dir" class="validate">
+                                    <label for="dir">Dirección:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">school</i>
+                                    <input type="text" name="centroescolar" id="ce" class="validate">
+                                    <label for="ce">Centro Escolar:</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6">
+                                    <i class="material-icons prefix">group</i>
+                                    <input type="text" name="seccion" id="seccion" class="validate">
+                                    <label for="seccion">Sección:</label>
+                                </div>
+                            </div>
                     </div>
+                        <!-- footer del formulario modal 1 -->
+                    <div class="modal-footer">
+                        <div class="center-align">
+                            <div class="file-field input-field boton-g btn waves-effect">
+                                    <i class="material-icons left">add_a_photo</i>
+                                    <span>Fotografía</span>
+                                    <input type="file" name="foto">
+                            </div> &nbsp;
+                            <button class="btn boton-save" type="submit" name="ok">
+                            <i class="material-icons left">save</i>
+                            Guardar </button> &nbsp;
+                            <button class="btn boton-delete modal-close" name="nel">
+                            <i class="material-icons left">delete</i>
+                            Cancelar 
+                            </button>
+                        </div>
+                    </div>
+                    <!-- fin del footer del modal 1 -->
+                    </form>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> 
+    </div>s
+        
     <?php require 'views/footer.php' ?>
 </body>
 
