@@ -18,14 +18,14 @@ class ControladorEstudiante
             throw new MySQLiQueryException($sql, $e->getMessage(), $e->getCode());
         }
     }
-    public function obtenerEstudiante()
+    public function obtenerEstudiante($anio)
     {
 
         try {
 
             $conn = new Conexion();
 
-            $sql = "SELECT * FROM estudiante";
+            $sql = "SELECT * FROM estudiante WHERE anio=" . $anio;
 
             $rs = $conn->ejecutar($sql);
 
@@ -36,13 +36,13 @@ class ControladorEstudiante
                 $t->setIdEstudiante($Estudiante['idestudiante']);
                 $t->setNombre($Estudiante['nombre']);
                 $t->setApellidos($Estudiante['apellidos']);
-                $t->setFecha_nacimiento($Estudiante['fecha_nacimiento']);
+                $t->setFechanacimiento($Estudiante['fecha_nacimiento']);
                 $t->setTelefono($Estudiante['telefono']);
                 $t->setEmail($Estudiante['email']);
                 $t->setDireccion($Estudiante['direccion']);
                 $t->setAnio($Estudiante['anio']);
-                $t->seteccion($Estudiante['seccion']);
-                $t->set($Estudiante['']);
+                $t->setSeccion($Estudiante['seccion']);
+                $t->setCentroescolar($Estudiante['centroescolar']);
                 //se agrega el objeto a una coleccion
                 array_push($ColeccionEstudiantes, $t);
             }
@@ -118,6 +118,11 @@ class ControladorEstudiante
         } catch (mysqli_sql_exception $e) {
             throw new MySQLiQueryException($sql, $e->getMessage(), $e->getCode());
         }
+    }
+
+    public function SacarYear(){
+        $año = date("Y");
+        return $año;
     }
 
 }

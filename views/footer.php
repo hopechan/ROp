@@ -34,7 +34,7 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
     </div>
     <div class="footer-copyright">
         <div class="container right">
-            © 2019 Copyright Text
+            &copy; 2019 Todos los derechos reservados.
         </div>
     </div>
 </footer>
