@@ -63,7 +63,20 @@
             </tr>
         </thead> 
         <tbody id="tipe">
-            <?php var_dump($this->tipo);?>
+        <?php 
+            require_once 'models/tipos.php';
+            foreach($this->tipos as $item){
+                $tipo =new Tipos();
+                $tipo = $item;
+
+            ?>
+            <tr>
+                <td><?php echo $tipo->idtipo; ?></td>
+                <td><?php echo $tipo->tipo; ?></td>
+                <td><?php echo $tipo->descripcion; ?></td>
+                <td></td>
+            </tr>
+            <?php } ?>
         </tbody>  
     </table>
 </div>

@@ -1,7 +1,7 @@
 <?php
-class Tipo{
+class Tipos
+{
     public $idtipo;
     public $tipo;
     public $descripcion;
 }
-?>
