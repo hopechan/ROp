@@ -1,15 +1,15 @@
 <?php
-    class Estudiante{
-        public $idestudiante;
+    class Estudiantes{
+        public $idEstudiante;
         public $nombre;
         public $apellidos;
-        public $fechanacimiento;
+        public $fechaNacimiento;
         public $telefono;
         public $email;
         public $direccion;
         public $anio;
         public $seccion;
-        public $centroescolar;
+        public $centroEscolar;
     }
     
 ?>
