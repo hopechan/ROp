@@ -18,6 +18,9 @@ class Tipo extends Controller
         $tipo = $_POST['tipo'];
         $descripcion = $_POST['descripcion'];
         $this->model->insert(['tipo' => $tipo, 'descripcion' => $descripcion]);
-        $this->render();
+        header('Location:http://localhost/Rop/tipo');
+    }
+    function eliminarTipo(){
+        
     }
 }

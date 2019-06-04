@@ -25,6 +25,9 @@
                 $controller = new $url[0];
                 $controller->loadModel($url[0]);
 
+                //numero de elementos de el arreglo
+                $npram =sizeof($url);
+
                 //si ha un metodo que se requiere cargar
                 if (isset($url[1])){
                     $controller->{$url[1]}();
