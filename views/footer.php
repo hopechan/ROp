@@ -34,7 +34,11 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
     </div>
     <div class="footer-copyright">
         <div class="container right">
-            &copy; 2019 Todos los derechos reservados.
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    &copy; 2019 Todos los derechos reservados.
+                </div>
+            </div>
         </div>
     </div>
 </footer>

@@ -23,7 +23,7 @@
         </li>
         <!--links-->
         <li ><a class="white-text" href="<?php echo constant('URL');?>main"><i class="material-icons red-text text-accent-4">home</i>Inicio</a></li>
-        <li><a class="white-text" href="<?php echo constant('URL');?>estudiantes"><i class="material-icons red-text text-accent-4">group</i>Estudiantes</a></li>
+        <li><a class="white-text" href="<?php echo constant('URL');?>estudiante"><i class="material-icons red-text text-accent-4">group</i>Estudiantes</a></li>
         <li><a class="white-text" href="<?php echo constant('URL');?>nota"><i class="material-icons red-text text-accent-4">book</i>Notas</a></li>
         <li><a class="white-text" href="<?php echo constant('URL');?>tipo"><i class="material-icons red-text text-accent-4">brightness_5</i>Certificación</a></li>
         <li>

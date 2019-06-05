@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Contro de Estudiantes</title>
 </head>
 
 <body>
@@ -24,7 +24,7 @@
         <!-- enlace a vistaEstudiante.php -->
         <div class="row">
             <div class="col s12 m12 l12">
-                <a href="<?php constant('URL');?>" class="btn waves-effect waves-light boton-g">
+                <a href="<?php echo constant('URL');?>estudiante/verestudiante" class="btn waves-effect waves-light boton-g">
                 <i class="material-icons left">group</i>
                 Ver Estudiantes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
             </div>
