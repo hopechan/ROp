@@ -80,6 +80,7 @@
             <?php } ?>
         </tbody>  
     </table>
+    <script src="tipo.js"></script>
 </div>
     <?php require 'views/footer.php' ?>
 </body>

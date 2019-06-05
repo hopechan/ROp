@@ -20,7 +20,14 @@ class Tipo extends Controller
         $this->model->insert(['tipo' => $tipo, 'descripcion' => $descripcion]);
         header('Location:http://localhost/Rop/tipo');
     }
-    function eliminarTipo(){
-        
+    function editarTipo($param = null){
+        $idTipo= $param[0];
+        $tipo=$this->model->getById($idTipo);
+
+        $this->view->tipo = $tipo;
+        $this->view->render('tipo/detalle');
+    }
+    function eliminarTipo($param = null){
+        echo"nada aun";
     }
 }

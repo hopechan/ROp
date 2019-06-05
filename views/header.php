@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Oportunidades</title>
-    <link rel="stylesheet" href="<?php constant('URL')?>public/css/style.css">
+    <link rel="stylesheet" href="<?php echo constant('URL')?>public/css/style.css">
     <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="

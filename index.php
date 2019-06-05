@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="public/css/style.css">
 <?php
      require_once "libs/database.php";
      require_once "config/config.php";

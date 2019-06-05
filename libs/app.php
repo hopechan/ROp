@@ -27,13 +27,19 @@
 
                 //numero de elementos de el arreglo
                 $npram =sizeof($url);
-
-                //si ha un metodo que se requiere cargar
-                if (isset($url[1])){
-                    $controller->{$url[1]}();
+                if($npram > 1){
+                    if($npram > 2){
+                        $param = [];
+                        for($i =2; $i<$npram; $i++){
+                            array_push($param, $url[$i]);
+                        }
+                        $controller->{$url[1]}($param);
+                    }else{
+                        $controller->{$url[1]}();
+                    }
                 }else{
                     $controller->render();
-                }
+                }  
             } else {
                 $controller = new Errores();
             }
