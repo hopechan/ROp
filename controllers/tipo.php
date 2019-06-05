@@ -20,14 +20,37 @@ class Tipo extends Controller
         $this->model->insert(['tipo' => $tipo, 'descripcion' => $descripcion]);
         header('Location:http://localhost/Rop/tipo');
     }
-    function editarTipo($param = null){
+    function vertipo($param = null){
         $idTipo= $param[0];
         $tipo=$this->model->getById($idTipo);
-
         $this->view->tipo = $tipo;
         $this->view->render('tipo/detalle');
     }
+    function editarTipo(){
+        $idtipo=$_POST['idtipo'];
+        $tipo = $_POST['tipo'];
+        $descripcion = $_POST['descripcion'];
+        if($this->model->update(['idtipo' => $idtipo,'tipo' => $tipo, 'descripcion' => $descripcion])){
+            $tipo = new Tipo();
+            $tipo->idtipo = $idtipo;
+            $tipo->tipo = $tipo;
+            $tipo->descripcion = $descripcion;
+
+            $this->view->tipo = $tipo;
+            $this->view->mensaje = "Alumno actualizado correctamente";
+        }else{
+            $this->view->mensaje = "Alumno no actualizado ";
+        }
+        $this->render();
+    }
     function eliminarTipo($param = null){
-        echo"nada aun";
+        $idTipo= $param[0];
+
+        if($this->model->delete($idTipo)){
+            $this->view->mensaje = "Alumno eliminado correctamente";
+        }else{
+            $this->view->mensaje = "Alumno no eliminado ";
+        }
+        $this->render();
     }
 }

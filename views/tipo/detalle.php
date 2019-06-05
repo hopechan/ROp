@@ -22,10 +22,9 @@
         <!-- formulario modal 1 -->
         <div id="modal1" class="modal">
             <div class="modal-content">
-                <h4 class="center">Detalle de Tipos</h4>
-
-                <form method="post" class="col s12" id="tipe-form" action="<?php echo constant('URL'); ?>tipo/agregarTipo">
-                    <input type="hidden" value="<?php echo $this->tipo->idtipo; ?>">
+                <h4 class="center">Actualizar Tipos</h4>
+                <form method="post" class="col s12" id="tipe-form" action="<?php echo constant('URL'); ?>tipo/editarTipo">
+                    <input type="hidden" name="idtipo" value="<?php echo $this->tipo->idtipo; ?>">
                     <div class="row red-text text-accent-4">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">rate_review</i>

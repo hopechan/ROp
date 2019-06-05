@@ -12,6 +12,32 @@ class TipoModel extends Model{
         $PDOexe = $query->execute();
     }
 
+    public function update($item){
+        $query = $this->db->conn()->prepare('UPDATE tipo SET tipo = :tipo, descripcion= :descripcion WHERE idtipo = :idtipo');
+        try {
+            $query->execute([
+            'idtipo'=> $item['idtipo'],
+            'tipo'=> $item['tipo'],
+            'descripcion'=> $item['descripcion'],
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    public function delete($id){
+        $query = $this->db->conn()->prepare('DELETE FROM Tipo WHERE idtipo = :idtipo');
+        try {
+            $query->execute([
+            'idtipo'=> $id,
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
     public function get(){
         $items = [];
         try {
@@ -48,4 +74,5 @@ class TipoModel extends Model{
             return null;
         }
     }
+
 }
