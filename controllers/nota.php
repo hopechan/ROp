@@ -6,8 +6,13 @@ class Nota extends Controller{
     }
 
     function render(){
-        $notas = $this->model->get();
-        $this->view->notas = $notas;
+        //mando diferentes variables del mismo metodo para separar
+        $notasCE = $this->model->get('centro escolar');
+        $notaCCGK = $this->model->get('CCGK');
+        $notaCerti = $this->model->get('Certificacion');
+        $this->view->notasCE = $notasCE;
+        $this->view->notasCCGK = $notaCCGK;
+        $this->view->notasCerti = $notaCerti;
         $this->view->render("notas/index");
     }
 

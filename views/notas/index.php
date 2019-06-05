@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Notas</title>
 </head>
 
 <body>
@@ -20,37 +20,76 @@
             <li class="tab col s3"><a href="#tbCert">Certificaciones</a></li>
           </ul>
           <div class="input-field col s4 m4">
-            <i class="material-icons prefix">search</i>
-            <input type="text" name="txtBusqueda" id="txtBusqueda" class="validate">
-            <label for="txtBusqueda">Buscar...</label>
+            
           </div>
+          <!-- Tablas que consumen datos-->
+
+          <!-- Tabla Centro Escolar-->
+          <br>
           <div id="tbCE" class="">
-            <table class="striped responsive-table">
-                <thead>
+            <table class="highlight table-responsive" id="tabla">
+                <thead class="black white-text">
                     <tr>
-                        <th data-field="id">Estudiante</th>
-                        <th data-field="name">Materia</th>
-                        <th data-field="price">Nota</th>
-                        <th data-field="price">Opciones</th>
+                        <th hidden>idNota</th>
+                        <th>Estudiante</th>
+                        <th>Materia</th>
+                        <th>Nota</th>
+                        <th colspan="2">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                        include_once 'models/notas.php';
-                        foreach ($this->notas as $item) {
-                            $n = new Nota();
-                            $nota = $item;
-
-                    ?>
-                    <tr>
-                        
-                    </tr>
-                        <?php }?>
+                  <?php 
+                    require_once 'models/notas.php';
+                    foreach($this->notasCE as $item){
+                      $notaCE = new Notas();
+                      $notaCE = $item;
+                  ?>
+                  <tr>
+                      <td hidden><?php echo $notaCE->idnota; ?></td>
+                      <td><?php echo $notaCE->idestudiante; ?></td>
+                      <td><?php echo $notaCE->idmateria; ?></td>
+                      <td><?php echo $notaCE->nota?></td>
+                      <td><a href="<?php echo constant('URL') . 'nota/editar/' . $notaCE->idnota;?>" class="right btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></button></a></td>
+                      <td><a href="<?php echo constant('URL').'nota/eliminar/'. $notaCE->idnota;?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"><i class="material-icons">delete</i></a></td>
+                  </tr>
+                <?php } ?>
                 </tbody>
             </table>
           </div>
-          <div id="tbOpor" class=""></div>
-          <div id="tbCert" class=""></div>
+
+          <!--Tabla CCGK-->
+          <div id="tbOpor" class="">
+            <table class="highlight table-responsive" id="tabla">
+                <thead class="black white-text">
+                    <tr>
+                        <th hidden>idNota</th>
+                        <th>Estudiante</th>
+                        <th>Materia</th>
+                        <th>Nota</th>
+                        <th colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <?php 
+                    require_once 'models/notas.php';
+                    foreach($this->notasCCGK as $item){
+                      $notaCCGK = new Notas();
+                      $notaCCGK = $item;
+                  ?>
+                  <tr>
+                      <td hidden><?php echo $notaCCGK->idnota; ?></td>
+                      <td><?php echo $notaCCGK->idestudiante; ?></td>
+                      <td><?php echo $notaCCGK->idmateria; ?></td>
+                      <td><?php echo $notaCCGK->nota?></td>
+                      <td><a href="<?php echo constant('URL') . 'nota/editar/' . $tipo->idtipo;?>" class="right btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></button></a></td>
+                      <td><a href="<?php echo constant('URL').'nota/eliminar/'. $tipo->idtipo;?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"><i class="material-icons">delete</i></a></td>
+                  </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+          </div>
+
+          <!-- Tabla Certificacion-->
       </div>
     </div>
     <?php require 'views/footer.php' ?>

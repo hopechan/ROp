@@ -1,8 +1,8 @@
 <?php
     class Notas{
-        public $idNota;
-        public $idMateria;
-        public $idEstudiante;
+        public $idnota;
+        public $idmateria;
+        public $idestudiante;
         public $nota;
     }
 ?>
