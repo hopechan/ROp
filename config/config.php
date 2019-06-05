@@ -4,7 +4,7 @@
     define('URL', 'http://localhost/Rop/');
     //Constantes de la conexion a la base de datos
     define('HOST', 'localhost');
-    define('DB', 'neoranking');
+    define('DB', 'neoranking2');
     define('USER', 'root');
     define('PASSWORD', '');
     define('CHARSET', 'utf8mb4');
