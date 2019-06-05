@@ -7,7 +7,8 @@ class Estudiante extends Controller{
     function render(){
         $this->view->render("estudiantes/index");
     }
-    function verEstudiante()
+
+    function verestudiante()
     {
         $this->view->render("estudiantes/verestudiante");
     }

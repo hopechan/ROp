@@ -7,11 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<script type="text/javascript">
-                    function cargar_pagina() {
-                        document.getElementById("a").click();
-                    }
-                </script>
 <body onload="cargar_pagina()">
     <?php require 'views/header.php' ?>
     <?php require 'views/navbar.php' ?>
@@ -19,7 +14,7 @@
         <!-- modal trigger 1 -->
         <div class="row">
             <div class="col s12 center">
-                <p >Actualizar Tipo</p>
+                <p>Actualizar Tipo</p>
                 <a id="a" href="#modal1" id="add" class="btn-floating btn-large waves-effect green darken-1 btn modal-trigger"><i class="material-icons">add</i></a>
 
             </div>
@@ -52,7 +47,7 @@
                         <button class="modal-close waves-effect waves-green btn green white-text" type="submit">Actualizar
                             <i class="material-icons left">send</i>
                         </button>&nbsp;&nbsp;
-                        <a href="<?php echo constant('URL');?>tipo" class="waves-effect waves-red btn-flat white-text red accent-4 btn">Cancelar <i class="material-icons left">close</i></a>
+                        <a href="<?php echo constant('URL'); ?>tipo" class="waves-effect waves-red btn-flat white-text red accent-4 btn">Cancelar <i class="material-icons left">close</i></a>
                     </div>
                 </form>
             </div>
@@ -62,3 +57,11 @@
 </body>
 
 </html>
+<script type="text/javascript">
+    function cargar_pagina() {
+        $('.modal').modal({
+        dismissible: false, // Modal can be dismissed by clicking outside of the modal
+    });
+    document.getElementById("a").click();
+    }
+</script>
