@@ -41,7 +41,7 @@ class Tipo extends Controller
         }else{
             $this->view->mensaje = "Alumno no actualizado ";
         }
-        $this->render();
+        header('Location:http://localhost/Rop/tipo');
     }
     function eliminarTipo($param = null){
         $idTipo= $param[0];
@@ -51,6 +51,6 @@ class Tipo extends Controller
         }else{
             $this->view->mensaje = "Alumno no eliminado ";
         }
-        $this->render();
+        header('Location:http://localhost/Rop/tipo');
     }
 }
