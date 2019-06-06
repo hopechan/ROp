@@ -48,7 +48,6 @@
                     <a class="modal-close waves-effect waves-red btn-flat white-text red accent-4 btn">Cancelar <i class="material-icons left">close</i></a>
                 </div>
             </form>
-            <script src="tipo.js"></script>
         </div>
     </div>
 </div>
@@ -80,7 +79,6 @@
             <?php } ?>
         </tbody>  
     </table>
-    <script src="tipo.js"></script>
 </div>
     <?php require 'views/footer.php' ?>
 </body>

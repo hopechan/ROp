@@ -13,7 +13,7 @@ contraseña varchar(64) not null
 create table tipo(
 idtipo int not null primary key auto_increment,
 tipo varchar(45) not null,
-descripcion varchar(45) not null
+descripcion varchar(120) not null
 );
 
 create table estudiante(
@@ -34,7 +34,7 @@ iddocumento int not null primary key auto_increment,
 idestudiante int not null,
 tipodocumento varchar(25),
 documento varchar(120),
-descripcion varchar(60),
+descripcion varchar(120),
 foreign key (idestudiante) references estudiante(idestudiante)
 );
 
