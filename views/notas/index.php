@@ -11,23 +11,75 @@
 <body>
     <?php require 'views/header.php' ?>
     <?php require 'views/navbar.php' ?>
+    <div class="container">
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4 class="center">Nuevo Nota</h4>
+          <form method="post" class="col s12" id="tipe-form" action="<?php echo constant('URL'); ?>materia/agregarMateria">
+            <input type="hidden" id="idmateria">
+            <div class="row red-text text-accent-4">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">rate_review</i>
+                <select name="idtipo" required>
+                  <option value="" disabled selected>Seleccione un estudiante</option>
+                    <?php
+                      require_once 'models/tipos.php';
+                      foreach($this->tipos as $item){
+                        $tipo =new Tipos();
+                        $tipo = $item;
+                    ?>
+                    <option value="<?php echo $tipo->idtipo; ?>"><?php echo $tipo->tipo; ?></option>
+                    <?php } ?>
+                </select>
+                <label>Estudiante</label>
+                <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
+              </div>
+              <div class="input-field col s6" >
+                <i class="material-icons prefix">class</i>
+                <select name="materia" required>
+                  <option value="" disabled selected>Seleccione una materia</option>
+                </select>
+                <label>Materia</label>
+                <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
+              </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">class</i>
+                <input type="text" name="txtNota" class="validate" id="apellido">
+                <label for="apellido">Nota</label>
+              </div>
+            </div>
+            <!-- footer del formulario modal -->
+            <div class="center">
+              <button class="modal-close waves-effect waves-green btn green white-text" type="submit">Enviar
+                <i class="material-icons left">send</i>
+              </button>&nbsp;&nbsp;
+              <a class="modal-close waves-effect waves-red btn-flat white-text red accent-4 btn">Cancelar <i class="material-icons left">close</i></a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     <br><br>
     <div class="container">
       <div class="row">
-        <h3 class="col s8 m8">Notas</h3>
+        <h3 class="col s4 m7">Notas</h3>
         <br><br>
+        <div class="col s4 m1">
+          <br>
+          <a href="#modal1" class="waves-effect waves-light btn modal-trigger">Nuevo</a>
+        </div>
         <div class="col s4 m4">
-          <!-- Dropdown Trigger -->
-          <a class='dropdown-trigger btn' data-target='dropdown1'>Opciones de Filtrado</a>
-          <!-- Dropdown Structure -->
-          <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!" >CCGK</a></li>
-            <li><a href="#!">Centro Escolar</a></li>
-            <li><a href="#!">Certificaciones</a></li>
-            <li class="divider" tabindex="-1"></li>
-            <li><a href="#!">Año</a></li>
-            <li><a href="#!">Seccion</a></li>
-          </ul>
+          <div class="input-field">
+            <i class="material-icons prefix">filter_list</i>
+            <input type="text" name="txtFiltro" id="txtFiltro" list="filtros">
+            <label for="nombre">Filtrar: </label>
+          </div>
+          <datalist id="filtros">
+            <option disabled selected>Filtrar Por</option>
+            <option>CCGK</option>
+            <option>Centro Educativo</option>
+            <option>Certificaciones</option>
+          </datalist>
         </div>
       </div>
       <div class="row">
@@ -61,11 +113,21 @@
               </tbody>
             </table>
           </div>
+          <ul class="pagination center">
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active"><a href="#!">1</a></li>
+            <li class="waves-effect"><a href="#!">2</a></li>
+            <li class="waves-effect"><a href="#!">3</a></li>
+            <li class="waves-effect"><a href="#!">4</a></li>
+            <li class="waves-effect"><a href="#!">5</a></li>
+            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+          </ul>
       </div>
     </div>
     <?php require 'views/footer.php' ?>
     <script>
       $('.dropdown-trigger').dropdown();
     </script>
+    <!--<script src="./public/js/buscar.js"></script>-->
 </body>
 </html>
