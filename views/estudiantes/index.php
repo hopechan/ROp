@@ -35,7 +35,7 @@
                 <div id="modal1" class="modal modal-fixed-footer tamaño">
                     <div class="modal-content center-align">
                         <h4>Nuevo Estudiante</h4>
-                        <form action="" method="post" class="col s12" enctype="multipart/form-data">
+                        <form action="<?php echo constant('URL');?>estudiante/insert" method="post" class="col s12" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">account_circle</i>
@@ -115,10 +115,6 @@
         </div> 
     </div>
     <?php
-
-        if (isset($_POST['ok'])) {
-            
-        }
 
     ?>
     <?php require 'views/footer.php' ?>
