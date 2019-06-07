@@ -4,19 +4,6 @@
         public function __construct() {
             parent::__construct();
         }
-
-        function insert($datos){
-            try {
-                $sql= 'INSERT INTO tipo (idMateria, idEstudiante, nota) VALUES(:idMateria,:idEstudiante,:nota)';
-                $query = $this->db->conn()->prepare($sql);
-                $query->bindParam(':idMateria',$datos['idMateria'], PDO::PARAM_STR);
-                $query->bindParam(':idEstudiante',$datos['idEstudiante'], PDO::PARAM_STR);
-                $query->bindParam(':nota', $datos['nota'], PDO::PARAM_STR);
-                $PDOexe = $query->execute();
-            } catch (PDOException $e) {
-                return "El insert fallo :'v";
-            }
-        }
         
         function get($tipo){
             $items = [];

@@ -1,4 +1,5 @@
 <?php
+include_once 'models/tipos.php';
 class TipoModel extends Model{
     public function __construct(){
         parent::__construct();
@@ -60,7 +61,7 @@ class TipoModel extends Model{
     public function getById($id){
         $item = new Tipo();
 
-        $query = $this->db->conn()->prepare("SELECT idtipo, tipo, descripcion FROM tipo WHERE idTipo = :idtipo");
+        $query = $this->db->conn()->prepare("SELECT idtipo, tipo, descripcion FROM tipo WHERE idtipo = :idtipo");
         try{
             $query->execute(['idtipo' => $id]);
 

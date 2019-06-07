@@ -9,49 +9,54 @@ class Materia extends Controller
     function render()
     {
         $materias = $this->model->get();
-        $materias = $this->model->gettipo();
+        $tipos = $this->model->gettipo();
         $this->view->materias = $materias;
+        $this->view->tipos = $tipos;
         $this->view->render("materia/index");
     }
 
-    // function agregarMateria()
-    // {
-    //     $tipo = $_POST['materia'];
-    //     $descripcion = $_POST['descripcion'];
-    //     $this->model->insert(['tipo' => $tipo, 'descripcion' => $descripcion]);
-    //     header('Location:http://localhost/Rop/materia');
-    // }
-    // function vertipo($param = null){
-    //     $idTipo= $param[0];
-    //     $tipo=$this->model->getById($idTipo);
-    //     $this->view->tipo = $tipo;
-    //     $this->view->render('materia/detalle');
-    // }
-    // function editarTipo(){
-    //     $idtipo=$_POST['idtipo'];
-    //     $tipo = $_POST['tipo'];
-    //     $descripcion = $_POST['descripcion'];
-    //     if($this->model->update(['idtipo' => $idtipo,'tipo' => $tipo, 'descripcion' => $descripcion])){
-    //         $tipo = new Tipo();
-    //         $tipo->idtipo = $idtipo;
-    //         $tipo->tipo = $tipo;
-    //         $tipo->descripcion = $descripcion;
+     function agregarMateria()
+     {
+         $idtipo = $_POST['idtipo'];
+         $materia = $_POST['materia'];
+         $this->model->insert(['idtipo' => $idtipo, 'materia' => $materia]);
+         header('Location:http://localhost/Rop/materia');
+    }
+     function vermateria($param = null){
+         $idmateria = $param[0];
+         $materia=$this->model->getById($idmateria);
+         $this->view->materia = $materia;
+         $tipos = $this->model->gettipo();
+         $this->view->tipos = $tipos;
+         $this->view->render('materia/detalle');
+     }
+     
+     function editarmateria(){
+         $idmateria=$_POST['idmateria'];
+         $idtipo=$_POST['idtipo'];
+         $materia = $_POST['materia'];
+         if($this->model->update(['idmateria' => $idmateria,'idtipo' => $idtipo,'materia' => $materia])){
+             $materia = new Materia();
+             $materia->idmateria = $idmateria;
+             $materia->idtipo    = $idtipo;
+             $materia->materia   = $materia;
 
-    //         $this->view->tipo = $tipo;
-    //         $this->view->mensaje = "Alumno actualizado correctamente";
-    //     }else{
-    //         $this->view->mensaje = "Alumno no actualizado ";
-    //     }
-    //     header('Location:http://localhost/Rop/tipo');
-    // }
-    // function eliminarTipo($param = null){
-    //     $idTipo= $param[0];
+             $this->view->materia = $materia;
+             $this->view->mensaje = "Materia actualizado correctamente";
+         }else{
+             $this->view->mensaje = "Materia no actualizado";
+         }
+         header('Location:http://localhost/Rop/materia');
+     }
 
-    //     if($this->model->delete($idTipo)){
-    //         $this->view->mensaje = "Alumno eliminado correctamente";
-    //     }else{
-    //         $this->view->mensaje = "Alumno no eliminado ";
-    //     }
-    //     header('Location:http://localhost/Rop/tipo');
-    // }
+     function eliminarmateria($param = null){
+         $idmateria = $param[0];
+
+         if($this->model->delete($idmateria)){
+             $this->view->mensaje = "Materia eliminado correctamente";
+         }else{
+             $this->view->mensaje = "Materia no eliminado ";
+         }
+         header('Location:http://localhost/Rop/materia');
+     }
 }

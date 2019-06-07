@@ -37,9 +37,9 @@ class Tipo extends Controller
             $tipo->descripcion = $descripcion;
 
             $this->view->tipo = $tipo;
-            $this->view->mensaje = "Alumno actualizado correctamente";
+            $this->view->mensaje = "Tipo actualizado correctamente";
         }else{
-            $this->view->mensaje = "Alumno no actualizado ";
+            $this->view->mensaje = "Tipo no actualizado ";
         }
         header('Location:http://localhost/Rop/tipo');
     }
@@ -47,9 +47,9 @@ class Tipo extends Controller
         $idTipo= $param[0];
 
         if($this->model->delete($idTipo)){
-            $this->view->mensaje = "Alumno eliminado correctamente";
+            $this->view->mensaje = "Tipo eliminado correctamente";
         }else{
-            $this->view->mensaje = "Alumno no eliminado ";
+            $this->view->mensaje = "Tipo no eliminado ";
         }
         header('Location:http://localhost/Rop/tipo');
     }

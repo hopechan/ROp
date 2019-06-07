@@ -17,35 +17,34 @@
             <div class="col s12 center">
                 <p>Agregar Materia</p>
                 <a href="#modal1" id="add" class="btn-floating btn-large waves-effect green darken-1 btn modal-trigger"><i class="material-icons">add</i></a>
-
             </div>
         </div>
         <!-- formulario modal 1 -->
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <h4 class="center">Nuevo Materia</h4>
-                <form method="post" class="col s12" id="tipe-form" action="<?php echo constant('URL'); ?>materia/agregarmateria">
+                <form method="post" class="col s12" id="tipe-form" action="<?php echo constant('URL'); ?>materia/agregarMateria">
                     <input type="hidden" id="idmateria">
                     <div class="row red-text text-accent-4">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">rate_review</i>
-                            <?php
-                            require_once 'models/tipos.php';
-                            foreach ($this->tipos as $item) {
-                                $tipo = new Tipos();
-                                $tipo = $item;
-                                ?>
-                                <select>
-                                    <option value="" disabled selected>Seleccione el IdTipo</option>
-                                    <option value="<?php echo $tipo->tipo; ?>"><?php echo $tipo->tipo; ?></option>
-                                </select>
-                            <?php } ?>
+                            <select name="idtipo" required>
+                                <option value="" disabled selected>Seleccione el IdTipo</option>
+                                <?php
+                                require_once 'models/tipos.php';
+                                foreach($this->tipos as $item){
+                                    $tipo =new Tipos();
+                                    $tipo = $item;
+                                    ?>
+                                    <option value="<?php echo $tipo->idtipo; ?>"><?php echo $tipo->tipo; ?></option>
+                                <?php } ?>
+                            </select>
                             <label>Id Tipo</label>
                             <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
                         </div>
-                        <div class="input-field col s12" required>
+                        <div class="input-field col s12" >
                             <i class="material-icons prefix">class</i>
-                            <select>
+                            <select name="materia" required>
                                 <option value="" disabled selected>Seleccione la materia</option>
                                 <option value="Matemática C.E">Matemática C.E</option>
                                 <option value="Sociales C.E">Sociales C.E</option>
@@ -77,22 +76,22 @@
             <thead class="black white-text">
                 <tr>
                     <th hidden>Id materia</th>
-                    <th>Id Tipo</th>
                     <th>Materia</th>
+                    <th>Tipo</th>
                     <th colspan="2">Acciones</th>
                 </tr>
             </thead>
             <tbody id="tipe">
-                <?php
-                require_once 'models/materias.php';
-                foreach ($this->materias as $item) {
-                    $materia = new materia();
-                    $materia = $item;
-
-                    ?>
-                    <tr>
-                        <td><?php echo $materia->idtipo; ?></td>
+                <tr>
+                    <?php
+                    require_once 'models/materias.php';
+                    foreach ($this->materias as $item) {
+                        $materia = new materias();
+                        $materia = $item;
+                        ?>
+                        <td hidden><?php echo $materia->idmateria; ?></td>
                         <td><?php echo $materia->materia; ?></td>
+                        <td><?php echo $materia->tipo; ?></td>
                         <td><a href="<?php echo constant('URL') . 'materia/vermateria/' . $materia->idmateria; ?>" class="right btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></button></a></td>
                         <td><a href="<?php echo constant('URL') . 'materia/eliminarmateria/' . $materia->idmateria; ?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"><i class="material-icons">delete</i></a></td>
                     </tr>
