@@ -8,11 +8,7 @@ class Nota extends Controller{
     function render(){
         //mando diferentes variables del mismo metodo para separar
         $notasCE = $this->model->get('centro escolar');
-        $notaCCGK = $this->model->get('CCGK');
-        $notaCerti = $this->model->get('Certificacion');
         $this->view->notasCE = $notasCE;
-        $this->view->notasCCGK = $notaCCGK;
-        $this->view->notasCerti = $notaCerti;
         $this->view->render("notas/index");
     }
 
@@ -22,6 +18,12 @@ class Nota extends Controller{
         $nota = $_POST['nota'];
         $this->model->insert(['idMateria'=> $idMateria,'idEstudiante'=>$idEstudiante, 'nota'=>$nota]);
         $this->render();
+    }
+
+    function filtrar(){
+        $filtro = $_POST['filtro'];
+        $resultado = $this->model->buscar($filtro);
+        return json_encode($resultado);
     }
 }
 ?>
