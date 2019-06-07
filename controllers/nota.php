@@ -7,7 +7,7 @@ class Nota extends Controller{
 
     function render(){
         //mando diferentes variables del mismo metodo para separar
-        $notasCE = $this->model->get('centro escolar');
+        $notasCE = $this->model->get();
         $this->view->notasCE = $notasCE;
         $this->view->render("notas/index");
     }
