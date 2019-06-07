@@ -30,13 +30,14 @@ class Materia extends Controller
          $this->view->tipos = $tipos;
          $this->view->render('materia/detalle');
      }
-     
+
      function editarmateria(){
+        echo "Llego al con"; 
          $idmateria=$_POST['idmateria'];
          $idtipo=$_POST['idtipo'];
          $materia = $_POST['materia'];
          if($this->model->update(['idmateria' => $idmateria,'idtipo' => $idtipo,'materia' => $materia])){
-             $materia = new Materia();
+            $materia = new Materia();
              $materia->idmateria = $idmateria;
              $materia->idtipo    = $idtipo;
              $materia->materia   = $materia;

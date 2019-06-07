@@ -24,7 +24,7 @@
             <div class="modal-content">
                 <h4 class="center">Actualizar Tipos</h4>
                 <form method="post" class="col s12" id="tipe-form" action="<?php echo constant('URL')?>materia/editarmateria">
-                    <input type="hidden" id="idmateria" value="<?php echo $this->materia->idmateria;?>">
+                    <input type="hidden" id="idmateria" name ="idmateria" value="<?php echo $this->materia->idmateria;?>">
                     <div class="row red-text text-accent-4">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">rate_review</i>
