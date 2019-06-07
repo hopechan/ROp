@@ -95,3 +95,16 @@ body {
     font-size: 30px!important;
 }
 /*fin del css*/
+
+/*estilo para el boton de la fotografia del estudiante*/
+
+.boton-g:hover{
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid black !important; 
+}
+
+
+
+
+/*fin del estilo del boton*/
