@@ -76,8 +76,8 @@
             <thead class="black white-text">
                 <tr>
                     <th hidden>Id materia</th>
-                    <th>Materia</th>
                     <th>Tipo</th>
+                    <th>Materia</th>
                     <th colspan="2">Acciones</th>
                 </tr>
             </thead>
