@@ -13,7 +13,7 @@
         <br><br>
         <div class="row">
             <div class="col s12 m12 l12">
-                <a href="<?php echo constant('URL');?>estudiante" class="btn black"><i class="material-icons left">arrow_back</i>Atrás</a>
+                <a href="<?php echo constant('URL');?>estudiante" class="btn black boton-g"><i class="material-icons left">arrow_back</i>Atrás</a>
             </div>
         </div>
         <!-- modal triggers para vistas estudiantes 1,2,3 años -->

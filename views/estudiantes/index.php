@@ -45,7 +45,7 @@
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">account_circle</i>
                                     <input type="text" name="txtApellido" class="validate" id="apellido">
-                                    <label for="apellido">Apellido:</label>
+                                    <label for="apellido">Apellidos:</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -103,10 +103,9 @@
                             <button class="btn boton-save" type="submit" name="ok">
                             <i class="material-icons left">save</i>
                             Guardar </button> &nbsp;
-                            <button class="btn boton-delete modal-close" name="nel">
-                            <i class="material-icons left">delete</i>
-                            Cancelar 
-                            </button>
+                            <a class="btn boton-delete modal-close waves-effect"><i class="material-icons left">delete</i>
+                            Cancelar
+                            </a>
                         </div>
                     </div>
                     <!-- fin del footer del modal 1 -->
@@ -115,7 +114,13 @@
             </div>
         </div> 
     </div>
-        
+    <?php
+
+        if (isset($_POST['ok'])) {
+            
+        }
+
+    ?>
     <?php require 'views/footer.php' ?>
 </body>
 </html>
