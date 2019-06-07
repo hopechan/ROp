@@ -6,12 +6,20 @@
 
         function insert($datos){
             try {
-                $sql = 'INSERT INTO estudiante (nombre, apellidos, fecha_nacimiento, telefono, email, anio, seccion, centroescolar) 
-                    VALUES(:nombre,:apellidos, :fecha_nacimiento, :telefono, :email, :anio, :seccion, :centroescolar)';
+                echo "Llegue hasta aqui";
+                $sql = 'INSERT INTO estudiante (nombre, apellidos, fecha_nacimiento, telefono, email, direccion, anio, seccion, centro_escolar) 
+                    VALUES(:nombre,:apellidos, :fecha_nacimiento, :telefono, :email, :direccion, :anio, :seccion, :centro_escolar)';
                 $query = $this->db->conn()->prepare($sql);
                 $query->bindParam(':nombre',$datos['nombre'], PDO::PARAM_STR);
-                $query->bindParam(':apellidos',$datos['apellid'], PDO::PARAM_STR);
-                $PDOexe = $query->execute();
+                $query->bindParam(':apellidos',$datos['apellidos'], PDO::PARAM_STR);
+                $query->bindParam(':fecha_nacimiento', $datos['fecha_nacimiento'], PDO::PARAM_INT);
+                $query->bindParam(':telefono',$datos['telefono'], PDO::PARAM_INT);
+                $query->bindParam(':email',$datos['email'], PDO::PARAM_STR);
+                $query->bindParam(':anio',$datos['anio'], PDO::PARAM_INT);
+                $query->bindParam(':direccion',$datos['direccion'], PDO::PARAM_STR);
+                $query->bindParam(':seccion',$datos['seccion'], PDO::PARAM_STR);
+                $query->bindParam(':centro_escolar',$datos['centro_escolar'], PDO::PARAM_STR);
+                $PDOexe=$query->execute();
             } catch (PDOException $e) {
                 return "La consulta fallo :'v";
             }
