@@ -17,7 +17,7 @@ class Estudiante extends Controller{
     function insert()
         {
             //se reciven los datos del formulario de estudiante/index.php
-            echo "Estoy por aqui";
+            //echo "Estoy por aqui";
             $nombre=$_POST['txtNombre'];
             $apellido=$_POST['txtApellido'];
             $fecha_nacimiento=$_POST['fecha'];
@@ -30,6 +30,11 @@ class Estudiante extends Controller{
 
             $this->model->insert(['nombre'=>$nombre,'apellidos'=>$apellido, 'fecha_nacimiento'=>$fecha_nacimiento,'telefono'=>$telefono, 'email'=>$email, 'anio'=>$anio, 'direccion'=>$direccion, 'centro_escolar'=>$centroescolar, 'seccion'=>$seccion]);
             $this->render();
+        }
+
+        function get()
+        {
+            
         }
     
 }

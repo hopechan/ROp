@@ -6,7 +6,7 @@
 
         function insert($datos){
             try {
-                echo "Llegue hasta aqui";
+                //echo "Llegue hasta aqui";
                 $sql = 'INSERT INTO estudiante (nombre, apellidos, fecha_nacimiento, telefono, email, direccion, anio, seccion, centro_escolar) 
                     VALUES(:nombre,:apellidos, :fecha_nacimiento, :telefono, :email, :direccion, :anio, :seccion, :centro_escolar)';
                 $query = $this->db->conn()->prepare($sql);
