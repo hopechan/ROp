@@ -1,5 +1,5 @@
 <?php
-include_once 'controllers/tipo.php';
+include_once 'models/tipos.php';
 include_once 'models/materias.php';
 class MateriaModel extends Model
 {
@@ -35,9 +35,9 @@ class MateriaModel extends Model
             $query = $this->db->conn()->query("SELECT idtipo,tipo FROM tipo");
 
             while ($row = $query->fetch()) {
-                $item = new Tipo();
-                $item->idtipo      = $row['idtipo'];
-                $item->tipo        = $row['tipo'];
+                $item = new Tipos();
+                $item->idtipo = $row['idtipo'];
+                $item->tipo   = $row['tipo'];
 
                 array_push($items, $item);
             }

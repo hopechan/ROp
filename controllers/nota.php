@@ -8,22 +8,70 @@ class Nota extends Controller{
     function render(){
         //mando diferentes variables del mismo metodo para separar
         $notasCE = $this->model->get();
+        $materias = $this->model->getMateria();
+        $estudiantes = $this->model->getEstudiante();
         $this->view->notasCE = $notasCE;
+        $this->view->materias = $materias;
+        $this->view->estudiantes = $estudiantes;
         $this->view->render("notas/index");
     }
 
     function agregarNota(){
-        $idMateria = $_POST['idMateria'];
-        $idEstudiante = $_POST['idEstudiante'];
+        $idestudiante = $_POST['idestudiante'];
+        $idmateria = $_POST['idmateria'];
         $nota = $_POST['nota'];
-        $this->model->insert(['idMateria'=> $idMateria,'idEstudiante'=>$idEstudiante, 'nota'=>$nota]);
-        $this->render();
+        $this->model->insert(['idmateria'=> $idmateria,'idestudiante'=>$idestudiante, 'nota'=>$nota]);
+        header('Location:http://localhost/Rop/nota');
     }
 
     function filtrar(){
         $filtro = $_POST['filtro'];
         $resultado = $this->model->buscar($filtro);
         return json_encode($resultado);
+    }
+
+    function eliminarNota($param = null){
+        $idNota= $param[0];
+
+        if($this->model->delete($idNota)){
+            $this->view->mensaje = "Tipo eliminado correctamente";
+        }else{
+            $this->view->mensaje = "Tipo no eliminado ";
+        }
+        header('Location:http://localhost/Rop/nota');
+    }
+    
+    function verNota($param = null){
+        $idnota= $param[0];
+        $notas=$this->model->getById($idnota);
+        $materias = $this->model->getMateria();
+        $estudiantes = $this->model->getEstudiante();
+        $this->view->materias = $materias;
+        $this->view->estudiantes = $estudiantes;
+        $this->view->notas = $notas;
+        $this->view->render('notas/detalle');
+    }
+
+    function editarNota(){
+        $idnota = $_POST['idnota'];
+        $nota = $_POST['nota'];
+        $idestudiante = $_POST['idestudiante'];
+        $idmateria = $_POST['idmateria'];
+
+        if($this->model->update(['idnota' => $idnota,'nota' => $nota,'idestudiante' => $idestudiante,'idmateria' => $idmateria])){
+            $nota = new Nota();
+            $nota->idnota = $idnota;
+            $nota->nota = $nota;
+            $nota->idestudiante = $idestudiante;
+            $nota->idmateria = $idmateria;
+            
+
+            $this->view->nota = $nota;
+            $this->view->mensaje = "Nota actualizado correctamente";
+        }else{
+            $this->view->mensaje = "Nota no actualizado ";
+        }
+        header('Location:http://localhost/Rop/nota');
     }
 }
 ?>

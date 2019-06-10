@@ -22,7 +22,7 @@ class Materia extends Controller
          $this->model->insert(['idtipo' => $idtipo, 'materia' => $materia]);
          header('Location:http://localhost/Rop/materia');
     }
-     function vermateria($param = null){
+     function verMateria($param = null){
          $idmateria = $param[0];
          $materia=$this->model->getById($idmateria);
          $this->view->materia = $materia;
@@ -31,8 +31,7 @@ class Materia extends Controller
          $this->view->render('materia/detalle');
      }
 
-     function editarmateria(){
-        echo "Llego al con"; 
+     function editarMateria(){
          $idmateria=$_POST['idmateria'];
          $idtipo=$_POST['idtipo'];
          $materia = $_POST['materia'];
@@ -50,7 +49,7 @@ class Materia extends Controller
          header('Location:http://localhost/Rop/materia');
      }
 
-     function eliminarmateria($param = null){
+     function eliminarMateria($param = null){
          $idmateria = $param[0];
 
          if($this->model->delete($idmateria)){

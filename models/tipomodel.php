@@ -45,7 +45,7 @@ class TipoModel extends Model{
             $query = $this->db->conn()->query("SELECT * FROM tipo");
 
             while ($row = $query->fetch()) {
-                $item = new Tipo();
+                $item = new Tipos();
                 $item->idtipo      = $row['idtipo'];
                 $item->tipo        = $row['tipo'];
                 $item->descripcion = $row['descripcion'];
@@ -59,7 +59,7 @@ class TipoModel extends Model{
     }
     
     public function getById($id){
-        $item = new Tipo();
+        $item = new Tipos();
 
         $query = $this->db->conn()->prepare("SELECT idtipo, tipo, descripcion FROM tipo WHERE idtipo = :idtipo");
         try{

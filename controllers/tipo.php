@@ -20,7 +20,7 @@ class Tipo extends Controller
         $this->model->insert(['tipo' => $tipo, 'descripcion' => $descripcion]);
         header('Location:http://localhost/Rop/tipo');
     }
-    function vertipo($param = null){
+    function verTipo($param = null){
         $idTipo= $param[0];
         $tipo=$this->model->getById($idTipo);
         $this->view->tipo = $tipo;
