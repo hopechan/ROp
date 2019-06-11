@@ -13,14 +13,14 @@
     <?php require 'views/navbar.php' ?>
     <div class="container">
         <!-- modal trigger 1 -->
-        <div class="row">
+        <div class="row tamaño">
             <div class="col s12 center">
                 <p>Agregar Materia</p>
                 <a href="#modal1" id="add" class="btn-floating btn-large waves-effect green darken-1 btn modal-trigger"><i class="material-icons">add</i></a>
             </div>
         </div>
         <!-- formulario modal 1 -->
-        <div id="modal1" class="modal">
+        <div id="modal1" class="modal tamaño">
             <div class="modal-content">
                 <h4 class="center">Nuevo Materia</h4>
                 <form method="post" class="col s12" id="tipe-form" action="<?php echo constant('URL'); ?>materia/agregarMateria">

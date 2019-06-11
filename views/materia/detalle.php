@@ -46,7 +46,7 @@
                             <i class="material-icons prefix">class</i>
                             <?php
                             $materia = $this->materia->materia;
-                            $a="";$b="";$c="";$d="";$f="";$g="";$h="";$i="";
+                            $a="";$b="";$c="";$d="";$e="";$f="";$g="";$h="";$i="";
                             switch ($materia) {
                                 case 'Matemática C.E':
                                     $a = "selected";
