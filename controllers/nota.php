@@ -7,10 +7,10 @@ class Nota extends Controller{
 
     function render(){
         //mando diferentes variables del mismo metodo para separar
-        $notasCE = $this->model->get();
+        $notas = $this->model->get();
         $materias = $this->model->getMateria();
         $estudiantes = $this->model->getEstudiante();
-        $this->view->notasCE = $notasCE;
+        $this->view->notas = $notas;
         $this->view->materias = $materias;
         $this->view->estudiantes = $estudiantes;
         $this->view->render("notas/index");
@@ -42,13 +42,13 @@ class Nota extends Controller{
     }
     
     function verNota($param = null){
-        $idnota= $param[0];
-        $notasCE=$this->model->getById($idnota);
+        $idNota = $param[0];
+        $nota = $this->model->getById($idNota);
         $materias = $this->model->getMateria();
-        $estudiantes = $this->model->getEstudiante();
-        $this->view->notasCE = $notasCE;
         $this->view->materias = $materias;
+        $estudiantes = $this->model->getEstudiante();
         $this->view->estudiantes = $estudiantes;
+        $this->view->nota = $nota;
         $this->view->render('notas/detalle');
     }
 
@@ -58,8 +58,8 @@ class Nota extends Controller{
         $idestudiante = $_POST['idestudiante'];
         $idmateria = $_POST['idmateria'];
 
-        if($this->model->update(['idnota' => $idnota,'nota' => $nota,'idestudiante' => $idestudiante,'idmateria' => $idmateria])){
-            $nota = new Nota();
+        if($this->model->update(['idnota' => $idnota, 'nota' => $nota, 'idestudiante' => $idestudiante, 'idmateria' => $idmateria])){
+            $nota = new Notas();
             $nota->idnota = $idnota;
             $nota->nota = $nota;
             $nota->idestudiante = $idestudiante;

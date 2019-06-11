@@ -104,17 +104,17 @@
           <tbody>
             <?php
             require_once 'models/notas.php';
-            foreach ($this->notasCE as $item) {
-              $notaCE = new Notas();
-              $notaCE = $item;
+            foreach ($this->notas as $item) {
+              $nota = new Notas();
+              $nota = $item;
               ?>
               <tr>
-                <td hidden><?php echo $notaCE->idnota; ?></td>
-                <td><?php echo $notaCE->idestudiante; ?></td>
-                <td><?php echo $notaCE->idmateria; ?></td>
-                <td><?php echo $notaCE->nota ?></td>
-                <td><a href="<?php echo constant('URL') . 'nota/verNota/' . $notaCE->idnota; ?>" class="right btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></button></a></td>
-                <td><a href="<?php echo constant('URL') . 'nota/eliminarNota/' . $notaCE->idnota; ?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"><i class="material-icons">delete</i></a></td>
+                <td hidden><?php echo $nota->idnota; ?></td>
+                <td><?php echo $nota->idestudiante; ?></td>
+                <td><?php echo $nota->idmateria; ?></td>
+                <td><?php echo $nota->nota ?></td>
+                <td><a href="<?php echo constant('URL') . 'nota/verNota/' . $nota->idnota; ?>" class="right btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></button></a></td>
+                <td><a href="<?php echo constant('URL') . 'nota/eliminarNota/' . $nota->idnota; ?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"><i class="material-icons">delete</i></a></td>
               </tr>
             <?php } ?>
           </tbody>

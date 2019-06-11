@@ -75,5 +75,4 @@ class TipoModel extends Model{
             return null;
         }
     }
-
 }

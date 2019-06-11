@@ -114,20 +114,15 @@
                 return false;
             }
         }
-
         public function getById($id){
             $item = new Notas();
     
-            $query = $this->db->conn()->prepare("SELECT idnota, nota, idestudiante,idmateria FROM nota WHERE idnota = :idnota");
+            $query = $this->db->conn()->prepare("SELECT idnota, nota FROM nota WHERE idnota = :idnota");
             try{
                 $query->execute(['idnota' => $id]);
-    
                 while($row = $query->fetch()){
                     $item->idnota = $row['idnota'];
-                    $item->nota   = $row['nota'];
-                    $item->idestudiante = $row['idestudiante'];
-                    $item->idmateria = $row['idmateria'];
-                    
+                    $item->nota = $row['nota'];    
                 }
                 return $item;
             }catch(PDOException $e){

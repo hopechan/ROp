@@ -11,11 +11,16 @@
     <?php require 'views/header.php' ?>
     <?php require 'views/navbar.php' ?>
     <div class="container">
+    <div class="container">
+        <div class="row center">
+                <a id="a" href="#modal1" class="waves-effect waves-light btn modal-trigger">Nuevo</a>
+        </div>
+        </div>
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <h4 class="center">Editar Nota</h4>
                 <form method="post" class="col s12" id="tipe-form" action="<?php echo constant('URL')?>nota/editarNota">
-                    <input type="hidden" id="idnota" name="idnota" value="<?php echo $notaCE->idnota; ?>">
+                    <input type="hidden" name="idnota" value="<?php echo $this->nota->idnota; ?>">
                     <div class="row red-text text-accent-4">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">rate_review</i>
@@ -55,7 +60,7 @@
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">class</i>
-                            <input type="number" name="nota" class="validate" id="nota" min="0" max="10" step="0.01">
+                            <input type="number" name="nota" value="<?php echo $this->nota->nota; ?>" class="validate" id="nota" min="0" max="10" step="0.01">
                             <label for="nota">Nota</label>
                         </div>
                     </div>
@@ -70,11 +75,6 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row center">
-                <a id="a" href="#modal1" class="waves-effect waves-light btn modal-trigger">Nuevo</a>
-        </div>
-        </div>
         <?php require 'views/footer.php' ?>
 </body>
 
