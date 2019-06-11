@@ -32,50 +32,50 @@
                                 </div>
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">account_circle</i>
-                                    <input type="text" name="txtApellido" class="validate" id="apellido">
+                                    <input type="text" name="txtApellido" class="validate" id="apellido" value="<?php echo $this->estudiante->apellidos;?>">
                                     <label for="apellido">Apellidos:</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">date_range</i>
-                                    <input type="date" name="fecha" id="fecha" class="validate">
+                                    <input type="date" name="fecha" id="fecha" class="validate" value="<?php echo $this->estudiante->fecha_nacimiento;?>">
                                     <label for="fecha">Fecha de Nacimiento:</label>
                                 </div>
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">phone</i>
-                                    <input type="tel" name="telefono" id="tel" class="validate">
+                                    <input type="tel" name="telefono" id="tel" class="validate" value="<?php echo $this->estudiante->telefono;?>">
                                     <label for="tel">Teléfono:</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">mail</i>
-                                    <input type="email" name="email" id="mail" class="validate">
+                                    <input type="email" name="email" id="mail" class="validate" value="<?php echo $this->estudiante->email;?>">
                                     <label for="mail">e-mail:</label>
                                 </div>
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">event</i>
-                                    <input type="number" name="anio" id="anio" class="validate">
+                                    <input type="number" name="anio" id="anio" class="validate" value="<?php echo $this->estudiante->anio;?>">
                                     <label for="anio">Año:</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">home</i>
-                                    <input type="text" name="direccion" id="dir" class="validate">
+                                    <input type="text" name="direccion" id="dir" class="validate" value="<?php echo $this->estudiante->direccion;?>">
                                     <label for="dir">Dirección:</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">school</i>
-                                    <input type="text" name="centroescolar" id="ce" class="validate">
+                                    <input type="text" name="centroescolar" id="ce" class="validate" value="<?php echo $this->estudiante->centro_escolar;?>">
                                     <label for="ce">Centro Escolar:</label>
                                 </div>
                                 <div class="input-field col s12 m12 l6">
                                     <i class="material-icons prefix">group</i>
-                                    <input type="text" name="seccion" id="seccion" class="validate">
+                                    <input type="text" name="seccion" id="seccion" class="validate" value="<?php echo $this->estudiante->seccion ;?>">
                                     <label for="seccion">Sección:</label>
                                 </div>
                             </div>

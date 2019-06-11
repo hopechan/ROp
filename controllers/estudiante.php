@@ -45,12 +45,26 @@ class Estudiante extends Controller{
         function subeditar($param = null)
         {
             $idestudiante = $param[0];
-            //echo "Soy el id del controlador" . $idestudiante;
             $estudiante = $this->model->getById($idestudiante);
-            // session_start();
-            // $_SESSION['id_alumno']=$estudiante->id;
             $this->view->estudiante = $estudiante;
             $this->view->render('estudiantes/detalle');
+        }
+
+        function editar()
+        {
+            $idestudiante=$_POST['idestudiante'];
+            $nombre=$_POST['txtNombre'];
+            $apellido=$_POST['txtApellido'];
+            $fecha_nacimiento=$_POST['fecha'];
+            $telefono=$_POST['telefono'];
+            $email=$_POST['email'];
+            $anio=$_POST['anio'];
+            $direccion=$_POST['direccion'];
+            $centroescolar=$_POST['centroescolar'];
+            $seccion=$_POST['seccion'];
+
+            $this->model->actualizar(['idestudiante'=>$idestudiante, 'nombre'=>$nombre, 'apellidos'=>$apellido, 'fecha_nacimiento'=>$fecha_nacimiento, 'telefono'=>$telefono, 'email'=>$email, 'anio'=>$anio, 'direccion'=>$direccion, 'centro_escolar'=>$centroescolar, 'seccion'=>$seccion]);
+            $this->verestudiante();
         }
     
 }

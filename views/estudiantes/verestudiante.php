@@ -40,7 +40,7 @@
                             <td><?php  echo $estudiante->centro_escolar; ?></td>
                             <td><?php  echo $estudiante->seccion; ?></td>
                             <td><?php  echo $estudiante->anio; ?></td>
-                            <td><a href="<?php echo constant('URL').'estudiante/subeditar'?>" class="btn-floating waves-effect waves-white btn-flat white-text grey darken-3 btn "><i class="material-icons">refresh</i></a>&nbsp;&nbsp;<a href="<?php echo constant('URL').'estudiante/eliminar/' . $estudiante->idestudiante;?>" class="btn-floating waves-effect waves-white btn-flat white-text red darken-3 btn"><i class="material-icons">delete</i></a></td>
+                            <td><a href="<?php echo constant('URL').'estudiante/subeditar/'. $estudiante->idestudiante;?>" class="btn-floating waves-effect waves-white btn-flat white-text grey darken-3 btn "><i class="material-icons">refresh</i></a>&nbsp;&nbsp;<a href="<?php echo constant('URL').'estudiante/eliminar/' . $estudiante->idestudiante;?>" class="btn-floating waves-effect waves-white btn-flat white-text red darken-3 btn"><i class="material-icons">delete</i></a></td>
                         </tr>
                         <?php } ?>
                     </tbody>
