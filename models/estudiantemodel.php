@@ -1,5 +1,5 @@
 <?php
-include_once 'models/estudiantes.php';
+include_once 'estudiantes.php';
 class EstudianteModel extends Model
 {
     public function __construct()
@@ -64,14 +64,14 @@ class EstudianteModel extends Model
       }
     }
 
-    public function getById($id)
+    public function getById($idestudiante)
     {
         $item=new Estudiantes();
-        $sql="SELECT idestudiante, nombre, apellidos, fecha_nacimiento, telefono, email, direccion, anio, seccion, centro_escolar FROM estudiante WHERE idestudiante=:id";
+        $sql="SELECT idestudiante, nombre, apellidos, fecha_nacimiento, telefono, email, direccion, anio, seccion, centro_escolar FROM estudiante WHERE idestudiante=:idestudiante";
         $query=$this->db->conn()->prepare($sql);
 
         try {
-            $query->execute(['idestudiante'=>$id]);
+            $query->execute(['idestudiante'=>$idestudiante]);
 
             while ($row = $query->fetch()) {
                 $item->idestudiante     =$row['idestudiante'];
