@@ -45,7 +45,10 @@ class Estudiante extends Controller{
         function subeditar($param = null)
         {
             $idestudiante = $param[0];
+            //echo "Soy el id del controlador" . $idestudiante;
             $estudiante = $this->model->getById($idestudiante);
+            // session_start();
+            // $_SESSION['id_alumno']=$estudiante->id;
             $this->view->estudiante = $estudiante;
             $this->view->render('estudiantes/detalle');
         }

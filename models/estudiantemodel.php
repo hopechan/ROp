@@ -64,15 +64,14 @@ class EstudianteModel extends Model
       }
     }
 
-    public function getById($idestudiante)
+    public function getById($id)
     {
         $item=new Estudiantes();
         $sql="SELECT idestudiante, nombre, apellidos, fecha_nacimiento, telefono, email, direccion, anio, seccion, centro_escolar FROM estudiante WHERE idestudiante=:idestudiante";
         $query=$this->db->conn()->prepare($sql);
 
         try {
-            $query->execute(['idestudiante'=>$idestudiante]);
-
+            $query->execute(['idestudiante'=>$id]);
             while ($row = $query->fetch()) {
                 $item->idestudiante     =$row['idestudiante'];
                 $item->nombre           =$row['nombre'];
@@ -87,7 +86,7 @@ class EstudianteModel extends Model
             }
             return $item;
         } catch (PDOException $e) {
-            return null;
+            return [];
         }
     }
 }
