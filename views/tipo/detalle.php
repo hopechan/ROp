@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col s12 center">
                 <p>Actualizar Tipo</p>
-                <a id="a" href="#modal1" id="add" class="btn-floating btn-large waves-effect green darken-1 btn modal-trigger"><i class="material-icons">add</i></a>
+                <a id="a" href="#modal1" id="add" class="btn-floating btn-large waves-effect black darken-1 btn modal-trigger"><i class="material-icons">add</i></a>
 
             </div>
         </div>

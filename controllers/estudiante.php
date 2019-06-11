@@ -6,11 +6,14 @@ class Estudiante extends Controller{
             
     }
     function render(){
+        
         $this->view->render("estudiantes/index");
     }
 
     function verestudiante()
     {
+        $estudiantes=$this->model->get();
+        $this->view->estudiantes = $estudiantes;
         $this->view->render("estudiantes/verestudiante");
     }
 
@@ -32,9 +35,22 @@ class Estudiante extends Controller{
             $this->render();
         }
 
-        function get()
+        function eliminar($dato=null)
         {
-            
+            $id = $dato[0];
+            $this->model->eliminar($id);
+            header('location:http://localhost/Rop/estudiante/verestudiante');
+        }
+
+        function subeditar($param = null)
+        {
+            $idestudiante = $param[0];
+            //echo "Soy el id del controlador" . $idestudiante;
+            $estudiante = $this->model->getById($idestudiante);
+            // session_start();
+            // $_SESSION['id_alumno']=$estudiante->id;
+            $this->view->estudiante = $estudiante;
+            $this->view->render('estudiantes/detalle');
         }
     
 }

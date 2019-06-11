@@ -52,6 +52,8 @@
     </div>
 </div>
 <div class="container">
+    <div class="row">
+    <div class="col s12 m12 l12">
     <table id="tabla" class="centered highlight responsive-table">
         <thead class="black white-text">
             <tr>
@@ -73,12 +75,14 @@
                 <td hidden><?php echo $tipo->idtipo; ?></td>
                 <td><?php echo $tipo->tipo; ?></td>
                 <td><?php echo $tipo->descripcion; ?></td>
-                <td><a href="<?php echo constant('URL') . 'tipo/verTipo/' . $tipo->idtipo;?>" class="right btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></button></a></td>
+                <td><a href="<?php echo constant('URL') . 'tipo/verTipo/' . $tipo->idtipo;?>" class="right btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></a></td>
                 <td><a href="<?php echo constant('URL').'tipo/eliminarTipo/'. $tipo->idtipo;?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"><i class="material-icons">delete</i></a></td>
             </tr>
             <?php } ?>
         </tbody>  
     </table>
+    </div>
+    </div>
 </div>
     <?php require 'views/footer.php' ?>
 </body>
