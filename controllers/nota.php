@@ -43,12 +43,12 @@ class Nota extends Controller{
     
     function verNota($param = null){
         $idnota= $param[0];
-        $notas=$this->model->getById($idnota);
+        $notasCE=$this->model->getById($idnota);
         $materias = $this->model->getMateria();
         $estudiantes = $this->model->getEstudiante();
+        $this->view->notasCE = $notasCE;
         $this->view->materias = $materias;
         $this->view->estudiantes = $estudiantes;
-        $this->view->notas = $notas;
         $this->view->render('notas/detalle');
     }
 
@@ -65,7 +65,6 @@ class Nota extends Controller{
             $nota->idestudiante = $idestudiante;
             $nota->idmateria = $idmateria;
             
-
             $this->view->nota = $nota;
             $this->view->mensaje = "Nota actualizado correctamente";
         }else{

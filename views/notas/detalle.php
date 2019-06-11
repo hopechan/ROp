@@ -14,8 +14,8 @@
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <h4 class="center">Editar Nota</h4>
-                <form method="post" class="col s12" id="tipe-form" action="<?php echo constant('URL'); ?>nota/editarNota">
-                    <input type="hidden" id="idnota" name="idnota" value="<?php echo $notaCE->idnota;?>">
+                <form method="post" class="col s12" id="tipe-form" action="<?php echo constant('URL')?>nota/editarNota">
+                    <input type="hidden" id="idnota" name="idnota" value="<?php echo $notaCE->idnota; ?>">
                     <div class="row red-text text-accent-4">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">rate_review</i>

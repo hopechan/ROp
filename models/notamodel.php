@@ -125,8 +125,8 @@
                 while($row = $query->fetch()){
                     $item->idnota = $row['idnota'];
                     $item->nota   = $row['nota'];
-                    $item->idestudiante   = $row['idestudiante'];
-                    $item->idmateria   = $row['idmateria'];
+                    $item->idestudiante = $row['idestudiante'];
+                    $item->idmateria = $row['idmateria'];
                     
                 }
                 return $item;
@@ -136,13 +136,13 @@
         }
 
         public function update($item){
-            $query = $this->db->conn()->prepare('UPDATE nota SET idestudiante= :idestudiante, idmateria= :idmateria, nota = :nota WHERE idnota = :idnota');
+            $query = $this->db->conn()->prepare('UPDATE nota SET idestudiante = :idestudiante, idmateria = :idmateria, nota = :nota WHERE idnota = :idnota');
             try {
                 $query->execute([
                 'idnota'=> $item['idnota'],
-                'nota'=> $item['nota'],
                 'idestudiante'=> $item['idestudiante'],
                 'idmateria'=> $item['idmateria'],
+                'nota'=> $item['nota'],
                 ]);
                 return true;
             } catch (PDOException $e) {

@@ -15,7 +15,7 @@ class MateriaModel extends Model
             WHERE t.idtipo = m.idtipo";
             $query = $this->db->conn()->query($sql);
             while ($row = $query->fetch()) {
-                $item = new Materia();
+                $item = new Materias();
                 $item->idmateria = $row['idmateria'];
                 $item->idtipo    = $row['idtipo'];
                 $item->materia   = $row['materia'];
@@ -85,7 +85,7 @@ class MateriaModel extends Model
     }
 
     public function getById($id){
-        $item = new Materia();
+        $item = new Materias();
 
         $query = $this->db->conn()->prepare("SELECT idmateria, idtipo, materia FROM materia WHERE idmateria = :idmateria");
         try{
