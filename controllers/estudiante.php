@@ -46,7 +46,7 @@ class Estudiante extends Controller{
         {
             $idestudiante = $param[0];
             $estudiante = $this->model->getById($idestudiante);
-            echo '<script>console.log("'.$estudiante->nombre.'")</script>';
+            //echo '<script>console.log("'.$estudiante->nombre.'")</script>';
             $this->view->estudiante = $estudiante;
             $this->view->render('estudiantes/detalle');
         }
