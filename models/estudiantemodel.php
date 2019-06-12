@@ -89,6 +89,18 @@ class EstudianteModel extends Model
             return [];
         }
     }
+
+    function actualizar($item)
+    {
+        $sql="UPDATE estudiante SET nombre=:nombre, apellidos=:apellidos, fecha_nacimiento=:fecha_nacimiento, telefono=:telfono, email=:email, direccion=:direccion, anio=:anio, seccion=:seccion, centro_escolar=:centro_escolar  WHERE idestudiante=:idestudiante";
+        $query = $this->db->conn()->prepare($sql);
+        try {
+            $query->execute(['idestudiante'=>$item['idestudiante'], 'nombre'=>$item['nombre'], 'apellidos'=>$item['apellidos'], 'fecha_nacimiento'=>$item['fecha_nacimiento'], 'telfono'=>$item['telefono'], 'email'=>$item['email'], 'direccion'=>$item['direccion'], 'anio'=>$item['anio'], 'seccion'=>$item['seccion'], 'centro_escolar'=>$item['centro_escolar']]);
+            return true;
+        } catch (PDOException $e) {
+            return "Fallo al actualizar el registro";
+        }
+    }
 }
 
        
