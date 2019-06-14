@@ -53,10 +53,10 @@ class Materia extends Controller
          $idmateria = $param[0];
 
          if($this->model->delete($idmateria)){
-             $this->view->mensaje = "Materia eliminado correctamente";
+             $mensaje = "si";
          }else{
-             $this->view->mensaje = "Materia no eliminado ";
+             $mensaje = "no";
          }
-         header('Location:http://localhost/Rop/materia');
+         echo $mensaje;
      }
 }

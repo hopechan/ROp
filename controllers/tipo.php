@@ -47,10 +47,10 @@ class Tipo extends Controller
         $idTipo= $param[0];
 
         if($this->model->delete($idTipo)){
-            $this->view->mensaje = "Tipo eliminado correctamente";
+            $mensaje = "si";
         }else{
-            $this->view->mensaje = "Tipo no eliminado ";
+            $mensaje = "no";
         }
-        header('Location:http://localhost/Rop/tipo');
+        echo $mensaje;
     }
 }

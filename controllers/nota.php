@@ -35,11 +35,11 @@ class Nota extends Controller{
         $idNota= $param[0];
 
         if($this->model->delete($idNota)){
-            $this->view->mensaje = "Tipo eliminado correctamente";
+            $mensaje = "si";
         }else{
-            $this->view->mensaje = "Tipo no eliminado ";
+            $mensaje = "no";
         }
-        header('Location:http://localhost/Rop/nota');
+        echo $mensaje;
     }
     
     function verNota($param = null){

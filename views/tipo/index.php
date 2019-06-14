@@ -63,7 +63,7 @@
                 <th colspan="2">Acciones</th>
             </tr>
         </thead> 
-        <tbody id="tipe">
+        <tbody id="tbody-id">
         <?php 
             require_once 'models/tipos.php';
             foreach($this->tipos as $item){
@@ -71,12 +71,13 @@
                 $tipo = $item;
 
             ?>
-            <tr>
+            <tr id="fila-<?php echo $tipo->idtipo; ?>">
                 <td hidden><?php echo $tipo->idtipo; ?></td>
                 <td><?php echo $tipo->tipo; ?></td>
                 <td><?php echo $tipo->descripcion; ?></td>
                 <td><a href="<?php echo constant('URL') . 'tipo/verTipo/' . $tipo->idtipo;?>" class="right btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></a></td>
-                <td><a href="<?php echo constant('URL').'tipo/eliminarTipo/'. $tipo->idtipo;?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"><i class="material-icons">delete</i></a></td>
+                <td><button class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn btndrop" data-id="<?php echo $tipo->idtipo; ?>"><i class="material-icons">delete</i></button></td>
+                <!-- <td><a href="<?php echo constant('URL').'tipo/eliminarTipo/'. $tipo->idtipo;?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"><i class="material-icons">delete</i></a></td> -->
             </tr>
             <?php } ?>
         </tbody>  
@@ -84,6 +85,7 @@
     </div>
     </div>
 </div>
+<script src="<?php echo constant('URL');?>public/js/tipo.js"></script>
     <?php require 'views/footer.php' ?>
 </body>
 </html>

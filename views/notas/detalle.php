@@ -18,34 +18,15 @@
         </div>
         <div id="modal1" class="modal">
             <div class="modal-content">
-                <h4 class="center">Editar Nota</h4>
+                <h4 class="center">Editar nota de<br>
+                <?php $nombre=$this->nota->nombre." ".$this->nota->apellidos;
+                 echo  $nombre?></h4>
                 <form method="post" class="col s12" id="tipe-form" action="<?php echo constant('URL')?>nota/editarNota">
                     <input type="hidden" name="idnota" value="<?php echo $this->nota->idnota; ?>">
                     <div class="row red-text text-accent-4">
                         <div class="input-field col s12">
-                            <i class="material-icons prefix">rate_review</i>
-                            <select name="idestudiante" required>
-                                <?php
-                                require_once 'models/estudiantes.php';
-                                foreach ($this->estudiantes as $item) {
-                                    $estudiante = new Estudiantes();
-                                    $estudiante = $item;
-                                    $a="";
-                                    $id=$estudiante->idEstudiante;
-                                    $estudiante=$estudiante->Estudiantes;
-
-                                    $e=$this->nota->nombre+$this->nota->apellidos;
-
-                                    if($id==$this->nota->idestudiante && $estudiante==$e){
-                                        $a="selected";
-                                    }
-                                    ?>
-                                    <option value="<?php echo $id; ?>" <?php echo $a ?>><?php echo $estudiante; ?></option>
-
-                                <?php } ?>
-                            </select>
-                            <label>Estudiante</label>
-                            <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
+                            <input type="hidden" name="idestudiante" value="<?php echo $this->nota->idestudiante; ?>">
+                            
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">class</i>

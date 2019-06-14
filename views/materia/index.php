@@ -14,7 +14,7 @@
     <div class="container">
         <!-- modal trigger 1 -->
         <div class="row tamaño">
-            <div class="col s12 center">
+            <div class="col s12 center"><br><br>
                 <p>Agregar Materia</p>
                 <a href="#modal1" id="add" class="btn-floating btn-large waves-effect green darken-1 btn modal-trigger"><i class="material-icons">add</i></a>
             </div>
@@ -81,24 +81,27 @@
                     <th colspan="2">Acciones</th>
                 </tr>
             </thead>
-            <tbody id="tipe">
-                <tr>
+            <tbody id="tbody-id">
+                
                     <?php
                     require_once 'models/materias.php';
                     foreach ($this->materias as $item) {
                         $materia = new Materias();
                         $materia = $item;
                         ?>
+                        <tr id="fila-<?php echo $materia->idmateria; ?>">
                         <td hidden><?php echo $materia->idmateria; ?></td>
                         <td><?php echo $materia->materia; ?></td>
                         <td><?php echo $materia->tipo; ?></td>
                         <td><a href="<?php echo constant('URL') . 'materia/verMateria/' . $materia->idmateria; ?>" class="right btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></button></a></td>
-                        <td><a href="<?php echo constant('URL') . 'materia/eliminarMateria/' . $materia->idmateria; ?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"><i class="material-icons">delete</i></a></td>
+                        <td><button class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn btndrop" data-id="<?php echo $materia->idmateria; ?>"><i class="material-icons">delete</i></button></td>
+                        <!-- <td><a href="<?php echo constant('URL') . 'materia/eliminarMateria/'  ?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"></a></td> -->
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
     </div>
+    <script src="<?php echo constant('URL');?>public/js/materia.js"></script>
     <?php require 'views/footer.php' ?>
 </body>
 

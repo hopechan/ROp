@@ -101,20 +101,21 @@
               <th colspan="2">Acciones</th>
             </tr>
           </thead>
-          <tbody id="cuerpoTabla">
+          <tbody id="tbody-id">
             <?php
             require_once 'models/notas.php';
             foreach ($this->notas as $item) {
               $nota = new Notas();
               $nota = $item;
               ?>
-              <tr id="fila">
+              <tr id="fila-<?php echo $nota->idnota; ?>">
                 <td hidden><?php echo $nota->idnota; ?></td>
                 <td><?php echo $nota->idestudiante; ?></td>
                 <td><?php echo $nota->idmateria; ?></td>
                 <td><?php echo $nota->nota ?></td>
                 <td><a href="<?php echo constant('URL') . 'nota/verNota/' . $nota->idnota; ?>" class="right btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></button></a></td>
-                <td><a href="<?php echo constant('URL') . 'nota/eliminarNota/' . $nota->idnota; ?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"><i class="material-icons">delete</i></a></td>
+                <td><button class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn btndrop" data-id="<?php echo $nota->idnota; ?>"><i class="material-icons">delete</i></button></td>
+                <!-- <td><a href="<?php echo constant('URL') . 'nota/eliminarNota/' . $nota->idnota; ?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"><i class="material-icons">delete</i></a></td> -->
               </tr>
             <?php } ?>
           </tbody>
@@ -131,6 +132,7 @@
       </ul>
     </div>
   </div>
+  <script src="<?php echo constant('URL');?>public/js/nota.js"></script>
   <?php require 'views/footer.php' ?>
   <script>
     $('.dropdown-trigger').dropdown();
