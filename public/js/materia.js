@@ -17,7 +17,7 @@ botones.forEach(boton => {
                 tbody.removeChild(fila);
                 M.toast({html: 'Materia eliminada correctamente!', classes: 'green rounded white-text'});  
                 }else{
-                M.toast({html: 'Materia no eliminada!', classes: 'green rounded white-text'});
+                M.toast({html: 'Materia no eliminada!', classes: 'red accent-4 rounded white-text'});
                 }
             });
         }

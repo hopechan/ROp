@@ -17,7 +17,7 @@ botones.forEach(boton => {
                 tbody.removeChild(fila);
                 M.toast({html: 'Tipo eliminado correctamente!', classes: 'green rounded white-text'});  
                 }else{
-                M.toast({html: 'Tipo no eliminado!', classes: 'green rounded white-text'});
+                M.toast({html: 'Tipo no eliminado!', classes: 'red accent-4 rounded white-text'});
                 }
             });
         }

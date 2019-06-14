@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col s12 center">
             <p>Agregar Tipo</p>
-            <a href="#modal1" id="add" class="btn-floating btn-large waves-effect green darken-1 btn modal-trigger"><i class="material-icons">add</i></a>
+            <a href="#modal1" id="add" class="btn-floating btn-large waves-effect boton-save btn modal-trigger"><i class="material-icons">add</i></a>
         
         </div>
     </div>
@@ -42,10 +42,10 @@
                 </div>
                 <!-- footer del formulario modal -->
                 <div class="center">
-                    <button class="modal-close waves-effect waves-green btn green white-text" type="submit">Enviar
+                    <button class="modal-close btn boton-save white-text" type="submit">Enviar
                         <i class="material-icons left">send</i>
                     </button>&nbsp;&nbsp;
-                    <a class="modal-close waves-effect waves-red btn-flat white-text red accent-4 btn">Cancelar <i class="material-icons left">close</i></a>
+                    <a class="modal-close btn-flat white-text boton-delete btn">Cancelar <i class="material-icons left">close</i></a>
                 </div>
             </form>
         </div>

@@ -43,10 +43,10 @@
                     </div>
                     <!-- footer del formulario modal -->
                     <div class="center">
-                        <button class="modal-close waves-effect waves-green btn green white-text" type="submit">Actualizar
+                        <button class="modal-close boton-save white-text" type="submit">Actualizar
                             <i class="material-icons left">send</i>
                         </button>&nbsp;&nbsp;
-                        <a href="<?php echo constant('URL'); ?>tipo" class="waves-effect waves-red btn-flat white-text red accent-4 btn">Cancelar <i class="material-icons left">close</i></a>
+                        <a href="<?php echo constant('URL'); ?>tipo" class="white-text boton-delete">Cancelar <i class="material-icons left">close</i></a>
                     </div>
                 </form>
             </div>
