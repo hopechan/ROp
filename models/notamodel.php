@@ -71,11 +71,11 @@
                         INNER JOIN estudiante as e ON n.idestudiante = e.idestudiante
                         INNER JOIN materia as m ON n.idmateria = m.idmateria
                         WHERE m.idtipo = (SELECT idtipo FROM tipo WHERE tipo = '".$filtro."')
-                        OR m.materia = '".$filtro."'
-                        OR e.anio = '".$filtro."'
-                        OR e.seccion = '".$filtro."'
-                        OR e.nombre = '".$filtro."'
-                        OR e.apellidos = '".$filtro."'";
+                        OR m.materia LIKE '%".$filtro."%'
+                        OR e.anio LIKE '%".$filtro."%'
+                        OR e.seccion LIKE '%".$filtro."%'
+                        OR e.nombre LIKE '%".$filtro."%'
+                        OR e.apellidos LIKE '%".$filtro."%'";
                 $query = $this->db->conn()->query($sql);
                 while ($row = $query->fetch()) {
                     $item = new Notas();

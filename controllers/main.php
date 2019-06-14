@@ -7,6 +7,10 @@
         function render(){
         $this->view->render("main/index");
         }
+
+        function ranking(){
+            # code...
+        }
     }
     
 ?>

@@ -27,7 +27,8 @@ class Nota extends Controller{
     function filtrar(){
         $filtro = $_POST['filtro'];
         $resultado = $this->model->buscar($filtro);
-        return json_encode($resultado);
+        $item = json_encode($resultado, JSON_PRETTY_PRINT);
+        echo $item;
     }
 
     function eliminarNota($param = null){

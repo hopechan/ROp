@@ -101,6 +101,17 @@ class EstudianteModel extends Model
             return "Fallo al actualizar el registro";
         }
     }
+    
+    function getTotal(){
+        $total = [];
+        try {
+            $query = $this->db->conn()->query("SELECT COUNT(idestudiante) as total FROM estudiante");
+            while ($row = $query->fetch()) {
+                $total->total = $row['total'];
+            }
+            return $total;
+        } catch (PDOException $e) {
+            return "La consulta fallo :v";
+        }
+    }
 }
-
-       
