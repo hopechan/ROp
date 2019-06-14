@@ -15,6 +15,7 @@ class Estudiante extends Controller{
         $estudiantes=$this->model->get();
         $this->view->estudiantes = $estudiantes;
         $this->view->render("estudiantes/verestudiante");
+        echo "<script>console.log(".json_encode($estudiantes).")</script>";
     }
 
     function insert()

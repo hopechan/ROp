@@ -12,9 +12,21 @@
     <div class="container">
         <br><br>
         <div class="row">
-            <div class="col s12 m12 l12">
+            <div class="col s6 m6 l6">
                 <a href="<?php echo constant('URL');?>estudiante" class="btn black boton-g"><i class="material-icons left">arrow_back</i>Atrás</a>
             </div>
+            <div class="col s4 m4 right">
+        <div class="input-field">
+          <i class="material-icons prefix">search</i>
+          <select name="" id="" class="right">
+                <option value="" class="black-text">Todos</option>
+                    <option value="">Primer Año</option>
+                    <option value="">Segundo Año</option>
+                    <option value="">Tercer Año</option>
+                </select>
+        </div>
+       
+      </div>
         </div>
         <div class="row">
             <div class="col s12 m12 l12">
@@ -31,7 +43,7 @@
                     <tbody>
                         <?php
                         include_once 'models/estudiantes.php';
-                        foreach ($this->estudiantes as $item) {
+                        foreach ($this->estudiantes['registros'] as $item) {
                            $estudiante = new Estudiantes();
                            $estudiante = $item;
                         ?>
@@ -45,6 +57,10 @@
                         <?php } ?>
                     </tbody>
                 </table>
+                <?php echo estudiantes['numero']; ?>
+                <ul class="pagination">
+                    
+                </ul>
             </div>
         </div>
     </div>
