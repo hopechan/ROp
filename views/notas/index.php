@@ -101,14 +101,14 @@
               <th colspan="2">Acciones</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="cuerpoTabla">
             <?php
             require_once 'models/notas.php';
             foreach ($this->notas as $item) {
               $nota = new Notas();
               $nota = $item;
               ?>
-              <tr>
+              <tr id="fila">
                 <td hidden><?php echo $nota->idnota; ?></td>
                 <td><?php echo $nota->idestudiante; ?></td>
                 <td><?php echo $nota->idmateria; ?></td>

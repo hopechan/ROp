@@ -1,5 +1,6 @@
 const URL_BASE = "http://localhost/Rop/nota/",
-        dtFiltro = document.getElementById('filtro');
+        dtFiltro = document.getElementById('filtro'),
+        tabla = document.getElementById("tabla");
 
 function filtrar(filtro, callback) {
     let data = `filtro=${filtro}`;
@@ -7,19 +8,38 @@ function filtrar(filtro, callback) {
     xmlhttp.open("POST", `${URL_BASE}filtrar/${filtro}`);
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(`${URL_BASE}filtrar/${filtro}`);
+            callback.apply(xmlhttp);
             var response = JSON.parse(xmlhttp.responseText);
-            console.log(response);
         }
     };
     xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
     xmlhttp.send(data);
 }
 
-document.addEventListener('keypress', function (e) {  
+function llenarTabla(items) {
+    let tbody = document.querySelector("#cuerpoTabla");
+    tbody.innerHTML = "";
+    for (let i = 0; i < items.length; i++) {
+        let nuevaFila = tbody.insertRow(-1);
+        let celda;
+        celda = nuevaFila.insertCell(-1);
+        celda.innerHTML = items[i].idestudiante;
+
+        celda = nuevaFila.insertCell(-1);
+        celda.innerHTML = items[i].idmateria;
+
+        celda = nuevaFila.insertCell(-1);
+        celda.innerHTML = items[i].nota;
+
+    }
+    //tabla.appendChild(tbody);
+}
+
+document.addEventListener('keypress', function () {  
     txtFiltro = document.getElementById("txtFiltro").value;
     console.log(txtFiltro);
     filtrar(txtFiltro, function () { 
-        console.log(this.responseText);
+        llenarTabla(JSON.parse(this.responseText));
+        //console.log(JSON.parse(this.responseText));
      });
 })
