@@ -29,14 +29,20 @@
                         <div class="input-field col s12">
                             <i class="material-icons prefix">rate_review</i>
                             <select name="idtipo">
-                                <option value="" disabled selected>Seleccione el IdTipo</option>
                                 <?php
                                 require_once 'models/tipos.php';
                                 foreach ($this->tipos as $item) {
                                     $tipo = new Tipos();
                                     $tipo = $item;
+
+                                    $id=$tipo->idtipo;
+                                    $tipo=$tipo->tipo;
+                                    $a="";
+                                    if($id==$this->materia->idtipo && $tipo==$this->materia->tipo){
+                                        $a="selected";
+                                    }
                                     ?>
-                                    <option value="<?php echo $tipo->idtipo; ?>"><?php echo $tipo->tipo; ?></option>
+                                    <option value="<?php echo $id ?>" <?php echo $a ?>><?php echo $tipo ?></option>
                                 <?php } ?>
                             </select>
                             <label>Id Tipo</label>

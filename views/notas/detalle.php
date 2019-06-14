@@ -25,17 +25,22 @@
                         <div class="input-field col s12">
                             <i class="material-icons prefix">rate_review</i>
                             <select name="idestudiante" required>
-                                <option value="" disabled selected>Seleccione un estudiante</option>
                                 <?php
                                 require_once 'models/estudiantes.php';
                                 foreach ($this->estudiantes as $item) {
                                     $estudiante = new Estudiantes();
                                     $estudiante = $item;
-                                    // for ($i=0; $i < ; $i++) { 
-                                        
-                                    // }
+                                    $a="";
+                                    $id=$estudiante->idEstudiante;
+                                    $estudiante=$estudiante->Estudiantes;
+
+                                    $e=$this->nota->nombre+$this->nota->apellidos;
+
+                                    if($id==$this->nota->idestudiante && $estudiante==$e){
+                                        $a="selected";
+                                    }
                                     ?>
-                                    <option value="<?php echo $estudiante->idEstudiante; ?>"><?php echo $estudiante->Estudiantes; ?></option>
+                                    <option value="<?php echo $id; ?>" <?php echo $a ?>><?php echo $estudiante; ?></option>
 
                                 <?php } ?>
                             </select>
@@ -51,8 +56,14 @@
                                 foreach ($this->materias as $item) {
                                     $materia = new Materias();
                                     $materia = $item;
+                                    $b="";
+                                    $id=$materia->idmateria;
+                                    $materia=$materia->materia;
+                                    if($id==$this->nota->idmateria && $materia==$this->nota->materia){
+                                        $b="selected";
+                                    }
                                     ?>
-                                    <option value="<?php echo $materia->idmateria; ?>"><?php echo $materia->materia; ?></option>
+                                    <option value="<?php echo $id; ?>" <?php echo $b ?>><?php echo $materia; ?></option>
                                 <?php } ?>
                             </select>
                             <label>Materia</label>

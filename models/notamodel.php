@@ -117,12 +117,22 @@
         public function getById($id){
             $item = new Notas();
     
-            $query = $this->db->conn()->prepare("SELECT idnota, nota FROM nota WHERE idnota = :idnota");
+            $query = $this->db->conn()->prepare("SELECT n.idnota, n.idestudiante,e.nombre,e.apellidos,n.idmateria, n.nota, m.materia,m.idmateria
+            FROM NOTA AS n
+            INNER JOIN estudiante as e ON e.idestudiante = n.idestudiante
+            INNER JOIN materia as m ON m.idmateria = n.idmateria
+            WHERE n.idnota = :idnota");
             try{
                 $query->execute(['idnota' => $id]);
                 while($row = $query->fetch()){
                     $item->idnota = $row['idnota'];
-                    $item->nota = $row['nota'];    
+                    $item->idestudiante = $row['idestudiante'];
+                    $item->nota = $row['nota']; 
+                    $item->nombre = $row['nombre']; 
+                    $item->apellidos = $row['apellidos']; 
+                    $item->nota = $row['nota']; 
+                    $item->idmateria = $row['idmateria'];
+                    $item->materia = $row['materia'];
                 }
                 return $item;
             }catch(PDOException $e){

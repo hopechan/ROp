@@ -87,14 +87,19 @@ class MateriaModel extends Model
     public function getById($id){
         $item = new Materias();
 
-        $query = $this->db->conn()->prepare("SELECT idmateria, idtipo, materia FROM materia WHERE idmateria = :idmateria");
+        $query = $this->db->conn()->prepare("SELECT m.idmateria, m.materia, m.idtipo, t.tipo
+        FROM materia as m
+        INNER JOIN tipo as t ON t.idtipo = m.idtipo
+        WHERE m.idmateria = :idmateria");
         try{
             $query->execute(['idmateria' => $id]);
 
             while($row = $query->fetch()){
                 $item->idmateria = $row['idmateria'];
                 $item->idtipo    = $row['idtipo'];
+                $item->tipo      = $row['tipo'];
                 $item->materia   = $row['materia'];
+
             }
             return $item;
         }catch(PDOException $e){
