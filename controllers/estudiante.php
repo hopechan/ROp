@@ -12,10 +12,17 @@ class Estudiante extends Controller{
 
     function verestudiante()
     {
-        $estudiantes=$this->model->get();
-        $this->view->estudiantes = $estudiantes;
-        $this->view->render("estudiantes/verestudiante");
-        
+            if (isset($_GET['pagina'])) {
+                $pag = $_GET['pagina'];
+                $estudiantes = $this->model->get($pag);
+                $this->view->estudiantes = $estudiantes;
+                $this->view->render('estudiantes/verestudiante');
+            }else{
+            $pag = 1;
+            $estudiantes=$this->model->get($pag);
+            $this->view->estudiantes = $estudiantes;
+            $this->view->render("estudiantes/verestudiante"); 
+        }
     }
 
     function insert()
@@ -67,6 +74,7 @@ class Estudiante extends Controller{
             $this->model->actualizar(['idestudiante'=>$idestudiante, 'nombre'=>$nombre, 'apellidos'=>$apellido, 'fecha_nacimiento'=>$fecha_nacimiento, 'telefono'=>$telefono, 'email'=>$email, 'anio'=>$anio, 'direccion'=>$direccion, 'centro_escolar'=>$centroescolar, 'seccion'=>$seccion]);
             $this->verestudiante();
         }
+
     
 }
 ?>

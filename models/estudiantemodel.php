@@ -29,11 +29,10 @@ class EstudianteModel extends Model
         }
     }
 
-    function get(){
+    function get($pag){
         $items = [];
         $registrosxpagina = 5;
-        $pagina = 1; 
-        $empezar_desde = ($pagina - 1)*$registrosxpagina;
+        $empezar_desde = ($pag - 1)*$registrosxpagina;
         try {
             $sql = "SELECT * FROM estudiante";
             $query2 = $this->db->conn()->query($sql);
@@ -125,4 +124,5 @@ class EstudianteModel extends Model
             return "La consulta fallo :v";
         }
     }
+
 }

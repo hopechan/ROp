@@ -57,12 +57,11 @@
                         <?php } ?>
                     </tbody>
                 </table>
-                <!-- ?php echo $this->estudiantes['numero']; ? -->
                 <ul class="pagination center">
                     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
                     <?php 
                         for ($i=0; $i < $this->estudiantes['numero'] ; $i++) { 
-                            echo "<li class='waves-effect'><a href=''>". ($i+1) ."</a></li>";
+                            echo "<li class='waves-effect'><a href='" . constant('URL')."estudiante/verestudiante?pagina=".($i+1)."'>". ($i+1) ."</a></li>";
                         }
                     ?>
                     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
