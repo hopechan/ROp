@@ -65,13 +65,14 @@
                             if (isset($_GET['pagina'])) {  
                                 $pagina_activa = $_GET['pagina'];
                                 if ($pagina_activa == ($i+1)) {
-                                $activa = "active";
+                                $activa = "active black";
                             }
-                        }else{
+                            }else{
                             $pagina_activa = 1;
                             if ($pagina_activa == ($i+1)) {
-                                $activa = "active";
+                                $activa = "active black";
                             }
+                            
                         }
                             echo "<li class='waves-effect ".$activa."' name='".($i+1)."'><a href='" . constant('URL')."estudiante/verestudiante?pagina=".($i+1)."'>". ($i+1) ."</a></li>";
                         }
