@@ -58,13 +58,25 @@
                     </tbody>
                 </table>
                 <ul class="pagination center">
-                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="disabled"><a href=""><i class="material-icons">chevron_left</i></a></li>
                     <?php 
                         for ($i=0; $i < $this->estudiantes['numero'] ; $i++) { 
-                            echo "<li class='waves-effect'><a href='" . constant('URL')."estudiante/verestudiante?pagina=".($i+1)."'>". ($i+1) ."</a></li>";
+                            $activa = "";
+                            if (isset($_GET['pagina'])) {  
+                                $pagina_activa = $_GET['pagina'];
+                                if ($pagina_activa == ($i+1)) {
+                                $activa = "active";
+                            }
+                        }else{
+                            $pagina_activa = 1;
+                            if ($pagina_activa == ($i+1)) {
+                                $activa = "active";
+                            }
+                        }
+                            echo "<li class='waves-effect ".$activa."' name='".($i+1)."'><a href='" . constant('URL')."estudiante/verestudiante?pagina=".($i+1)."'>". ($i+1) ."</a></li>";
                         }
                     ?>
-                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                    <li class="disabled"><a href=""><i class="material-icons">chevron_right</i></a></li>
                 </ul>
             </div>
         </div>

@@ -12,17 +12,17 @@ class Estudiante extends Controller{
 
     function verestudiante()
     {
-            if (isset($_GET['pagina'])) {
+            if (isset($_GET['pagina'])){
                 $pag = $_GET['pagina'];
                 $estudiantes = $this->model->get($pag);
                 $this->view->estudiantes = $estudiantes;
                 $this->view->render('estudiantes/verestudiante');
             }else{
-            $pag = 1;
-            $estudiantes=$this->model->get($pag);
-            $this->view->estudiantes = $estudiantes;
-            $this->view->render("estudiantes/verestudiante"); 
-        }
+                $pag = 1;
+                $estudiantes=$this->model->get($pag);
+                $this->view->estudiantes = $estudiantes;
+                $this->view->render("estudiantes/verestudiante"); 
+            }
     }
 
     function insert()
