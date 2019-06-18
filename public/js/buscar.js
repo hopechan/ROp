@@ -17,7 +17,7 @@ function filtrar(filtro, callback) {
 }
 
 function llenarTabla(items) {
-    let tbody = document.querySelector("#cuerpoTabla");
+    let tbody = document.querySelector("#tbody-id");
     tbody.innerHTML = "";
     for (let i = 0; i < items.length; i++) {
         let nuevaFila = tbody.insertRow(-1);
@@ -31,8 +31,21 @@ function llenarTabla(items) {
         celda = nuevaFila.insertCell(-1);
         celda.innerHTML = items[i].nota;
 
+        celda = nuevaFila.insertCell(-1);
+        celda.innerHTML = crearBoton(items[i].idnota, 'E');
+
+        celda = nuevaFila.insertCell(-1);
+        celda.innerHTML = crearBoton(items[i].idnota, 'B');
     }
-    //tabla.appendChild(tbody);
+}
+
+function crearBoton(id, tipo) {
+    if (tipo == 'E') {
+        var btn = `<a class='right btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger' href='${URL_BASE}verNota/${id}'><i class="material-icons">refresh</i></a>`;
+    }else{
+        var btn = `<button class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn btndrop" data-id="${id}"><i class="material-icons">delete</i></button>`;
+    }
+    return btn;
 }
 
 document.addEventListener('keypress', function () {  
