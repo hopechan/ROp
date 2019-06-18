@@ -58,7 +58,7 @@ class EstudianteModel extends Model
             $paginacion= ['numero'=>$pages, 'registros'=>$items];
 
             return $paginacion;
-            $query->closeCursor();
+            //$query->closeCursor();
         } catch (PDOException $e) {
             return "La consulta fallo :v";
         }
