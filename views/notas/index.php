@@ -119,8 +119,8 @@
                 <td><?php echo $nota->idestudiante; ?></td>
                 <td><?php echo $nota->idmateria; ?></td>
                 <td><?php echo $nota->nota ?></td>
-                <td><a href="<?php echo constant('URL') . 'nota/verNota/' . $nota->idnota; ?>" class="right btn-floating btn-medium waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></a>
-                <a class="left btn-floating btn-medium waves-effect waves-black btn-flat white-text red accent-4 btn btndrop" data-id="<?php echo $nota->idnota; ?>"><i class="material-icons">delete</i></a></td>
+                <td><a href="<?php echo constant('URL') . 'nota/verNota/' . $nota->idnota; ?>" class="btn-floating btn-medium waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></a>
+                <a class="btn-floating btn-medium waves-effect waves-black btn-flat white-text red accent-4 btn btndrop" data-id="<?php echo $nota->idnota; ?>"><i class="material-icons">delete</i></a></td>
               </tr>
             <?php } ?>
           </tbody>

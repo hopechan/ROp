@@ -12,7 +12,7 @@
  <ul id="slide-out" class="sidenav black">
      <!--Datos de usuario-->
      <div class="right-align">
-         <a class="white-text" href=""><i class="material-icons sidenav-close">close</i></a>
+         <a class="white-text" href="#"><i class="material-icons sidenav-close">close</i></a>
      </div>
      <div class="user-view red-text text-accent-4 center">
          <a href=""></a><i class="large material-icons">account_circle</i>
