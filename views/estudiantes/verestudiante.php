@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="<?php echo constant('URL')?>public/js/buscarEstu.js"></script>
     <title>Ver Estudiantes</title>
 </head>
 <body>
@@ -12,25 +13,26 @@
     <div class="container">
         <br><br>
         <div class="row">
-            <div class="col s6 m6 l6">
+            <div class="col s5 m6 l6">
                 <a href="<?php echo constant('URL');?>estudiante" class="btn black boton-g"><i class="material-icons left">arrow_back</i>Atrás</a>
             </div>
-            <div class="col s4 m4 right">
-        <div class="input-field">
+            <div class="col s7 m4 right">
+            <div class="input-field">
           <i class="material-icons prefix">search</i>
-          <select name="" id="" class="right">
-                <option value="" class="black-text">Todos</option>
-                    <option value="">Primer Año</option>
-                    <option value="">Segundo Año</option>
-                    <option value="">Tercer Año</option>
-                </select>
+          <input type="text" name="txtFiltro" id="txtFiltro" list="filtros">
+          <label for="txtFiltro">Filtrar: </label>
         </div>
-       
+        <datalist id="filtros">
+          <option disabled selected>Filtrar Por</option>
+          <option>Primer Año</option>
+          <option>Segundo Año</option>
+          <option>Tercer Año</option>
+        </datalist>
       </div>
         </div>
         <div class="row">
             <div class="col s12 m12 l12">
-                <table class="centered highlight responsive-table">
+                <table class="centered highlight responsive-table" id="tabla">
                     <thead class="black white-text">
                         <tr>
                             <th>Nombre</th>
@@ -52,7 +54,8 @@
                             <td><?php  echo $estudiante->centro_escolar; ?></td>
                             <td><?php  echo $estudiante->seccion; ?></td>
                             <td><?php  echo $estudiante->anio; ?></td>
-                            <td><a href="<?php echo constant('URL').'estudiante/subeditar/'. $estudiante->idestudiante;?>" class="btn-floating waves-effect waves-white btn-flat white-text grey darken-3 btn "><i class="material-icons">refresh</i></a>&nbsp;&nbsp;<a href="<?php echo constant('URL').'estudiante/eliminar/' . $estudiante->idestudiante;?>" class="btn-floating waves-effect waves-white btn-flat white-text red darken-3 btn"><i class="material-icons">delete</i></a></td>
+                            <td><a href="<?php echo constant('URL').'estudiante/subeditar/'. $estudiante->idestudiante;?>" class="btn-floating waves-effect waves-white btn-flat white-text grey darken-3 btn "><i class="material-icons">refresh</i></a>&nbsp;&nbsp;<a href="<?php echo constant('URL').'estudiante/eliminar/' . $estudiante->idestudiante;?>" class="btn-floating waves-effect waves-white btn-flat white-text red darken-3 btn"><i class="material-icons">delete</i></a>&nbsp;&nbsp;<a href="/" class="btn-floating btn grey darken-3 waves-effect"><i class="material-icons">account_circle</i>
+                            </a></td>
                         </tr>
                         <?php } ?>
                     </tbody>

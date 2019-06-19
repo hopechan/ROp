@@ -90,15 +90,15 @@
       </div>
     </div>
     <div class="row">
-      <div id="tbCE" class="">
-        <table class="centered highlight table-responsive" id="tabla">
+      <div class="col l12 m12 s12">
+        <table class="centered highlight responsive-table" id="tabla">
           <thead class="black white-text">
-            <tr class="center-align">
+            <tr>
               <th hidden class="center-align">idNota</th>
               <th>Estudiante</th>
               <th>Materia</th>
               <th>Nota</th>
-              <th colspan="2">Acciones</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody id="tbody-id">
@@ -113,9 +113,8 @@
                 <td><?php echo $nota->idestudiante; ?></td>
                 <td><?php echo $nota->idmateria; ?></td>
                 <td><?php echo $nota->nota ?></td>
-                <td><a href="<?php echo constant('URL') . 'nota/verNota/' . $nota->idnota; ?>" class="right btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></a></td>
-                <td><button class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn btndrop" data-id="<?php echo $nota->idnota; ?>"><i class="material-icons">delete</i></button></td>
-                <!-- <td><a href="<?php echo constant('URL') . 'nota/eliminarNota/' . $nota->idnota; ?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"><i class="material-icons">delete</i></a></td> -->
+                <td><a href="<?php echo constant('URL') . 'nota/verNota/' . $nota->idnota; ?>" class="right btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></a>
+                <a class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn btndrop" data-id="<?php echo $nota->idnota; ?>"><i class="material-icons">delete</i></a></td>
               </tr>
             <?php } ?>
           </tbody>
