@@ -15,7 +15,11 @@
         <div class="col s12 center">
             <p>Agregar Tipo</p>
             <a href="#modal1" id="add" class="btn-floating btn-large waves-effect boton-save btn modal-trigger"><i class="material-icons">add</i></a>
-        
+        <?php 
+        $mensaje="";
+        if($mensaje=="si"){
+            echo "<script>M.toast({html: 'Tipo agregado correctamente!', classes: 'green rounded white-text'});</script>";
+        }; ?>
         </div>
     </div>
     <!-- formulario modal 1 -->
@@ -42,7 +46,7 @@
                 </div>
                 <!-- footer del formulario modal -->
                 <div class="center">
-                    <button class="modal-close btn boton-save white-text" type="submit">Enviar
+                    <button class="modal-close btn boton-save white-text" type="submit">Guardar
                         <i class="material-icons left">send</i>
                     </button>&nbsp;&nbsp;
                     <a class="modal-close btn-flat white-text boton-delete btn">Cancelar <i class="material-icons left">close</i></a>
@@ -75,9 +79,8 @@
                 <td hidden><?php echo $tipo->idtipo; ?></td>
                 <td><?php echo $tipo->tipo; ?></td>
                 <td><?php echo $tipo->descripcion; ?></td>
-                <td><a href="<?php echo constant('URL') . 'tipo/verTipo/' . $tipo->idtipo;?>" class="btn-floating btn-large waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></a>
-                <button class="btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn btndrop" data-id="<?php echo $tipo->idtipo; ?>"><i class="material-icons">delete</i></button></td>
-                <!-- <td><a href="<?php echo constant('URL').'tipo/eliminarTipo/'. $tipo->idtipo;?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"><i class="material-icons">delete</i></a></td> -->
+                <td><a href="<?php echo constant('URL') . 'tipo/verTipo/' . $tipo->idtipo;?>" class="btn-floating btn-medium waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></a>
+                <button class="btn-floating btn-medium waves-effect waves-black btn-flat white-text red accent-4 btn btndrop" data-id="<?php echo $tipo->idtipo; ?>"><i class="material-icons">delete</i></button></td>
             </tr>
             <?php } ?>
         </tbody>  

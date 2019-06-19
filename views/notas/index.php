@@ -61,7 +61,7 @@
           <!-- footer del formulario modal -->
           <div class="modal-footer">
                         <div class="center-align">
-            <button class="modal-close btn boton-save white-text" type="submit">Enviar
+            <button class="modal-close btn boton-save white-text" type="submit">Guardar
               <i class="material-icons left">send</i>
             </button>&nbsp;&nbsp;
             <a class="modal-close white-text boton-delete btn">Cancelar <i class="material-icons left">close</i></a>
@@ -75,11 +75,14 @@
   </div>
   <div class="container">
     <div class="row">
-      <h3 class="col s4 m7">Notas</h3>
+      <h3 class="col s4 m4">Notas</h3>
       <br><br>
-      <div class="col s4 m1">
-        <br>
-        <a href="#modal1" class="waves-effect waves-light btn modal-trigger">Nuevo</a>
+      
+      <div class="col s4 m4">
+        <div class="center">
+            <p>Agregar Nota</p>
+        <a href="#modal1" id="add" class="btn-floating btn-large waves-effect boton-save btn modal-trigger"><i class="material-icons">add</i></a>
+        </div>
       </div>
       <div class="col s4 m4">
         <div class="input-field">

@@ -97,7 +97,7 @@
                     </div>
                     <!-- footer del formulario modal -->
                     <div class="center">
-                        <button class="modal-close waves-effect waves-green btn boton-save white-text" type="submit">Enviar
+                        <button class="modal-close waves-effect waves-green btn boton-save white-text" type="submit">Guardar
                             <i class="material-icons left">send</i>
                         </button>&nbsp;&nbsp;
                         <a href="<?php echo constant('URL'); ?>materia" class=" btn-flat white-text boton-delete btn">Cancelar <i class="material-icons left">close</i></a>
