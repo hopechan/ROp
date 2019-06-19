@@ -12,6 +12,8 @@
   <?php require 'views/header.php' ?>
   <?php require 'views/navbar.php' ?>
   <div class="container">
+  <div class="row tamaño">
+            <div class="col s12 m12 l12">
     <div id="modal1" class="modal">
       <div class="modal-content">
         <h4 class="center">Nuevo Nota</h4>
@@ -21,7 +23,7 @@
             <div class="input-field col s12">
               <i class="material-icons prefix">rate_review</i>
               <select name="idestudiante" required>
-                <option value="" disabled selected>Seleccione un estudiante</option>
+                <option value="" disabled selected>Estudiante</option>
                 <?php
                 require_once 'models/estudiantes.php';
                 foreach ($this->estudiantes as $item) {
@@ -34,10 +36,10 @@
               <label>Estudiante</label>
               <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12 m12 l6">
               <i class="material-icons prefix">class</i>
               <select name="idmateria" required>
-                <option value="" disabled selected>Seleccione una materia</option>
+                <option value="" disabled selected>Materia</option>
                 <?php
                 require_once 'models/materias.php';
                 foreach ($this->materias as $item) {
@@ -50,21 +52,25 @@
               <label>Materia</label>
               <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12 m12 l6">
               <i class="material-icons prefix">class</i>
               <input type="number" name="nota" class="validate" id="nota" min="0" max="10" step="0.01">
               <label for="nota">Nota</label>
             </div>
           </div>
           <!-- footer del formulario modal -->
-          <div class="center">
+          <div class="modal-footer">
+                        <div class="center-align">
             <button class="modal-close btn boton-save white-text" type="submit">Enviar
               <i class="material-icons left">send</i>
             </button>&nbsp;&nbsp;
             <a class="modal-close white-text boton-delete btn">Cancelar <i class="material-icons left">close</i></a>
           </div>
+          </div>
         </form>
       </div>
+      </div>
+    </div>
     </div>
   </div>
   <div class="container">
