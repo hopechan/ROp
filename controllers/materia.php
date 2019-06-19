@@ -8,11 +8,22 @@ class Materia extends Controller
     }
     function render()
     {
-        $materias = $this->model->get();
-        $tipos = $this->model->gettipo();
-        $this->view->materias = $materias;
-        $this->view->tipos = $tipos;
-        $this->view->render("materia/index");
+        if (isset($_GET['pagina'])) {
+            $pag = $_GET['pagina'];
+            $materias = $this->model->get($pag);
+            $tipos = $this->model->gettipo();
+            $this->view->materias = $materias;
+            $this->view->tipos = $tipos;
+            $this->view->render("materia/index");
+        }else {
+            $pag = 1;
+            $materias = $this->model->get($pag);
+            $tipos = $this->model->gettipo();
+            $this->view->materias = $materias;
+            $this->view->tipos = $tipos;
+            $this->view->render("materia/index");
+        }
+        
     }
 
      function agregarMateria()

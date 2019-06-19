@@ -86,7 +86,7 @@
                 
                     <?php
                     require_once 'models/materias.php';
-                    foreach ($this->materias as $item) {
+                    foreach ($this->materias['registros'] as $item) {
                         $materia = new Materias();
                         $materia = $item;
                         ?>
@@ -101,6 +101,32 @@
                 <?php } ?>
             </tbody>
         </table>
+        <div class="row">
+            <div class="col l12 m12 s12">
+            <ul class="pagination center">
+                    <li class="disabled"><a href=""><i class="material-icons">chevron_left</i></a></li>
+                    <?php 
+                        for ($i=0; $i < $this->materias['numero'] ; $i++) { 
+                            $activa = "";
+                            if (isset($_GET['pagina'])) {  
+                                $pagina_activa = $_GET['pagina'];
+                                if ($pagina_activa == ($i+1)) {
+                                $activa = "active black";
+                            }
+                            }else{
+                            $pagina_activa = 1;
+                            if ($pagina_activa == ($i+1)) {
+                                $activa = "active black";
+                            }
+                            
+                        }
+                            echo "<li class='waves-effect ".$activa."' name='".($i+1)."'><a href='" . constant('URL')."materia?pagina=".($i+1)."'>". ($i+1) ."</a></li>";
+                        }
+                    ?>
+                    <li class="disabled"><a href=""><i class="material-icons">chevron_right</i></a></li>
+                </ul>
+            </div>
+        </div>
     </div>
     <script src="<?php echo constant('URL');?>public/js/materia.js"></script>
     <?php require 'views/footer.php' ?>
