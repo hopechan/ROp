@@ -7,14 +7,21 @@
             parent::__construct();
         }
         
-        function get(){
+        function get($pag){
             $items = [];
+            $registrosxpagina = 5;
+            $empezar_desde = ($pag -1)*$registrosxpagina;
             try {
                 $sql = "SELECT n.idnota, CONCAT(e.nombre, ' ', e.apellidos) as Estudiante, m.materia, n.nota
                         FROM nota as n
                         INNER JOIN estudiante as e ON n.idestudiante = e.idestudiante
-                        INNER JOIN materia as m ON n.idmateria = m.idmateria";
+                        INNER JOIN materia as m ON n.idmateria = m.idmateria LIMIT $empezar_desde,$registrosxpagina";
+                $sql2 = "SELECT * FROM nota";
+                $query2 = $this->db->conn()->query($sql2);
                 $query = $this->db->conn()->query($sql); 
+                $top_row = $query2->rowCount();
+                $pages = ceil($top_row/$registrosxpagina);
+
                 while ($row = $query->fetch()) {
                     $item = new Notas();
                     $item->idnota = $row['idnota'];
@@ -23,7 +30,8 @@
                     $item->nota = $row['nota'];
                     array_push($items, $item);
                 }
-                return $items;
+                $registros = ['numero'=>$pages, 'datos'=>$items];
+                return $registros;
             } catch(PDOException $e){
                 return [];
             }

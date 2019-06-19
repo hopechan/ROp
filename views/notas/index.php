@@ -110,7 +110,7 @@
           <tbody id="tbody-id">
             <?php
             require_once 'models/notas.php';
-            foreach ($this->notas as $item) {
+            foreach ($this->notas['datos'] as $item) {
               $nota = new Notas();
               $nota = $item;
               ?>
@@ -126,15 +126,31 @@
           </tbody>
         </table>
       </div>
+    </div>
+    <div class="row">
+      <div class="col s12 m12 l12">
       <ul class="pagination center">
-        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-        <li class="active"><a href="#!">1</a></li>
-        <li class="waves-effect"><a href="#!">2</a></li>
-        <li class="waves-effect"><a href="#!">3</a></li>
-        <li class="waves-effect"><a href="#!">4</a></li>
-        <li class="waves-effect"><a href="#!">5</a></li>
-        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+      <li class="disabled"><a href=""><i class="material-icons">chevron_left</i></a></li>
+                    <?php 
+                        for ($i=0; $i < $this->notas['numero'] ; $i++) { 
+                            $activa = "";
+                            if (isset($_GET['pagina'])) {  
+                                $pagina_activa = $_GET['pagina'];
+                                if ($pagina_activa == ($i+1)) {
+                                $activa = "active black";
+                            }
+                            }else{
+                            $pagina_activa = 1;
+                            if ($pagina_activa == ($i+1)) {
+                                $activa = "active black";
+                            }
+                        }
+                            echo "<li class='waves-effect ".$activa."' name='".($i+1)."'><a href='" . constant('URL')."nota?pagina=".($i+1)."'>". ($i+1) ."</a></li>";
+                        }
+                    ?>
+                    <li class="disabled"><a href=""><i class="material-icons">chevron_right</i></a></li>
       </ul>
+      </div>
     </div>
   </div>
   <script src="<?php echo constant('URL');?>public/js/nota.js"></script>

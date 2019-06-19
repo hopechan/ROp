@@ -7,13 +7,26 @@ class Nota extends Controller{
 
     function render(){
         //mando diferentes variables del mismo metodo para separar
-        $notas = $this->model->get();
-        $materias = $this->model->getMateria();
-        $estudiantes = $this->model->getEstudiante();
-        $this->view->notas = $notas;
-        $this->view->materias = $materias;
-        $this->view->estudiantes = $estudiantes;
-        $this->view->render("notas/index");
+        if (isset($_GET['pagina'])) {
+            $pag = $_GET['pagina'];
+            $notas = $this->model->get($pag);
+            $materias = $this->model->getMateria();
+            $estudiantes = $this->model->getEstudiante();
+            $this->view->notas = $notas;
+            $this->view->materias = $materias;
+            $this->view->estudiantes = $estudiantes;
+            $this->view->render("notas/index");
+        }else {
+            $pag = 1;
+            $notas = $this->model->get($pag);
+            $materias = $this->model->getMateria();
+            $estudiantes = $this->model->getEstudiante();
+            $this->view->notas = $notas;
+            $this->view->materias = $materias;
+            $this->view->estudiantes = $estudiantes;
+            $this->view->render("notas/index");
+        }
+        
     }
 
     function agregarNota(){
