@@ -12,7 +12,7 @@
             $registrosxpagina = 5;
             $empezar_desde = ($pag -1)*$registrosxpagina;
             try {
-                $sql = "SELECT n.idnota, CONCAT(e.nombre, ' ', e.apellidos) as Estudiante, m.materia, n.nota
+                $sql = "SELECT n.idnota, CONCAT(e.nombre, ' ', e.apellidos) as Estudiante, m.materia, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4
                         FROM nota as n
                         INNER JOIN estudiante as e ON n.idestudiante = e.idestudiante
                         INNER JOIN materia as m ON n.idmateria = m.idmateria LIMIT $empezar_desde,$registrosxpagina";
@@ -27,7 +27,10 @@
                     $item->idnota = $row['idnota'];
                     $item->idmateria = $row['materia'];
                     $item->idestudiante = $row['Estudiante'];
-                    $item->nota = $row['nota'];
+                    $item->nota = $row['nota_p1'];
+                    $item->nota = $row['nota_p2'];
+                    $item->nota = $row['nota_p3'];
+                    $item->nota = $row['nota_p4'];
                     array_push($items, $item);
                 }
                 $registros = ['numero'=>$pages, 'datos'=>$items];

@@ -28,7 +28,7 @@
           <div class="card-content white-text">
             <i class=" medium material-icons red-text text-accent-4 right">school</i>
             <span class="card-title center"> Ranking Estudiantes</span>
-            <p class="center"><?php echo "N°".$ranking;?></p>
+            <p class="center"><?php echo "N°".round($ranking)?></p>
           </div>
         </div>
       </div>
