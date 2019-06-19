@@ -6,7 +6,9 @@
         }
         function render(){
         $notas = $this->model->getNotas();
+        $estudiantes = $this->model->getEstudiantes();
         $this->view->notas = $notas;
+        $this->view->estudiantes = $estudiantes;
         $this->view->render("mains/index");
         }
 

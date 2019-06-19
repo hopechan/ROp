@@ -26,4 +26,24 @@ class MainModel extends Model
             return [];
         }
     }
+    function getEstudiantes()
+    {
+        $items = [];
+        try {
+            $sql = "SELECT idestudiante,nombre,apellidos FROM estudiante";
+            $query = $this->db->conn()->query($sql);
+            while ($row = $query->fetch()) {
+                $item = new Mains();
+
+                $item->idestudiante = $row['idestudiante'];
+                $item->nombre = $row['nombre'];
+                $item->apellidos = $row['apellidos'];
+
+                array_push($items, $item);
+            }
+            return $items;
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
 }
