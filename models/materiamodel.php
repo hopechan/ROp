@@ -7,13 +7,21 @@ class MateriaModel extends Model
     {
         parent::__construct();
     }
-    function get(){
+    function get($pag){
         $items = [];
+        $registrosxpagina = 5;
+        $empezar_desde=($pag -1)*$registrosxpagina;
         try {
+            $sql2 = "SELECT * FROM materia";
+            $query2 = $this->db->conn()->query($sql2);
             $sql = "SELECT m.idmateria,m.idtipo,m.materia,t.tipo
             FROM materia m, tipo t
-            WHERE t.idtipo = m.idtipo";
+            WHERE t.idtipo = m.idtipo LIMIT $empezar_desde,$registrosxpagina";
             $query = $this->db->conn()->query($sql);
+            
+            $top_row = $query2->rowCount();
+            $pages = ceil($top_row/$registrosxpagina);
+
             while ($row = $query->fetch()) {
                 $item = new Materias();
                 $item->idmateria = $row['idmateria'];
@@ -23,7 +31,8 @@ class MateriaModel extends Model
                 
                 array_push($items, $item);
             }
-            return $items;
+            $paginacion=['numero'=>$pages, 'registros'=>$items];
+            return $paginacion;
         } catch (PDOException $e) {
             return [];
         }

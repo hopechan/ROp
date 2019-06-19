@@ -60,6 +60,8 @@
                         <?php } ?>
                     </tbody>
                 </table>
+                <div class="row">
+                    <div class="col l12 m12 s12">
                 <ul class="pagination center">
                     <li class="disabled"><a href=""><i class="material-icons">chevron_left</i></a></li>
                     <?php 
@@ -82,6 +84,8 @@
                     ?>
                     <li class="disabled"><a href=""><i class="material-icons">chevron_right</i></a></li>
                 </ul>
+                </div>
+                </div>
             </div>
         </div>
     </div>
