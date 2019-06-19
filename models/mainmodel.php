@@ -17,7 +17,10 @@ class MainModel extends Model
                 $item->idnota = $row['idnota'];
                 $item->idestudiante    = $row['idestudiante'];
                 $item->idmateria   = $row['idmateria'];
-                $item->nota      = $row['nota'];
+                $item->nota_p1      = $row['nota_p1'];
+                $item->nota_p2      = $row['nota_p2'];
+                $item->nota_p3      = $row['nota_p3'];
+                $item->nota_p4      = $row['nota_p4'];
 
                 array_push($items, $item);
             }

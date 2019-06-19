@@ -65,39 +65,7 @@
     <br>
     <div id="container" style="min-width: 200px; height: 400px; margin: 0 auto"></div>
   </div>
-    <tbody id="tbody-id">
-      <?php 
-      require_once 'models/notas.php';
-      require_once 'models/estudiantes.php';
-
-      $notas=0;
-
-      foreach ($this->estudiantes as $item) {
-        $estudiante = new Estudiantes();
-        $estudiante = $item;
-
-        $idestudiante = $estudiante->idestudiante;
-        $nombre = $estudiante->nombre;
-        $apellidos = $estudiante->apellidos;
-
-      foreach ($this->notas as $item) {
-        $nota = new Notas();
-        $nota = $item;
-
-        $idnota = $nota->idnota;
-        $idestudiante2 = $nota->idestudiante;
-        $idmateria = $nota->idmateria;
-        $nota = $nota->nota;
-
-        if($idestudiante==$idestudiante2){
-
-          $notas=$notas+$nota;
-        }
-
-        }
-        $prom=$notas/5;
-      }
-      ?>
+    
   </div>
   <!--Incluyendo Grafica de ranking-->
   <script src="<?php echo constant('URL');?>public/js/grafica.js"></script>

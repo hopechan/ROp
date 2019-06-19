@@ -141,10 +141,12 @@
                 while($row = $query->fetch()){
                     $item->idnota = $row['idnota'];
                     $item->idestudiante = $row['idestudiante'];
-                    $item->nota = $row['nota']; 
+                    $item->nota_p1 = $row['nota_p1'];
+                    $item->nota_p2 = $row['nota_p2'];
+                    $item->nota_p3 = $row['nota_p3'];
+                    $item->nota_p4 = $row['nota_p4'];
                     $item->nombre = $row['nombre']; 
-                    $item->apellidos = $row['apellidos']; 
-                    $item->nota = $row['nota']; 
+                    $item->apellidos = $row['apellidos'];  
                     $item->idmateria = $row['idmateria'];
                     $item->materia = $row['materia'];
                 }
@@ -164,7 +166,7 @@
                 'nota_p1'=> $item['nota_p1'],
                 'nota_p2'=> $item['nota_p2'],
                 'nota_p3'=> $item['nota_p3'],
-                'nota_p4'=> $item['nota_p4'],
+                'nota_p4'=> $item['nota_p4']
                 ]);
                 return true;
             } catch (PDOException $e) {

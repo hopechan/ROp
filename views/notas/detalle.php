@@ -28,7 +28,7 @@
                             <input type="hidden" name="idestudiante" value="<?php echo $this->nota->idestudiante; ?>">
                             
                         </div>
-                        <div class="input-field col s6">
+                        <div class="input-field col s12">
                             <i class="material-icons prefix">class</i>
                             <select name="idmateria" required>
                                 <option value="" disabled selected>Seleccione una materia</option>
@@ -50,10 +50,25 @@
                             <label>Materia</label>
                             <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
                         </div>
-                        <div class="input-field col s6">
+                        <div class="input-field col s3">
                             <i class="material-icons prefix">class</i>
-                            <input type="number" name="nota" value="<?php echo $this->nota->nota; ?>" class="validate" id="nota" min="0" max="10" step="0.01">
-                            <label for="nota">Nota</label>
+                            <input type="number" name="nota_p1" value="<?php echo $this->nota->nota_p1; ?>" class="validate" id="nota_p1" min="0" max="10" step="0.01">
+                            <label for="nota_p1">Nota</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <i class="material-icons prefix">class</i>
+                            <input type="number" name="nota_p2" value="<?php echo $this->nota->nota_p2; ?>" class="validate" id="nota_p1" min="0" max="10" step="0.01">
+                            <label for="nota_p2">Nota</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <i class="material-icons prefix">class</i>
+                            <input type="number" name="nota_p3" value="<?php echo $this->nota->nota_p3; ?>" class="validate" id="nota_p3" min="0" max="10" step="0.01">
+                            <label for="nota_p3">Nota</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <i class="material-icons prefix">class</i>
+                            <input type="number" name="nota_p4" value="<?php echo $this->nota->nota_p4; ?>" class="validate" id="nota_p4" min="0" max="10" step="0.01">
+                            <label for="nota_p4">Nota</label>
                         </div>
                     </div>
                     <!-- footer del formulario modal -->
