@@ -27,10 +27,10 @@
                     $item->idnota = $row['idnota'];
                     $item->idmateria = $row['materia'];
                     $item->idestudiante = $row['Estudiante'];
-                    $item->nota = $row['nota_p1'];
-                    $item->nota = $row['nota_p2'];
-                    $item->nota = $row['nota_p3'];
-                    $item->nota = $row['nota_p4'];
+                    $item->nota_p1 = $row['nota_p1'];
+                    $item->nota_p2 = $row['nota_p2'];
+                    $item->nota_p3 = $row['nota_p3'];
+                    $item->nota_p4 = $row['nota_p4'];
                     array_push($items, $item);
                 }
                 $registros = ['numero'=>$pages, 'datos'=>$items];
@@ -104,14 +104,14 @@
 
         function insert($datos){
             try {
-                $sql= 'INSERT INTO nota (idestudiante, idmateria, nota) VALUES (:idestudiante, :idmateria, :nota_p1, :nota_p2, :nota_p3, :nota_p4)';
+                $sql= 'INSERT INTO nota (idestudiante, idmateria, nota_p1, nota_p2, nota_p3, nota_p4) VALUES (:idestudiante, :idmateria, :nota_p1, :nota_p2, :nota_p3, :nota_p4)';
                 $query = $this->db->conn()->prepare($sql);
                 $query->bindParam(':idestudiante',$datos['idestudiante'], PDO::PARAM_INT);
                 $query->bindParam(':idmateria',$datos['idmateria'], PDO::PARAM_INT);
-                $query->bindParam(':nota_p1',$datos['nota_p1'], PDO::PARAM_STR);
-                $query->bindParam(':nota_p2',$datos['nota_p2'], PDO::PARAM_STR);
-                $query->bindParam(':nota_p3',$datos['nota_p3'], PDO::PARAM_STR);
-                $query->bindParam(':nota_p4',$datos['nota_p4'], PDO::PARAM_STR);
+                $query->bindParam(':nota_p1',$datos['nota_p1'], PDO::PARAM_INT);
+                $query->bindParam(':nota_p2',$datos['nota_p2'], PDO::PARAM_INT);
+                $query->bindParam(':nota_p3',$datos['nota_p3'], PDO::PARAM_INT);
+                $query->bindParam(':nota_p4',$datos['nota_p4'], PDO::PARAM_INT);
                 $PDOexe = $query->execute();
             } catch (PDOException $e) {
                 return [];

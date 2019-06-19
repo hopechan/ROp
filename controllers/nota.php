@@ -32,11 +32,11 @@ class Nota extends Controller{
     function agregarNota(){
         $idestudiante = $_POST['idestudiante'];
         $idmateria = $_POST['idmateria'];
-        $nota_p1 = $_POST['$nota_p1'];
-        $nota_p2 = $_POST['$nota_p2'];
-        $nota_p3 = $_POST['$nota_p3'];
-        $nota_p4 = $_POST['$nota_p4'];
-        $this->model->insert(['idmateria'=> $idmateria,'idestudiante'=>$idestudiante, '$nota_p1'=>$nota_p1, '$nota_p2'=>$nota_p2, '$nota_p3'=>$nota_p3, '$nota_p4'=>$nota_p4]);
+        $nota_p1 = $_POST['nota_p1'];
+        $nota_p2 = $_POST['nota_p2'];
+        $nota_p3 = $_POST['nota_p3'];
+        $nota_p4 = $_POST['nota_p4'];
+        $this->model->insert(['idmateria'=> $idmateria,'idestudiante'=>$idestudiante, 'nota_p1'=>$nota_p1, 'nota_p2'=>$nota_p2, 'nota_p3'=>$nota_p3, 'nota_p4'=>$nota_p4]);
         header('Location:http://localhost/Rop/nota');
     }
 
@@ -78,7 +78,7 @@ class Nota extends Controller{
         $idestudiante = $_POST['idestudiante'];
         $idmateria = $_POST['idmateria'];
 
-        if($this->model->update(['idnota' => $idnota, 'idestudiante' => $idestudiante, 'idmateria' => $idmateria, '$nota_p1'=>$nota_p1, '$nota_p2'=>$nota_p2, '$nota_p3'=>$nota_p3, '$nota_p4'=>$nota_p4])){
+        if($this->model->update(['idnota' => $idnota, 'idestudiante' => $idestudiante, 'idmateria' => $idmateria, 'nota_p1'=>$nota_p1, 'nota_p2'=>$nota_p2, 'nota_p3'=>$nota_p3, 'nota_p4'=>$nota_p4])){
             $nota = new Notas();
             $nota->idnota = $idnota;
             $nota->nota_p1 = $nota_p1;

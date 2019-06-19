@@ -36,7 +36,7 @@
               <label>Estudiante</label>
               <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
             </div>
-            <div class="input-field col s12 m12 l6">
+            <div class="input-field col s12 m12 l12">
               <i class="material-icons prefix">class</i>
               <select name="idmateria" required>
                 <option value="" disabled selected>Materia</option>
@@ -52,10 +52,25 @@
               <label>Materia</label>
               <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
             </div>
-            <div class="input-field col s12 m12 l6">
+            <div class="input-field col s12 m12 l3">
               <i class="material-icons prefix">class</i>
-              <input type="number" name="nota" class="validate" id="nota" min="0" max="10" step="0.01">
-              <label for="nota">Nota</label>
+              <input type="number" name="nota_p1" class="validate" id="nota_p1" min="0" max="10" step="0.01">
+              <label for="nota_p1">Nota Periodo 1</label>
+            </div>
+            <div class="input-field col s12 m12 l3">
+              <i class="material-icons prefix">class</i>
+              <input type="number" name="nota_p2" class="validate" id="nota_p2" min="0" max="10" step="0.01">
+              <label for="nota_p2">Nota Periodo 2</label>
+            </div>
+            <div class="input-field col s12 m12 l3">
+              <i class="material-icons prefix">class</i>
+              <input type="number" name="nota_p3" class="validate" id="nota_p3" min="0" max="10" step="0.01">
+              <label for="nota_p3">Nota Periodo 3</label>
+            </div>
+            <div class="input-field col s12 m12 l3">
+              <i class="material-icons prefix">class</i>
+              <input type="number" name="nota_p4" class="validate" id="nota_p4" min="0" max="10" step="0.01">
+              <label for="nota_p4">Nota Periodo 4</label>
             </div>
           </div>
           <!-- footer del formulario modal -->
@@ -106,7 +121,10 @@
               <th hidden class="center-align">idNota</th>
               <th>Estudiante</th>
               <th>Materia</th>
-              <th>Nota</th>
+              <th>Nota Periodo 1</th>
+              <th>Nota Periodo 2</th>
+              <th>Nota Periodo 3</th>
+              <th>Nota Periodo 4</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -121,7 +139,10 @@
                 <td hidden><?php echo $nota->idnota; ?></td>
                 <td><?php echo $nota->idestudiante; ?></td>
                 <td><?php echo $nota->idmateria; ?></td>
-                <td><?php echo $nota->nota ?></td>
+                <td><?php echo $nota->nota_p1 ?></td>
+                <td><?php echo $nota->nota_p2 ?></td>
+                <td><?php echo $nota->nota_p3 ?></td>
+                <td><?php echo $nota->nota_p4 ?></td>
                 <td><a href="<?php echo constant('URL') . 'nota/verNota/' . $nota->idnota; ?>" class="btn-floating btn-medium waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></a>
                 <a class="btn-floating btn-medium waves-effect waves-black btn-flat white-text red accent-4 btn btndrop" data-id="<?php echo $nota->idnota; ?>"><i class="material-icons">delete</i></a></td>
               </tr>
