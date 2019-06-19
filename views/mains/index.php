@@ -14,7 +14,11 @@
   <br>
   <?php
   $total=$this->total->idestudiante;
-  $ranking=$total*0.1;
+  if($total<=10){
+    $ranking=$total;
+  }else{
+  $ranking=$total*0.1;  
+  }
   ?>
   <div class="container">
     <div class="row">
