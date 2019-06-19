@@ -46,4 +46,19 @@ class MainModel extends Model
             return [];
         }
     }
+
+    function getTotal()
+    {
+        try {
+            $item = new Mains();
+            $sql = "SELECT count(idestudiante) AS idestudiante FROM estudiante ";
+            $query = $this->db->conn()->query($sql);
+            while ($row = $query->fetch()) {
+                $item->idestudiante  = $row['idestudiante'];
+            }
+            return $item;
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
 }

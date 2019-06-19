@@ -12,6 +12,10 @@
   <?php require 'views/header.php' ?>
   <?php require 'views/navbar.php' ?>
   <br>
+  <?php
+  $total=$this->total->idestudiante;
+  $ranking=$total*0.1;
+  ?>
   <div class="container">
     <div class="row">
       <!--Card uno-->
@@ -20,7 +24,7 @@
           <div class="card-content white-text">
             <i class=" medium material-icons red-text text-accent-4 right">school</i>
             <span class="card-title center"> Ranking Estudiantes</span>
-            <p class="center">N° 10</p>
+            <p class="center"><?php echo "N°".$ranking;?></p>
           </div>
         </div>
       </div>
@@ -30,7 +34,7 @@
           <div class="card-content white-text">
             <i class=" medium material-icons red-text text-accent-4 right">language</i>
             <span class="card-title center">Todos los estudiantes</span>
-            <p class="center">N° 80</p>
+            <p class="center"><?php echo "N°".$total; ?></p>
           </div>
         </div>
       </div>

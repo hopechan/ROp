@@ -7,8 +7,10 @@
         function render(){
         $notas = $this->model->getNotas();
         $estudiantes = $this->model->getEstudiantes();
+        $total = $this->model->getTotal();
         $this->view->notas = $notas;
         $this->view->estudiantes = $estudiantes;
+        $this->view->total = $total;
         $this->view->render("mains/index");
         }
 
