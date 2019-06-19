@@ -71,14 +71,20 @@ class Nota extends Controller{
 
     function editarNota(){
         $idnota = $_POST['idnota'];
-        $nota = $_POST['nota'];
+        $nota_p1 = $_POST['$nota_p1'];
+        $nota_p2 = $_POST['$nota_p2'];
+        $nota_p3 = $_POST['$nota_p3'];
+        $nota_p4 = $_POST['$nota_p4'];
         $idestudiante = $_POST['idestudiante'];
         $idmateria = $_POST['idmateria'];
 
-        if($this->model->update(['idnota' => $idnota, 'nota' => $nota, 'idestudiante' => $idestudiante, 'idmateria' => $idmateria])){
+        if($this->model->update(['idnota' => $idnota, 'idestudiante' => $idestudiante, 'idmateria' => $idmateria, '$nota_p1'=>$nota_p1, '$nota_p2'=>$nota_p2, '$nota_p3'=>$nota_p3, '$nota_p4'=>$nota_p4])){
             $nota = new Notas();
             $nota->idnota = $idnota;
-            $nota->nota = $nota;
+            $nota->nota_p1 = $nota_p1;
+            $nota->nota_p2 = $nota_p2;
+            $nota->nota_p3 = $nota_p3;
+            $nota->nota_p4 = $nota_p4;
             $nota->idestudiante = $idestudiante;
             $nota->idmateria = $idmateria;
             

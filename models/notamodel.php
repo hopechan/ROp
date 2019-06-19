@@ -77,7 +77,7 @@
         function buscar($filtro){
             $items = [];
             try {
-                $sql = "SELECT n.idnota, CONCAT(e.nombre, ' ', e.apellidos) as Estudiante, m.materia, n.nota
+                $sql = "SELECT n.idnota, CONCAT(e.nombre, ' ', e.apellidos) as Estudiante, m.materia, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4
                         FROM nota as n
                         INNER JOIN estudiante as e ON n.idestudiante = e.idestudiante
                         INNER JOIN materia as m ON n.idmateria = m.idmateria
@@ -104,11 +104,14 @@
 
         function insert($datos){
             try {
-                $sql= 'INSERT INTO nota (idestudiante, idmateria, nota) VALUES (:idestudiante, :idmateria, :nota)';
+                $sql= 'INSERT INTO nota (idestudiante, idmateria, nota) VALUES (:idestudiante, :idmateria, :nota_p1, :nota_p2, :nota_p3, :nota_p4)';
                 $query = $this->db->conn()->prepare($sql);
                 $query->bindParam(':idestudiante',$datos['idestudiante'], PDO::PARAM_INT);
                 $query->bindParam(':idmateria',$datos['idmateria'], PDO::PARAM_INT);
-                $query->bindParam(':nota',$datos['nota'], PDO::PARAM_STR);
+                $query->bindParam(':nota_p1',$datos['nota_p1'], PDO::PARAM_STR);
+                $query->bindParam(':nota_p2',$datos['nota_p2'], PDO::PARAM_STR);
+                $query->bindParam(':nota_p3',$datos['nota_p3'], PDO::PARAM_STR);
+                $query->bindParam(':nota_p4',$datos['nota_p4'], PDO::PARAM_STR);
                 $PDOexe = $query->execute();
             } catch (PDOException $e) {
                 return [];
@@ -128,7 +131,7 @@
         public function getById($id){
             $item = new Notas();
     
-            $query = $this->db->conn()->prepare("SELECT n.idnota, n.idestudiante,e.nombre,e.apellidos,n.idmateria, n.nota, m.materia,m.idmateria
+            $query = $this->db->conn()->prepare("SELECT n.idnota, n.idestudiante,e.nombre,e.apellidos,n.idmateria, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4, m.materia,m.idmateria
             FROM NOTA AS n
             INNER JOIN estudiante as e ON e.idestudiante = n.idestudiante
             INNER JOIN materia as m ON m.idmateria = n.idmateria
@@ -152,13 +155,16 @@
         }
 
         public function update($item){
-            $query = $this->db->conn()->prepare('UPDATE nota SET idestudiante = :idestudiante, idmateria = :idmateria, nota = :nota WHERE idnota = :idnota');
+            $query = $this->db->conn()->prepare('UPDATE nota SET idestudiante = :idestudiante, idmateria = :idmateria, nota_p1 = :nota_p1, nota_p2 = :nota_p2, nota_p3 = :nota_p3, nota_p4 = :nota_p4 WHERE idnota = :idnota');
             try {
                 $query->execute([
                 'idnota'=> $item['idnota'],
                 'idestudiante'=> $item['idestudiante'],
                 'idmateria'=> $item['idmateria'],
-                'nota'=> $item['nota'],
+                'nota_p1'=> $item['nota_p1'],
+                'nota_p2'=> $item['nota_p2'],
+                'nota_p3'=> $item['nota_p3'],
+                'nota_p4'=> $item['nota_p4'],
                 ]);
                 return true;
             } catch (PDOException $e) {
