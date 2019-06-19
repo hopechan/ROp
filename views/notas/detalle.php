@@ -53,22 +53,22 @@
                         <div class="input-field col s3">
                             <i class="material-icons prefix">class</i>
                             <input type="number" name="nota_p1" value="<?php echo $this->nota->nota_p1; ?>" class="validate" id="nota_p1" min="0" max="10" step="0.01">
-                            <label for="nota_p1">Nota</label>
+                            <label for="nota_p1">Nota periodo 1</label>
                         </div>
                         <div class="input-field col s3">
                             <i class="material-icons prefix">class</i>
                             <input type="number" name="nota_p2" value="<?php echo $this->nota->nota_p2; ?>" class="validate" id="nota_p1" min="0" max="10" step="0.01">
-                            <label for="nota_p2">Nota</label>
+                            <label for="nota_p2">Nota periodo 2</label>
                         </div>
                         <div class="input-field col s3">
                             <i class="material-icons prefix">class</i>
                             <input type="number" name="nota_p3" value="<?php echo $this->nota->nota_p3; ?>" class="validate" id="nota_p3" min="0" max="10" step="0.01">
-                            <label for="nota_p3">Nota</label>
+                            <label for="nota_p3">Nota periodo 3</label>
                         </div>
                         <div class="input-field col s3">
                             <i class="material-icons prefix">class</i>
                             <input type="number" name="nota_p4" value="<?php echo $this->nota->nota_p4; ?>" class="validate" id="nota_p4" min="0" max="10" step="0.01">
-                            <label for="nota_p4">Nota</label>
+                            <label for="nota_p4">Nota periodo 4</label>
                         </div>
                     </div>
                     <!-- footer del formulario modal -->
