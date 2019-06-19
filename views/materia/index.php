@@ -46,15 +46,14 @@
                             <i class="material-icons prefix">class</i>
                             <select name="materia" required>
                                 <option value="" disabled selected>Seleccione la materia</option>
-                                <option value="Matemática C.E">Matemática C.E</option>
-                                <option value="Sociales C.E">Sociales C.E</option>
-                                <option value="Ciencias C.E">Ciencias C.E</option>
-                                <option value="Lenguaje y Literatura C.E">Lenguaje y Literatura C.E</option>
-                                <option value="Computación CCGk">Computación CCGk</option>
-                                <option value="Ingles CCGk">Ingles CCGk</option>
-                                <option value="Matemática CCGk">Matemática CCGk</option>
-                                <option value="Valores CCGk">Valores CCGk</option>
-                                <option value="Formación Linguistica CCGk">Formación Linguistica CCGk</option>
+                                <option value="Matemática">Matemática</option>
+                                <option value="Sociales">Sociales</option>
+                                <option value="Ciencias">Ciencias</option>
+                                <option value="Lenguaje y Literatura">Lenguaje y Literatura</option>
+                                <option value="Computación">Computación</option>
+                                <option value="Ingles">Ingles</option>
+                                <option value="Valores">Valores</option>
+                                <option value="Formación Linguistica">Formación Linguistica</option>
                             </select>
                             <label>Materia</label>
                             <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>

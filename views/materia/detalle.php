@@ -52,48 +52,44 @@
                             <i class="material-icons prefix">class</i>
                             <?php
                             $materia = $this->materia->materia;
-                            $a="";$b="";$c="";$d="";$e="";$f="";$g="";$h="";$i="";
+                            $a="";$b="";$c="";$d="";$e="";$f="";$h="";$i="";
                             switch ($materia) {
-                                case 'Matemática C.E':
+                                case 'Matemática':
                                     $a = "selected";
                                     break;
-                                case 'Sociales C.E':
+                                case 'Sociales':
                                     $b = "selected";
                                     break;
-                                case 'Ciencias C.E':
+                                case 'Ciencias':
                                     $c = "selected";
                                     break;
-                                case 'Lenguaje y Literatura C.E':
+                                case 'Lenguaje y Literatura':
                                     $d = "selected";
                                     break;
-                                case 'Computación CCGk':
+                                case 'Computación':
                                     $e = "selected";
                                     break;
-                                case 'Ingles CCGk':
+                                case 'Ingles':
                                     $f = "selected";
-                                    break;
-                                case 'Matemática CCGk':
-                                    $g = "selected";
-                                    break;
-                                case 'Valores CCGk':
+                                    break;;
+                                case 'Valores':
                                     $h = "selected";
                                     break;
-                                case 'Formación Linguistica CCGk':
+                                case 'Formación Linguistica':
                                     $i = "selected";
                                     break;
                             }
                             ?>
                             <select name="materia">
                                 <option value="" disabled selected>Seleccione la materia</option>
-                                <option value="Matemática C.E" <?php echo $a ?>>Matemática C.E</option>
-                                <option value="Sociales C.E" <?php echo $b ?>>Sociales C.E</option>
-                                <option value="Ciencias C.E" <?php echo $c ?>>Ciencias C.E</option>
-                                <option value="Lenguaje y Literatura C.E" <?php echo $d ?>>Lenguaje y Literatura C.E</option>
-                                <option value="Computación CCGk" <?php echo $e ?>>Computación CCGk</option>
-                                <option value="Ingles CCGk" <?php echo $f ?>>Ingles CCGk</option>
-                                <option value="Matemática CCGk" <?php echo $g ?>>Matemática CCGk</option>
-                                <option value="Valores CCGk" <?php echo $h ?>>Valores CCGk</option>
-                                <option value="Formación Linguistica CCGk" <?php echo $i ?>>Formación Linguistica CCGk</option>
+                                <option value="Matemática" <?php echo $a ?>>Matemática</option>
+                                <option value="Sociales" <?php echo $b ?>>Sociales</option>
+                                <option value="Ciencias" <?php echo $c ?>>Ciencias</option>
+                                <option value="Lenguaje y Literatura" <?php echo $d ?>>Lenguaje y Literatura C.E</option>
+                                <option value="Computación" <?php echo $e ?>>Computación</option>
+                                <option value="Ingles" <?php echo $f ?>>Ingles</option>
+                                <option value="Valores" <?php echo $h ?>>Valores</option>
+                                <option value="Formación Linguistica" <?php echo $i ?>>Formación Linguistica</option>
                             </select>
                             <label>Materia</label>
                             <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
