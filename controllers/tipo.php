@@ -8,9 +8,15 @@ class Tipo extends Controller
     }
     function render()
     {
-        $tipos = $this->model->get();
-        $this->view->tipos = $tipos;
         $this->view->render("tipo/index");
+    }
+
+    public function recargar(){
+        $tipos=$this->model->get();
+        $data=$this->view->tipos = $tipos;
+        //Renderizando la vista
+        $this->view->render('tipo/tabla',$data);
+
     }
 
     function agregarTipo()
@@ -18,7 +24,6 @@ class Tipo extends Controller
         $tipo = $_POST['tipo'];
         $descripcion = $_POST['descripcion'];
         $this->model->insert(['tipo' => $tipo, 'descripcion' => $descripcion]);
-        header('Location:http://localhost/Rop/tipo');
     }
     function verTipo($param = null){
         $idTipo= $param[0];

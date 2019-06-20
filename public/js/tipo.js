@@ -1,39 +1,88 @@
+window.addEventListener('load',recargar);
 
-const botones = document.querySelectorAll(".btndrop");
-
-botones.forEach(boton => {
-
-    boton.addEventListener("click", function () {
-        const id = this.dataset.id;
-
-        const confirm = window.confirm("¿Deseas eliminar el Tipo?");
-        if (confirm) {
-            //solicitud AJAX
-            httpRequest("http://localhost/Rop/tipo/eliminarTipo/" + id, function () {
-                //console.log(this.responseText);
-                      const tbody = document.querySelector("#tbody-id");
-                const fila  = document.querySelector("#fila-"+ id);
-                if(this.responseText=="si"){
-                tbody.removeChild(fila);
-                M.toast({html: 'Tipo eliminado correctamente!', classes: 'green rounded white-text'});  
-                }else{
-                M.toast({html: 'Tipo no eliminado!', classes: 'red accent-4 rounded white-text'});
-                }
-            });
+//Metodo recargar
+function recargar(){
+    var peticion=new XMLHttpRequest();
+    peticion.onreadystatechange=function(){
+        if (this.readyState==4) {
+            document.getElementById('tbody-id').innerHTML=this.responseText;
+            asignarEventos();
         }
-        
-    });
-});
+    };
+    peticion.open('GET','tipo/recargar');
+    peticion.send();
+}
+function asignarEventos(){
+    document.getElementById('btn').addEventListener('click',accion);
 
-function httpRequest(url, callback){
-    const http = new XMLHttpRequest();
-    http.open("GET", url);
-    http.send();
+    var btnEdit=document.getElementsByClassName('btnEditar');
+    var btnElim=document.getElementsByClassName('btnEliminar');
 
-    http.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200){
-            callback.apply(http);
-        }else{
+    for(var i=0; i<btnEdit.length;i++){
+        btnEdit[i].addEventListener('click',actualizar);
+        btnElim[i].addEventListener('click',eliminar);
+    }
+}
+
+function accion(){
+var tipo=document.getElementById('Tipo').value;
+var descripcion=document.getElementById('Descripcion').value;
+if(tipo=="" && descripcion==""){
+M.toast({html: 'Por favor ingrese algo!', classes: 'red accent-4 rounded white-text'}); 
+    return;
+}
+var peticion=new XMLHttpRequest();
+
+    peticion.onreadystatechange=function(){
+        if (this.readyState==4) {
+            document.getElementById('tbody-id').innerHTML=this.responseText;
+            recargar();
+            limpiar();
+        }
+    };
+    peticion.open('POST','tipo/agregarTipo');
+    peticion.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+    peticion.send('tipo='+tipo+'&descripcion='+descripcion);
+    M.toast({html: 'Tipo agregado correctamente!', classes: 'green rounded white-text'});
+}
+
+function actualizar(){
+}
+
+function eliminar(){
+            const id = this.dataset.id;
+    
+            const confirm = window.confirm("¿Deseas eliminar el Tipo?");
+            if (confirm) {
+                //solicitud AJAX
+                httpRequest("http://localhost/Rop/tipo/eliminarTipo/" + id, function () {
+                    //console.log(this.responseText);
+                    if(this.responseText=="si"){
+                    recargar();
+                    M.toast({html: 'Tipo eliminado correctamente!', classes: 'green rounded white-text'});  
+                    }else{
+                    M.toast({html: 'Tipo no eliminado!', classes: 'red accent-4 rounded white-text'});
+                    }
+                });
+            }
+            
+    
+    function httpRequest(url, callback){
+        const http = new XMLHttpRequest();
+        http.open("GET", url);
+        http.send();
+    
+        http.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200){
+                callback.apply(http);
+            }else{
+            }
         }
     }
 }
+
+function limpiar(){
+    document.getElementById('Tipo').value="";
+    document.getElementById('Descripcion').value="";
+}
+
