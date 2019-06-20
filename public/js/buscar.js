@@ -1,11 +1,23 @@
 const URL_BASE = "http://localhost/Rop/nota/",
-        dtFiltro = document.getElementById('filtro'),
         tabla = document.getElementById("tabla");
 
 function filtrar(filtro, callback) {
     let data = `filtro=${filtro}`;
     xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", `${URL_BASE}filtrar/${filtro}`);
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            callback.apply(xmlhttp);
+            var response = JSON.parse(xmlhttp.responseText);
+        }
+    };
+    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    xmlhttp.send(data);
+}
+
+function getAll(callback) {
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", `${URL_BASE}get`);
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             callback.apply(xmlhttp);
@@ -52,7 +64,11 @@ document.addEventListener('keypress', function () {
     txtFiltro = document.getElementById("txtFiltro").value;
     console.log(txtFiltro);
     filtrar(txtFiltro, function () { 
-        llenarTabla(JSON.parse(this.responseText));
-        //console.log(JSON.parse(this.responseText));
+        if (txtFiltro == '') {
+            console.log('el input esta vacio');
+            getAll();
+        } else {
+            llenarTabla(JSON.parse(this.responseText));
+        }
      });
 })

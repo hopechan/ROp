@@ -18,7 +18,6 @@
       <div class="modal-content">
         <h4 class="center">Nuevo Nota</h4>
         <form method="post" class="col s12" id="tipe-form" action="<?php echo constant('URL'); ?>nota/agregarNota">
-          <input type="hidden" id="idnota" value="<?php echo $notaCE->idnota; ?>">
           <div class="row red-text text-accent-4">
             <div class="input-field col s12">
               <i class="material-icons prefix">rate_review</i>
@@ -135,6 +134,7 @@
               $nota = new Notas();
               $nota = $item;
               ?>
+              <input type="hidden" id="idnota" value="<?php echo $nota->idnota; ?>">
               <tr id="fila-<?php echo $nota->idnota; ?>">
                 <td hidden><?php echo $nota->idnota; ?></td>
                 <td><?php echo $nota->idestudiante; ?></td>
