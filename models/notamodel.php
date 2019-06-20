@@ -179,9 +179,10 @@
         function getNotasByTipo($tipo){
             $items = [];
             try {
-                $sql = "SELECT e.idestudiante, n.idnota,CONCAT(e.nombre, ' ', e.apellidos) as estudiante,m.materia, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4
-                        FROM nota as n INNER JOIN estudiante as e ON e.idestudiante = n.idestudiante
-                        INNER JOIN materia as m ON m.idmateria = n.idmateria
+                $sql = "SELECT e.idestudiante, n.idnota,CONCAT(e.nombre, ' ', e.apellidos) as estudiante,m.materia, ((n.nota_p1 + n.nota_p2 + n.nota_p3 + n.nota_p4)/4) as promedio 
+                        FROM nota as n 
+                        INNER JOIN estudiante as e ON e.idestudiante = n.idestudiante 
+                        INNER JOIN materia as m ON m.idmateria = n.idmateria 
                         WHERE m.idtipo = '".$tipo."'
                         GROUP BY n.idestudiante";
                 $query = $this->db->conn()->query($sql); 
@@ -191,10 +192,7 @@
                             'idnota' => $row['idnota'], 
                             'estudiante'=> $row['estudiante'],
                             'materia' => $row['materia'],
-                            'nota_p1' => $row['nota_p1'],
-                            'nota_p2' => $row['nota_p2'],
-                            'nota_p3' => $row['nota_p3'],
-                            'nota_p4' => $row['nota_p4']];
+                            'promedio' => $row['promedio']];
                     array_push($items, $item);
                 }
                 return $items;
