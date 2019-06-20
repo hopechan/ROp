@@ -184,7 +184,7 @@
                         INNER JOIN estudiante as e ON e.idestudiante = n.idestudiante 
                         INNER JOIN materia as m ON m.idmateria = n.idmateria 
                         WHERE m.idtipo = '".$tipo."'
-                        GROUP BY n.idestudiante";
+                        ORDER BY n.idestudiante";
                 $query = $this->db->conn()->query($sql); 
                 while ($row = $query->fetch()) {
                     $item = array();

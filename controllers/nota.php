@@ -96,10 +96,19 @@ class Nota extends Controller{
         header('Location:http://localhost/Rop/nota');
     }
 
-    function test(){
-        $notas2 = $this->model->getNotasByTipo(1);
-        //$json = json_encode($ids, JSON_PRETTY_PRINT);
-        echo json_encode($notas2, JSON_PRETTY_PRINT);
+    function CCGK(){
+        $notas = $this->model->getNotasByTipo(1);
+        echo json_encode($notas, JSON_PRETTY_PRINT);
+    }
+
+    function CE(){
+        $notas = $this->model->getNotasByTipo(2);
+        echo json_encode($notas, JSON_PRETTY_PRINT);
+    }
+
+    function certificaciones(){
+        $notas = $this->model->getNotasByTipo(3);
+        echo json_encode($notas, JSON_PRETTY_PRINT);
     }
 }
 ?>
