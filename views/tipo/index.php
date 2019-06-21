@@ -21,7 +21,6 @@
     <div id="modal1" class="modal">
         <div class="modal-content" id="frm">
             <h4 class="center">Nuevo Evaluación</h4>
-            
                 <input type="hidden" id="idtipo">
                 <div class="row red-text text-accent-4">
                     <div class="input-field col s12">

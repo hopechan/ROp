@@ -4,7 +4,7 @@
          <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="red-text text-accent-4 medium material-icons">menu</i></a>
          <a href="#" class="right red-text text-accent-4"><i class="icono large material-icons">exit_to_app&nbsp;</i></a>
          <div class="nav-wrapper container red-text text-accent-4">
-             <a href="" class="brand-logo right"><img class="img responsive-img" src="/ROp/public/img/logo.png" alt="Logo"></a>
+             <a href="" class="brand-logo right hide-on-small-only"><img class="img responsive-img" src="/ROp/public/img/logo.png" alt="Logo"></a>
          </div>
      </nav>
  </div>
@@ -36,6 +36,7 @@
  </body>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
  <script>
+     $('input.validate, textarea.validate').characterCounter();
      document.addEventListener('DOMContentLoaded', function() {
          M.AutoInit();
      });
