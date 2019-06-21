@@ -53,7 +53,7 @@
             </div>
             <div class="input-field col s12 m12 l3">
               <i class="material-icons prefix">class</i>
-              <input type="number" name="nota_p1" class="validate" id="nota_p1" min="0" max="10" step="0.01">
+              <input type="number" name="nota_p1" class="validate" id="nota_p1" min="0" max="10" step="0.01" data-length="3">
               <label for="nota_p1">Nota Periodo 1</label>
             </div>
             <div class="input-field col s12 m12 l3">
@@ -180,6 +180,7 @@
   <script src="<?php echo constant('URL');?>public/js/nota.js"></script>
   <?php require 'views/footer.php' ?>
   <script>
+    $('input.validate, textarea.validate').characterCounter();
     $('.dropdown-trigger').dropdown();
   </script>
   <!--<script src="./public/js/buscar.js"></script>-->
