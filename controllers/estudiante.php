@@ -40,7 +40,8 @@ class Estudiante extends Controller{
             $seccion=$_POST['seccion'];
 
             $this->model->insert(['nombre'=>$nombre,'apellidos'=>$apellido, 'fecha_nacimiento'=>$fecha_nacimiento,'telefono'=>$telefono, 'email'=>$email, 'anio'=>$anio, 'direccion'=>$direccion, 'centro_escolar'=>$centroescolar, 'seccion'=>$seccion]);
-            $this->render();
+            //$this->view->render('estudiantes/index');
+            header('Location:' . constant('URL') . 'estudiante/');
         }
 
         function eliminar($dato=null)
