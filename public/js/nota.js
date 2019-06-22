@@ -37,3 +37,23 @@ function httpRequest(url, callback){
         }
     }
 }
+
+document.getElementById('ok').addEventListener('click',vacio);
+
+function vacio(){
+   var estudiante=document.getElementById('estudiante').value;
+   var materia=document.getElementById('materia').value;
+   var nota_p1=document.getElementById('nota_p1').value;
+if (estudiante==="") {
+    M.toast({html: 'El estudiante no puede estar vacio!!', classes: 'red accent-4 rounded white-text'});
+    return false;
+}
+if (materia==="") {
+    M.toast({html: 'La materia no puede estar vacia!!', classes: 'red accent-4 rounded white-text'});
+    return false;
+}
+if (nota_p1==="") {
+    M.toast({html: 'La nota de el periodo 1 no puede estar vacia!!', classes: 'red accent-4 rounded white-text'});
+    return false;
+} 
+}

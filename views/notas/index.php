@@ -21,7 +21,7 @@
           <div class="row red-text text-accent-4">
             <div class="input-field col s12">
               <i class="material-icons prefix">rate_review</i>
-              <select name="idestudiante" required>
+              <select name="idestudiante" id="estudiante" required>
                 <option value="" disabled selected>Estudiante</option>
                 <?php
                 require_once 'models/estudiantes.php';
@@ -37,7 +37,7 @@
             </div>
             <div class="input-field col s12 m12 l12">
               <i class="material-icons prefix">class</i>
-              <select name="idmateria" required>
+              <select name="idmateria" id="materia" required>
                 <option value="" disabled selected>Materia</option>
                 <?php
                 require_once 'models/materias.php';
@@ -53,29 +53,29 @@
             </div>
             <div class="input-field col s12 m12 l3">
               <i class="material-icons prefix">class</i>
-              <input type="number" name="nota_p1" class="validate" id="nota_p1" min="0" max="10" step="0.01" data-length="3">
+              <input type="number" name="nota_p1" class="validate" id="nota_p1" min="0" max="10" step="0.01" data-length="3" required>
               <label for="nota_p1">Nota Periodo 1</label>
             </div>
             <div class="input-field col s12 m12 l3">
               <i class="material-icons prefix">class</i>
-              <input type="number" name="nota_p2" class="validate" id="nota_p2" min="0" max="10" step="0.01">
+              <input type="number" name="nota_p2" class="validate" id="nota_p2" min="0" max="10" step="0.01" data-length="3">
               <label for="nota_p2">Nota Periodo 2</label>
             </div>
             <div class="input-field col s12 m12 l3">
               <i class="material-icons prefix">class</i>
-              <input type="number" name="nota_p3" class="validate" id="nota_p3" min="0" max="10" step="0.01">
+              <input type="number" name="nota_p3" class="validate" id="nota_p3" min="0" max="10" step="0.01" data-length="3">
               <label for="nota_p3">Nota Periodo 3</label>
             </div>
             <div class="input-field col s12 m12 l3">
               <i class="material-icons prefix">class</i>
-              <input type="number" name="nota_p4" class="validate" id="nota_p4" min="0" max="10" step="0.01">
+              <input type="number" name="nota_p4" class="validate" id="nota_p4" min="0" max="10" step="0.01" data-length="3">
               <label for="nota_p4">Nota Periodo 4</label>
             </div>
           </div>
           <!-- footer del formulario modal -->
           <div class="modal-footer">
                         <div class="center-align">
-            <button class="modal-close btn boton-save white-text" type="submit">Guardar
+            <button class="btn boton-save white-text" type="submit" id="ok">Guardar
               <i class="material-icons left">send</i>
             </button>&nbsp;&nbsp;
             <a class="modal-close white-text boton-delete btn">Cancelar <i class="material-icons left">close</i></a>
