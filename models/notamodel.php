@@ -214,32 +214,28 @@
         }
 
         function promedios($notas){
-            $primer_registro = reset($notas);
-            $id = $primer_registro->idestudiante;
-            echo $id;
+            $last = end($notas);
+            $id = $last->idestudiante;
             $suma = 0;
             $contador = 0;
             $datos = [];
-            foreach ($notas as $nota) {
-                echo "Id actual :".$id." idestudiante :".$nota->idestudiante."<br>";
-               if ($id == $nota->idestudiante) {
-                    $suma += $nota->nota_p2;
-                    $contador++;
-                    $idest = $nota->idestudiante;
-                    $nombre = $nota->nota_p1;
-                    //$id = $idest+1;
-               }else{
-                    $id++;
-                    $dato = ['idestudiante' => $idest,
-                            'estudiante' => $nombre,
-                            'promedio' => $suma/$contador];
-                    array_push($datos, $dato);
-                   
-               }
-               
+            $idest = 0;
+            $nombre = '';
+            for ($i=1; $i <=$id; $i++) { 
+                foreach ($notas as $nota ) {
+                    if ($nota->idestudiante == $i) {
+                        $suma += $nota->nota_p2;
+                        $contador++;
+                        $idest = $nota->idestudiante;
+                        $nombre = $nota->nota_p1;
+                   }
+                }
+                $dato = ['idestudiante' => $idest,
+                        'estudiante' => $nombre,
+                        'promedio' => $suma/$contador];
+                array_push($datos, $dato);
             }
             return $datos;
-            //return "Suma: ".$suma." contador: ".$contador;
         }
     }
 ?>
