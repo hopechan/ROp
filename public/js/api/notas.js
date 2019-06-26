@@ -8,15 +8,14 @@ class Notas{
         let items = await(Api.getAll(`${this.URL_BASE}${tipo}`));
         //let datos = items.map(({idestudiante,estudiante,materia,promedio}) => ).join('');
         //const obtenerPromPorId = array => array.filter(({idestudiante}) => idestudiante == 1)
-        var filtros = {};
-        items.forEach( item => {
-            let filtro = filtros[item.estudiante] = filtros[item.estudiante] || {};
+        var filtros = items.map(item =>{
+            return item.promedio.map(promedio => {return {estudiante:item.estudiante, promedio=item.promedio}})
         });
+        
         console.log(items);      
-        console.log(JSON.stringify(filtros));
-        return filtros;
+        console.log(filtros);
+        //return filtros;
     }
-
 }
 
 export default Notas;

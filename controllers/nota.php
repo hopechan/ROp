@@ -98,7 +98,9 @@ class Nota extends Controller{
 
     function CCGK(){
         $notas = $this->model->getNotasByTipo(1);
-        echo json_encode($notas, JSON_PRETTY_PRINT);
+        $promedios = $this->model->promedios($notas);
+        echo json_encode($promedios);
+        //echo json_encode($notas, JSON_PRETTY_PRINT);
     }
 
     function CE(){

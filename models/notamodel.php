@@ -187,7 +187,18 @@
                         ORDER BY n.idestudiante";
                 $query = $this->db->conn()->query($sql); 
                 while ($row = $query->fetch()) {
-                    $item = array();
+                    $item = new Notas();
+                    $item->idnota = $row['idnota']; //idnota
+                    $item->idestudiante = $row['idestudiante']; //idestudiante 
+                    $item->idmateria = $row['materia']; //materia
+                    $item->nota_p1 = $row['estudiante']; //estudiante
+                    $item->nota_p2 = $row['promedio']; //promedio
+                    array_push($items, $item);
+                }
+                /*
+                while ($row = $query->fetch()) {
+                    $item = new Nota();
+
                     $item = ['idestudiante' => $row['idestudiante'], 
                             'idnota' => $row['idnota'], 
                             'estudiante'=> $row['estudiante'],
@@ -195,10 +206,40 @@
                             'promedio' => $row['promedio']];
                     array_push($items, $item);
                 }
+                */
                 return $items;
             } catch(PDOException $e){
                 return [];
             }
+        }
+
+        function promedios($notas){
+            $primer_registro = reset($notas);
+            $id = $primer_registro->idestudiante;
+            echo $id;
+            $suma = 0;
+            $contador = 0;
+            $datos = [];
+            foreach ($notas as $nota) {
+                echo "Id actual :".$id." idestudiante :".$nota->idestudiante."<br>";
+               if ($id == $nota->idestudiante) {
+                    $suma += $nota->nota_p2;
+                    $contador++;
+                    $idest = $nota->idestudiante;
+                    $nombre = $nota->nota_p1;
+                    //$id = $idest+1;
+               }else{
+                    $id++;
+                    $dato = ['idestudiante' => $idest,
+                            'estudiante' => $nombre,
+                            'promedio' => $suma/$contador];
+                    array_push($datos, $dato);
+                   
+               }
+               
+            }
+            return $datos;
+            //return "Suma: ".$suma." contador: ".$contador;
         }
     }
 ?>

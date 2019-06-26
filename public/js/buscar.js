@@ -25,7 +25,7 @@ function getAll(callback) {
         }
     };
     xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-    xmlhttp.send(data);
+    xmlhttp.send();
 }
 
 function llenarTabla(items) {
