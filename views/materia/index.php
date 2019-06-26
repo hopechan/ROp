@@ -28,7 +28,7 @@
                     <div class="row red-text text-accent-4">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">rate_review</i>
-                            <select name="idtipo" required>
+                            <select name="idtipo" id="idtipo" required>
                                 <option value="" disabled selected>Seleccione el IdTipo</option>
                                 <?php
                                 require_once 'models/tipos.php';
@@ -44,7 +44,7 @@
                         </div>
                         <div class="input-field col s12" >
                             <i class="material-icons prefix">class</i>
-                            <select name="materia" required>
+                            <select name="materia" id="materia" required>
                                 <option value="" disabled selected>Seleccione la materia</option>
                                 <option value="Matemática">Matemática</option>
                                 <option value="Sociales">Sociales</option>
@@ -62,7 +62,7 @@
                     <!-- footer del formulario modal -->
                     <div class="modal-footer">
                         <div class="center-align">
-                        <button class="modal-close btn boton-save white-text" type="submit">Guardar
+                        <button class="btn boton-save white-text" type="submit" id="btn">Guardar
                             <i class="material-icons left">send</i>
                         </button>&nbsp;&nbsp;
                         <a class="modal-close white-text boton-delete btn">Cancelar <i class="material-icons left">close</i></a>

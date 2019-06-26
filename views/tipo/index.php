@@ -41,7 +41,7 @@
                 <!-- footer del formulario modal -->
                 <div class="modal-footer">
                         <div class="center-align">
-                    <button class="modal-close btn boton-save white-text" id="btn">Guardar
+                    <button class="btn boton-save white-text" id="btn">Guardar
                         <i class="material-icons left">send</i>
                     </button>&nbsp;&nbsp;
                     <a class="modal-close btn-flat white-text boton-delete btn">Cancelar <i class="material-icons left">close</i></a>

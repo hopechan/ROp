@@ -37,3 +37,18 @@ function httpRequest(url, callback){
         }
     }
 }
+
+document.getElementById('btn').addEventListener('click',vacio);
+
+function vacio(){
+   var idtipo=document.getElementById('idtipo').value;
+   var materia=document.getElementById('materia').value;
+if (idtipo==="") {
+    M.toast({html: 'El tipo no puede estar vacio!!', classes: 'red accent-4 rounded white-text'});
+    return false;
+}
+if (materia==="") {
+    M.toast({html: 'La materia no puede estar vacia!!', classes: 'red accent-4 rounded white-text'});
+    return false;
+}
+}

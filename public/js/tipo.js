@@ -27,9 +27,14 @@ function asignarEventos(){
 function accion(){
 var tipo=document.getElementById('Tipo').value;
 var descripcion=document.getElementById('Descripcion').value;
-if(tipo=="" && descripcion==""){
-M.toast({html: 'Por favor ingrese algo!', classes: 'red accent-4 rounded white-text'}); 
-    return;
+
+if (tipo==="") {
+    M.toast({html: 'La evaluación no puede estar vacia!!', classes: 'red accent-4 rounded white-text'});
+    return false;
+}
+if (descripcion==="") {
+    M.toast({html: 'La descripcion no puede estar vacia!!', classes: 'red accent-4 rounded white-text'});
+    return false;
 }
 var peticion=new XMLHttpRequest();
 
@@ -44,6 +49,7 @@ var peticion=new XMLHttpRequest();
     peticion.setRequestHeader('Content-type','application/x-www-form-urlencoded');
     peticion.send('tipo='+tipo+'&descripcion='+descripcion);
     M.toast({html: 'Tipo agregado correctamente!', classes: 'green rounded white-text'});
+    $('.modal').modal('close');
 }
 
 function actualizar(){
@@ -59,7 +65,7 @@ function eliminar(){
                     //console.log(this.responseText);
                     if(this.responseText=="si"){
                     recargar();
-                    M.toast({html: 'Tipo eliminado correctamente!', classes: 'green rounded white-text'});  
+                    M.toast({html: 'Tipo eliminado correctamente!', classes: 'green rounded white-text'}); 
                     }else{
                     M.toast({html: 'Tipo no eliminado!', classes: 'red accent-4 rounded white-text'});
                     }
