@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,6 +86,7 @@
 
 </html>
 <script type="text/javascript">
+//funcion que hace q al cargar la pag este abierto el modal y solo se pueda cerrar con cancelar
     function cargar_pagina() {
         $('.modal').modal({
         dismissible: false, // Modal can be dismissed by clicking outside of the modal

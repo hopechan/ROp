@@ -73,6 +73,7 @@
         </div>
     </div>
     <div class="container">
+        <!--Tabla de la vista de materia-->
         <table id="tabla" class="centered highlight responsive-table">
             <thead class="black white-text">
                 <tr>
@@ -94,6 +95,7 @@
                         <td hidden><?php echo $materia->idmateria; ?></td>
                         <td><?php echo $materia->materia; ?></td>
                         <td><?php echo $materia->tipo; ?></td>
+                        <!--botones-->
                         <td><a href="<?php echo constant('URL') . 'materia/verMateria/' . $materia->idmateria; ?>" class="btn-floating btn-medium waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></button></a>
                         <button class="btn-floating btn-medium waves-effect waves-black btn-flat white-text red accent-4 btn btndrop" data-id="<?php echo $materia->idmateria; ?>"><i class="material-icons">delete</i></button></td>
                         <!-- <td><a href="<?php echo constant('URL') . 'materia/eliminarMateria/'  ?>" class="left btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 btn"></a></td> -->
@@ -101,6 +103,7 @@
                 <?php } ?>
             </tbody>
         </table>
+        <!--Paginacion-->
         <div class="row">
             <div class="col l12 m12 s12">
             <ul class="pagination center">

@@ -10,6 +10,7 @@
 <?php require 'views/header.php' ?>
 <?php require 'views/navbar.php' ?>
     <div class="container">
+        <!--boton para agregar-->
     <div class="row">
             <div class="col s12 center">
                 <p>Actualizar Estudiante</p>
@@ -17,6 +18,7 @@
             </div>
     </div>
     </div>
+    <!--Modal para agregar-->
     <div class="row tamaño">
             <div class="col s12 m12 l12">
                 <div id="modal1" class="modal modal-fixed-footer tamaño">
