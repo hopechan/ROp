@@ -6,7 +6,7 @@
         public function __construct() {
             parent::__construct();
         }
-        
+
         function get($pag){
             $items = [];
             $registrosxpagina = 5;
@@ -49,7 +49,6 @@
                     $item = new Materias();
                     $item->idmateria = $row['idmateria'];
                     $item->materia   = $row['materia'];
-                    
                     array_push($items, $item);
                 }
                 return $items;
@@ -105,8 +104,8 @@
         function insert($datos){
             try {
                 $sql= 'INSERT INTO nota (idestudiante, idmateria, nota_p1, nota_p2, nota_p3, nota_p4) VALUES (:idestudiante, :idmateria, :nota_p1, :nota_p2, :nota_p3, :nota_p4)';
-                $query = $this->db->conn()->prepare($sql);
                 $query->bindParam(':idestudiante',$datos['idestudiante'], PDO::PARAM_INT);
+                $query = $this->db->conn()->prepare($sql);
                 $query->bindParam(':idmateria',$datos['idmateria'], PDO::PARAM_INT);
                 $query->bindParam(':nota_p1',$datos['nota_p1'], PDO::PARAM_INT);
                 $query->bindParam(':nota_p2',$datos['nota_p2'], PDO::PARAM_INT);
@@ -132,7 +131,6 @@
 
         public function getById($id){
             $item = new Notas();
-    
             $query = $this->db->conn()->prepare("SELECT n.idnota, n.idestudiante,e.nombre,e.apellidos,n.idmateria, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4, m.materia,m.idmateria
             FROM NOTA AS n
             INNER JOIN estudiante as e ON e.idestudiante = n.idestudiante
@@ -180,16 +178,16 @@
             $items = [];
             try {
                 $sql = "SELECT e.idestudiante, n.idnota,CONCAT(e.nombre, ' ', e.apellidos) as estudiante,m.materia, ((n.nota_p1 + n.nota_p2 + n.nota_p3 + n.nota_p4)/4) as promedio 
-                        FROM nota as n 
-                        INNER JOIN estudiante as e ON e.idestudiante = n.idestudiante 
-                        INNER JOIN materia as m ON m.idmateria = n.idmateria 
+                        FROM nota as n
+                        INNER JOIN estudiante as e ON e.idestudiante = n.idestudiante
+                        INNER JOIN materia as m ON m.idmateria = n.idmateria
                         WHERE m.idtipo = '".$tipo."'
                         ORDER BY n.idestudiante";
-                $query = $this->db->conn()->query($sql); 
+                $query = $this->db->conn()->query($sql);
                 while ($row = $query->fetch()) {
                     $item = new Notas();
                     $item->idnota = $row['idnota']; //idnota
-                    $item->idestudiante = $row['idestudiante']; //idestudiante 
+                    $item->idestudiante = $row['idestudiante']; //idestudiante
                     $item->idmateria = $row['materia']; //materia
                     $item->nota_p1 = $row['estudiante']; //estudiante
                     $item->nota_p2 = $row['promedio']; //promedio
@@ -221,14 +219,14 @@
             $datos = [];
             $idest = 0;
             $nombre = '';
-            for ($i=1; $i <=$id; $i++) { 
+            for ($i=1; $i <=$id; $i++) {
                 foreach ($notas as $nota ) {
                     if ($nota->idestudiante == $i) {
                         $suma += $nota->nota_p2;
                         $contador++;
                         $idest = $nota->idestudiante;
                         $nombre = $nota->nota_p1;
-                   }
+                    }
                 }
                 $dato = ['idestudiante' => $idest,
                         'estudiante' => $nombre,
@@ -236,6 +234,12 @@
                 array_push($datos, $dato);
             }
             return $datos;
+        }
+
+        function listaFinal($notasCCGK, $notasCE){
+            $lista = array_merge($notasCCGK, $notasCE);
+            $listaOrdenada = sort($lista);
+            return $lista;
         }
     }
 ?>

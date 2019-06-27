@@ -14,9 +14,8 @@
         $this->view->render("mains/index");
         }
 
-        function ranking(){
-            # code...
+        function ranking10porciento(){
+            
         }
     }
-    
 ?>

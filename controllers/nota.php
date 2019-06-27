@@ -26,7 +26,6 @@ class Nota extends Controller{
             $this->view->estudiantes = $estudiantes;
             $this->view->render("notas/index");
         }
-        
     }
 
     function agregarNota(){
@@ -57,7 +56,7 @@ class Nota extends Controller{
         }
         echo $mensaje;
     }
-    
+
     function verNota($param = null){
         $idNota = $param[0];
         $nota = $this->model->getById($idNota);
@@ -105,12 +104,28 @@ class Nota extends Controller{
 
     function CE(){
         $notas = $this->model->getNotasByTipo(2);
-        echo json_encode($notas, JSON_PRETTY_PRINT);
+        $promedios = $this->model->promedios($notas);
+        echo json_encode($promedios);
+        //echo json_encode($notas, JSON_PRETTY_PRINT);
     }
 
     function certificaciones(){
         $notas = $this->model->getNotasByTipo(3);
-        echo json_encode($notas, JSON_PRETTY_PRINT);
+        $promedios = $this->model->promedios($notas);
+        echo json_encode($promedios);
+        //echo json_encode($notas, JSON_PRETTY_PRINT);
+    }
+
+    function listaFinal(){
+        $notasCCGK = $this->model->getNotasByTipo(1);
+        $promCCGK = $this->model->promedios($notasCCGK);
+
+        $notasCE = $this->model->getNotasByTipo(2);
+        $promCE = $this->model->promedios($notasCE);
+
+        $lista = $this->model->listaFinal($promCCGK, $promCE);
+        $lista_final = $this->model->promedios($lista);
+        echo json_encode($lista_final);
     }
 }
 ?>
