@@ -22,9 +22,6 @@
   }
   ?>
   <div class="container">
-  <div class="col s12 m12 l12">
-        <img src="<?php echo constant('URL');?>public/img/user2.jpg" alt="tripofobia">
-      </div>
     <div class="row">
       <!--Card uno-->
       <div class="col s12 m3">
