@@ -71,7 +71,6 @@
     
   </div>
   <!--Incluyendo Grafica de ranking-->
-  <script src="<?php echo constant('URL');?>public/js/grafica.js"></script>
   <?php require 'views/footer.php' ?>
 </body>
 
