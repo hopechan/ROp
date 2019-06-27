@@ -211,11 +211,10 @@
             }
         }
 
-        function promedios($notas){
+        function promedios($notas, $divisor){
             $last = end($notas);
             $id = $last->idestudiante;
             $suma = 0;
-            $contador = 0;
             $datos = [];
             $idest = 0;
             $nombre = '';
@@ -223,14 +222,13 @@
                 foreach ($notas as $nota ) {
                     if ($nota->idestudiante == $i) {
                         $suma += $nota->nota_p2;
-                        $contador++;
                         $idest = $nota->idestudiante;
                         $nombre = $nota->nota_p1;
                     }
                 }
                 $dato = ['idestudiante' => $idest,
                         'estudiante' => $nombre,
-                        'promedio' => $suma/$contador];
+                        'promedio' => $suma/$divisor];
                 array_push($datos, $dato);
             }
             return $datos;
