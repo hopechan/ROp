@@ -238,8 +238,28 @@
 
         function listaFinal($notasCCGK, $notasCE){
             $lista = array_merge($notasCCGK, $notasCE);
-            $listaOrdenada = sort($lista);
-            return $lista;
+            $last = end($lista);
+            $id = $last['idestudiante'];
+            $suma = 0;
+            $contador = 0;
+            $ranking = [];
+            $idest = 0;
+            $nombre = '';
+            for ($i=1; $i <=$id; $i++) {
+                foreach ($lista as $l ) {
+                    if ($l['idestudiante'] == $i) {
+                        $suma += $l['promedio'];
+                        $contador++;
+                        $idest = $l['idestudiante'];
+                        $nombre = $l['estudiante'];
+                    }
+                }
+                $pos = ['idestudiante' => $idest,
+                        'estudiante' => $nombre,
+                        'promedio' => $suma/$contador];
+                array_push($ranking, $pos);
+            }
+            return $ranking;
         }
     }
 ?>

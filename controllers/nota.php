@@ -124,8 +124,7 @@ class Nota extends Controller{
         $promCE = $this->model->promedios($notasCE);
 
         $lista = $this->model->listaFinal($promCCGK, $promCE);
-        $lista_final = $this->model->promedios($lista);
-        echo json_encode($lista_final);
+        echo json_encode($lista);
     }
 }
 ?>
