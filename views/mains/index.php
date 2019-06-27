@@ -22,6 +22,9 @@
   }
   ?>
   <div class="container">
+  <div class="col s12 m12 l12">
+        <img src="<?php echo constant('URL');?>public/img/user2.jpg" alt="tripofobia">
+      </div>
     <div class="row">
       <!--Card uno-->
       <div class="col s12 m3">
@@ -65,6 +68,8 @@
       </div>
     <br>
     <div id="container" style="min-width: 200px; height: 400px; margin: 0 auto"></div>
+    <div class="row">
+    </div>
   </div>
     
   </div>
