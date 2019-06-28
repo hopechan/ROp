@@ -6,6 +6,7 @@ class MainModel extends Model
     {
         parent::__construct();
     }
+
     function getNotas()
     {
         $items = [];
@@ -29,6 +30,7 @@ class MainModel extends Model
             return [];
         }
     }
+
     function getEstudiantes()
     {
         $items = [];
@@ -64,4 +66,10 @@ class MainModel extends Model
             return [];
         }
     }
+
+    function getById(Type $var = null)
+    {
+        # code...
+    }
+
 }

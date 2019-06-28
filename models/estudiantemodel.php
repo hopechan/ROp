@@ -124,4 +124,5 @@ class EstudianteModel extends Model
             return "La consulta fallo :v";
         }
     }
+
 }
