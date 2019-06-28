@@ -104,8 +104,8 @@
         function insert($datos){
             try {
                 $sql= 'INSERT INTO nota (idestudiante, idmateria, nota_p1, nota_p2, nota_p3, nota_p4) VALUES (:idestudiante, :idmateria, :nota_p1, :nota_p2, :nota_p3, :nota_p4)';
-                $query->bindParam(':idestudiante',$datos['idestudiante'], PDO::PARAM_INT);
                 $query = $this->db->conn()->prepare($sql);
+                $query->bindParam(':idestudiante',$datos['idestudiante'], PDO::PARAM_INT);
                 $query->bindParam(':idmateria',$datos['idmateria'], PDO::PARAM_INT);
                 $query->bindParam(':nota_p1',$datos['nota_p1'], PDO::PARAM_INT);
                 $query->bindParam(':nota_p2',$datos['nota_p2'], PDO::PARAM_INT);

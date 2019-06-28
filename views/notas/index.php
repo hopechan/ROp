@@ -22,7 +22,7 @@
               <div class="row red-text text-accent-4">
                 <div class="input-field col s12">
                   <i class="material-icons prefix">rate_review</i>
-                  <select name="idestudiante" id="estudiante" required>
+                  <select name="idestudiante" id="estudiante">
                     <option value="" disabled selected>Estudiante</option>
                     <?php
                     require_once 'models/estudiantes.php';
@@ -38,7 +38,7 @@
                 </div>
                 <div class="input-field col s12 m12 l12">
                   <i class="material-icons prefix">class</i>
-                  <select name="idmateria" id="materia" required>
+                  <select name="idmateria" id="materia">
                     <option value="" disabled selected>Materia</option>
                     <?php
                     require_once 'models/materias.php';
@@ -54,7 +54,7 @@
                 </div>
                 <div class="input-field col s12 m12 l3">
                   <i class="material-icons prefix">class</i>
-                  <input type="number" name="nota_p1" class="validate" id="nota_p1" min="0" max="10" step="0.01" data-length="3" required>
+                  <input type="number" name="nota_p1" class="validate" id="nota_p1" step="0.01">
                   <label for="nota_p1">Nota Periodo 1</label>
                 </div>
                 <div class="input-field col s12 m12 l3">
