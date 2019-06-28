@@ -229,6 +229,7 @@
                 $dato = ['idestudiante' => $idest,
                         'estudiante' => $nombre,
                         'promedio' => $suma/$divisor];
+                $suma = 0;
                 array_push($datos, $dato);
             }
             return $datos;
@@ -239,7 +240,6 @@
             $last = end($lista);
             $id = $last['idestudiante'];
             $suma = 0;
-            $contador = 0;
             $ranking = [];
             $idest = 0;
             $nombre = '';
@@ -247,14 +247,14 @@
                 foreach ($lista as $l ) {
                     if ($l['idestudiante'] == $i) {
                         $suma += $l['promedio'];
-                        $contador++;
                         $idest = $l['idestudiante'];
                         $nombre = $l['estudiante'];
                     }
                 }
                 $pos = ['idestudiante' => $idest,
                         'estudiante' => $nombre,
-                        'promedio' => $suma/$contador];
+                        'promedio' => $suma/3];
+                $suma = 0;
                 array_push($ranking, $pos);
             }
             return $ranking;

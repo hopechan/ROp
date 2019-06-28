@@ -97,14 +97,14 @@ class Nota extends Controller{
 
     function CCGK(){
         $notas = $this->model->getNotasByTipo(1);
-        $promedios = $this->model->promedios($notas);
+        $promedios = $this->model->promedios($notas, 5);
         echo json_encode($promedios);
         //echo json_encode($notas, JSON_PRETTY_PRINT);
     }
 
     function CE(){
         $notas = $this->model->getNotasByTipo(2);
-        $promedios = $this->model->promedios($notas);
+        $promedios = $this->model->promedios($notas, 4);
         echo json_encode($promedios);
         //echo json_encode($notas, JSON_PRETTY_PRINT);
     }
