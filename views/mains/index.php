@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script type="module" src="<?php echo constant('URL')?>public/js/ranking.js"></script>
+  <script type="module" src="<?php echo constant('URL') ?>public/js/ranking.js"></script>
   <title>Ranking</title>
 </head>
 
@@ -14,58 +14,66 @@
   <?php require 'views/navbar.php' ?>
   <br>
   <?php
-  $total=$this->total->idestudiante;
-  if($total<=10){
-    $ranking=$total;
-  }else{
-  $ranking=$total*0.1;  
+  $total = $this->total->idestudiante;
+  if ($total <= 10) {
+    $ranking = $total;
+  } else {
+    $ranking = $total * 0.1;
   }
   ?>
   <div class="container">
     <div class="row">
       <!--Card uno-->
       <div class="col s12 m3">
-        <div class="card teal black">
-          <div class="card-content white-text">
-            <i class=" medium material-icons red-text text-accent-4 right">school</i>
-            <span class="card-title center"> Ranking Estudiantes</span>
-            <p class="center"><?php echo "N°".round($ranking)?></p>
+        <a href="#">
+          <div class="card teal black">
+            <div class="card-content white-text">
+              <i class=" medium material-icons red-text text-accent-4 right">school</i>
+              <span class="card-title center"> Ranking Estudiantes</span>
+              <p class="center"><?php echo "N°" . round($ranking) ?></p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <!--Card dos-->
       <div class="col s12 m3">
-        <div class="card teal black">
-          <div class="card-content white-text">
-            <i class=" medium material-icons red-text text-accent-4 right">language</i>
-            <span class="card-title center">Todos los estudiantes</span>
-            <p class="center"><?php echo "N°".$total; ?></p>
+        <a href="#">
+          <div class="card teal black">
+            <div class="card-content white-text">
+              <i class=" medium material-icons red-text text-accent-4 right">language</i>
+              <span class="card-title center">Todos los estudiantes</span>
+              <p class="center"><?php echo "N°" . $total; ?></p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <!--Card tres-->
       <div class="col s12 m3">
-        <div class="card teal black">
-          <div class="card-content white-text">
-            <i class=" medium material-icons red-text text-accent-4 right">poll</i>
-            <span class="card-title center">Más datos del rarnking</span>
-            <p class="center">Ranking</p>
+        <a href="#">
+          <div class="card teal black">
+            <div class="card-content white-text">
+              <i class=" medium material-icons red-text text-accent-4 right">poll</i>
+              <span class="card-title center">Más datos del rarnking</span>
+              <p class="center">Ranking</p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <!--Card cuantro-->
       <div class="col s12 m3">
-        <div class="card teal black">
-          <div class="card-content white-text">
-            <i class=" medium material-icons red-text text-accent-4 right">dvr</i>
-            <span class="card-title center">Información del Ranking</span>
-            <p class="center">Ranking</p>
-          </div>
-        </div>
+        <a href="#">
+          <div class="card teal black">
+            <div class="card-content white-text">
+              <i class=" medium material-icons red-text text-accent-4 right">dvr</i>
+              <span class="card-title center">Información del Ranking</span>
+              <p class="center">Ranking</p>
+            </div>
+        </a>
       </div>
+    </div>
     <br>
     <canvas id="ranking"></canvas>
-    </div>
+  </div>
   </div>
   <!--Incluyendo Grafica de ranking-->
   <?php require 'views/footer.php' ?>
