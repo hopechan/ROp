@@ -6,7 +6,7 @@ class Estudiante extends Controller{
             
     }
     function render(){
-        
+        $this->view->result = 0;
         $this->view->render("estudiantes/index");
     }
 
@@ -28,7 +28,6 @@ class Estudiante extends Controller{
     function insert()
         {
             //se reciven los datos del formulario de estudiante/index.php
-            //echo "Estoy por aqui";
             $nombre=$_POST['txtNombre'];
             $apellido=$_POST['txtApellido'];
             $fecha_nacimiento=$_POST['fecha'];
@@ -39,9 +38,8 @@ class Estudiante extends Controller{
             $centroescolar=$_POST['centroescolar'];
             $seccion=$_POST['seccion'];
 
-            $this->model->insert(['nombre'=>$nombre,'apellidos'=>$apellido, 'fecha_nacimiento'=>$fecha_nacimiento,'telefono'=>$telefono, 'email'=>$email, 'anio'=>$anio, 'direccion'=>$direccion, 'centro_escolar'=>$centroescolar, 'seccion'=>$seccion]);
-            //$this->view->render('estudiantes/index');
-            header('Location:' . constant('URL') . 'estudiante/');
+            $result = $this->model->insert(['nombre'=>$nombre,'apellidos'=>$apellido, 'fecha_nacimiento'=>$fecha_nacimiento,'telefono'=>$telefono, 'email'=>$email, 'anio'=>$anio, 'direccion'=>$direccion, 'centro_escolar'=>$centroescolar, 'seccion'=>$seccion]);
+           $this->render('estudiantes/index');
         }
 
         function eliminar($dato=null)

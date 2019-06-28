@@ -23,7 +23,7 @@ class EstudianteModel extends Model
             $query->bindParam(':direccion', $datos['direccion'], PDO::PARAM_STR);
             $query->bindParam(':seccion', $datos['seccion'], PDO::PARAM_STR);
             $query->bindParam(':centro_escolar', $datos['centro_escolar'], PDO::PARAM_STR);
-            $PDOexe = $query->execute();
+            $result = $PDOexe = $query->execute();
         } catch (PDOException $e) {
             return "La consulta fallo :v";
         }

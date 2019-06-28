@@ -10,10 +10,42 @@ $(document).ready(function(){
     var centro_escolar = document.getElementById('ce').value;
     var seccion = document.getElementById('seccion').value;
 
-    if (nombre == '' || apellido == '' || fecha_nacimiento == '' || telefono == '' || email == '' || anio == '' || direccion == '' || centro_escolar == '' || seccion == '') {
-                alert('Por favor complete todos los campos');
-                return false;
-            }    
+        if (nombre == '') {
+            M.toast({html: "El campo nombre no puede quedar vacío", classes: "red accent-4 rounded white-text"});
+            return false;
+        }
+        if (apellido == '') {
+            M.toast({html: "El campo apellido no puede quedar vacío", classes: "red accent-4 rounded white-text"});
+            return false;
+        }
+        if (fecha_nacimiento == '') {
+            M.toast({html: "El campo fecha no puede quedar vacío", classes: "red accent-4 rounded white-text"});
+            return false;
+        }
+        if (telefono == '') {
+            M.toast({html: "El campo teléfono no puede quedar vacío", classes: "red accent-4 rounded white-text"});
+            return false; 
+        }
+        if (email == '') {
+            M.toast({html: "El campo e-mail no puede quedar vacío", classes: "red accent-4 rounded white-text"});
+            return false;
+        }
+        if (anio == '') {
+            M.toast({html: "El campo año no puede quedar vacío", classes: "red accent-4 rounded white-text"});
+            return false;
+        }
+        if (direccion == '') {
+            M.toast({html: "El campo dirección no puede quedar vacío", classes: "red accent-4 rounded white-text"});
+            return false; 
+        }
+        if (centro_escolar == '') {
+            M.toast({html: "El campo Centro Escolar no puede quedar vacío", classes: "red accent-4 rounded white-text"});
+            return false;
+        }
+        if (seccion == '') {
+            M.toast({html: "El campo sección no puede quedar vacío", classes: "red accent-4 rounded white-text"});
+            return false;
+        }
     })
 })
 
