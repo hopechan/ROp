@@ -64,11 +64,8 @@
         </div>
       </div>
     <br>
-    <div id="container" style="min-width: 200px; height: 400px; margin: 0 auto"></div>
-    <div class="row">
+    <canvas id="ranking"></canvas>
     </div>
-  </div>
-    
   </div>
   <!--Incluyendo Grafica de ranking-->
   <?php require 'views/footer.php' ?>

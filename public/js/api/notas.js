@@ -9,35 +9,35 @@ class Notas{
         let ranking = items.sort((a,b) =>(b.promedio > a.promedio) ? 1 : -1);
         let nombres = items.map(items => items.estudiante);
         let proms = items.map(items => items.promedio);
-        Highcharts.chart('container', {
-            chart:{
-                type: 'column'
+        let grafico = document.querySelector('#ranking');
+        let g = new Chart(grafico, {
+            type: 'bar',
+            data:{
+                labels: nombres,
+                datasets:[
+                    {
+                        label: "Promedio",
+                        backgroundColor: ['#FF1000', '#808080', '#000000', '#FF0000', '#808080', '#000000', '#FF0000', '#808080', '#000000', '#FF0000'],
+                        data:proms
+                    }
+                ]
             },
-            title :{
-                text: 'TOP Ranking Oportunidades'
-            },
-            yAxis:{
+            options:{
+                legend:{display:false},
                 title:{
-                    text: 'Promedio'
-                }
-            },
-            xAxis:{
-                categories:nombres
-            },
-            legend:{
-                enable:false
-            },
-            tooltip: {
-                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> de nota<br/>'
-            },
-            series:[{
-                name: "Estudiante",
-                colorByPoint: true,
-                data: proms
-            }]
+                    display: true,
+                    text: "Top 10 Ranking Oportunidades"
+                },
+            }
         });
-        return ranking;
+        grafico.onclick = function(evt){
+			var activePoints = g.getElementsAtEvent(evt);
+			var firstPoint = activePoints[0];
+			var label = g.data.labels[firstPoint._index];
+			var value = g.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
+			if (firstPoint !== undefined)
+				alert(label + ": " + value);
+		};
     }
 }
 export default Notas;
