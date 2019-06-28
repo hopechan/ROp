@@ -1,4 +1,8 @@
+window.addEventListener('load',listener);
 
+function listener(){
+    document.getElementById('tipe-form').addEventListener('submit',vacio);
+}
 const botones = document.querySelectorAll(".btndrop");
 
 botones.forEach(boton => {
@@ -38,22 +42,33 @@ function httpRequest(url, callback){
     }
 }
 
-document.getElementById('ok').addEventListener('click',vacio);
-
-function vacio(){
+function vacio(e){
    var estudiante=document.getElementById('estudiante').value;
    var materia=document.getElementById('materia').value;
    var nota_p1=document.getElementById('nota_p1').value;
 if (estudiante==="") {
+    e.preventDefault();
     M.toast({html: 'El estudiante no puede estar vacio!!', classes: 'red accent-4 rounded white-text'});
     return false;
 }
 if (materia==="") {
+    e.preventDefault();
     M.toast({html: 'La materia no puede estar vacia!!', classes: 'red accent-4 rounded white-text'});
     return false;
 }
 if (nota_p1==="") {
+    e.preventDefault();
     M.toast({html: 'La nota de el periodo 1 no puede estar vacia!!', classes: 'red accent-4 rounded white-text'});
     return false;
-} 
+}
+if (nota_p1<0) {
+    e.preventDefault();
+    M.toast({html: 'La nota de el periodo 1 no puede ser menor a 0!!', classes: 'red accent-4 rounded white-text'});
+    return false;
+}
+if(nota_p1>10){
+    e.preventDefault();
+    M.toast({html: 'La nota de el periodo 1 no puede ser mayor a 10!!', classes: 'red accent-4 rounded white-text'});
+    return false;
+}
 }
