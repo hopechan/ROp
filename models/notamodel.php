@@ -2,6 +2,7 @@
     include_once 'models/notas.php';
     include_once 'models/materias.php';
     include_once 'models/estudiantes.php';
+    include_once 'models/tipos.php';
     class NotaModel extends Model{
         public function __construct() {
             parent::__construct();
@@ -12,10 +13,11 @@
             $registrosxpagina = 5;
             $empezar_desde = ($pag -1)*$registrosxpagina;
             try {
-                $sql = "SELECT n.idnota, CONCAT(e.nombre, ' ', e.apellidos) as Estudiante, m.materia, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4
-                        FROM nota as n
-                        INNER JOIN estudiante as e ON n.idestudiante = e.idestudiante
-                        INNER JOIN materia as m ON n.idmateria = m.idmateria LIMIT $empezar_desde,$registrosxpagina";
+                $sql = "SELECT n.idnota, CONCAT(e.nombre, ' ', e.apellidos) as Estudiante, CONCAT(m.materia,'-', t.tipo) as materia, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4
+                FROM nota as n
+                INNER JOIN estudiante as e ON n.idestudiante = e.idestudiante
+                INNER JOIN materia as m ON n.idmateria = m.idmateria
+                INNER JOIN tipo as t on t.idtipo=m.idtipo LIMIT $empezar_desde,$registrosxpagina";
                 $sql2 = "SELECT * FROM nota";
                 $query2 = $this->db->conn()->query($sql2);
                 $query = $this->db->conn()->query($sql); 
@@ -43,12 +45,13 @@
         function getMateria(){
             $items = [];
             try {
-                $sql = "SELECT idmateria,materia FROM materia";
+                $sql = "SELECT m.idmateria,m.materia,t.tipo FROM tipo as t INNER JOIN materia as m WHERE t.idtipo=m.idtipo";
                 $query = $this->db->conn()->query($sql);
                 while ($row = $query->fetch()) {
                     $item = new Materias();
                     $item->idmateria = $row['idmateria'];
                     $item->materia   = $row['materia'];
+                    $item->tipo   = $row['tipo'];
                     array_push($items, $item);
                 }
                 return $items;

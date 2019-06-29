@@ -17,7 +17,7 @@
       <div class="col s12 m12 l12">
         <div id="modal1" class="modal">
           <div class="modal-content">
-            <h4 class="center">Nuevo Nota</h4>
+            <h4 class="center">Nueva Nota</h4>
             <form method="post" class="col s12" id="tipe-form" action="<?php echo constant('URL'); ?>nota/agregarNota">
               <div class="row red-text text-accent-4">
                 <div class="input-field col s12">
@@ -42,12 +42,16 @@
                     <option value="" disabled selected>Materia</option>
                     <?php
                     require_once 'models/materias.php';
-                    foreach ($this->materias as $item) {
-                      $materia = new Materias();
-                      $materia = $item;
-                      ?>
-                      <option value="<?php echo $materia->idmateria; ?>"><?php echo $materia->materia; ?></option>
-                    <?php } ?>
+                      foreach ($this->materias as $item) {
+                        $materia = new Materias();
+                        $materia = $item;
+                        $idmateria=$materia->idmateria;
+                        $tipo=$materia->tipo;
+                        $materia=$materia->materia;
+                        
+                        ?>
+                        <option value="<?php echo $idmateria ?>"><?php echo $materia."-".$tipo;?></option>
+                      <?php }?>
                   </select>
                   <label>Materia</label>
                   <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
