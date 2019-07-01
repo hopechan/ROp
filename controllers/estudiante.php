@@ -9,36 +9,44 @@ class Estudiante extends Controller
 
     function render()
     {
-        $this->view->result = 0;
         $this->view->render("estudiantes/index");
     }
 
     function verestudiante()
     {
-        if (isset($_GET['pagina'])) {
+        $this->view->render("estudiantes/verestudiante");
+    }
+    
+
+    function ver()
+    {
+        if (isset($_GET['pagina'])) 
+        {
             $pag = $_GET['pagina'];
             $estudiantes = $this->model->get($pag);
             $this->view->estudiantes = $estudiantes;
-            $this->view->render('estudiantes/verestudiante');
-        } else {
+            $this->view->render('estudiantes/tablaestu');
+        } 
+        else 
+        {
             $pag = 1;
             $estudiantes = $this->model->get($pag);
             $this->view->estudiantes = $estudiantes;
-            $this->view->render("estudiantes/verestudiante");
+            $this->view->render("estudiantes/tablaestu");
         }
     }
 
     function insert()
     {
         //se reciven los datos del formulario de estudiante/index.php
-        $nombre = $_POST['txtNombre'];
-        $apellido = $_POST['txtApellido'];
-        $fecha_nacimiento = $_POST['fecha'];
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $fecha_nacimiento = $_POST['fecha_nacimiento'];
         $telefono = $_POST['telefono'];
         $email = $_POST['email'];
         $anio = $_POST['anio'];
         $direccion = $_POST['direccion'];
-        $centroescolar = $_POST['centroescolar'];
+        $centroescolar = $_POST['centro_escolar'];
         $seccion = $_POST['seccion'];
         $result = $this->model->insert(['nombre' => $nombre, 'apellidos' => $apellido, 'fecha_nacimiento' => $fecha_nacimiento, 'telefono' => $telefono, 'email' => $email, 'anio' => $anio, 'direccion' => $direccion, 'centro_escolar' => $centroescolar, 'seccion' => $seccion]);
         $this->render('estudiantes/index');
@@ -84,5 +92,10 @@ class Estudiante extends Controller
         $estudiante = $this->model->getById($idestudiante);
         $this->view->estudiante = $estudiante;
         $this->view->render('estudiantes/perfil');
+    }
+
+    function recargar()
+    {
+        $this->view->render('estudiantes/tabla');
     }
 }
