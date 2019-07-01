@@ -111,3 +111,15 @@ body {
     height: 100px;
     width: 200px;
 }
+
+#foto{
+    height: 200px;
+    width: 250px;
+    margin-left: 5%;
+}
+
+.main{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 0%;
+}

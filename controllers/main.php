@@ -15,7 +15,6 @@
         }
 
         function ranking10porciento(){
-            
         }
     }
 ?>

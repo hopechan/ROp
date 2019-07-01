@@ -53,7 +53,7 @@
           <div class="card teal black">
             <div class="card-content white-text">
               <i class=" medium material-icons red-text text-accent-4 right">poll</i>
-              <span class="card-title center">Más datos del rarnking</span>
+              <span class="card-title center">Ranking Completo</span>
               <p class="center">Ranking</p>
             </div>
           </div>
@@ -69,11 +69,17 @@
               <p class="center">Ranking</p>
             </div>
         </a>
+        </div>
       </div>
     </div>
-    <br>
-    <canvas id="ranking"></canvas>
-  </div>
+    <!-- Card para el ranking al 10, este estara en una row diferente-->
+    <div class="row">
+      <div class="col s12 m12">
+        <div class="card">
+          <canvas id="ranking">Su navegador no soporta canvas, por favor actualize a una version mas reciente</canvas>
+        </div>
+      </div>
+    </div>
   </div>
   <!--Incluyendo Grafica de ranking-->
   <?php require 'views/footer.php' ?>
