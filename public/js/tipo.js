@@ -88,7 +88,6 @@ function eliminar(){
 }
 
 function limpiar(){
-    document.getElementById('Tipo').value="";
-    document.getElementById('Descripcion').value="";
+    document.getElementById('frm').reset();
 }
 

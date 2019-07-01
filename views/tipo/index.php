@@ -23,6 +23,7 @@
         <div id="modal1" class="modal">
             <div class="modal-content" id="frm">
                 <h4 class="center">Nuevo Evaluación</h4>
+                <form id="frm">
                 <input type="hidden" id="idtipo">
                 <div class="row red-text text-accent-4">
                     <div class="input-field col s12">
@@ -49,6 +50,7 @@
                         <a class="modal-close btn-flat white-text boton-delete btn">Cancelar <i class="material-icons left">close</i></a>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
     </div>
