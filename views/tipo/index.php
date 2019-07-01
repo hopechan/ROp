@@ -23,35 +23,35 @@
         <div id="modal1" class="modal">
             <div class="modal-content" id="frm">
                 <h4 class="center">Nuevo Evaluación</h4>
-                <form id="frm">
-                <input type="hidden" id="idtipo">
-                <div class="row red-text text-accent-4">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">rate_review</i>
-                        <input type="text" name="tipo" id="Tipo" class="validate" required>
-                        <label for="Tipo">Evaluación</label>
-                        <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
+                <form id="aa">
+                    <input type="hidden" id="idtipo">
+                    <div class="row red-text text-accent-4">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">rate_review</i>
+                            <input type="text" name="tipo" id="Tipo" class="validate" required>
+                            <label for="Tipo">Evaluación</label>
+                            <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
+                        </div>
                     </div>
-                </div>
-                <div class="row red-text text-accent-4">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">mode_edit</i>
-                        <input type="text" name="descripcion" id="Descripcion" class="validate" data-length="120" required>
-                        <label for="Descripcion">Descripción</label>
-                        <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
+                    <div class="row red-text text-accent-4">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">mode_edit</i>
+                            <input type="text" name="descripcion" id="Descripcion" class="validate" data-length="120" required>
+                            <label for="Descripcion">Descripción</label>
+                            <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
+                        </div>
                     </div>
-                </div>
-                <!-- footer del formulario modal -->
-                <div class="modal-footer">
-                    <div class="center-align">
-                        <button class="btn boton-save white-text" id="btn">Guardar
-                            <i class="material-icons left">send</i>
-                        </button>&nbsp;&nbsp;
-                        <a class="modal-close btn-flat white-text boton-delete btn">Cancelar <i class="material-icons left">close</i></a>
+                    </form>
+                    <!-- footer del formulario modal -->
+                    <div class="modal-footer">
+                        <div class="center-align">
+                            <button class="btn boton-save white-text" id="btn">Guardar
+                                <i class="material-icons left">send</i>
+                            </button>&nbsp;&nbsp;
+                            <a class="modal-close btn-flat white-text boton-delete btn">Cancelar <i class="material-icons left">close</i></a>
+                        </div>
                     </div>
-                </div>
-                </form>
-            </div>
+            </div> 
         </div>
     </div>
     <div class="container">

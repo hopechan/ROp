@@ -88,6 +88,6 @@ function eliminar(){
 }
 
 function limpiar(){
-    document.getElementById('frm').reset();
+    document.getElementById('aa').reset();
 }
 
