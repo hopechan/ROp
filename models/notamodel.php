@@ -256,7 +256,7 @@
                 }
                 $pos = ['idestudiante' => $idest,
                         'estudiante' => $nombre,
-                        'promedio' => $suma/3];
+                        'promedio' => round($suma/3, 1)];
                 $suma = 0;
                 array_push($ranking, $pos);
             }
