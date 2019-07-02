@@ -5,6 +5,10 @@ class Nota extends Controller{
         $this->view->notas = [];
     }
 
+    function neonotas(){
+        $this->view->render('notas/neonotas');
+    }
+
     function render(){
         //mando diferentes variables del mismo metodo para separar
         if (isset($_GET['pagina'])) {
