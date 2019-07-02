@@ -20,20 +20,10 @@ class Estudiante extends Controller
 
     function ver()
     {
-        if (isset($_GET['pagina'])) 
-        {
             $pag = $_GET['pagina'];
             $estudiantes = $this->model->get($pag);
             $this->view->estudiantes = $estudiantes;
             $this->view->render('estudiantes/tablaestu');
-        } 
-        else 
-        {
-            $pag = 1;
-            $estudiantes = $this->model->get($pag);
-            $this->view->estudiantes = $estudiantes;
-            $this->view->render("estudiantes/tablaestu");
-        }
     }
 
     function insert()

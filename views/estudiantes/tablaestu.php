@@ -44,7 +44,7 @@
                         $activa = "active black";
                     }
                 }
-                echo "<li class='waves-effect " . $activa . "' name='" . ($i + 1) . "' onclick='paginacion(".($i+1).")'><a data-id='".($i+1)."' id='boton'>" . ($i + 1) . "</a></li>";
+                echo "<li class='waves-effect " . $activa . "' name='" . ($i + 1) . "' onclick='recargarx2(".($i+1).")'><a data-id='".($i+1)."' id='boton'>" . ($i + 1) . "</a></li>";
             }
             ?>
             <li class="disabled"><a href="#"><i class="material-icons">chevron_right</i></a></li>
