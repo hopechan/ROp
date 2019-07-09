@@ -98,28 +98,7 @@ class Nota extends Controller{
         }
         header('Location:http://localhost/Rop/nota');
     }
-
-    function CCGK(){
-        $notas = $this->model->getNotasByTipo(1);
-        $promedios = $this->model->promedios($notas, 5);
-        echo json_encode($promedios);
-        //echo json_encode($notas, JSON_PRETTY_PRINT);
-    }
-
-    function CE(){
-        $notas = $this->model->getNotasByTipo(2);
-        $promedios = $this->model->promedios($notas, 4);
-        echo json_encode($promedios);
-        //echo json_encode($notas, JSON_PRETTY_PRINT);
-    }
-
-    function certificaciones(){
-        $notas = $this->model->getNotasByTipo(3);
-        $promedios = $this->model->promedios($notas);
-        echo json_encode($promedios);
-        //echo json_encode($notas, JSON_PRETTY_PRINT);
-    }
-
+    
     function listaFinal(){
         $notasCCGK = $this->model->getNotasByTipo(1);
         $promCCGK = $this->model->promedios($notasCCGK, 5);

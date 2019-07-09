@@ -39,7 +39,7 @@ class Notas{
             if (firstPoint !== undefined){
                 let id = items.filter(item => item.estudiante == label).map(item => item.idestudiante);
                 console.log(id);
-                window.location = `http://localhost/Rop/estudiante/perfil/${id}`;
+                window.location = `${URL_BASE}estudiante/perfil/${id}`;
             }   
 		};
     }
