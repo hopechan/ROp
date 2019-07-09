@@ -1,5 +1,5 @@
 class Api{
-     async getAll(url) {
+    async getAll(url) {
         let data = await(fetch(url)
         .then(respuesta => {
             console.log(respuesta)

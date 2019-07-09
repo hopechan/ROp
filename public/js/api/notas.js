@@ -6,10 +6,15 @@ class Notas{
 
     async getNotas(){
         let items = await(Api.getAll(`${this.URL_BASE}nota/listaFinal`));
-        let ranking = items.sort((a,b) =>(b.promedio > a.promedio) ? 1 : -1);
-        let nombres = items.map(items => items.estudiante);
-        let proms = items.map(items => items.promedio);
-        let ids = items.map(items => items.idestudiante);
+        let filtro = items.filter((obj, pos, arr) => {
+            return arr.map(mapObj => mapObj.estudiante).indexOf(obj.estudiante) == pos;
+        });
+        console.log(filtro);
+        
+        let ranking = filtro.sort((a,b) =>(b.promedio > a.promedio) ? 1 : -1);
+        let nombres = ranking.map(items => items.estudiante);
+        let proms = ranking.map(items => items.promedio);
+        let ids = ranking.map(items => items.idestudiante);
         let grafico = document.querySelector('#ranking');
         let g = new Chart(grafico, {
             type: 'bar',

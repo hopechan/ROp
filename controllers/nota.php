@@ -52,7 +52,6 @@ class Nota extends Controller{
 
     function eliminarNota($param = null){
         $idNota= $param[0];
-
         if($this->model->delete($idNota)){
             $mensaje = "si";
         }else{
@@ -102,10 +101,8 @@ class Nota extends Controller{
     function listaFinal(){
         $notasCCGK = $this->model->getNotasByTipo(1);
         $promCCGK = $this->model->promedios($notasCCGK, 5);
-
         $notasCE = $this->model->getNotasByTipo(2);
         $promCE = $this->model->promedios($notasCE, 4);
-
         $lista = $this->model->listaFinal($promCCGK, $promCE);
         echo json_encode($lista);
     }
