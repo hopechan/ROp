@@ -41,7 +41,7 @@
                             <tr>
                                 <td><?= $i?></td>
                                 <td><?= $r['estudiante']?></td>
-                                <td><?= $r['promedio']?></td>
+                                <td><span class="new badge blue" data-badge-caption=""><?= $r['promedio']?></span></td>
                             </tr>
                             <?php 
                                 $i++;

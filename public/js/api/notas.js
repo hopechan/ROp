@@ -45,9 +45,5 @@ class Notas{
             }   
 		};
     }
-
-    armarGrafico(){
-        
-    }
 }
 export default Notas;
