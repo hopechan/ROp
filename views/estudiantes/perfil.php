@@ -13,48 +13,63 @@
     <div class = "container">
         <!-- Cabecera necesita mejora-->
         <div class = "row">
-            <div class = "col s4 m4"><!--<img src = "<?php echo constant('URL')?>public/img/fgk.png" alt = "Fundacion Gloria de Kriete" height = "100" width = "70">--></div>
+            <div class = "col s4 m4"><img src = "<?php echo constant('URL')?>public/img/fgk.png" alt = "Fundacion Gloria de Kriete" height = "100" width = "70"></div>
             <div class = "col s4 m4"><p>Programa Oportunidades <br> Fundacion Gloria de Kriette</p></div>
-            <div class = "col s4 m4"><!--<img src = "<?php echo constant('URL')?>public/img/logo.png" alt="Fundacion Gloria de Kriete" height = "70" width = "240">--></div>
+            <div class = "col s4 m4"><img src = "<?php echo constant('URL')?>public/img/logo.png" alt="Fundacion Gloria de Kriete" height = "70" width = "240"></div>
         </div>
         <hr>
+        <!-- Datos Personales-->
         <div class = "row">
-            <div class = "col s12 m4 center"><img class="materialboxed center" src="<?php echo constant('URL')?>public/img/default-images/defaultuser.png" alt="Fundacion Gloria de Kriete" height="200" width="200"></div>
-            <div class = "col s12 m8">
-                <div class="row">
-                    <div class="col s12">
-                        <ul class="tabs">
-                            <li class="tab col s6"><a href="#test1" class="active">Datos Personales</a></li>
-                            <li class="tab col s6"><a href="#test2">Notas</a></li>
-                        </ul>
-                    </div>
-                    <!-- Datos personales -->
-                    <div id="test1">
-                        <div class="row">
-                            <div class="col s6 m6"><h5>Nombre: </h5></div>      
-                            <div class="col s6 m6"><h5><?= $this->estudiante->nombre.' '.$this->estudiante->apellidos?></h5></div>
-                        </div>
-                        <div class="row">
-                            <div class="col s6 m6"><h5>Fecha de Nacimiento</h5></div>
-                            <div class="col s6 m6"><h5><?= $this->estudiante->fecha_nacimiento?></h5></div></div>
-                        </div>
-                    </div>
-                    <div id="test2">
-                    <div class="row">
-                            <div class="col s6 m6"><h5>Telefono</h5></div>
-                            <div class="col s6 m6"><h5><?= $this->estudiante->telefono?></h5></div></div>
-                        </div>
-                        <div class="row">
-                            <div class="col s6 m6"><h5>email</h5></div>
-                            <div class="col s6 m6"><h5><?= $this->estudiante->email?></h5></div></div>
+            <div class = "col s12 m12">
+                <div class = "card-panel">
+                    <div class = "row">
+                        <div class = "col s8 m4 center"><img class="materialboxed center" src="<?php echo constant('URL')?>public/img/default-images/defaultuser.png" alt="Fundacion Gloria de Kriete" height="200" width="200"></div>
+                        <div class = "col s12 m8 center">
+                            <div class = "row"><div class = "col s12 m6"><h4><?=$this->estudiante->nombre.' '.$this->estudiante->apellidos?></h4></div></div>
+                            <div class = "row">
+                                <div class = "col s8 m4">Class:</div>
+                                <div class = "col s8 m4"><span class = "new badge blue" data-badge-caption = ""><?= $this->estudiante->anio?></span></div>
+                            </div>
+                            <div class = "row">
+                                <div class = "col s8 m4">Promedio:</div>
+                                <div class = "col s8 m4"><span class = "new badge blue" data-badge-caption = "">9.3</span></div>
+                            </div>
+                            <div class = "row">
+                                <div class = "col s8 m4">Telefono:</div>
+                                <div class = "col s8 m4"><?= $this->estudiante->telefono;?></div>
+                            </div>
+                            <div class = "row">
+                                <div class = "col s8 m4">email:</div>
+                                <div class = "col s8 m4"><?= $this->estudiante->email;?></div>
+                            </div>
+                            <div class = "row">
+                                <div class = "col s8 m4">Centro Escolar:</div>
+                                <div class = "col s8 m4"><?= $this->estudiante->centro_escolar;?></div>
+                            </div>
+                            <div class = "row">
+                                <div class = "col s8 m4">Direccion:</div>
+                                <div class = "col s8 m4"><?= $this->estudiante->direccion;?></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!--<div class = "col s12 m12"><h5 class="center"><?= $this->estudiante->nombre.' '.$this->estudiante->apellidos?></h5></div>-->
             </div>
         </div>
         <!-- Notas -->
-        <div class="row"></div>
+        <div class="row">
+            <div class = "col s12 m12">
+                <div class = "card-panel">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Materia</th>
+                                <th>Periodo</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 <?php require 'views/footer.php' ?>
 <script>
