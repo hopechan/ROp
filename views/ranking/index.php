@@ -30,6 +30,23 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php
+                            //var_dump($this->ranking);
+                            require_once 'models/Ranking.php';
+                            $i = 1;
+                            foreach ($this->ranking as $ranking) {
+                                $r = new Rankings();
+                                $r = $ranking;
+                            ?>
+                            <tr>
+                                <td><?= $i?></td>
+                                <td><?= $r['estudiante']?></td>
+                                <td><?= $r['promedio']?></td>
+                            </tr>
+                            <?php 
+                                $i++;
+                            }
+                            ?>
                         </tbody>
                     </table>
                     <ul class="pagination center">

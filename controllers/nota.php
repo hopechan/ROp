@@ -1,4 +1,5 @@
 <?php
+require_once "models/notas.php";
 class Nota extends Controller{
     function __construct(){
         parent::__construct(); //acceder al constructor de la clase padre
@@ -100,10 +101,10 @@ class Nota extends Controller{
     
     function listaFinal(){
         $notasCCGK = $this->model->getNotasByTipo(1);
-        $promCCGK = $this->model->promedios($notasCCGK, 5);
-        $notasCE = $this->model->getNotasByTipo(2);
-        $promCE = $this->model->promedios($notasCE, 4);
-        $lista = $this->model->listaFinal($promCCGK, $promCE);
+        $promCCGK  = $this->model->promedios($notasCCGK, 5);
+        $notasCE   = $this->model->getNotasByTipo(2);
+        $promCE    = $this->model->promedios($notasCE, 4);
+        $lista     = $this->model->listaFinal($promCCGK, $promCE);
         echo json_encode($lista);
     }
 }

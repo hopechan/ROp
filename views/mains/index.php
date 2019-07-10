@@ -37,7 +37,7 @@
       </div>
       <!--Card dos-->
       <div class="col s12 m3">
-        <a href="<?php echo constant('URL')?>0estudiante">
+        <a href="<?php echo constant('URL')?>estudiante">
           <div class="card teal black">
             <div class="card-content white-text">
               <i class=" medium material-icons red-text text-accent-4 right">language</i>
@@ -81,7 +81,6 @@
       </div>
     </div>
   </div>
-  <!--Incluyendo Grafica de ranking-->
   <?php require 'views/footer.php' ?>
 </body>
 
