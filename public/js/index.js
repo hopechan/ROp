@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded',
             //console.log(busqueda.value);
             const inst = new Busquedas();
             inst.buscar("estudiante", busqueda.value)                                                                                                                                         
-         })
+        })
 })
 
 

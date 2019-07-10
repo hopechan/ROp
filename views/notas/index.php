@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="<?php echo constant('URL') ?>public/js/buscar.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
+  <script src="<?php echo constant('URL') ?>public/js/buscar.js" defer></script>
   <title>Notas</title>
 </head>
 
@@ -120,7 +122,7 @@
     <div class="row">
       <div class="col l12 m12 s12">
         <!--Tabla de la vista de notas-->
-        <table class="centered highlight responsive-table" id="tabla">
+        <table class="centered highlight responsive-table" id="tblNotas">
           <thead class="black white-text">
             <tr>
               <th hidden class="center-align">idNota</th>

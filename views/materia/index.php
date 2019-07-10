@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Materias</title>
+    <link href="https://cdn.jsdelivr.net/npm/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -74,7 +76,7 @@
     </div>
     <div class="container">
         <!--Tabla de la vista de materia-->
-        <table id="tabla" class="centered highlight responsive-table">
+        <table id="tblMaterias" class="centered highlight responsive-table">
             <thead class="black white-text">
                 <tr>
                     <th hidden>Id materia</th>

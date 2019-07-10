@@ -15,7 +15,7 @@ botones.forEach(boton => {
             //solicitud AJAX
             httpRequest("http://localhost/Rop/nota/eliminarNota/" + id, function () {
                 //console.log(this.responseText);
-                      const tbody = document.querySelector("#tbody-id");
+                const tbody = document.querySelector("#tbody-id");
                 const fila  = document.querySelector("#fila-"+ id);
                 if(this.responseText=="si"){
                 tbody.removeChild(fila);

@@ -1,4 +1,5 @@
-
+let tblMaterias = document.querySelector("#tblMaterias");
+let dtMaterias = new DataTable(tblMaterias);
 const botones = document.querySelectorAll(".btndrop");
 
 botones.forEach(boton => {
@@ -11,7 +12,7 @@ botones.forEach(boton => {
             //solicitud AJAX
             httpRequest("http://localhost/Rop/materia/eliminarMateria/" + id, function () {
                 //console.log(this.responseText);
-                      const tbody = document.querySelector("#tbody-id");
+                    const tbody = document.querySelector("#tbody-id");
                 const fila  = document.querySelector("#fila-"+ id);
                 if(this.responseText=="si"){
                 tbody.removeChild(fila);
@@ -41,8 +42,8 @@ function httpRequest(url, callback){
 document.getElementById('btn').addEventListener('click',vacio);
 
 function vacio(){
-   var idtipo=document.getElementById('idtipo').value;
-   var materia=document.getElementById('materia').value;
+    var idtipo=document.getElementById('idtipo').value;
+    var materia=document.getElementById('materia').value;
 if (idtipo==="") {
     M.toast({html: 'El tipo no puede estar vacio!!', classes: 'red accent-4 rounded white-text'});
     return false;
