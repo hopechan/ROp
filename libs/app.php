@@ -1,7 +1,7 @@
 <?php
     require_once "controllers/errores.php";
     class App{
-         function __construct() {
+        function __construct() {
             //$url = $_GET['url'];
             $url = isset($_GET['url'])?$_GET['url']:null;
             $url = rtrim($url, "/");

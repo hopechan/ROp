@@ -11,7 +11,7 @@
         $this->view->notas = $notas;
         $this->view->estudiantes = $estudiantes;
         $this->view->total = $total;
-        $this->view->render("mains/index");
+        $this->view->render("mains/login");
         }
 
         function ranking10porciento(){
