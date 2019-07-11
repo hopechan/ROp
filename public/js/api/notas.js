@@ -12,8 +12,9 @@ class Notas{
         let ranking = filtro.sort((a,b) =>(b.promedio > a.promedio) ? 1 : -1);
         let nombres = ranking.map(items => items.estudiante);
         let proms = ranking.map(items => items.promedio);
-        let ids = ranking.map(items => items.idestudiante);
         let grafico = document.querySelector('#ranking');
+        let lista = document.querySelector('#listaEstudiantes');
+        lista.innerHTML = "Hola de js";
         let g = new Chart(grafico, {
             type: 'bar',
             data:{

@@ -79,6 +79,10 @@
           <canvas id="ranking">Su navegador no soporta canvas, por favor actualize a una version mas reciente</canvas>
         </div>
       </div>
+      <div class = "col s2 m4">
+        <div class = "card" id = "listaEstudiantes">
+        </div>
+      </div>
     </div>
   </div>
   <?php require 'views/footer.php' ?>
