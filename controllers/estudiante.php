@@ -29,8 +29,8 @@ class Estudiante extends Controller
     function insert()
     {
         //se reciven los datos del formulario de estudiante/index.php
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
+        $nombre = $_POST['Nombre'];
+        $apellido = $_POST['Apellido'];
         $fecha_nacimiento = $_POST['fecha_nacimiento'];
         $telefono = $_POST['telefono'];
         $email = $_POST['email'];
@@ -38,8 +38,11 @@ class Estudiante extends Controller
         $direccion = $_POST['direccion'];
         $centroescolar = $_POST['centro_escolar'];
         $seccion = $_POST['seccion'];
-        $result = $this->model->insert(['nombre' => $nombre, 'apellidos' => $apellido, 'fecha_nacimiento' => $fecha_nacimiento, 'telefono' => $telefono, 'email' => $email, 'anio' => $anio, 'direccion' => $direccion, 'centro_escolar' => $centroescolar, 'seccion' => $seccion]);
-        $this->render('estudiantes/index');
+        $result=$this->model->insert(['nombre' => $nombre, 'apellidos' => $apellido, 'fecha_nacimiento' => $fecha_nacimiento, 'telefono' => $telefono, 'email' => $email, 'anio' => $anio, 'direccion' => $direccion, 'centro_escolar' => $centroescolar, 'seccion' => $seccion]);
+        //return $result;
+        echo '<script>
+        M.toast({html: "Estudiante agregado con exito", classes: "green rounded white-text"});
+        </script>';
     }
 
     function eliminar($dato = null)
@@ -75,6 +78,7 @@ class Estudiante extends Controller
         $seccion = $_POST['seccion'];
         $this->model->actualizar(['idestudiante' => $idestudiante, 'nombre' => $nombre, 'apellidos' => $apellido, 'fecha_nacimiento' => $fecha_nacimiento, 'telefono' => $telefono, 'email' => $email, 'anio' => $anio, 'direccion' => $direccion, 'centro_escolar' => $centroescolar, 'seccion' => $seccion]);
         $this->verestudiante();
+       
     }
 
     function perfil($id = null){

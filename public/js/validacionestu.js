@@ -1,19 +1,19 @@
-window.addEventListener('load', recargar);
-function recargar(){
-    var peticion = new XMLHttpRequest();
-    peticion.onreadystatechange=function (){
-        if (this.readyState==4) {
-            document.getElementById('tabla').innerHTML=this.responseText;
-            asignarEventos();
-        }
-    }
-    peticion.open('GET', 'estudiante/recargar');
-    peticion.send();
-}
+window.addEventListener('load', accion);
+// function recargar(){
+//     var peticion = new XMLHttpRequest();
+//     peticion.onreadystatechange=function (){
+//         if (this.readyState==4) {
+//             document.getElementById('root').innerHTML=this.responseText;
+//             asignarEventos();
+//         }
+//     }
+//     peticion.open('GET', 'estudiante/recargar');
+//     peticion.send();
+// }
 
-function asignarEventos(){
-  document.getElementById('ok').addEventListener('click', accion);
-}
+// function asignarEventos(){
+//   document.getElementById('ok').addEventListener('click', accion);
+// }
 
 function accion(){
     var nombre = document.getElementById('nombre').value;
