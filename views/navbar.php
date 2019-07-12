@@ -29,7 +29,7 @@
 
     <div class="divider white"></div>
     <li><a class="subheader white-text">Más opciones</a></li>
-    <li><a class="white-text" href="#!"><i class="material-icons red-text text-accent-4">group</i>Usuarios</a></li>
+    <li><a class="white-text" href="<?php echo constant('URL'); ?>usuario"><i class="material-icons red-text text-accent-4">group</i>Usuarios</a></li>
 </ul>
 
 </body>

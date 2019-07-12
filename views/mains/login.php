@@ -12,7 +12,7 @@
     <div class="navbar-fixed">
         <nav class="black">
             <div class="nav-wrapper container red-text text-accent-4">
-                <a href="http://www.oportunidades.org.sv/" target="_blank" class="brand-logo right hide-on-small-only"><img class="img responsive-img" src="<?php echo constant('URL')?>public/img/logo.png" alt="Logo"></a>
+                <a href="http://www.oportunidades.org.sv/" target="_blank" class="brand-logo right"><img class="img responsive-img" src="<?php echo constant('URL')?>public/img/logo.png" alt="Logo"></a>
             </div>
         </nav>
     </div>
