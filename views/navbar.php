@@ -16,8 +16,8 @@
     </div>
     <div class="user-view red-text text-accent-4 center">
         <a href=""></a><i class="large material-icons">account_circle</i>
-        <a href="#name"><span class="white-text name">Roberto Morales</span></a>
-        <a href="#email"><span class="black-text email">Robertomorales1@gmail.com</span></a>
+        <a href="#name"><span class="white-text name"><?=$_SESSION['nombre_completo']; ?></span></a>
+        <a href="#email"><span class="black-text email"><?=$_SESSION['email'] ?></span></a>
     </div>
     <!--links-->
     <li><a class="white-text" href="<?php echo constant('URL'); ?>main"><i class="material-icons red-text text-accent-4">home</i>Inicio</a></li>

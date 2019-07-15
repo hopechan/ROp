@@ -1,4 +1,5 @@
 <?php
+    include_once 'models/usuariomodel.php';
     include_once 'controllers/usuario.php';
     class Main extends Controller{
         function __construct() {
@@ -17,12 +18,15 @@
             $this->view->total = $this->model->getTotal();
         }
 
+        function iniciarSesion(){
+            $this->view->render('mains/login');
+        }
+
         function logIn(){
-            //$this->view->render("mains/login");
             $u = new UsuarioModel();
             $user = $u->getByEmail($_POST['txtEmail']);
-            echo "<script>console.log('".$u->verificar($user, $user->password)."')</script>";
-            $this->principal();
+            $render = ($u->verificar($_POST['txtPassword'], $user)) ? $this->render() : $this->iniciarSesion();
+            //echo "<script>console.log('".$u->verificar($user, $user->password)."')</script>";
         }
     }
 ?>

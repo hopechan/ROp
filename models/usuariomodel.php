@@ -28,8 +28,8 @@ class UsuarioModel extends Model {
         }
     }
 
-    function verificar($user, $hashGuardado){
-        $login = (password_verify($user->password, $hashGuardado)) ? 'Funciona' : 'No funciona';
+    function verificar($passwordIngresado, $user){
+        $login = (password_verify($passwordIngresado, $user->password)) ? true : false;
         $this->iniciarSesion($user);
         return $login;
     }
@@ -40,6 +40,7 @@ class UsuarioModel extends Model {
         $_SESSION['id'] = $user->idusuario;
         $_SESSION['nombre_completo'] = $user->nombre.' '.$user->apellido;
         $_SESSION['rol'] = $user->rol;
+        $_SESSION['email'] = $user->email;
     }
 
     function listarUsuarios(){
