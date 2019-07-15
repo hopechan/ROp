@@ -39,11 +39,10 @@
                     }
                 }else{
                     $controller->render();
-                }  
+                }
             } else {
                 $controller = new Errores();
             }
-            
-        }   
+        }
     }
 ?>

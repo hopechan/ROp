@@ -11,8 +11,6 @@
 <body>
     <?php require 'views/header.php' ?>
     <?php require 'views/navbar.php' ?>
-    
-    <!-- Modal Structure -->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <br>
@@ -53,7 +51,7 @@
                     <div class="col s6 m6">
                         <p>
                             <label>
-                                <input class="with-gap" name="rTipo" type="radio" checked />
+                                <input class="with-gap" name="rTipo" type="radio" value = "A" checked />
                                 <span>Administrador</span>
                             </label>
                         </p>
@@ -61,7 +59,7 @@
                     <div class="col s6 m6">
                         <p>
                             <label>
-                                <input class="with-gap" name="rTipo" type="radio" checked />
+                                <input class="with-gap" name="rTipo" type="radio" value = "I" />
                                 <span>Invitado</span>
                             </label>
                         </p>
