@@ -1,6 +1,5 @@
 import Notas from './api/notas.js';
-document.addEventListener('DOMContentLoaded', function (e) {
-    e.preventDefault();
+document.addEventListener('load', function (e) {
     const ranking = new Notas();
     let data = ranking.getNotas();
 })

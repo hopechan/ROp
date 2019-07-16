@@ -5,9 +5,6 @@ class UsuarioModel extends Model {
         parent::__construct();
     }
 
-    function logOut(){
-    }
-
     function getByEmail($email){
         $u = new Usuarios();
         try {
@@ -28,9 +25,8 @@ class UsuarioModel extends Model {
         }
     }
 
-    function verificar($passwordIngresado, $user){
-        $login = (password_verify($passwordIngresado, $user->password)) ? true : false;
-        $this->iniciarSesion($user);
+    function verificar($passwordIngresado, $hash){
+        $login = (password_verify($passwordIngresado, $hash)) ? true : false;
         return $login;
     }
 

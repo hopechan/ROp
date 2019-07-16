@@ -1,7 +1,6 @@
 <?php
-    session_start();
     //Revisa si existe una sesion activa sino existe redirige a login.php
-    if ($_SESSION["estado"] != "activo") {
-        header("Location: login.php");
+    if (session_status() === PHP_SESSION_NONE || session_status() === PHP_SESSION_DISABLED) {
+        //header("Location: http://localhost/Rop/");
     }
 ?>

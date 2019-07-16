@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?php echo constant('URL')?>public/css/login.css">
+    <!--<script src="<?php echo constant('URL')?>public/js/usuarios.js" defer></script>-->
     <title>Oportunidades</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
     <div class = "row">
         <div class = "col s12 m12 l12">
             <div class = "card-panel">
-                <form method="post" action="<?php echo constant('URL')?>main/logIn">
+                <form method="post" action = "<?php echo constant('URL')?>login/entrar">
                     <div class="row">
                         <div class="col s12 m12 center">
                             <h4>Bienvenido/a</h4>

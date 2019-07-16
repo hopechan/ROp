@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +9,7 @@
 </head>
 
 <body>
+  <?php require 'views/sesion.php' ?>
   <?php require 'views/header.php' ?>
   <?php require 'views/navbar.php' ?>
   <br>
@@ -87,6 +87,4 @@
   </div>
   <?php require 'views/footer.php' ?>
 </body>
-
-
 </html>

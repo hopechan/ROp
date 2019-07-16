@@ -58,7 +58,7 @@
             placeholder: "Buscar", // The search input placeholder
             perPage: "{select} Registros por pagina", // per-page dropdown label
             noRows: "No se encuentran registros", // Message shown when there are no search results
-            info: "Mostrando {start} / {end} de {rows} registros" //
+            info: "Mostrando {end} de {rows} registros" //
         },
 
         // Customise the layout

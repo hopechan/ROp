@@ -2,7 +2,7 @@
 <div class="navbar-fixed">
     <nav class="black">
         <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="red-text text-accent-4 medium material-icons">menu</i></a>
-        <a href="#" class="right red-text text-accent-4"><i class="icono large material-icons">exit_to_app&nbsp;</i></a>
+        <a href="<?=constant('URL')?>main/logOut" class="right red-text text-accent-4"><i class="icono large material-icons">exit_to_app&nbsp;</i></a>
         <div class="nav-wrapper container red-text text-accent-4">
             <a href="http://www.oportunidades.org.sv/" target="_blank" class="brand-logo right hide-on-small-only"><img class="img responsive-img" src="<?php echo constant('URL')?>public/img/logo.png" alt="Logo"></a>
         </div>
@@ -33,7 +33,6 @@
 </ul>
 
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 <script>
     $('input.validate, textarea.validate').characterCounter();
     document.addEventListener('DOMContentLoaded', function() {
