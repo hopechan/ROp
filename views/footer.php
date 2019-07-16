@@ -2,13 +2,14 @@
 <!--footer-->
 <footer class="page-footer black">
     <div class="row">
+        <div class="hide-on-small-only">
         <div class="col l6 s12">
             <div class="container">
                 <h5 class="white-text">Contenido</h5>
                 <p class="grey-text text-lighten-4">Esta aplicación creada con fines de ayudar</p>
             </div>
         </div>
-
+        </div>
         <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Contactos</h5>
             <ul>

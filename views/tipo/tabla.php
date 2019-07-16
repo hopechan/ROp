@@ -6,7 +6,7 @@ foreach ($this->tipos as $item) {
     $tipo = $item;
     ?>
     <tr>
-        <td hidden><?php echo $tipo->idtipo; ?></td>
+        <td hidden class="hide"><?php echo $tipo->idtipo; ?></td>
         <td><?php echo $tipo->tipo; ?></td>
         <td><?php echo $tipo->descripcion; ?></td>
         <td>

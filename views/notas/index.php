@@ -119,13 +119,11 @@
         </datalist>
       </div>
     </div>
-    <div class="row">
-      <div class="col l12 m12 s12">
         <!--Tabla de la vista de notas-->
         <table class="centered highlight responsive-table" id="tblNotas">
           <thead class="black white-text">
             <tr>
-              <th hidden class="center-align">idNota</th>
+              <th hidden class="center-align hide">idNota</th>
               <th>Estudiante</th>
               <th>Materia</th>
               <th>Nota Periodo 1</th>
@@ -144,7 +142,7 @@
               ?>
               <input type="hidden" id="idnota" value="<?php echo $nota->idnota; ?>">
               <tr id="fila-<?php echo $nota->idnota; ?>">
-                <td hidden><?php echo $nota->idnota; ?></td>
+                <td hidden class="hide"><?php echo $nota->idnota; ?></td>
                 <td><?php echo $nota->idestudiante; ?></td>
                 <td><?php echo $nota->idmateria; ?></td>
                 <td><?php echo $nota->nota_p1 ?></td>
@@ -160,8 +158,6 @@
             <?php } ?>
           </tbody>
         </table>
-      </div>
-    </div>
     <div class="row">
       <div class="col s12 m12 l12">
         <ul class="pagination center">

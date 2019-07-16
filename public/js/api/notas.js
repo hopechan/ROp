@@ -31,7 +31,7 @@ class Notas{
                 legend:{display:false},
                 title:{
                     display: true,
-                    text: "Top 10 Ranking Oportunidades"
+                    text: "Top Ranking Oportunidades"
                 },
             }
         });

@@ -76,10 +76,10 @@
     </div>
     <div class="container">
         <!--Tabla de la vista de materia-->
-        <table id="tblMaterias" class="centered highlight responsive-table">
+        <table id="tblMaterias" class="centered">
             <thead class="black white-text">
                 <tr>
-                    <th hidden>Id materia</th>
+                    <th hidden class="hide">Id materia</th>
                     <th>Materia</th>
                     <th>Tipo</th>
                     <th>Acciones</th>
@@ -94,7 +94,7 @@
                         $materia = $item;
                         ?>
                         <tr id="fila-<?php echo $materia->idmateria; ?>">
-                        <td hidden><?php echo $materia->idmateria; ?></td>
+                        <td hidden class="hide"><?php echo $materia->idmateria; ?></td>
                         <td><?php echo $materia->materia; ?></td>
                         <td><?php echo $materia->tipo; ?></td>
                         <!--botones-->
