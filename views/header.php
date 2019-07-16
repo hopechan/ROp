@@ -4,14 +4,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Oportunidades</title>
     <link rel="stylesheet" href="<?php echo constant('URL')?>public/css/style.css">
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="<?php echo constant('URL')?>public/lib/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="<?php echo constant('URL')?>public/lib/materialize/css/materialize.css">
+    <script src="<?php echo constant('URL')?>public/lib/materialize/js/materialize.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-   <!-- <script src="https://code.highcharts.com/highcharts.src.js"></script>-->
+    <script src="<?php echo constant('URL')?>public/lib/Chart.min.js"></script>
   </head>
