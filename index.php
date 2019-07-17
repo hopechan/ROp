@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php include("vistas/head.php")?>
-<body>
-    <?php include('vistas/navbar.php'); ?>
-    <div class="container">
-        <div class="row">
-            <?php include("vistas/dashboard.php")?>
-        </div>
-    </div>
-</body>
-<?php include("vistas/footer.php")?>
-</html>
+<?php
+     require_once "libs/database.php";
+     require_once "config/config.php";
+     require_once "libs/controller.php";
+     require_once "libs/model.php";
+     require_once "libs/view.php";
+     require_once "libs/app.php";
+     $app = new App();
+?>
