@@ -1,0 +1,9 @@
+@media print {
+    /* Aquí irían tus reglas CSS específicas para imprimir */
+    .navbar-fixed,.page-footer,.atras {
+        display:none;
+     } 
+     body{
+        font-size: small; 
+     }
+} 

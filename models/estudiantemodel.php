@@ -64,6 +64,28 @@ class EstudianteModel extends Model
         }
     }
 
+    function getEstudiantes()
+    {
+        $items = [];
+        try {
+            $sql = "SELECT idestudiante,nombre,apellidos,anio FROM estudiante";
+            $query = $this->db->conn()->query($sql);
+            while ($row = $query->fetch()) {
+                $item = new Estudiante();
+
+                $item->idestudiante = $row['idestudiante'];
+                $item->nombre = $row['nombre'];
+                $item->apellidos = $row['apellidos'];
+                $item->anio = $row['anio'];
+
+                array_push($items, $item);
+            }
+            return $items;
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
+
     function eliminar($id)
     {
       $query=$this->db->conn()->prepare('DELETE FROM estudiante WHERE idestudiante=:idestudiante');
@@ -97,6 +119,33 @@ class EstudianteModel extends Model
             }
             return $item;
         } catch (PDOException $e) {
+            return [];
+        }
+    }
+
+    function getNotasByTipoEstudiante($tipo, $idestudiante){
+        $items = [];
+        try {
+            $sql = "SELECT CONCAT(e.nombre, ' ', e.apellidos) as estudiante,n.nota_p1,n.nota_p2,n.nota_p3,n.nota_p4,m.materia, ((n.nota_p1 + n.nota_p2 + n.nota_p3 + n.nota_p4)/4) as promedio 
+            FROM nota as n
+            INNER JOIN estudiante as e ON e.idestudiante = n.idestudiante
+            INNER JOIN materia as m ON m.idmateria = n.idmateria
+            WHERE m.idtipo = '".$tipo."' AND e.idestudiante='".$idestudiante."'
+            ORDER BY n.idestudiante";
+            $query = $this->db->conn()->query($sql);
+            while ($row = $query->fetch()) {
+                $item = new Estudiantes();
+                $item->estudiante = $row['estudiante']; //estudiante
+                $item->materia = $row['materia']; //materia
+                $item->periodo_1 = $row['nota_p1']; //nota p1
+                $item->periodo_2 = $row['nota_p2']; //nota p2
+                $item->periodo_3 = $row['nota_p3']; //nota p3
+                $item->periodo_4 = $row['nota_p4']; //nota p4
+                $item->promedio = $row['promedio']; //promedio
+                array_push($items, $item);
+            }
+            return $items;
+        } catch(PDOException $e){
             return [];
         }
     }

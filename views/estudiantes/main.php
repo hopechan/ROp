@@ -26,7 +26,7 @@
             </a>
         </div>
         <div class="col s12 m6 l4">
-            <a href="">
+            <a href="estudiante/reportes">
                 <div class="card black white-text center valign-wrapper">
                     <div style="display:block;">
                         <span class="card-title">Reportes</span>

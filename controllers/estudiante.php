@@ -21,6 +21,28 @@ class Estudiante extends Controller
                     </script>";
         $this->view->mensaje = $mensaje;
     }
+
+    function reportes()
+    {
+        $this->view->render("estudiantes/reportes");
+    }
+    function reportealumnos()
+    {
+        $estudiantes = $this->model->getEstudiantes(1);
+        $estudiantes = $this->model->getEstudiantes(2);
+        $this->view->estudiantes = $estudiantes;
+        $this->view->render("estudiantes/reportesalumno");
+    }
+    function reportecxalumno($id = null){
+        $idestudiante = $id[0];
+        $estudiante = $this->model->getNotasByTipoEstudiante(1, $idestudiante);
+        $this->view->estudiante = $estudiante;
+        $this->view->render('estudiantes/report');
+    }
+    function reportepromo()
+    {
+        $this->view->render("estudiantes/reportespromo");
+    }
     
 
     function ver()
