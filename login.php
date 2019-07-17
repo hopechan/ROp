@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="<?php echo constant('URL')?>public/css/login.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="http://localhost/Rop/public/css/login.css">
+    <link rel="stylesheet" href="http://localhost/Rop/public/css/style.css">
     <!--<script src="<?php echo constant('URL')?>public/js/usuarios.js" defer></script>-->
     <title>Oportunidades</title>
 </head>
 <body>
-    <?php require 'views/header.php'?>
     <div class="navbar-fixed">
         <nav class="black">
             <div class="nav-wrapper container red-text text-accent-4">
-                <a href="http://www.oportunidades.org.sv/" target="_blank" class="brand-logo right"><img class="img responsive-img" src="<?php echo constant('URL')?>public/img/logo.png" alt="Logo"></a>
+                <a href="http://www.oportunidades.org.sv/" target="_blank" class="brand-logo right"><img class="img responsive-img" src="http://localhost/Rop/public/img/logo.png" alt="Logo"></a>
             </div>
         </nav>
     </div>
     <div class = "row">
         <div class = "col s12 m12 l12">
             <div class = "card-panel">
-                <form method="post" action = "<?php echo constant('URL')?>login/entrar">
+                <form method="post" action = "http://localhost/Rop/login/entrar">
                     <div class="row">
                         <div class="col s12 m12 center">
                             <h4>Bienvenido/a</h4>

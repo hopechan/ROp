@@ -9,14 +9,13 @@
         }
 
         function render(){
-            $this->ranking();
-        }
-
-        function ranking(){
             $this->view->notas = $this->model->getNotas();
             $this->view->estudiantes = $this->model->getEstudiantes();
             $this->view->total = $this->model->getTotal();
-            $this->view->render("mains/ranking");
+            $this->view->render("mains/index");
+        }
+
+        function ranking(){
         }
 
         function logOut(){

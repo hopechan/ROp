@@ -7,10 +7,6 @@
             $url = isset($_GET['url'])?$_GET['url']:null;
             $url = rtrim($url, "/");
             $url = explode("/", $url);
-            //si existe una sesion continua con las validaciones que ya se habian realizado sino redirige a login/index
-            if (session_status() === PHP_SESSION_NONE || session_status() === PHP_SESSION_DISABLED) {
-                $controller = new Login();
-            }else {
                 //cuando se ingresa sin definir controlador
                 if (empty($url[0])) {
                     $archivoController = 'controllers/main.php';
@@ -47,7 +43,7 @@
                 }else {
                     $controller = new Errores();
                 }
-            }
+            
         }
     }
 ?>

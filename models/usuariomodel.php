@@ -31,7 +31,9 @@ class UsuarioModel extends Model {
     }
 
     function iniciarSesion($user){
-        session_start();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
         $_SESSION['estado'] = 'activo';
         $_SESSION['id'] = $user->idusuario;
         $_SESSION['nombre_completo'] = $user->nombre.' '.$user->apellido;
