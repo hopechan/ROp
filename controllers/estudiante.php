@@ -12,23 +12,27 @@ class Estudiante extends Controller
         $this->view->render("estudiantes/index");
     }
 
-    function verestudiante()
+    //prueba para colocar un toast aqui
+    function verindex()
     {
-        $this->view->render("estudiantes/verestudiante");
+        $this->view->render("estudiantes/index");
+        $mensaje = "<script>
+                        M.toast({ html: 'Alumno agregado con éxito', classes: 'green rounded white-text'});
+                    </script>";
+        $this->view->mensaje = $mensaje;
     }
     
 
     function ver()
     {
-            $pag = $_GET['pagina'];
-            $estudiantes = $this->model->get($pag);
+            $estudiantes = $this->model->get();
             $this->view->estudiantes = $estudiantes;
             $this->view->render('estudiantes/tablaestu');
     }
 
     function insert()
     {
-        //se reciven los datos del formulario de estudiante/index.php
+        //se reciben los datos del formulario de estudiante/index.php
         $nombre = $_POST['Nombre'];
         $apellido = $_POST['Apellido'];
         $fecha_nacimiento = $_POST['fecha_nacimiento'];
@@ -38,11 +42,9 @@ class Estudiante extends Controller
         $direccion = $_POST['direccion'];
         $centroescolar = $_POST['centro_escolar'];
         $seccion = $_POST['seccion'];
-        $result=$this->model->insert(['nombre' => $nombre, 'apellidos' => $apellido, 'fecha_nacimiento' => $fecha_nacimiento, 'telefono' => $telefono, 'email' => $email, 'anio' => $anio, 'direccion' => $direccion, 'centro_escolar' => $centroescolar, 'seccion' => $seccion]);
-        //return $result;
-        echo '<script>
-        M.toast({html: "Estudiante agregado con exito", classes: "green rounded white-text"});
-        </script>';
+        $this->model->insert(['nombre' => $nombre, 'apellidos' => $apellido, 'fecha_nacimiento' => $fecha_nacimiento, 'telefono' => $telefono, 'email' => $email, 'anio' => $anio, 'direccion' => $direccion, 'centro_escolar' => $centroescolar, 'seccion' => $seccion]);
+        header("Location:".constant('URL')."estudiante/");
+        //$this->verindex();
     }
 
     function eliminar($dato = null)
@@ -86,10 +88,5 @@ class Estudiante extends Controller
         $estudiante = $this->model->getById($idestudiante);
         $this->view->estudiante = $estudiante;
         $this->view->render('estudiantes/perfil');
-    }
-
-    function recargar()
-    {
-        $this->view->render('estudiantes/tabla');
     }
 }

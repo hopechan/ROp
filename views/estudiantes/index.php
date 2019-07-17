@@ -14,7 +14,9 @@
 
     <!-- contenedor que carga la vista principal -->
     <div id="toast">
-
+        <?php 
+            //echo $mensaje;
+        ?>
     </div>
     <div id="root">
 
@@ -25,8 +27,8 @@
         <div class="col s12 m12 l12">
             <div id="modal1" class="modal modal-fixed-footer tamaño">
                 <div class="modal-content center-align">
-                    <h4>Actualizar Estudiante</h4>
-                    <form id="formulario" class="col s12">
+                    <h4>Agregar Estudiante</h4>
+                    <form id="formulario" class="col s12" action="<?php echo constant('URL') ?>estudiante/insert" method="post">
                         <div class="row">
                             <div class="input-field col s12 m12 l6">
                                 <i class="material-icons prefix">account_circle</i>
@@ -100,6 +102,7 @@
         </div>
     </div>
     <script src="<?php echo constant('URL') ?>public/js/estudiantes.js"></script>
+    <script src="<?php echo constant('URL')?>public/js/validacionestu.js"></script>
     <script type="text/javascript">
         function cargar_pagina() {
             $('.modal').modal({
