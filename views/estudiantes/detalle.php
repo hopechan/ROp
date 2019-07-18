@@ -1,84 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Estudiantes</title>
-</head>
-
-<body onload="cargar_pagina()">
+<html>
+    <head>
+        <title>Actualizar</title>
+        <meta charset="utf-8">
+    </head>
+    <body onload="cargar_pagina()">
     <?php require 'views/header.php' ?>
     <?php require 'views/navbar.php' ?>
-
-    <!-- contenedor que carga la vista principal -->
-    <div id="toast">
-
-    </div>
-    <div id="root">
-
-    </div>
-
-    <!--Modal para agregar-->
+    
+<!--Modal para agregar-->
+    <a href="#modal1" class="modal-trigger" id="a"></a>
     <div class="row tamaño">
         <div class="col s12 m12 l12">
             <div id="modal1" class="modal modal-fixed-footer tamaño">
                 <div class="modal-content center-align">
-                    <h4>Agregar Estudiante</h4>
-                    <form id="formulario" class="col s12" action="<?php echo constant('URL') ?>estudiante/insert" method="post">
+                    <h4>Actualizar Estudiante</h4>
+                    <form action="<?php echo constant('URL'); ?>estudiante/editar" method="post" class="col s12" enctype="multipart/form-data">
+                        <input type="hidden" name="idestudiante" value="<?php echo $this->estudiante->idestudiante; ?>">
                         <div class="row">
                             <div class="input-field col s12 m12 l6">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input type="text" name="Nombre" class="validate" id="nombre">
+                                <input type="text" name="txtNombre" class="validate" id="nombre" value="<?php echo $this->estudiante->nombre; ?>">
                                 <label for="nombre">Nombre:</label>
                             </div>
                             <div class="input-field col s12 m12 l6">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input type="text" name="Apellido" class="validate" id="apellido">
+                                <input type="text" name="txtApellido" class="validate" id="apellido" value="<?php echo $this->estudiante->apellidos; ?>">
                                 <label for="apellido">Apellidos:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12 m12 l6">
                                 <i class="material-icons prefix">date_range</i>
-                                <input type="date" name="fecha_nacimiento" id="fecha" class="validate">
+                                <input type="date" name="fecha" id="fecha" class="validate" value="<?php echo $this->estudiante->fecha_nacimiento; ?>">
                                 <label for="fecha">Fecha de Nacimiento:</label>
                             </div>
                             <div class="input-field col s12 m12 l6">
                                 <i class="material-icons prefix">phone</i>
-                                <input type="tel" name="telefono" id="tel" class="validate">
+                                <input type="tel" name="telefono" id="tel" class="validate" value="<?php echo $this->estudiante->telefono; ?>">
                                 <label for="tel">Teléfono:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12 m12 l6">
                                 <i class="material-icons prefix">mail</i>
-                                <input type="email" name="email" id="mail" class="validate">
+                                <input type="email" name="email" id="mail" class="validate" value="<?php echo $this->estudiante->email; ?>">
                                 <label for="mail">e-mail:</label>
                             </div>
                             <div class="input-field col s12 m12 l6">
                                 <i class="material-icons prefix">event</i>
-                                <input type="number" name="anio" id="anio" class="validate">
+                                <input type="number" name="anio" id="anio" class="validate" value="<?php echo $this->estudiante->anio; ?>">
                                 <label for="anio">Año:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">home</i>
-                                <input type="text" name="direccion" id="dir" class="validate">
+                                <input type="text" name="direccion" id="dir" class="validate" value="<?php echo $this->estudiante->direccion; ?>">
                                 <label for="dir">Dirección:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12 m12 l6">
                                 <i class="material-icons prefix">school</i>
-                                <input type="text" name="centro_escolar" id="ce" class="validate">
+                                <input type="text" name="centroescolar" id="ce" class="validate" value="<?php echo $this->estudiante->centro_escolar; ?>">
                                 <label for="ce">Centro Escolar:</label>
                             </div>
                             <div class="input-field col s12 m12 l6">
                                 <i class="material-icons prefix">group</i>
-                                <input type="text" name="seccion" id="seccion" class="validate">
+                                <input type="text" name="seccion" id="seccion" class="validate" value="<?php echo $this->estudiante->seccion; ?>">
                                 <label for="seccion">Sección:</label>
                             </div>
                         </div>
@@ -89,7 +78,7 @@
                         <button class="btn boton-save" type="submit" name="ok">
                             <i class="material-icons left">save</i>
                             Guardar </button> &nbsp;
-                        <a class="btn boton-delete modal-close waves-effect"><i class="material-icons left">delete</i>
+                        <a class="btn boton-delete modal-close waves-effect" href="<?php echo constant('URL') ?>estudiante/ver"><i class="material-icons left">delete</i>
                             Cancelar
                         </a>
                     </div>
@@ -99,16 +88,15 @@
             </div>
         </div>
     </div>
-    <script src="<?php echo constant('URL') ?>public/js/estudiantes.js"></script>
-    <script src="<?php echo constant('URL')?>public/js/validacionestu.js"></script>
-    <!-- <script src="<?php //echo constant('URL')?>public/js/alumnos.js"></script> -->
-    <script type="text/javascript">
-        function cargar_pagina() {
-            $('.modal').modal({
-                dismissible: false,
-            });
-        }
-    </script>
     <?php require 'views/footer.php' ?>
-</body>
+    </body>
 </html>
+<script src="<?php echo constant('URL')?>public/js/validacionestu.js"></script>
+<script type="text/javascript">
+    function cargar_pagina() {
+        $('.modal').modal({
+            dismissible: false,
+        });
+        document.getElementById("a").click();
+    }
+</script>

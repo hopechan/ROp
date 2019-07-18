@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://cdn.jsdelivr.net/npm/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
+  <link href="<?php echo constant('URL')?>public/css/vanilla-dataTables.css" rel="stylesheet" type="text/css">
+  <script src="<?php echo constant('URL')?>public/js/libs/vanilla-dataTables.js" type="text/javascript"></script>
   <script src="<?php echo constant('URL') ?>public/js/buscar.js" defer></script>
   <title>Notas</title>
 </head>
@@ -97,33 +97,20 @@
   <div class="container">
     <div class="row">
       <h3 class="col s4 m4">Notas</h3>
-      <br><br>
-
       <div class="col s4 m4">
         <div class="center">
           <p>Agregar Nota</p>
           <a href="#modal1" id="add" class="btn-floating btn-large waves-effect boton-save btn modal-trigger"><i class="material-icons">add</i></a>
         </div>
       </div>
-      <div class="col s4 m4">
-        <div class="input-field">
-          <i class="material-icons prefix">filter_list</i>
-          <input type="text" name="txtFiltro" id="txtFiltro" list="filtros">
-          <label for="txtFiltro">Filtrar: </label>
-        </div>
-        <datalist id="filtros">
-          <option disabled selected>Filtrar Por</option>
-          <option>CCGK</option>
-          <option>Centro Educativo</option>
-          <option>Certificaciones</option>
-        </datalist>
-      </div>
     </div>
+    <div class="row">
+      <div class="col l12 m12 s12">
         <!--Tabla de la vista de notas-->
-        <table class="centered highlight responsive-table" id="tblNotas">
+        <table class="highlight responsive-table" id="tblNotas">
           <thead class="black white-text">
             <tr>
-              <th hidden class="center-align hide">idNota</th>
+              <th hidden>idNota</th>
               <th>Estudiante</th>
               <th>Materia</th>
               <th>Nota Periodo 1</th>
@@ -136,13 +123,13 @@
           <tbody id="tbody-id">
             <?php
             require_once 'models/notas.php';
-            foreach ($this->notas['datos'] as $item) {
+            foreach ($this->notas as $item) {
               $nota = new Notas();
               $nota = $item;
               ?>
               <input type="hidden" id="idnota" value="<?php echo $nota->idnota; ?>">
               <tr id="fila-<?php echo $nota->idnota; ?>">
-                <td hidden class="hide"><?php echo $nota->idnota; ?></td>
+                <td hidden><?php echo $nota->idnota; ?></td>
                 <td><?php echo $nota->idestudiante; ?></td>
                 <td><?php echo $nota->idmateria; ?></td>
                 <td><?php echo $nota->nota_p1 ?></td>
@@ -158,29 +145,6 @@
             <?php } ?>
           </tbody>
         </table>
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <ul class="pagination center">
-          <li class="disabled"><a href=""><i class="material-icons">chevron_left</i></a></li>
-          <?php
-          for ($i = 0; $i < $this->notas['numero']; $i++) {
-            $activa = "";
-            if (isset($_GET['pagina'])) {
-              $pagina_activa = $_GET['pagina'];
-              if ($pagina_activa == ($i + 1)) {
-                $activa = "active black";
-              }
-            } else {
-              $pagina_activa = 1;
-              if ($pagina_activa == ($i + 1)) {
-                $activa = "active black";
-              }
-            }
-            echo "<li class='waves-effect " . $activa . "' name='" . ($i + 1) . "'><a href='" . constant('URL') . "nota?pagina=" . ($i + 1) . "'>" . ($i + 1) . "</a></li>";
-          }
-          ?>
-          <li class="disabled"><a href=""><i class="material-icons">chevron_right</i></a></li>
-        </ul>
       </div>
     </div>
   </div>

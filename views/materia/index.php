@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Materias</title>
-    <link href="https://cdn.jsdelivr.net/npm/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
+    <link href="<?php echo constant('URL')?>public/css/vanilla-dataTables.css" rel="stylesheet" type="text/css">
+    <script src="<?php echo constant('URL')?>public/js/libs/vanilla-dataTables.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -89,7 +89,7 @@
                 
                     <?php
                     require_once 'models/materias.php';
-                    foreach ($this->materias['registros'] as $item) {
+                    foreach ($this->materias as $item) {
                         $materia = new Materias();
                         $materia = $item;
                         ?>
@@ -105,36 +105,8 @@
                 <?php } ?>
             </tbody>
         </table>
-        <!--Paginacion-->
-        <div class="row">
-            <div class="col l12 m12 s12">
-            <ul class="pagination center">
-                    <li class="disabled"><a href=""><i class="material-icons">chevron_left</i></a></li>
-                    <?php 
-                        for ($i=0; $i < $this->materias['numero'] ; $i++) { 
-                            $activa = "";
-                            if (isset($_GET['pagina'])) {  
-                                $pagina_activa = $_GET['pagina'];
-                                if ($pagina_activa == ($i+1)) {
-                                $activa = "active black";
-                            }
-                            }else{
-                            $pagina_activa = 1;
-                            if ($pagina_activa == ($i+1)) {
-                                $activa = "active black";
-                            }
-                            
-                        }
-                            echo "<li class='waves-effect ".$activa."' name='".($i+1)."'><a href='" . constant('URL')."materia?pagina=".($i+1)."'>". ($i+1) ."</a></li>";
-                        }
-                    ?>
-                    <li class="disabled"><a href=""><i class="material-icons">chevron_right</i></a></li>
-                </ul>
-            </div>
-        </div>
     </div>
     <script src="<?php echo constant('URL');?>public/js/materia.js"></script>
     <?php require 'views/footer.php' ?>
 </body>
-
 </html>

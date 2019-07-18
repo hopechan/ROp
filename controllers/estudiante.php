@@ -21,13 +21,41 @@ class Estudiante extends Controller
                     </script>";
         $this->view->mensaje = $mensaje;
     }
-    
+
+    function reportes()
+    {
+        $this->view->render("estudiantes/reportes");
+    }
+    function reportealumnos()
+    {
+        $estudiantes = $this->model->getEstudiantes(1);
+        $this->view->estudiantes = $estudiantes;
+        $this->view->render("estudiantes/reportesalumno");
+    }
+    function reportecxalumno($id = null)
+    {
+        $idestudiante = $id[0];
+        $estudiante = $this->model->getNotasByTipoEstudiante(1, $idestudiante);
+        $estudiante2 = $this->model->getNotasByTipoEstudiante(2, $idestudiante);
+        $estudiante3 = $this->model->getNotasByTipoEstudiante(6, $idestudiante);
+        $this->view->estudiante = $estudiante;
+        $this->view->estudiante2 = $estudiante2;
+        $this->view->estudiante3 = $estudiante3; 
+        $estudiante4 = $this->model->getById($idestudiante);
+        $this->view->estudiante4 = $estudiante4;
+        $this->view->render('estudiantes/report');
+    }
+    function reportepromo()
+    {
+        $this->view->render("estudiantes/reportespromo");
+    }
+
 
     function ver()
     {
-            $estudiantes = $this->model->get();
-            $this->view->estudiantes = $estudiantes;
-            $this->view->render('estudiantes/tablaestu');
+        $estudiantes = $this->model->get();
+        $this->view->estudiantes = $estudiantes;
+        $this->view->render('estudiantes/mostrar');
     }
 
     function insert()
@@ -43,7 +71,7 @@ class Estudiante extends Controller
         $centroescolar = $_POST['centro_escolar'];
         $seccion = $_POST['seccion'];
         $this->model->insert(['nombre' => $nombre, 'apellidos' => $apellido, 'fecha_nacimiento' => $fecha_nacimiento, 'telefono' => $telefono, 'email' => $email, 'anio' => $anio, 'direccion' => $direccion, 'centro_escolar' => $centroescolar, 'seccion' => $seccion]);
-        header("Location:".constant('URL')."estudiante/");
+        header("Location:" . constant('URL') . "estudiante/");
         //$this->verindex();
     }
 
@@ -51,7 +79,7 @@ class Estudiante extends Controller
     {
         $id = $dato[0];
         $this->model->eliminar($id);
-        header('location:http://localhost/Rop/estudiante/verestudiante');
+        header('location:http://localhost/Rop/estudiante/ver');
     }
 
     /**Esta funcion permite editar los datos de un estudiante */
@@ -62,7 +90,7 @@ class Estudiante extends Controller
         $this->view->estudiante = $estudiante;
         $this->view->render('estudiantes/detalle');
     }
-    
+
     /**Esta funcion envia los datos editados a la base de datos
      * Agradecimientos especiales a Roberto porque no comenta su codigo >:v
      */
@@ -80,10 +108,10 @@ class Estudiante extends Controller
         $seccion = $_POST['seccion'];
         $this->model->actualizar(['idestudiante' => $idestudiante, 'nombre' => $nombre, 'apellidos' => $apellido, 'fecha_nacimiento' => $fecha_nacimiento, 'telefono' => $telefono, 'email' => $email, 'anio' => $anio, 'direccion' => $direccion, 'centro_escolar' => $centroescolar, 'seccion' => $seccion]);
         $this->verestudiante();
-       
     }
 
-    function perfil($id = null){
+    function perfil($id = null)
+    {
         $idestudiante = $id[0];
         $estudiante = $this->model->getById($idestudiante);
         $this->view->estudiante = $estudiante;
