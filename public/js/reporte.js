@@ -1,10 +1,8 @@
 window.addEventListener('load', imprimir);
 
+document.querySelectorAll('.imprimir').addEventListener('click', imprimir)
+
 function imprimir() {
-    var event = new KeyboardEvent("keydown", {
-        code: 'control+p',
-        keyCode: 80,
-        charCode: 0
-    });
-    document.dispatchEvent(event);
+alert("imprimir")
 }
+

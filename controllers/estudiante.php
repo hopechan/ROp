@@ -29,14 +29,17 @@ class Estudiante extends Controller
     function reportealumnos()
     {
         $estudiantes = $this->model->getEstudiantes(1);
-        $estudiantes = $this->model->getEstudiantes(2);
         $this->view->estudiantes = $estudiantes;
         $this->view->render("estudiantes/reportesalumno");
     }
     function reportecxalumno($id = null){
         $idestudiante = $id[0];
         $estudiante = $this->model->getNotasByTipoEstudiante(1, $idestudiante);
+        $estudiante2 = $this->model->getNotasByTipoEstudiante(2, $idestudiante);
+        $estudiante3 = $this->model->getNotasByTipoEstudiante(3, $idestudiante);
         $this->view->estudiante = $estudiante;
+        $this->view->estudiante2 = $estudiante2;
+        $this->view->estudiante3 = $estudiante3;
         $this->view->render('estudiantes/report');
     }
     function reportepromo()

@@ -35,11 +35,13 @@
                         ?>
                         <?php $id = $estudiante->idestudiante; ?>
                         <!--contenido -->
-                        <li class="collection-item avatar">
+                        <li class="collection-item avatar valign-wrapper">
                             <img src="<?php echo constant('URL') ?>public/img/default-images/defaultuser.png" alt="imagen" class="circle">
                             <span class="title"><?php echo $estudiante->nombre . ' ' . $estudiante->apellidos ?></span>
-                            <p><?php echo $estudiante->anio ?></p>
+                            <p><?php echo "-".$estudiante->anio ?></p>
+                            <div class="right">
                             <a href="reportecxalumno/<?php echo $id ?>" class="btn btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 right"><i class="material-icons">local_printshop</i></a>
+                        </div>
                         </li>
                     <?php } ?>
                 </ul>
@@ -54,11 +56,13 @@
                         ?>
                         <?php $id = $estudiante->idestudiante; ?>
                         <!--contenido -->
-                        <li class="collection-item avatar">
+                        <li class="collection-item avatar valign-wrapper">
                             <img src="<?php echo constant('URL') ?>public/img/default-images/defaultuser.png" alt="imagen" class="circle">
                             <span class="title"><?php echo $estudiante->nombre . ' ' . $estudiante->apellidos ?></span>
-                            <p><?php echo $estudiante->anio ?></p>
+                            <p><?php echo "-".$estudiante->anio ?></p>
+                            <div class="right">
                             <a href="reportecxalumno/<?php echo $id ?>" class="btn btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 right"><i class="material-icons">local_printshop</i></a>
+                        </div>
                         </li>
                     <?php } ?>
                 </ul>
