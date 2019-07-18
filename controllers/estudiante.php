@@ -47,6 +47,8 @@ class Estudiante extends Controller
     }
     function reportepromo()
     {
+        $estudiantes = $this->model->getEstudiantes(1);
+        $this->view->estudiantes = $estudiantes;
         $this->view->render("estudiantes/reportespromo");
     }
 
