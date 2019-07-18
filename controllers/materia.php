@@ -6,6 +6,7 @@ class Materia extends Controller
         parent::__construct(); //acceder al constructor de la clase padre
         $this->view->materias = [];
     }
+    
     function render()
     {
         if (isset($_GET['pagina'])) {

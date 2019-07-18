@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="<?php echo constant('URL')?>public/css/vanilla-dataTables.css" rel="stylesheet" type="text/css">
+    <script src="<?php echo constant('URL')?>public/js/libs/vanilla-dataTables.js" type="text/javascript"></script>
     <title>Estudiantes</title>
 </head>
 
@@ -43,7 +45,7 @@
                             <td><?php echo $estudiante->seccion; ?></td>
                             <td><?php echo $estudiante->anio; ?></td>
                             <td>
-                                <a  class="modal-trigger btn-floating waves-effect waves-white btn-flat white-text grey darken-3 btn actu"><i class="material-icons">refresh</i></a>&nbsp;&nbsp;
+                                <a  href="<?php echo constant('URL').'estudiante/subeditar/'.$estudiante->idestudiante;?>" class="modal-trigger btn-floating waves-effect waves-white btn-flat white-text grey darken-3 btn actu"><i class="material-icons">refresh</i></a>&nbsp;&nbsp;
                                 <a href="<?php echo constant('URL').'estudiante/eliminar/'.$estudiante->idestudiante;?>" class="btn-floating waves-effect waves-white btn-flat white-text red darken-3 btn elim"><i class="material-icons">delete</i></a>&nbsp;&nbsp;<a href="<?php echo constant('URL').'estudiante/perfil/'.$estudiante->idestudiante;?>" class="btn-floating btn grey darken-3 waves-effect"><i class="material-icons">account_circle</i></a>
                             </td>
                         </tr>
@@ -55,5 +57,8 @@
 
     <?php require 'views/footer.php' ?>
 </body>
-
+<script>
+let tabla = document.querySelector("#tabla");
+let dt = new DataTable(tabla);
+</script>
 </html>
