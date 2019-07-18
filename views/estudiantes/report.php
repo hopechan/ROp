@@ -27,10 +27,10 @@
         </div>
         <div class="row">
             <div class="col s12 m12">
+            <?php echo "<h5 class='center'><b>".$nombre=$this->estudiante4->nombre." ".$this->estudiante4->apellidos."</b></h5>"; ?>
                 <table>
                     <thead>
                         <tr>
-                            <th>Estudiante</th>
                             <th>Materia</th>
                             <th>Periodo 1</th>
                             <th>Periodo 2</th>
@@ -50,7 +50,6 @@
                             $estudiante = $item;
                             ?>
                             <tr>
-                                <td><?php echo $estudiante->estudiante; ?></td>
                                 <td><?php echo $estudiante->materia; ?></td>
                                 <td><?php echo $estudiante->periodo_1; ?></td>
                                 <td><?php echo $estudiante->periodo_2; ?></td>
@@ -68,7 +67,6 @@
                             $estudiante2 = $item;
                             ?>
                             <tr>
-                                <td><?php echo $estudiante2->estudiante; ?></td>
                                 <td><?php echo $estudiante2->materia; ?></td>
                                 <td><?php echo $estudiante2->periodo_1; ?></td>
                                 <td><?php echo $estudiante2->periodo_2; ?></td>
@@ -86,7 +84,6 @@
                             $estudiante3 = $item;
                             ?>
                             <tr>
-                                <td><?php echo $estudiante3->estudiante; ?></td>
                                 <td><?php echo $estudiante3->materia; ?></td>
                                 <td><?php echo $estudiante3->periodo_1; ?></td>
                                 <td><?php echo $estudiante3->periodo_3; ?></td>
