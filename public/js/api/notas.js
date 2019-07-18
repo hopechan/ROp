@@ -13,19 +13,6 @@ class Notas{
         let nombres = ranking.map(items => items.estudiante);
         let proms = ranking.map(items => items.promedio);
         let grafico = document.querySelector('#ranking');
-        let lista = document.querySelector('#listaEstudiantes');
-        let h3 = document.createElement('h5');
-        h3.innerHTML = 'Ranking';
-        lista.appendChild(h3);
-        let ul = document.createElement('ol');
-        ul.className = 'collection';
-        for (let i = 0; i < nombres.length; i++) {
-            let li = document.createElement('li');
-            li.innerHTML = `${nombres[i]}`;
-            li.className = 'collection-item';
-            ul.appendChild(li);
-        }
-        lista.appendChild(ul);
         //lista.innerHTML = "Hola de js";
         let g = new Chart(grafico, {
             type: 'bar',
