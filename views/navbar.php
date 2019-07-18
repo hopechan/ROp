@@ -16,8 +16,8 @@
      </div>
      <div class="user-view red-text text-accent-4 center">
          <a href=""></a><i class="large material-icons">account_circle</i>
-         <a href="#name"><span class="white-text name">Roberto Morales</span></a>
-         <a href="#email"><span class="black-text email">Robertomorales1@gmail.com</span></a>
+         <a href="#name"><span class="white-text name"><?php echo $_SESSION['nombre_completo']; ?></span></a>
+         <a href="#email"><span class="white-text email"><?php echo $_SESSION['email']?></span></a>
      </div>
      <!--links-->
      <li><a class="white-text" href="<?php echo constant('URL'); ?>main"><i class="material-icons red-text text-accent-4">home</i>Inicio</a></li>
@@ -30,7 +30,7 @@
      <div class="divider white"></div>
      </li>
      <li><a class="subheader white-text">Más opciones</a></li>
-     <li><a class="white-text" href="#!"><i class="material-icons red-text text-accent-4">favorite_border</i>Item 1</a></li>
+     <li><a class="white-text" href="<?php echo constant('URL'); ?>usuario"><i class="material-icons red-text text-accent-4">favorite_border</i>Usuarios</a></li>
  </ul>
 
  </body>
