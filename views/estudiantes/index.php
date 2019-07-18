@@ -14,9 +14,7 @@
 
     <!-- contenedor que carga la vista principal -->
     <div id="toast">
-        <?php 
-            //echo $mensaje;
-        ?>
+
     </div>
     <div id="root">
 
@@ -103,6 +101,7 @@
     </div>
     <script src="<?php echo constant('URL') ?>public/js/estudiantes.js"></script>
     <script src="<?php echo constant('URL')?>public/js/validacionestu.js"></script>
+    <!-- <script src="<?php //echo constant('URL')?>public/js/alumnos.js"></script> -->
     <script type="text/javascript">
         function cargar_pagina() {
             $('.modal').modal({

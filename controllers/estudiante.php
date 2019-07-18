@@ -52,7 +52,7 @@ class Estudiante extends Controller
     {
             $estudiantes = $this->model->get();
             $this->view->estudiantes = $estudiantes;
-            $this->view->render('estudiantes/tablaestu');
+            $this->view->render('estudiantes/mostrar');
     }
 
     function insert()

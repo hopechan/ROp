@@ -14,7 +14,7 @@
             </a>
         </div>
         <div class="col s12 m6 l4">
-            <a href="">
+            <a href="ver">
                 <div class="card black white-text center valign-wrapper">
                     <div style="display:block;">
                         <span class="card-title">Estudiantes</span>
@@ -77,5 +77,4 @@
         </div>
     </div>
 </div>
-
 <script src="<?php echo constant('URL') ?>public/js/validacionestu.js"></script>

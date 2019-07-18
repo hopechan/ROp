@@ -30,16 +30,10 @@ class EstudianteModel extends Model
         }
     }
 
-    function get($pag){
-        $items = [];
-        $registrosxpagina = 5;
-        $empezar_desde = ($pag - 1)*$registrosxpagina;
+    function get(){
         try {
-            $sql = "SELECT * FROM estudiante";
-            $query2 = $this->db->conn()->query($sql);
-            $query = $this->db->conn()->query("SELECT * FROM estudiante LIMIT  $empezar_desde,$registrosxpagina");
-            $top_row = $query2->rowCount();
-            $pages = ceil($top_row/$registrosxpagina);
+            $query = $this->db->conn()->query("SELECT * FROM estudiante");
+            $items =[];
             
             while ($row = $query->fetch()) {
                 $item = new Estudiante();
@@ -55,10 +49,7 @@ class EstudianteModel extends Model
                 $item->centro_escolar=$row['centro_escolar'];
                 array_push($items, $item);
             }
-            $paginacion= ['numero'=>$pages, 'registros'=>$items];
-
-            return $paginacion;
-            //$query->closeCursor();
+            return $items;
         } catch (PDOException $e) {
             return "La consulta fallo :v";
         }
