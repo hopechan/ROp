@@ -37,8 +37,33 @@ class UsuarioModel extends Model {
         $_SESSION['rol'] = $user->rol;
         $_SESSION['email'] = $user->email;
     }
-    function listarUsuarios(){
+    
+    public function get(){
+        $items = [];
+        try {
+            $query = $this->db->conn()->query("SELECT * FROM usuarios");
+
+            while ($row = $query->fetch()) {
+                $item = new Usuarios();
+                $item->idusuario      = $row['idusuario'];
+                $item->nombre        = $row['nombre'];
+                $item->apellido = $row['apellido'];
+                if ($row['rol'] === 'A') {
+                    $item->rol = 'Administrador';
+                }else {
+                    $item->rol = 'Invitado';
+                }
+                
+                $item->email = $row['email'];
+                $item->password = $row['password'];
+                array_push($items, $item);
+            }
+            return $items;
+        } catch (PDOException $e) {
+            return [];
+        }
     }
+
     function nuevoUsuario($user){
         try {
             $sql = $this->db->conn()->prepare("INSERT INTO usuarios(nombre, apellido, rol, email, password) VALUES(:nombre, :apellido, :rol, :email, :password)");
