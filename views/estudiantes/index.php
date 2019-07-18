@@ -13,6 +13,7 @@
     <?php require 'views/navbar.php' ?>
 
     <div class="container">
+        <p></p>
         <div class="row">
             <div class="col s5 m6 l6">
                 <a href="<?php echo constant('URL'); ?>" class="btn black boton-g"><i class="material-icons left">arrow_back</i>Atrás</a>

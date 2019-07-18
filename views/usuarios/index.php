@@ -14,7 +14,7 @@
     <div id="modal1" class="modal">
         <div class="modal-content">
             <br>
-            <h4 class = "center">Nuevo Usuario</h4>
+            <h4 class ="center">Nuevo Usuario</h4>
             <form action="<?php echo constant('URL'); ?>usuario/agregarUsuario" method="post">
                 <div class="row">
                     <div class="col s6 m6 input-field">
@@ -77,7 +77,7 @@
     <div class="container">
         <h3>Usuarios</h3>
         <div class="row">
-            <div class="col offset-s9 offset-m9"><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Nuevo</a></div>
+            <div class="col offset-s9 offset-m9"><a class="boton-g btn modal-trigger" href="#modal1">Nuevo</a></div>
         </div>
         <table id = "tblUsuarios">
             <thead>
