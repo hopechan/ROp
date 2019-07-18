@@ -20,18 +20,26 @@
          <a href="#email"><span class="white-text email"><?php echo $_SESSION['email']?></span></a>
      </div>
      <!--links-->
-     <li><a class="white-text" href="<?php echo constant('URL'); ?>main"><i class="material-icons red-text text-accent-4">home</i>Inicio</a></li>
-     <li><a class="white-text" href="<?php echo constant('URL'); ?>nota"><i class="material-icons red-text text-accent-4">book</i>Notas</a></li>
-     <li><a class="white-text" href="<?php echo constant('URL'); ?>materia"><i class="material-icons red-text text-accent-4">content_paste</i>Materias</a></li>
-     <li>
-     <li><a class="white-text" href="<?php echo constant('URL'); ?>estudiante"><i class="material-icons red-text text-accent-4">group</i>Estudiantes</a></li>
-     <li><a class="white-text" href="<?php echo constant('URL'); ?>tipo"><i class="material-icons red-text text-accent-4">brightness_5</i>Evaluaciones</a></li>
+    
+     <li><a class='white-text' href='<?php echo constant('URL'); ?>main'><i class='material-icons red-text text-accent-4'>home</i>Inicio</a></li>
+    <?php
+    if ($_SESSION['rol'] === 'A') {
+        echo "<li><a class='white-text' href='".constant('URL')."nota'><i class='material-icons red-text text-accent-4'>book</i>Notas</a></li>";
+        echo "<li><a class='white-text' href='".constant('URL')."materia'><i class='material-icons red-text text-accent-4'>content_paste</i>Materias</a></li>";
+        echo "<li><a class='white-text' href='".constant('URL')."tipo'><i class='material-icons red-text text-accent-4'>brightness_5</i>Evaluaciones</a></li>";
+    }
+    ?>
+    <li><a class='white-text' href='<?php echo constant('URL'); ?>estudiante'><i class='material-icons red-text text-accent-4'>group</i>Estudiantes</a></li>
 
-     <div class="divider white"></div>
-     </li>
-     <li><a class="subheader white-text">Más opciones</a></li>
-     <li><a class="white-text" href="<?php echo constant('URL'); ?>usuario"><i class="material-icons red-text text-accent-4">favorite_border</i>Usuarios</a></li>
- </ul>
+    <div class="divider white"></div>
+    </li>
+    <?php
+    if ($_SESSION['rol'] === 'A') {
+        echo "<li><a class='subheader white-text'>Más opciones</a></li>";
+        echo "<li><a class='white-text' href='".constant('URL')."usuario'><i class='material-icons red-text text-accent-4'>favorite_border</i>Usuarios</a></li>";
+    }
+    ?>
+</ul>
 
  </body>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
