@@ -13,6 +13,7 @@
     <?php require 'views/navbar.php' ?>
 
     <div class="container">
+        <p></p>
         <div class="row">
             <div class="col s5 m6 l6">
                 <a href="<?php echo constant('URL'); ?>estudiante" class="btn black boton-g"><i class="material-icons left">arrow_back</i>Atrás</a>
@@ -42,8 +43,8 @@
                             <td><?php echo $estudiante->seccion; ?></td>
                             <td><?php echo $estudiante->anio; ?></td>
                             <td>
-                                <a href="#modal1" data-id="<?php echo $estudiante->idestudiante; ?>" class="modal-trigger btn-floating waves-effect waves-white btn-flat white-text grey darken-3 btn actu"><i class="material-icons">refresh</i></a>&nbsp;&nbsp;
-                                <a data-id="<?php echo $estudiante->idestudiante; ?>" class="btn-floating waves-effect waves-white btn-flat white-text red darken-3 btn elim"><i class="material-icons">delete</i></a>&nbsp;&nbsp;<a href="/" class="btn-floating btn grey darken-3 waves-effect"><i class="material-icons">account_circle</i></a>
+                                <a  class="modal-trigger btn-floating waves-effect waves-white btn-flat white-text grey darken-3 btn actu"><i class="material-icons">refresh</i></a>&nbsp;&nbsp;
+                                <a href="<?php echo constant('URL').'estudiante/eliminar/'.$estudiante->idestudiante;?>" class="btn-floating waves-effect waves-white btn-flat white-text red darken-3 btn elim"><i class="material-icons">delete</i></a>&nbsp;&nbsp;<a href="<?php echo constant('URL').'estudiante/perfil/'.$estudiante->idestudiante;?>" class="btn-floating btn grey darken-3 waves-effect"><i class="material-icons">account_circle</i></a>
                             </td>
                         </tr>
                     <?php } ?>

@@ -76,7 +76,7 @@ class Estudiante extends Controller
     {
         $id = $dato[0];
         $this->model->eliminar($id);
-        header('location:http://localhost/Rop/estudiante/verestudiante');
+        header('location:http://localhost/Rop/estudiante/ver');
     }
 
     /**Esta funcion permite editar los datos de un estudiante */

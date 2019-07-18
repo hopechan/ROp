@@ -14,7 +14,7 @@
             </a>
         </div>
         <div class="col s12 m6 l4">
-            <a href="ver">
+            <a href="estudiante/ver">
                 <div class="card black white-text center valign-wrapper">
                     <div style="display:block;">
                         <span class="card-title">Estudiantes</span>
