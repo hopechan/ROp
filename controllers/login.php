@@ -22,5 +22,10 @@
                 $this->render();
             }
         }
+
+        function salir(){
+            session_destroy();
+            header('Location:http://localhost/Rop/login.php');
+        }
     }
 ?>
