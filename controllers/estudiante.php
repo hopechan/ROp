@@ -119,4 +119,15 @@ class Estudiante extends Controller
         $this->view->estudiante = $estudiante;
         $this->view->render('estudiantes/perfil');
     }
+
+    //muestra los estudiantes por año
+    function year($num = null)
+    {
+        $valor = $num[0];
+        $actual = date('Y');
+        $año = ($actual - $valor);
+        $estudiantes = $this->model->year($año);
+        $this->view->estudiantes = $estudiantes;
+        $this->view->render('estudiantes/year');
+    }
 }

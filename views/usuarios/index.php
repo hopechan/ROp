@@ -16,8 +16,8 @@
     <div id="modal1" class="modal">
         <div class="modal-content">
             <br>
-            <h4 class ="center">Nuevo Usuario</h4>
-            <form action="<?php echo constant('URL'); ?>usuario/agregarUsuario" method="post">
+            <h4 class = "center">Nuevo Usuario</h4>
+            <form action="<?php echo constant('URL'); ?>usuario/agregarUsuario" method="post" id="newUser">
                 <div class="row">
                     <div class="col s6 m6 input-field">
                         <i class="material-icons prefix">account_circle</i>

@@ -1,5 +1,4 @@
-
-    <!-- inicia el contenido del cuerpo de la pagina index de estudiantes -->
+<!-- inicia el contenido del cuerpo de la pagina index de estudiantes -->
     <div class="row">
         <div class="col s12 m6 l4">
             <a href="#modal1" class="modal-trigger" id="a">
@@ -40,7 +39,7 @@
     </div>
     <div class="row">
         <div class="col s12 m6 l4">
-            <a href="">
+            <a href="estudiante/year/0">
                 <div class="card black white-text center valign-wrapper">
                     <div style="display:block;">
                         <span class="card-title">Primer Año</span>
@@ -52,7 +51,7 @@
             </a>
         </div>
         <div class="col s12 m6 l4">
-            <a href="">
+            <a href="estudiante/year/1">
                 <div class="card black white-text center valign-wrapper">
                     <div style="display:block;">
                         <span class="card-title">Segundo Año</span>
@@ -64,7 +63,7 @@
             </a>
         </div>
         <div class="col s12 m6 l4">
-            <a href="">
+            <a href="estudiante/year/2">
                 <div class="card black white-text center valign-wrapper">
                     <div style="display:block;">
                         <span class="card-title">Tercer Año</span>
@@ -76,5 +75,4 @@
             </a>
         </div>
     </div>
-
 <script src="<?php echo constant('URL') ?>public/js/validacionestu.js"></script>

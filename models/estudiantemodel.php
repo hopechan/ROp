@@ -166,4 +166,31 @@ class EstudianteModel extends Model
         }
     }
 
+    function year($year)
+    {
+        try {
+            $query = $this->db->conn()->query("SELECT * FROM estudiante WHERE anio=".$year);
+            $items =[];
+            
+            while ($row = $query->fetch()) {
+                $item = new Estudiante();
+                $item->idestudiante = $row['idestudiante'];
+                $item->nombre=$row['nombre'];
+                $item->apellidos=$row['apellidos'];
+                $item->fecha_nacimiento=$row['fecha_nacimiento'];
+                $item->telefono=$row['telefono'];
+                $item->email=$row['email'];
+                $item->direccion=$row['direccion'];
+                $item->anio=$row['anio'];
+                $item->seccion=$row['seccion'];
+                $item->centro_escolar=$row['centro_escolar'];
+                array_push($items, $item);
+            }
+            return $items;
+        } catch (PDOException $e) {
+            return "La consulta fallo :v";
+        }
+    }
+
 }
+
