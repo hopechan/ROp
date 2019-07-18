@@ -12,12 +12,16 @@
     <?php require 'views/header.php' ?>
     <?php require 'views/navbar.php' ?>
 
-    <!-- contenedor que carga la vista principal -->
-    <div id="toast">
-
-    </div>
-    <div id="root">
-
+    <div class="container">
+        <div class="row">
+            <div class="col s5 m6 l6">
+                <a href="<?php echo constant('URL'); ?>" class="btn black boton-g"><i class="material-icons left">arrow_back</i>Atrás</a>
+            </div>
+        </div>
+        <!-- contenedor que carga la vista principal -->
+        <div id="root">
+            
+        </div>
     </div>
 
     <!--Modal para agregar-->

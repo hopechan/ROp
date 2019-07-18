@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col s4 m4">
-                <a href="/rop/estudiante" class="btn black">Atras</a>
+                <a href="/rop/estudiante" class="btn black boton-g"><i class="material-icons left">arrow_back</i>Atrás</a>
             </div>
         </div>
         <div class="row">

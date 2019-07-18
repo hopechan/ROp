@@ -109,7 +109,7 @@ class Estudiante extends Controller
         $centroescolar = $_POST['centroescolar'];
         $seccion = $_POST['seccion'];
         $this->model->actualizar(['idestudiante' => $idestudiante, 'nombre' => $nombre, 'apellidos' => $apellido, 'fecha_nacimiento' => $fecha_nacimiento, 'telefono' => $telefono, 'email' => $email, 'anio' => $anio, 'direccion' => $direccion, 'centro_escolar' => $centroescolar, 'seccion' => $seccion]);
-        $this->verestudiante();
+        $this->ver();
     }
 
     function perfil($id = null)

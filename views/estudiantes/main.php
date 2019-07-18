@@ -1,4 +1,4 @@
-<div class="container">
+
     <!-- inicia el contenido del cuerpo de la pagina index de estudiantes -->
     <div class="row">
         <div class="col s12 m6 l4">
@@ -76,5 +76,5 @@
             </a>
         </div>
     </div>
-</div>
+
 <script src="<?php echo constant('URL') ?>public/js/validacionestu.js"></script>
