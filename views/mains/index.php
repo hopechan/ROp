@@ -37,7 +37,7 @@
       </div>
       <!--Card dos-->
       <div class="col s12 m3">
-        <a href="<?php echo constant('URL')?>estudiante">
+        <a href="<?php echo constant('URL')?>estudiante/ver">
           <div class="card teal black">
             <div class="card-content white-text">
               <i class=" medium material-icons red-text text-accent-4 right">language</i>
