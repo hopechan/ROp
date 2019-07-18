@@ -14,7 +14,7 @@ class Usuario extends Controller{
         $hash = password_hash($_POST['txtContra1'], PASSWORD_DEFAULT);
         $rol = ($_POST['rTipo'] == 'A') ? 'A': 'I';
         $this->model->nuevoUsuario(['nombre'=> $_POST['txtNombre'],'apellido'=>$_POST['txtApellido'],'rol' => $rol,'email'=>$_POST['txtEmail'], 'password'=>$hash]);
-        $this->view->render("usuarios/index");
+        header('Location:http://localhost/Rop/usuario');
     }
 }
 
