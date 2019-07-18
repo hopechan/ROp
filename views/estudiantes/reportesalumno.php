@@ -61,7 +61,7 @@
                             <span class="title"><?php echo $estudiante->nombre . ' ' . $estudiante->apellidos ?></span>
                             <p><?php echo "-".$estudiante->anio ?></p>
                             <div class="right">
-                            <a href="reportecxalumno/<?php echo $id ?>" class="btn btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 right"><i class="material-icons">local_printshop</i></a>
+                            <a href="reportecxalumno/<?php echo $id ?>" class="btn btn-floating btn-large waves-effect waves-black btn-flat white-text red accent-4 right" id ="btnImprimir"><i class="material-icons">local_printshop</i></a>
                         </div>
                         </li>
                     <?php } ?>

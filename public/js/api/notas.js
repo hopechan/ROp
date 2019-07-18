@@ -54,7 +54,8 @@ class Notas{
 			var value = g.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
             if (firstPoint !== undefined){
                 let id = filtro.filter(item => item.estudiante == label).map(item => item.idestudiante);
-                window.location = `http://localhost/Rop/estudiante/perfil/${id}`;
+                http://localhost/Rop/estudiante/reportecxalumno/
+                window.location = `http://localhost/Rop/estudiante/reportecxalumno/${id}`;
             }   
 		};
     }

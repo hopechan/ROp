@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="<?php echo constant('URL')?>public/css/vanilla-dataTables.css" rel="stylesheet" type="text/css">
     <script src="<?php echo constant('URL')?>public/js/libs/vanilla-dataTables.js" type="text/javascript"></script>
+    <script src="<?php echo constant('URL')?>public/js/libs/validate.min.js" type="text/javascript"></script>
+    <script src="<?php echo constant('URL')?>public/js/usuarios.js" defer type="text/javascript"></script>
     <title>Usuarios</title>
 </head>
 <body>
@@ -114,8 +116,4 @@
     </div>
     <?php require 'views/footer.php' ?>
 </body>
-<script>
-    let tblUsers = document.querySelector("#tblUsuarios");
-    let dtUsers = new DataTable(tblUsers);
-</script>
 </html>
