@@ -6,12 +6,15 @@ class Ranking extends Controller{
     }
 
     function render(){
+        /*
         $n = new NotaModel();
         $ranking = $n->listaFinal($n->promedios($n->getNotasByTipo(1), 5), $n->promedios($n->getNotasByTipo(2), 4));
         krsort($ranking);
-        $final = array_unique($ranking, SORT_REGULAR);
+        $final = array_unique($ranking, SORT_NUMERIC);
         $this->view->ranking = $final;
+        */
         $this->view->render('ranking/index');
+        
     }
 }
 

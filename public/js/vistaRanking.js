@@ -1,8 +1,6 @@
-import Notas from './api/notas.js';
+import TablaRanking from './api/tablaRanking.js';
 document.addEventListener('DOMContentLoaded', function (e) {
     e.preventDefault();
-    const ranking = new Notas();
+    const ranking = new TablaRanking();
     let data = ranking.getNotas();
-    console.log(data);
-    
 })

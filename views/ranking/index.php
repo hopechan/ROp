@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="<?php echo constant('URL')?>public/css/vanilla-dataTables.css" rel="stylesheet" type="text/css">
+    <script src="<?php echo constant('URL')?>public/js/libs/vanilla-dataTables.js" type="text/javascript"></script>
+    <script  type="module" src="<?php echo constant('URL')?>public/js/vistaRanking.js"></script>
     <title>Ranking</title>
 </head>
 <body>
@@ -20,44 +23,8 @@
         </div>
         <div class="row">
             <div class="col s12 m12">
-                <div class="card-panel">
-                    <table class="responsive-table">
-                        <thead>
-                            <tr>
-                                <th>Posición</th>
-                                <th>Nombre</th>
-                                <th>Promedio</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                            //var_dump($this->ranking);
-                            require_once 'models/Ranking.php';
-                            $i = 1;
-                            foreach ($this->ranking as $ranking) {
-                                $r = new Rankings();
-                                $r = $ranking;
-                            ?>
-                            <tr>
-                                <td><?= $i?></td>
-                                <td><?= $r['estudiante']?></td>
-                                <td><span class="new badge blue" data-badge-caption=""><?= $r['promedio']?></span></td>
-                            </tr>
-                            <?php 
-                                $i++;
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                    <ul class="pagination center">
-                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                        <li class="active black"><a href="#!">1</a></li>
-                        <li class="waves-effect"><a href="#!">2</a></li>
-                        <li class="waves-effect"><a href="#!">3</a></li>
-                        <li class="waves-effect"><a href="#!">4</a></li>
-                        <li class="waves-effect"><a href="#!">5</a></li>
-                        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-                    </ul>
+                <div class="card-panel" id="tblRanking">
+                    
                 </div>
             </div>
         </div>

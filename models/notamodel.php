@@ -188,18 +188,6 @@
                     $item->nota_p2 = $row['promedio']; //promedio
                     array_push($items, $item);
                 }
-                /*
-                while ($row = $query->fetch()) {
-                    $item = new Nota();
-
-                    $item = ['idestudiante' => $row['idestudiante'], 
-                            'idnota' => $row['idnota'], 
-                            'estudiante'=> $row['estudiante'],
-                            'materia' => $row['materia'],
-                            'promedio' => $row['promedio']];
-                    array_push($items, $item);
-                }
-                */
                 return $items;
             } catch(PDOException $e){
                 return [];
@@ -209,7 +197,7 @@
         function promedios($notas, $divisor){
             $last = end($notas);
             $id = $last->idestudiante;
-            $suma = 0;
+            $suma = 1;
             $datos = [];
             $idest = 0;
             $nombre = '';
@@ -222,8 +210,8 @@
                     }
                 }
                 $dato = ['idestudiante' => $idest,'estudiante' => $nombre,'promedio' => $suma/$divisor];
-                $suma = 0;
                 array_push($datos, $dato);
+                $suma = 0;
             }
             
             return $datos;
@@ -231,7 +219,6 @@
 
         function listaFinal($notasCCGK, $notasCE){
             $lista = array_merge($notasCCGK, $notasCE);
-            //echo "<script> console.log(".var_dump($notasCE).")</script>";
             $last = end($lista);
             $id = $last['idestudiante'];
             $suma = 0;

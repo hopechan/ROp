@@ -98,6 +98,12 @@ class Nota extends Controller{
         }
         header('Location:http://localhost/Rop/nota');
     }
+
+    function CCGK(){
+        $notasCCGK = $this->model->getNotasByTipo(1);
+        $promCCGK  = $this->model->promedios($notasCCGK, 5);
+        echo json_encode($promCCGK);
+    }
     
     function listaFinal(){
         $notasCCGK = $this->model->getNotasByTipo(1);

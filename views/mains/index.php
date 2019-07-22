@@ -49,7 +49,7 @@
       </div>
       <!--Card tres-->
       <div class="col s12 m3">
-        <a href="<?php echo constant('URL')?>ranking">
+        <a href="#">
           <div class="card teal black">
             <div class="card-content white-text">
               <i class=" medium material-icons red-text text-accent-4 right">poll</i>
@@ -74,7 +74,7 @@
     </div>
     <!-- Card para el ranking al 10, este estara en una row diferente-->
     <div class="row">
-      <div class="col s10 m10">
+      <div class="col s10 m10 center">
         <div class="card">
           <canvas id="ranking">Su navegador no soporta canvas, por favor actualize a una version mas reciente</canvas>
         </div>
@@ -83,6 +83,4 @@
   </div>
   <?php require 'views/footer.php' ?>
 </body>
-
-
 </html>
