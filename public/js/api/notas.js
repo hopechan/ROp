@@ -56,6 +56,7 @@ class Notas{
                 ]
             },
             options:{
+                responsive: true,
                 legend:{display:false},
                 title:{
                     display: true,
@@ -76,7 +77,7 @@ class Notas{
 		};
     }
 
-    async rankingCienPorCiento(tbody){
+    async rankingCienPorCiento(){
         let items = await(Api.getAll(`http://localhost/Rop/nota/listaFinal`));
         let filtro = items.filter((obj, pos, arr) => {
             return arr.map(mapObj => mapObj.estudiante).indexOf(obj.estudiante) == pos;

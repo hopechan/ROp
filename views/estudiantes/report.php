@@ -9,19 +9,19 @@
         <br>
         <div class="row atras">
             <div class="col s4 m4">
-                <a href="/rop/estudiante/reportealumnos" class="btn black">Atras</a>
+                <a href="/rop/estudiante/reportealumnos" class="btn black boton-g">Atras</a>
             </div>
             <div class="col s4 m4">
             </div>
             <div class="col s4 m4">
-                <button class="btn black right imprimir" id="imprimir">Imprimir</button>
+                <button class="btn black right imprimir boton-g" id="imprimir">Imprimir</button>
             </div>
         </div>
         <!-- Cabecera necesita mejora-->
         <div class="row">
             <div class="col s4 m3"><img src="<?php echo constant('URL') ?>public/img/fgk.png" alt="Fundacion Gloria de Kriete" height="70" width="50"></div>
             <div class="col s4 m6">
-                <h6 class="texto"><b>Programa Oportunidades Fundacion Gloria de Kriette</b></h6>
+                <h6 class="texto center-align"><b>Programa Oportunidades<br>Fundación Gloria de Kriette</b></h6>
             </div>
             <div class="col s4 m3"><img src="<?php echo constant('URL') ?>public/img/logo.png" alt="Fundacion Gloria de Kriete" height="70" width="240"></div>
         </div>
@@ -51,11 +51,11 @@
                             ?>
                             <tr>
                                 <td><?php echo $estudiante->materia; ?></td>
-                                <td><?php echo $estudiante->periodo_1; ?></td>
-                                <td><?php echo $estudiante->periodo_2; ?></td>
-                                <td><?php echo $estudiante->periodo_3; ?></td>
-                                <td><?php echo $estudiante->periodo_4; ?></td>
-                                <td><?php echo $estudiante->promedio; ?></td>
+                                <td><?php echo number_format($estudiante->periodo_1, 1, '.', ' '); ?></td>
+                                <td><?php echo number_format($estudiante->periodo_2, 1, '.', ' '); ?></td>
+                                <td><?php echo number_format($estudiante->periodo_3, 1, '.', ' '); ?></td>
+                                <td><?php echo number_format($estudiante->periodo_4, 1, '.', ' '); ?></td>
+                                <td><?php echo number_format($estudiante->promedio, 1, '.', ' '); ?></td>
                             </tr>
                         <?php } ?>
                         <tr>
@@ -68,11 +68,11 @@
                             ?>
                             <tr>
                                 <td><?php echo $estudiante2->materia; ?></td>
-                                <td><?php echo $estudiante2->periodo_1; ?></td>
-                                <td><?php echo $estudiante2->periodo_2; ?></td>
-                                <td><?php echo $estudiante2->periodo_3; ?></td>
-                                <td><?php echo $estudiante2->periodo_4; ?></td>
-                                <td><?php echo $estudiante2->promedio; ?></td>
+                                <td><?php echo number_format($estudiante2->periodo_1, 1,'.', ' '); ?></td>
+                                <td><?php echo number_format($estudiante2->periodo_2, 1,'.', ' '); ?></td>
+                                <td><?php echo number_format($estudiante2->periodo_3, 1,'.', ' '); ?></td>
+                                <td><?php echo number_format($estudiante2->periodo_4, 1,'.', ' '); ?></td>
+                                <td><?php echo number_format($estudiante2->promedio, 1,'.', ' '); ?></td>
                             </tr>
                         <?php } ?>
                         <tr>
@@ -85,11 +85,11 @@
                             ?>
                             <tr>
                                 <td><?php echo $estudiante3->materia; ?></td>
-                                <td><?php echo $estudiante3->periodo_1; ?></td>
-                                <td><?php echo $estudiante3->periodo_3; ?></td>
-                                <td><?php echo $estudiante3->periodo_3; ?></td>
-                                <td><?php echo $estudiante3->periodo_4; ?></td>
-                                <td><?php echo $estudiante3->promedio; ?></td>
+                                <td><?php echo number_format($estudiante3->periodo_1, 1,'.', ' '); ?></td>
+                                <td><?php echo number_format($estudiante3->periodo_2, 1,'.', ' '); ?></td>
+                                <td><?php echo number_format($estudiante3->periodo_3, 1,'.', ' '); ?></td>
+                                <td><?php echo number_format($estudiante3->periodo_4, 1,'.', ' '); ?></td>
+                                <td><?php echo number_format($estudiante3->promedio, 1,'.', ' '); ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>

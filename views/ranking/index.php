@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="<?php echo constant('URL')?>public/css/vanilla-dataTables.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo constant('URL')?>public/css/reporte.css" rel="stylesheet" type="text/css" media="print">
     <script src="<?php echo constant('URL')?>public/js/libs/vanilla-dataTables.js" type="text/javascript"></script>
     <script  type="module" src="<?php echo constant('URL')?>public/js/vistaRanking.js"></script>
     <title>Ranking</title>
