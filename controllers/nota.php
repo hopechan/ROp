@@ -6,34 +6,48 @@ class Nota extends Controller{
         $this->view->notas = [];
     }
 //para agregar todas las notas de un alumno
-    function neonotas($id = null){
-        $idestudiante = $id[0];
-        $nota = $this->model->getById($idestudiante);
-        $materias = $this->model->getMateria();
-        $this->view->materias = $materias;
+    function neonotas($num=null){
+        $anio=$num[0];
+        $actual = date('Y');
+        $year = ($actual - $anio);
+        $nota = $this->model->get($year);
+        $estudiante = $this->model->getEstudiante($year);
+        //$this->view->materias = $materias;
+        $this->view->estudiante = $estudiante;
         $this->view->nota = $nota;
-        $this->view->render('notas/neonotas');
+        $this->view->render('notas/tablaccgk');
     }
 
     function render(){
-            $notas = $this->model->get();
-            $materias = $this->model->getMateria();
-            $estudiantes = $this->model->getEstudiante();
-            $this->view->notas = $notas;
-            $this->view->materias = $materias;
-            $this->view->estudiantes = $estudiantes;
+            //$notas = $this->model->get();
+            //$materias = $this->model->getMateria();
+            //$estudiantes = $this->model->getEstudiante();
+            //$this->view->notas = $notas;
+            //$this->view->materias = $materias;
+            //$this->view->estudiantes = $estudiantes;
             $this->view->render("notas/index");
     }
+
+    //Cambios en la funcion agregarNota revie los datos via fetch para mandarlos al modelo
     function agregarNota(){
         $idestudiante = $_POST['idestudiante'];
         $idmateria = $_POST['idmateria'];
+        // aun falta integrar el idmateria
+        //$idmateria = $_POST['idmateria'];
         $nota_p1 = $_POST['nota_p1'];
         $nota_p2 = $_POST['nota_p2'];
         $nota_p3 = $_POST['nota_p3'];
         $nota_p4 = $_POST['nota_p4'];
-        $this->model->insert(['idmateria'=> $idmateria,'idestudiante'=>$idestudiante, 'nota_p1'=>$nota_p1, 'nota_p2'=>$nota_p2, 'nota_p3'=>$nota_p3, 'nota_p4'=>$nota_p4]);
-        header('Location:http://localhost/Rop/nota');
+        $resultado = $this->model->insert(['idmateria'=> $idmateria,'idestudiante'=>$idestudiante, 'nota_p1'=>$nota_p1, 'nota_p2'=>$nota_p2, 'nota_p3'=>$nota_p3, 'nota_p4'=>$nota_p4]);
+        //header('Location:http://localhost/Rop/nota');
+        if ($resultado == true) {
+             $resultado = "si";
+        }else{
+            $resultado = "no";
+        }
+        echo $resultado;
     }
+    //------------------------------------------------------------------------------------
 
     function filtrar(){
         $filtro = $_POST['filtro'];
@@ -104,5 +118,14 @@ class Nota extends Controller{
         $lista     = $this->model->listaFinal($promCCGK, $promCE);
         echo json_encode($lista);
     }
+
+    //Funcion que filtra los alumnos por año para poder ingresar sus notas de CCGK
+    function nccgk($num=null)
+    {
+        $year = $num[0];
+        $this->view->year = $year;
+        $this->view->render('notas/nccgk');
+    }
+    //------------------------------------------------------------------------------
 }
 ?>

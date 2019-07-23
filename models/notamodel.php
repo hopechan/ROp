@@ -8,20 +8,21 @@
             parent::__construct();
         }
 
-        function get(){
+        function get($year){
             $items = [];
             try {
-                $sql = "SELECT n.idnota, CONCAT(e.nombre, ' ', e.apellidos) as Estudiante, CONCAT(m.materia,'-', t.tipo) as materia, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4
+                $sql = "SELECT n.idnota, e.idestudiante, CONCAT(e.nombre, ' ', e.apellidos) as Estudiante, CONCAT(m.materia,'-', t.tipo) as materia, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4
                 FROM nota as n
                 INNER JOIN estudiante as e ON n.idestudiante = e.idestudiante
                 INNER JOIN materia as m ON n.idmateria = m.idmateria
-                INNER JOIN tipo as t on t.idtipo=m.idtipo";
+                INNER JOIN tipo as t on t.idtipo=m.idtipo WHERE e.anio=".$year;
                 $query = $this->db->conn()->query($sql); 
                 while ($row = $query->fetch()) {
                     $item = new Notas();
                     $item->idnota = $row['idnota'];
                     $item->idmateria = $row['materia'];
-                    $item->idestudiante = $row['Estudiante'];
+                    $item->idestudiante = $row['idestudiante'];
+                    $item->Estudiante = $row['Estudiante'];
                     $item->nota_p1 = $row['nota_p1'];
                     $item->nota_p2 = $row['nota_p2'];
                     $item->nota_p3 = $row['nota_p3'];
@@ -52,10 +53,11 @@
             }
         }
 
-        function getEstudiante(){
+        //Modificacion a la funcion getEstudiante ahora recive un parametro para filtrar la consulta segun el año de los estudiantes
+        function getEstudiante($year){
             $items = [];
             try {
-                $query = $this->db->conn()->query("SELECT e.idestudiante,CONCAT(e.nombre, ' ', e.apellidos) as Estudiante FROM estudiante as e");
+                $query = $this->db->conn()->query("SELECT e.idestudiante,CONCAT(e.nombre, ' ', e.apellidos) as Estudiante FROM estudiante as e WHERE anio=".$year);
                 while ($row = $query->fetch()) {
                     $item = new Estudiantes();
                     $item->idEstudiante = $row['idestudiante'];
@@ -67,6 +69,7 @@
                 return [];
             }
         }
+        //-----------------------------------------------------------------------------------------------------------------------------
 
         function buscar($filtro){
             $items = [];
@@ -107,6 +110,7 @@
                 $query->bindParam(':nota_p3',$datos['nota_p3'], PDO::PARAM_INT);
                 $query->bindParam(':nota_p4',$datos['nota_p4'], PDO::PARAM_INT);
                 $PDOexe = $query->execute();
+                return true;
             } catch (PDOException $e) {
                 return [];
             }

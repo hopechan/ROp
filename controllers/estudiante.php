@@ -73,6 +73,7 @@ class Estudiante extends Controller
         $centroescolar = $_POST['centro_escolar'];
         $seccion = $_POST['seccion'];
         $this->model->insert(['nombre' => $nombre, 'apellidos' => $apellido, 'fecha_nacimiento' => $fecha_nacimiento, 'telefono' => $telefono, 'email' => $email, 'anio' => $anio, 'direccion' => $direccion, 'centro_escolar' => $centroescolar, 'seccion' => $seccion]);
+        $this->model->insertNota();
         header("Location:" . constant('URL') . "estudiante/");
         //$this->verindex();
     }
@@ -130,4 +131,6 @@ class Estudiante extends Controller
         $this->view->estudiantes = $estudiantes;
         $this->view->render('estudiantes/year');
     }
+
+    
 }

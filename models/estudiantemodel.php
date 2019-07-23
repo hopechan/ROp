@@ -30,6 +30,22 @@ class EstudianteModel extends Model
         }
     }
 
+    function insertNota()
+    {
+        $idestudiante = $this->traerId();
+        var_dump($idestudiante);
+        $idmateria = 1;
+        // aun falta integrar el idmateria
+        //$idmateria = $_POST['idmateria'];
+        try {
+            $sql= 'INSERT INTO nota (idestudiante, idmateria, nota_p1, nota_p2, nota_p3, nota_p4) VALUES ('.$idestudiante.', '.$idmateria.',0,0,0,0)';
+            $query = $this->db->conn()->query($sql);
+            return true;
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
+
     function get(){
         try {
             $query = $this->db->conn()->query("SELECT * FROM estudiante");
@@ -187,6 +203,21 @@ class EstudianteModel extends Model
                 array_push($items, $item);
             }
             return $items;
+        } catch (PDOException $e) {
+            return "La consulta fallo :v";
+        }
+    }
+
+    function traerId()
+    {
+        try {
+            $sql = "SELECT MAX(idestudiante) FROM estudiante";
+            $query = $this->db->conn()->query($sql);
+            $item = [];
+            while ($row = $query->fetch()) {
+                $item['id'] = $row['MAX(idestudiante)'];
+            }
+            return $item['id'];
         } catch (PDOException $e) {
             return "La consulta fallo :v";
         }
