@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="<?php echo constant('URL')?>public/css/vanilla-dataTables.css" rel="stylesheet" type="text/css">
-  <script src="<?php echo constant('URL')?>public/js/libs/vanilla-dataTables.js" type="text/javascript"></script>
+  <link href="<?php echo constant('URL') ?>public/css/vanilla-dataTables.css" rel="stylesheet" type="text/css">
+  <script src="<?php echo constant('URL') ?>public/js/libs/vanilla-dataTables.js" type="text/javascript"></script>
   <script src="<?php echo constant('URL') ?>public/js/buscar.js" defer></script>
   <title>Notas</title>
 </head>
@@ -15,6 +15,74 @@
   <?php require 'views/header.php' ?>
   <?php require 'views/navbar.php' ?>
   <div class="container">
+    <h4 class="center">Lista de alumnos</h4>
+    <div class="row">
+      <div class="col l12 m12 s12">
+        <!--Tabla de la vista de notas-->
+        <table class="highlight responsive-table" id="tblNotas">
+          <thead class="black white-text">
+            <tr>
+              <th hidden>idNota</th>
+              <th>Estudiante</th>
+              <?php
+              require_once 'models/materias.php';
+              foreach ($this->materias as $item) {
+                $materia = new Materias();
+                $materia = $item;
+                $idmateria = $materia->idmateria;
+                $tipo = $materia->tipo;
+                $materia = $materia->materia;
+
+                ?>
+                <th><?php echo $materia . "-" . $tipo; ?></th>
+              <?php } ?>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-id">
+            <?php
+            require_once 'models/notas.php';
+            foreach ($this->notas as $item) {
+              $nota = new Notas();
+              $nota = $item;
+              ?>
+              <input type="hidden" id="idnota" value="<?php echo $nota->idnota; ?>">
+              <tr id="fila-<?php echo $nota->idnota; ?>">
+                <td hidden><?php echo $nota->idnota; ?></td>
+                <td><?php echo $nota->idestudiante; ?></td>
+                <td><?php echo $nota->nota_p1; ?></td>
+                <td><?php echo $nota->nota_p1; ?></td>
+                <td><?php echo $nota->nota_p1; ?></td>
+                <td><?php echo $nota->nota_p1; ?></td>
+                <td><?php echo $nota->nota_p1; ?></td>
+                <td><?php echo $nota->nota_p1; ?></td>
+                <td><?php echo $nota->nota_p1; ?></td>
+                <td><?php echo $nota->nota_p1; ?></td>
+                <td><?php echo $nota->nota_p1; ?></td>
+                <td>
+                  <!--botones de la tabla de vista notas-->
+                  <a href="<?php echo constant('URL') . 'nota/neoNotas/' . $nota->idnota; ?>" class="btn-floating btn grey darken-3 waves-effect"><i class="material-icons">class</i></a>
+                  <a href="<?php echo constant('URL') . 'nota/verNota/' . $nota->idnota; ?>" class="btn-floating btn-medium waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></a>
+                  <a class="btn-floating btn-medium waves-effect waves-black btn-flat white-text red accent-4 btn btndrop" data-id="<?php echo $nota->idnota; ?>"><i class="material-icons">delete</i></a></td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+  <script src="<?php echo constant('URL'); ?>public/js/nota.js"></script>
+  <?php require 'views/footer.php' ?>
+  <script>
+    $('input.validate, textarea.validate').characterCounter();
+    $('.dropdown-trigger').dropdown();
+  </script>
+  <!--<script src="./public/js/buscar.js"></script>-->
+</body>
+
+</html>
+<!--Vista de agregar notas anterior-->
+<!-- <div class="container">
     <div class="row tamaño">
       <div class="col s12 m12 l12">
         <div id="modal1" class="modal">
@@ -32,7 +100,7 @@
                       $estudiante = new Estudiantes();
                       $estudiante = $item;
                       ?>
-                      <option value="<?php echo $estudiante->idEstudiante; ?>"><?php echo $estudiante->Estudiantes; ?></option>
+                            <option value="<?php echo $estudiante->idEstudiante; ?>"><?php echo $estudiante->Estudiantes; ?></option>
                     <?php } ?>
                   </select>
                   <label>Estudiante</label>
@@ -44,16 +112,16 @@
                     <option value="" disabled selected>Materia</option>
                     <?php
                     require_once 'models/materias.php';
-                      foreach ($this->materias as $item) {
-                        $materia = new Materias();
-                        $materia = $item;
-                        $idmateria=$materia->idmateria;
-                        $tipo=$materia->tipo;
-                        $materia=$materia->materia;
-                        
-                        ?>
-                        <option value="<?php echo $idmateria ?>"><?php echo $materia."-".$tipo;?></option>
-                      <?php }?>
+                    foreach ($this->materias as $item) {
+                      $materia = new Materias();
+                      $materia = $item;
+                      $idmateria = $materia->idmateria;
+                      $tipo = $materia->tipo;
+                      $materia = $materia->materia;
+
+                      ?>
+                              <option value="<?php echo $idmateria ?>"><?php echo $materia . "-" . $tipo; ?></option>
+                      <?php } ?>
                   </select>
                   <label>Materia</label>
                   <span class="helper-text" data-error="Error" data-success="Correcto">Vacio</span>
@@ -79,7 +147,7 @@
                   <label for="nota_p4">Nota Periodo 4</label>
                 </div>
               </div>
-              <!-- footer del formulario modal -->
+               footer del formulario modal 
               <div class="modal-footer">
                 <div class="center-align">
                   <button class="btn boton-save white-text" type="submit" id="ok">Guardar
@@ -92,7 +160,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> 
   </div>
   <div class="container">
     <div class="row">
@@ -103,58 +171,4 @@
           <a href="#modal1" id="add" class="btn-floating btn-large waves-effect boton-save btn modal-trigger"><i class="material-icons">add</i></a>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col l12 m12 s12">
-        <!--Tabla de la vista de notas-->
-        <table class="highlight responsive-table" id="tblNotas">
-          <thead class="black white-text">
-            <tr>
-              <th hidden>idNota</th>
-              <th>Estudiante</th>
-              <th>Materia</th>
-              <th>Nota Periodo 1</th>
-              <th>Nota Periodo 2</th>
-              <th>Nota Periodo 3</th>
-              <th>Nota Periodo 4</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody id="tbody-id">
-            <?php
-            require_once 'models/notas.php';
-            foreach ($this->notas as $item) {
-              $nota = new Notas();
-              $nota = $item;
-              ?>
-              <input type="hidden" id="idnota" value="<?php echo $nota->idnota; ?>">
-              <tr id="fila-<?php echo $nota->idnota; ?>">
-                <td hidden><?php echo $nota->idnota; ?></td>
-                <td><?php echo $nota->idestudiante; ?></td>
-                <td><?php echo $nota->idmateria; ?></td>
-                <td><?php echo $nota->nota_p1 ?></td>
-                <td><?php echo $nota->nota_p2 ?></td>
-                <td><?php echo $nota->nota_p3 ?></td>
-                <td><?php echo $nota->nota_p4 ?></td>
-                <td>
-                  <!--botones de la tabla de vista notas-->
-                  <a href="#" class="btn-floating btn grey darken-3 waves-effect"><i class="material-icons">account_circle</i></a>
-                  <a href="<?php echo constant('URL') . 'nota/verNota/' . $nota->idnota; ?>" class="btn-floating btn-medium waves-effect waves-white btn-flat white-text grey darken-3 btn modal-trigger"><i class="material-icons">refresh</i></a>
-                  <a class="btn-floating btn-medium waves-effect waves-black btn-flat white-text red accent-4 btn btndrop" data-id="<?php echo $nota->idnota; ?>"><i class="material-icons">delete</i></a></td>
-              </tr>
-            <?php } ?>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <script src="<?php echo constant('URL'); ?>public/js/nota.js"></script>
-  <?php require 'views/footer.php' ?>
-  <script>
-    $('input.validate, textarea.validate').characterCounter();
-    $('.dropdown-trigger').dropdown();
-  </script>
-  <!--<script src="./public/js/buscar.js"></script>-->
-</body>
-
-</html>
+    </div>-->

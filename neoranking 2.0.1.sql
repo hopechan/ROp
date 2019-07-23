@@ -99,7 +99,7 @@ CREATE TABLE `materia` (
 --
 
 INSERT INTO `materia` (`idmateria`, `idtipo`, `materia`) VALUES
-(1, 1, 'Computación CCGk'),
+(1, 1, 'Computación'),
 (2, 1, 'Ingles'),
 (3, 1, 'Matematica'),
 (4, 1, 'Valores'),

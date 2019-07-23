@@ -5,34 +5,25 @@ class Nota extends Controller{
         parent::__construct(); //acceder al constructor de la clase padre
         $this->view->notas = [];
     }
-
-    function neonotas(){
+//para agregar todas las notas de un alumno
+    function neonotas($id = null){
+        $idestudiante = $id[0];
+        $nota = $this->model->getById($idestudiante);
+        $materias = $this->model->getMateria();
+        $this->view->materias = $materias;
+        $this->view->nota = $nota;
         $this->view->render('notas/neonotas');
     }
 
     function render(){
-        //mando diferentes variables del mismo metodo para separar
-        if (isset($_GET['pagina'])) {
-            $pag = $_GET['pagina'];
-            $notas = $this->model->get($pag);
+            $notas = $this->model->get();
             $materias = $this->model->getMateria();
             $estudiantes = $this->model->getEstudiante();
             $this->view->notas = $notas;
             $this->view->materias = $materias;
             $this->view->estudiantes = $estudiantes;
             $this->view->render("notas/index");
-        }else {
-            $pag = 1;
-            $notas = $this->model->get($pag);
-            $materias = $this->model->getMateria();
-            $estudiantes = $this->model->getEstudiante();
-            $this->view->notas = $notas;
-            $this->view->materias = $materias;
-            $this->view->estudiantes = $estudiantes;
-            $this->view->render("notas/index");
-        }
     }
-
     function agregarNota(){
         $idestudiante = $_POST['idestudiante'];
         $idmateria = $_POST['idmateria'];
