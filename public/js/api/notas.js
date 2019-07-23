@@ -1,7 +1,6 @@
 import Api from './api.js';
 class Notas{
     constructor() {
-        //URL_BASE = "http://localhost/Rop/";
     }
 
     diezPorCiento(arreglo){
@@ -13,12 +12,32 @@ class Notas{
         }
     }
 
+    tabla(datos){
+        let tbody = document.getElementById('class2017');
+        console.log(tbody);
+        let i = 1;
+        let vacio = '';
+        let limpiar = datos.filter(e => e.estudiante !== vacio);
+        limpiar.forEach(dato => {
+            var tr = document.createElement('tr');
+            
+            tr.innerHTML = `
+                <td>${i}</td>
+                <td>${dato.estudiante}</td>
+                <td>${dato.promedio}</td>`;
+            tbody.appendChild(tr);
+            i++;
+        });
+    }
+
     async rankingDiezPorCiento(){
         let items = await(Api.getAll(`http://localhost/Rop/nota/listaFinal`));
         let filtro = items.filter((obj, pos, arr) => {
             return arr.map(mapObj => mapObj.estudiante).indexOf(obj.estudiante) == pos;
         });
-        let ranking = filtro.sort((a,b) =>(b.promedio > a.promedio) ? 1 : -1);
+        let ranking = filtro.sort((a,b) =>(b.promedio > a.promedio) ? 1 : -1).filter(e => e.estudiante !== '');
+        console.log(ranking);
+        
         let diez = ranking.slice(0, this.diezPorCiento(ranking));
         let nombres = diez.map(items => items.estudiante);
         let proms = diez.map(items => items.promedio);
@@ -57,14 +76,13 @@ class Notas{
 		};
     }
 
-    async rankingCienPorCiento(){
+    async rankingCienPorCiento(tbody){
         let items = await(Api.getAll(`http://localhost/Rop/nota/listaFinal`));
         let filtro = items.filter((obj, pos, arr) => {
             return arr.map(mapObj => mapObj.estudiante).indexOf(obj.estudiante) == pos;
         });
         let ranking = filtro.sort((a,b) =>(b.promedio > a.promedio) ? 1 : -1);
-        let nombres = ranking.map(items => items.estudiante);
-        let proms = ranking.map(items => items.promedio);
+        this.tabla(ranking);
     }
 }
 export default Notas;

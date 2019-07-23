@@ -23,13 +23,58 @@
         </div>
         <div class="row">
             <div class="col s12 m12">
-                <div class="card-panel" id="tblRanking">
-                    
+                <div id="tblRanking">
+                    <ul class="collapsible">
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">info</i>Class of 2017</div>
+                            <div class="collapsible-body" id="actual">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Posición</th>
+                                        <th>Estudiante</th>
+                                        <th>Promedio</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="class2017"></tbody>
+                                </table>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">info</i>Class of 2018</div>
+                            <div class="collapsible-body" id="anterior">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Posición</th>
+                                        <th>Estudiante</th>
+                                        <th>Promedio</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">info</i>Class of 2019</div>
+                            <div class="collapsible-body" id="ultimo">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Posición</th>
+                                        <th>Estudiante</th>
+                                        <th>Promedio</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-
     <?php require 'views/footer.php' ?>
 </body>
 </html>

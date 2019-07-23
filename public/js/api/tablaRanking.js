@@ -1,4 +1,4 @@
-import Api from './api.js';
+import Api from './notas';
 class TablaRanking{
     constructor(){
     }

@@ -2,7 +2,6 @@ class Api{
     async getAll(url) {
         let data = await(fetch(url)
         .then(respuesta => {
-            console.log(respuesta)
             return respuesta.json()
         })
         .catch(error => {
