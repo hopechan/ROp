@@ -4,5 +4,4 @@ document.addEventListener('DOMContentLoaded', function (e) {
     const ranking = new Notas();
     let data = ranking.getNotas();
     console.log(data);
-    
 })

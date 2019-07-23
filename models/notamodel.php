@@ -169,14 +169,14 @@
             }
         }
 
-        function getNotasByTipo($tipo){
+        function getNotasByTipo($tipo, $class){
             $items = [];
             try {
                 $sql = "SELECT e.idestudiante, n.idnota,CONCAT(e.nombre, ' ', e.apellidos) as estudiante,m.materia, ((n.nota_p1 + n.nota_p2 + n.nota_p3 + n.nota_p4)/4) as promedio 
                         FROM nota as n
                         INNER JOIN estudiante as e ON e.idestudiante = n.idestudiante
                         INNER JOIN materia as m ON m.idmateria = n.idmateria
-                        WHERE m.idtipo = '".$tipo."'
+                        WHERE m.idtipo = '".$tipo."' AND e.anio = '".$class."'
                         ORDER BY n.idestudiante";
                 $query = $this->db->conn()->query($sql);
                 while ($row = $query->fetch()) {
@@ -197,7 +197,7 @@
         function promedios($notas, $divisor){
             $last = end($notas);
             $id = $last->idestudiante;
-            $suma = 1;
+            $suma = 0;
             $datos = [];
             $idest = 0;
             $nombre = '';
@@ -210,10 +210,9 @@
                     }
                 }
                 $dato = ['idestudiante' => $idest,'estudiante' => $nombre,'promedio' => $suma/$divisor];
-                array_push($datos, $dato);
                 $suma = 0;
+                array_push($datos, $dato);
             }
-            
             return $datos;
         }
 
@@ -225,7 +224,7 @@
             $ranking = [];
             $idest = 0;
             $nombre = '';
-            for ($i=1; $i < $id; $i++) {
+            for ($i=1; $i <= $id; $i++) {
                 foreach ($lista as $l ) {
                     if ($l['idestudiante'] == $i) {
                         $suma += $l['promedio'];
@@ -239,7 +238,7 @@
             }
             return $ranking;
         }
-        
+
         function getNotasByTipoEstudiante($tipo, $idestudiante){
             $items = [];
             try {

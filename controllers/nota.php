@@ -100,15 +100,15 @@ class Nota extends Controller{
     }
 
     function CCGK(){
-        $notasCCGK = $this->model->getNotasByTipo(1);
+        $notasCCGK = $this->model->getNotasByTipo(1, 2018);
         $promCCGK  = $this->model->promedios($notasCCGK, 5);
         echo json_encode($promCCGK);
     }
-    
+
     function listaFinal(){
-        $notasCCGK = $this->model->getNotasByTipo(1);
+        $notasCCGK = $this->model->getNotasByTipo(1, 2018);
         $promCCGK  = $this->model->promedios($notasCCGK, 5);
-        $notasCE   = $this->model->getNotasByTipo(2);
+        $notasCE   = $this->model->getNotasByTipo(2, 2018);
         $promCE    = $this->model->promedios($notasCE, 4);
         $lista     = $this->model->listaFinal($promCCGK, $promCE);
         echo json_encode($lista);
