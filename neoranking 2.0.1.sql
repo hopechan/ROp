@@ -21,7 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `neoranking2`
 --
-
+CREATE DATABASE neoranking2;
+USE neoranking2;
 -- --------------------------------------------------------
 
 --

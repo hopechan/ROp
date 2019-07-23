@@ -263,5 +263,10 @@
                 return [];
             }
         }
+
+        function obtenerAnio($anio){
+            $anioActual = date('Y');
+            return $anioActual - $anio;
+        }
     }
 ?>

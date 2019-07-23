@@ -97,9 +97,9 @@ class Nota extends Controller{
     }
 
     function listaFinal(){
-        $notasCCGK = $this->model->getNotasByTipo(1, 2018);
+        $notasCCGK = $this->model->getNotasByTipo(1, $this->model->obtenerAnio(2));
         $promCCGK  = $this->model->promedios($notasCCGK, 5);
-        $notasCE   = $this->model->getNotasByTipo(2, 2018);
+        $notasCE   = $this->model->getNotasByTipo(2, $this->model->obtenerAnio(2));
         $promCE    = $this->model->promedios($notasCE, 4);
         $lista     = $this->model->listaFinal($promCCGK, $promCE);
         echo json_encode($lista);
