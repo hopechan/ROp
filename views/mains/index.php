@@ -84,3 +84,16 @@
   <?php require 'views/footer.php' ?>
 </body>
 </html>
+<script>
+var f=new Date();
+cad=f.getHours()+":"+f.getMinutes()+":"+f.getSeconds(); 
+window.status =cad;
+console.log(cad)
+if(cad >"12:00:00"){
+  M.toast({html: 'hola! buenas tardes', classes: 'blue accent-4 rounded white-text'});
+}else if(cad > "19:00:00"){
+  M.toast({html: 'hola! buenas noches', classes: 'blue accent-4 rounded white-text'});
+}else if(cad > "07:00:00"){
+  M.toast({html: 'hola! buenos dias', classes: 'blue accent-4 rounded white-text'});
+}
+</script>

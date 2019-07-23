@@ -1,55 +1,66 @@
-let tblMaterias = document.querySelector("#tblMaterias");
-let dtMaterias = new DataTable(tblMaterias);
-const botones = document.querySelectorAll(".btndrop");
+window.addEventListener('load', cargar) //al cargar la pagina se cargara la funcion
+var cuerpo = document.querySelector('#cuerpo') //aqui insertaremos las cosas
+var frm = document.querySelector('#frm') //aqui insertaremos las cosas
+var respuesta = document.querySelector('#respuesta') //aqui insertaremos las cosas
 
-botones.forEach(boton => {
-
-    boton.addEventListener("click", function () {
-        const id = this.dataset.id;
-
-        const confirm = window.confirm("¿Deseas eliminar la materia?");
-        if (confirm) {
-            //solicitud AJAX
-            httpRequest("http://localhost/Rop/materia/eliminarMateria/" + id, function () {
-                //console.log(this.responseText);
-                    const tbody = document.querySelector("#tbody-id");
-                const fila  = document.querySelector("#fila-"+ id);
-                if(this.responseText=="si"){
-                tbody.removeChild(fila);
-                M.toast({html: 'Materia eliminada correctamente!', classes: 'green rounded white-text'});  
-                }else{
-                M.toast({html: 'Materia no eliminada!', classes: 'red accent-4 rounded white-text'});
-                }
-            });
-        }
-        
-    });
-});
-
-function httpRequest(url, callback){
-    const http = new XMLHttpRequest();
-    http.open("GET", url);
-    http.send();
-
-    http.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200){
-            callback.apply(http);
-        }else{
-        }
-    }
+//funcion para cargar el contenido
+function cargar() {
+	fetch('Materia/tabla')
+		.then(data => data.text())
+		.then(texto => {
+            cuerpo.innerHTML = texto
+            accion()
+        })
 }
 
-document.getElementById('btn').addEventListener('click',vacio);
+function accion() {
+	btnEliminar = document.getElementsByClassName('Eliminar')
 
-function vacio(){
-    var idtipo=document.getElementById('idtipo').value;
-    var materia=document.getElementById('materia').value;
-if (idtipo==="") {
-    M.toast({html: 'El tipo no puede estar vacio!!', classes: 'red accent-4 rounded white-text'});
-    return false;
+	for (var i = 0; i < btnEliminar.length; i++) {
+		btnEliminar[i].addEventListener('click', eliminar)
+		
+	}
 }
-if (materia==="") {
-    M.toast({html: 'La materia no puede estar vacia!!', classes: 'red accent-4 rounded white-text'});
-    return false;
+
+formulario = document.querySelector('#tipe-form')
+formulario.addEventListener('submit', function (e) {
+	e.preventDefault()
+
+	var datos = new FormData(formulario)
+	fetch('Materia/agregarMateria/', {
+			method: 'POST',
+			body: datos
+		}).then(res => res.text())
+		.then(texto => {
+            respuesta = texto
+            if(texto=="no"){
+                M.toast({html: 'Materia no agregada!',classes: 'rounded red accent-4'})
+                return false
+            }else{
+                cargar(),
+                M.toast({html: 'Agregado con exito!',classes: 'rounded green'});
+            }
+		})
+})
+
+function eliminar() {
+	fetch('Materia/eliminarMateria/' + this.value)
+		.then(res => res.text())
+		.then(texto => {
+			respuesta = texto
+            if(texto=="no"){
+                M.toast({html: 'Materia no eliminada por que esta relacionada!',classes: 'rounded red accent-4'})
+                return false
+            }else{
+                cargar(),
+			M.toast({html: 'Eliminado con exito!',classes: 'rounded green'})
+            }
+		})
 }
+
+function editar() {
 }
+
+
+
+

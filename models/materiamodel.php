@@ -57,6 +57,7 @@ class MateriaModel extends Model
             $query->bindParam(':idtipo',$datos['idtipo'], PDO::PARAM_INT);
             $query->bindParam(':materia', $datos['materia'], PDO::PARAM_STR);
             $PDOexe = $query->execute();
+            return true;
         } catch (PDOException $e) {
             return "El insert fallo :'v";
         }
