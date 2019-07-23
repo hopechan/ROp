@@ -23,10 +23,10 @@
         </div>
         <div class="row">
             <div class="col s12 m12">
-                <div id="tblRanking">
+                <div>
                     <ul class="collapsible">
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">info</i>Class of 2017</div>
+                            <div class="collapsible-header"><i class="material-icons">info</i>Class of 2017<i class="material-icons">arrow_drop_down</i></div>
                             <div class="collapsible-body" id="actual">
                                 <table>
                                     <thead>
@@ -41,7 +41,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">info</i>Class of 2018</div>
+                            <div class="collapsible-header"><i class="material-icons">info</i>Class of 2018<i class="material-icons">arrow_drop_down</i></div>
                             <div class="collapsible-body" id="anterior">
                                 <table>
                                     <thead>
@@ -56,7 +56,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">info</i>Class of 2019</div>
+                            <div class="collapsible-header"><i class="material-icons">info</i>Class of 2019<i class="material-icons">arrow_drop_down</i></div>
                             <div class="collapsible-body" id="ultimo">
                                 <table>
                                     <thead>

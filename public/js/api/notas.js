@@ -22,9 +22,9 @@ class Notas{
             var tr = document.createElement('tr');
             
             tr.innerHTML = `
-                <td>${i}</td>
+                <td>#${i}</td>
                 <td>${dato.estudiante}</td>
-                <td>${dato.promedio}</td>`;
+                <td><span >${dato.promedio}</span></td>`;
             tbody.appendChild(tr);
             i++;
         });

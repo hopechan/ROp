@@ -49,7 +49,7 @@
       </div>
       <!--Card tres-->
       <div class="col s12 m3">
-        <a href="#">
+        <a href="<?php echo constant('URL') ?>ranking">
           <div class="card teal black">
             <div class="card-content white-text">
               <i class=" medium material-icons red-text text-accent-4 right">poll</i>
