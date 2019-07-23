@@ -12,6 +12,7 @@
         <div class="container">
             <input type="hidden" value="<?php echo $this->year;?>" id="param">
             <div class="row">
+                
                 <div id="tabla">
 
                 </div>

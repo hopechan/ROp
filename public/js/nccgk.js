@@ -26,7 +26,6 @@ function accion()
         var idFrm = this.value
         var formulario = document.getElementById(idFrm);
         var contendor = document.getElementById('algo');
-        var elementos = formulario.elements;
         formulario.addEventListener('submit', function(evento){
         evento.preventDefault();
             //alert('vamos super bien, formulario N° ' + idFrm);

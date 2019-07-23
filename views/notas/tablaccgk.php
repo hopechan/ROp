@@ -29,7 +29,7 @@
                                     ?>
                                 </td>
                                 <input type="hidden" name="idestudiante" value="<?php echo $nota->idestudiante; ?>" id="idEstudiante">
-                                <input type="hidden" name="idmateria" value="1" id="idmateria">
+                                <input type="radio" name="idmateria" value="1" id="idmateria">
                                 <td style="width: 8rem;"><input type="number" name="nota_p1" id="n1"
                                     <?php 
                                         if ($nota->nota_p1) {
