@@ -62,6 +62,17 @@ class Notas{
                     display: true,
                     text: "Top Ranking Oportunidades"
                 },
+                scales:{
+                    yAxes:[{
+                        display: true,
+                        ticks: {
+                            suggestedMin: 0, 
+                            suggestedMax: 10,    // minimum will be 0, unless there is a lower value.
+                            // OR //
+                            beginAtZero: true   // minimum value will be 0.
+                        }
+                    }]
+                }
             }
         });
         grafico.onclick = function(evt){
