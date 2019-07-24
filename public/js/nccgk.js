@@ -32,6 +32,8 @@ function accion()
         formulario.nota_p2.disabled = false;
         formulario.nota_p3.disabled = false;
         formulario.nota_p4.disabled = false;
+        var btn = formulario.getElementsByTagName('button')[0];
+        console.log(btn);
     }
 }
 

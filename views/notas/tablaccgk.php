@@ -81,7 +81,7 @@
                                         steps="0.01" min="0" max="10"
                                     ></td>
                                     <td class="center">
-                                        <button type="submit" class="btn-floating btn waves-effect waves-light green guardar" id="boton" value="<?php echo $nota->idestudiante; ?>"><i class="material-icons">save</i></button>
+                                        <button type="submit" class="btn-floating btn waves-effect waves-light green guardar" id="boton" value="<?php echo $nota->idestudiante; ?>" name="<?php echo $nota->idestudiante; ?>"><i class="material-icons">save</i></button>
                                         <a class="btn-floating btn waves-effect waves-light blue editar" id="<?php echo $nota->idestudiante; ?>"><i class="material-icons">edit</i></a>
                                     </td>
                                 </tr>
