@@ -69,7 +69,8 @@ class Notas{
                             suggestedMin: 0, 
                             suggestedMax: 10,    // minimum will be 0, unless there is a lower value.
                             // OR //
-                            beginAtZero: true   // minimum value will be 0.
+                            beginAtZero: true ,
+                            stepSize: 0.5  // minimum value will be 0.
                         }
                     }]
                 }
