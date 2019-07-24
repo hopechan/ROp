@@ -32,54 +32,54 @@
                                 $nota = $item;
                             ?>
                             <form id="<?php echo $nota->idestudiante;?>" name="<?php echo $nota->idestudiante;?>">
-                            <tr>
-                                <td>
-                                    <?php echo $nota->Estudiante; ?>
-                                </td>
-                                <input type="hidden" name="idestudiante" value="<?php echo $nota->idestudiante; ?>" id="idEstudiante">
-                                <input type="hidden" name="idnota" value="<?php echo $nota->idnota; ?>">
-                                <input type="hidden" name="idmateria" value="<?php echo $this->materia; ?>">
-                                <td style="width: 8rem;"><input type="number" class="<?php echo $nota->idestudiante; ?>" name="nota_p1" id="n1"
-                                    <?php 
-                                        if ($nota->nota_p1<>0) {
-                                            echo 'value="'.$nota->nota_p1.'" disabled';
-                                        }else{
-                                            echo 'value="'.$nota->nota_p1.'"';
-                                        }
-                                    ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $nota->Estudiante; ?>
+                                    </td>
+                                    <input type="hidden" name="idestudiante" value="<?php echo $nota->idestudiante; ?>" id="idEstudiante">
+                                    <input type="hidden" name="idnota" value="<?php echo $nota->idnota; ?>">
+                                    <input type="hidden" name="idmateria" value="<?php echo $this->materia; ?>">
+                                    <td style="width: 8rem;"><input type="number" class="<?php echo $nota->idestudiante; ?>" name="nota_p1" id="n1"
+                                        <?php 
+                                            if ($nota->nota_p1<>0) {
+                                                echo 'value="'.$nota->nota_p1.'" disabled';
+                                            }else{
+                                                echo 'value="'.$nota->nota_p1.'"';
+                                            }
+                                        ?>
+                                        ></td>
+                                    <td style="width: 8rem;"><input type="number" class="<?php echo $nota->idestudiante; ?>" name="nota_p2" id="n2"
+                                        <?php 
+                                            if ($nota->nota_p2<>0) {
+                                                echo 'value="'.$nota->nota_p2.'" disabled';
+                                            }else{
+                                                echo 'value="'.$nota->nota_p2.'"';
+                                            }
+                                        ?>
+                                        ></td>
+                                    <td style="width: 8rem;"><input type="number" class="<?php echo $nota->idestudiante; ?>" name="nota_p3" id="n3"
+                                        <?php 
+                                            if ($nota->nota_p3<>0) {
+                                                echo 'value="'.$nota->nota_p3.'" disabled';
+                                            }else{
+                                                echo 'value="'.$nota->nota_p3.'"';
+                                            }
+                                        ?>
+                                        ></td>
+                                    <td style="width: 8rem;"><input type="number" class="<?php echo $nota->idestudiante; ?>" name="nota_p4" id="n4"
+                                        <?php 
+                                            if ($nota->nota_p4<>0) {
+                                                echo 'value="'.$nota->nota_p4.'" disabled';
+                                            }else{
+                                                echo 'value="'.$nota->nota_p4.'"';
+                                            }
+                                        ?>
                                     ></td>
-                                <td style="width: 8rem;"><input type="number" class="<?php echo $nota->idestudiante; ?>" name="nota_p2" id="n2"
-                                    <?php 
-                                        if ($nota->nota_p2<>0) {
-                                            echo 'value="'.$nota->nota_p1.'" disabled';
-                                        }else{
-                                            echo 'value="'.$nota->nota_p1.'"';
-                                        }
-                                    ?>
-                                    ></td>
-                                <td style="width: 8rem;"><input type="number" class="<?php echo $nota->idestudiante; ?>" name="nota_p3" id="n3"
-                                    <?php 
-                                        if ($nota->nota_p3<>0) {
-                                            echo 'value="'.$nota->nota_p1.'" disabled';
-                                        }else{
-                                            echo 'value="'.$nota->nota_p1.'"';
-                                        }
-                                    ?>
-                                    ></td>
-                                <td style="width: 8rem;"><input type="number" class="<?php echo $nota->idestudiante; ?>" name="nota_p4" id="n4"
-                                    <?php 
-                                        if ($nota->nota_p4<>0) {
-                                            echo 'value="'.$nota->nota_p1.'" disabled';
-                                        }else{
-                                            echo 'value="'.$nota->nota_p1.'"';
-                                        }
-                                    ?>
-                                    ></td>
-                                <td class="center">
-                                <button type="submit" class="btn-floating btn waves-effect waves-light green guardar" id="boton" value="<?php echo $nota->idestudiante; ?>"><i class="material-icons">save</i></button>
-                                <a class="btn-floating btn waves-effect waves-light blue"><i class="material-icons">edit</i></a>
-                                </td>
-                            </tr>
+                                    <td class="center">
+                                        <button type="submit" class="btn-floating btn waves-effect waves-light green guardar" id="boton" value="<?php echo $nota->idestudiante; ?>"><i class="material-icons">save</i></button>
+                                        <a class="btn-floating btn waves-effect waves-light blue editar" id="<?php echo $nota->idestudiante; ?>"><i class="material-icons">edit</i></a>
+                                    </td>
+                                </tr>
                             </form>
                                 <?php } ?>
                         </tbody>
