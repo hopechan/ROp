@@ -39,7 +39,7 @@
     </div>
     <div class="row">
         <div class="col s12 m6 l4">
-            <a href="estudiante/year/0">
+            <a href="http://localhost/ROp/estudiante/year/0">
                 <div class="card black white-text center valign-wrapper">
                     <div style="display:block;">
                         <span class="card-title">Primer Año</span>
@@ -51,7 +51,7 @@
             </a>
         </div>
         <div class="col s12 m6 l4">
-            <a href="estudiante/year/1">
+            <a href="http://localhost/ROp/estudiante/year/1">
                 <div class="card black white-text center valign-wrapper">
                     <div style="display:block;">
                         <span class="card-title">Segundo Año</span>
@@ -63,7 +63,7 @@
             </a>
         </div>
         <div class="col s12 m6 l4">
-            <a href="estudiante/year/2">
+            <a href="http://localhost/ROp/estudiante/year/2">
                 <div class="card black white-text center valign-wrapper">
                     <div style="display:block;">
                         <span class="card-title">Tercer Año</span>

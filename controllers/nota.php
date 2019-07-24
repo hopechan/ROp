@@ -5,26 +5,24 @@ class Nota extends Controller{
         parent::__construct(); //acceder al constructor de la clase padre
         $this->view->notas = [];
     }
-//para agregar todas las notas de un alumno
-    function neonotas($num=null){
+//funcion que renderiza la vista de notas segun año
+//es el reemplazo de la funcion neonotas
+    function nccgk($num=null){
         $anio=$num[0];
         $actual = date('Y');
         $year = ($actual - $anio);
-        $nota = $this->model->get($year);
-        $estudiante = $this->model->getEstudiante($year);
-        //$this->view->materias = $materias;
-        $this->view->estudiante = $estudiante;
+        $materia = $num[1];
+        $datos = ['year'=>$year, 'materia'=>$materia];
+        $nota = $this->model->get($datos);
+        //$estudiante = $this->model->getEstudiante($year);
+        $this->view->materia = $materia;
         $this->view->nota = $nota;
         $this->view->render('notas/tablaccgk');
     }
 
     function render(){
-            //$notas = $this->model->get();
-            //$materias = $this->model->getMateria();
-            //$estudiantes = $this->model->getEstudiante();
-            //$this->view->notas = $notas;
-            //$this->view->materias = $materias;
-            //$this->view->estudiantes = $estudiantes;
+            $materia = $this->model->getMateria();
+            $this->view->materia = $materia;
             $this->view->render("notas/index");
     }
 
@@ -96,12 +94,11 @@ class Nota extends Controller{
             $nota->idestudiante = $idestudiante;
             $nota->idmateria = $idmateria;
             
-            $this->view->nota = $nota;
-            $this->view->mensaje = "Nota actualizado correctamente";
+            echo 'si';
         }else{
-            $this->view->mensaje = "Nota no actualizado ";
+            echo 'no';
         }
-        header('Location:http://localhost/Rop/nota');
+        //header('Location:http://localhost/Rop/nota');
     }
 
     function CCGK(){
@@ -119,13 +116,6 @@ class Nota extends Controller{
         echo json_encode($lista);
     }
 
-    //Funcion que filtra los alumnos por año para poder ingresar sus notas de CCGK
-    function nccgk($num=null)
-    {
-        $year = $num[0];
-        $this->view->year = $year;
-        $this->view->render('notas/nccgk');
-    }
-    //------------------------------------------------------------------------------
+    
 }
 ?>

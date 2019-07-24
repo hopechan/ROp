@@ -1,5 +1,7 @@
 <?php
 include_once 'estudiantes.php';
+include_once 'models/tipos.php';
+include_once 'models/materias.php';
 class EstudianteModel extends Model
 {
     public function __construct()
@@ -30,16 +32,42 @@ class EstudianteModel extends Model
         }
     }
 
-    function insertNota()
+    /*funcion que va a la tabla materia y selecciona todas las materias de la db y las guarda en un arreglo para
+    crear una nota por defecto de cada una a los alumnos que se van inscribiendo*/
+    function getMaterias(){
+        $items = [];
+        try {
+            $sql = "SELECT m.idmateria,m.idtipo,m.materia,t.tipo
+            FROM materia m, tipo t
+            WHERE t.idtipo = m.idtipo";
+            $query = $this->db->conn()->query($sql);
+
+            while ($row = $query->fetch()) {
+                $item = new Materias();
+                $item->idmateria = $row['idmateria'];
+                $item->idtipo    = $row['idtipo'];
+                $item->materia   = $row['materia'];
+                $item->tipo  = $row['tipo'];
+                
+                array_push($items, $item);
+            }
+            return $items;
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
+    //------------------------------------------------------------------------------------------------------------
+
+    function insertNota($materia)
     {
         $idestudiante = $this->traerId();
-        var_dump($idestudiante);
-        $idmateria = 1;
-        // aun falta integrar el idmateria
-        //$idmateria = $_POST['idmateria'];
         try {
-            $sql= 'INSERT INTO nota (idestudiante, idmateria, nota_p1, nota_p2, nota_p3, nota_p4) VALUES ('.$idestudiante.', '.$idmateria.',0,0,0,0)';
-            $query = $this->db->conn()->query($sql);
+            foreach ($materia as $item) {
+                $materia = new Materias();
+                $materia = $item;
+                $sql= 'INSERT INTO nota (idestudiante, idmateria, nota_p1, nota_p2, nota_p3, nota_p4) VALUES ('.$idestudiante.', '.$materia->idmateria.',0,0,0,0)';
+                $query = $this->db->conn()->query($sql);
+            }
             return true;
         } catch (PDOException $e) {
             return [];

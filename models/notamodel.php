@@ -8,14 +8,14 @@
             parent::__construct();
         }
 
-        function get($year){
+        function get($datos){
             $items = [];
             try {
                 $sql = "SELECT n.idnota, e.idestudiante, CONCAT(e.nombre, ' ', e.apellidos) as Estudiante, CONCAT(m.materia,'-', t.tipo) as materia, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4
                 FROM nota as n
                 INNER JOIN estudiante as e ON n.idestudiante = e.idestudiante
                 INNER JOIN materia as m ON n.idmateria = m.idmateria
-                INNER JOIN tipo as t on t.idtipo=m.idtipo WHERE e.anio=".$year;
+                INNER JOIN tipo as t on t.idtipo=m.idtipo WHERE e.anio=".$datos['year']." AND m.idmateria=".$datos['materia'];
                 $query = $this->db->conn()->query($sql); 
                 while ($row = $query->fetch()) {
                     $item = new Notas();
