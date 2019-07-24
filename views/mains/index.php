@@ -74,7 +74,7 @@
     </div>
     <!-- Card para el ranking al 10, este estara en una row diferente-->
     <div class="row">
-      <div class="col s10 m10 center">
+      <div class="col s12 m12 center">
         <div class="card">
           <canvas id="ranking">Su navegador no soporta canvas, por favor actualize a una version mas reciente</canvas>
         </div>
