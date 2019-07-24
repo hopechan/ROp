@@ -47,6 +47,7 @@
                                                 echo 'value="'.$nota->nota_p1.'"';
                                             }
                                         ?>
+                                        steps="0.01" min="0" max="10"
                                         ></td>
                                     <td style="width: 8rem;"><input type="number" class="<?php echo $nota->idestudiante; ?>" name="nota_p2" id="n2"
                                         <?php 
@@ -56,6 +57,7 @@
                                                 echo 'value="'.$nota->nota_p2.'"';
                                             }
                                         ?>
+                                        steps="0.01" min="0" max="10"
                                         ></td>
                                     <td style="width: 8rem;"><input type="number" class="<?php echo $nota->idestudiante; ?>" name="nota_p3" id="n3"
                                         <?php 
@@ -65,6 +67,7 @@
                                                 echo 'value="'.$nota->nota_p3.'"';
                                             }
                                         ?>
+                                        steps="0.01" min="0" max="10"
                                         ></td>
                                     <td style="width: 8rem;"><input type="number" class="<?php echo $nota->idestudiante; ?>" name="nota_p4" id="n4"
                                         <?php 
@@ -73,7 +76,9 @@
                                             }else{
                                                 echo 'value="'.$nota->nota_p4.'"';
                                             }
+                                            
                                         ?>
+                                        steps="0.01" min="0" max="10"
                                     ></td>
                                     <td class="center">
                                         <button type="submit" class="btn-floating btn waves-effect waves-light green guardar" id="boton" value="<?php echo $nota->idestudiante; ?>"><i class="material-icons">save</i></button>
