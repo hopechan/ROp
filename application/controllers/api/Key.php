@@ -1,12 +1,7 @@
 <?php
-use Restserver\Libraries\REST_Controller;
-
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-// This can be removed if you use __autoload() in config.php OR use Modular Extensions
-/** @noinspection PhpIncludeInspection */
-//require APPPATH . '/libraries/REST_Controller.php';
-
+require APPPATH . 'libraries/Format.php';
+include_once(APPPATH . 'libraries/REST_Controller.php');
+include_once(APPPATH . 'libraries/Format.php');
 /**
  * Keys Controller
  * This is a basic Key Management REST controller to make and delete keys

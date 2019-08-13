@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  *
  * Modelo Estudiante_model
+ * Para metodos personalizados concatenar _get, _post, _put, _delete
  *
  * @package		ROp
  * @category	Model
@@ -29,13 +30,13 @@ class Estudiante_model extends CI_Model {
 
   function getByYear($year){
     //devuelve el registro coincidente con el parametro $year
-    return $this->db->query("SELECT * FROM estudiante WHERE year = $year")->row();
+    return $this->db->query("SELECT * FROM estudiante WHERE anio = $year")->result();
   }
 
   function getTotal(){
     #devuelve el total de registros guardados en la db
-    $sql = $this->db->query("SELECT COUNT(idestudiante) as total FROM estudiante");
-    return $this->db->query($sql);
+    $sql = "SELECT COUNT(idestudiante) as total FROM estudiante";
+    return $this->db->query($sql)->row();
   }
 
   function getMaxId(){
