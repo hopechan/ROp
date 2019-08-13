@@ -28,19 +28,19 @@ class Nota_model extends CI_Model {
   }
 
   function buscar($filtro){
-    $sub_consulta = $this->db->select('idtipo')->from('tipo')->like('tipo', $filtro);
-    $this->db->select("n.idnota", "CONCAT('e.nombre, ' ', e.apellidos') as Estudiante", "m.materia", "n.nota_p1", "n.nota_p2", "n.nota_p3", "n.nota_p4")
-              ->from('nota as n')
-              ->join('estudiante as e', 'e.idestudiante = n.idestudiante', 'inner')
-              ->join('materia as m', 'm.idmateria = n.idmateria', 'inner')
-              ->where('m.idtipo', $sub_consulta, false)
-              ->or_like('m.materia', $filtro)
-              ->or_like('e.anio', $filtro)
-              ->or_like('e.seccion', $filtro)
-              ->or_like('e.apellido', $filtro)
-              ->or_like('e.nombre', $filtro)
-            ->result();
+    $sql = "SELECT n.idnota, CONCAT(e.nombre, ' ', e.apellidos) as Estudiante, m.materia, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4
+              FROM nota as n
+              INNER JOIN estudiante as e ON n.idestudiante = e.idestudiante
+              INNER JOIN materia as m ON n.idmateria = m.idmateria
+              WHERE m.idtipo = (SELECT idtipo FROM tipo WHERE tipo = '".$filtro."')
+              OR m.materia LIKE '%".$filtro."%'
+              OR e.anio LIKE '%".$filtro."%'
+              OR e.seccion LIKE '%".$filtro."%'
+              OR e.nombre LIKE '%".$filtro."%'
+              OR e.apellidos LIKE '%".$filtro."%'";
+    return $this->db->query($sql)->result();
   }
+
 
 
   function post($data){
