@@ -3,9 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  *
- * Modelo Estudiante_model
- * Para metodos personalizados concatenar _get, _post, _put, _delete
- *
  * @package		ROp
  * @category	Model
  * @author    Esperanza Dueñas <da13002@ues.edu.sv>

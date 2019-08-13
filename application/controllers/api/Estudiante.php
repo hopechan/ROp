@@ -7,7 +7,7 @@ include_once(APPPATH . 'libraries/Format.php');
 /**
  *
  * Controller Estudiante
- *
+ * Para metodos personalizados concatenar _get, _post, _put, _delete
  *
  * @package   ROp
  * @category  Controller REST
