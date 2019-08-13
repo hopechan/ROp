@@ -31,13 +31,12 @@ class Nota extends REST_Controller{
     }
   }
 
-  function buscar(){
+  function buscar_get(){
     //Recibe por POST el dato de busqueda que se desea obtener
     $this->response($this->Nota_model->buscar($_POST['filtro']));
   }
 
+  function promedios_get(){
+    $this->response($this->Nota_model->promedios($this->Nota_model->getNotasByTipo(1, 2018), 5), REST_Controller::HTTP_OK);
+  }
 }
-
-
-/* End of file Nota.php */
-/* Location: ./application/controllers/Nota.php */

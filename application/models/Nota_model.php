@@ -24,7 +24,11 @@ class Nota_model extends CI_Model {
 
   function getById($id){
     //devuelve un solo registro basado en el id que recibe
-    return $this->db->query("SELECT * FROM materia WHERE idmateria = $id")->row();
+    return $this->db->query("SELECT n.idnota, n.idestudiante,e.nombre,e.apellidos,n.idmateria, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4, m.materia,m.idmateria
+            FROM NOTA AS n
+            INNER JOIN estudiante as e ON e.idestudiante = n.idestudiante
+            INNER JOIN materia as m ON m.idmateria = n.idmateria
+            WHERE n.idnota = $id")->row();
   }
 
   function buscar($filtro){
@@ -41,16 +45,39 @@ class Nota_model extends CI_Model {
     return $this->db->query($sql)->result();
   }
 
+  function getNotasByTipo($tipo, $class){
+    $sql = "SELECT e.idestudiante, n.idnota,CONCAT(e.nombre, ' ', e.apellidos) as estudiante,m.materia, ((n.nota_p1 + n.nota_p2 + n.nota_p3 + n.nota_p4)/4) as promedio 
+            FROM nota as n
+            INNER JOIN estudiante as e ON e.idestudiante = n.idestudiante
+            INNER JOIN materia as m ON m.idmateria = n.idmateria
+            WHERE m.idtipo = '".$tipo."' AND e.anio = '".$class."'
+            ORDER BY n.idestudiante";
+    return $this->db->query($sql)->result();
+  }
 
+  function getNotasByTipoEstudiante($tipo, $estudiante){
+    $sql = "SELECT e.idestudiante, n.idnota,CONCAT(e.nombre, ' ', e.apellidos) as estudiante,m.materia, ((n.nota_p1 + n.nota_p2 + n.nota_p3 + n.nota_p4)/4) as promedio 
+          FROM nota as n
+          INNER JOIN estudiante as e ON e.idestudiante = n.idestudiante
+          INNER JOIN materia as m ON m.idmateria = n.idmateria
+          WHERE m.idtipo = '".$tipo."' AND '".$idestudiante."'
+          ORDER BY n.idestudiante";
+    return $this->db->query($sql)->result();
+  }
+
+  function obtenerAnio($anio){
+    $anioActual = date('Y');
+    return $anioActual - $anio;
+  }
 
   function post($data){
     //inserta un nuevo registro a la base de datos
-    $this->db->insert('materia', $data);
+    $this->db->insert('nota', $data);
   }
 
   function delete($id){
     //borra un registro basado en el ID
-    $this->db->where('idmateria', $id);
-    $this->db->delete('materia');
+    $this->db->where('idnota', $id);
+    $this->db->delete('nota');
   }
 }
