@@ -47,8 +47,22 @@ class Estudiante extends REST_Controller
   }
 
   function index_post(){
-    $input = $this->input->post();
-    $this->Estudiante_model->post($input);
+    /**
+     * se crea un array y dentro del valor de cada clave se coloca
+     * la funcion $this->post('parametro')
+     * eje:
+     * {
+     *  nombre : 'juan',
+     *  apellidos: 'perez'
+     * }
+     */
+    $data = [
+        'nombre' => $this->post('nombre'),
+        'apellidos' => $this->post('apellidos')
+      ];
+    //metodo que ingresa datos en el modelo
+    $this->Estudiante_model->post($data);
+    //se devuelve un mensaje y el estado ok de la peticion
     $this->response(['Estudiante Ingresado', Rest_Controller::HTTP_OK]);
   }
 
