@@ -45,6 +45,13 @@ class Estudiante extends REST_Controller
   function getMaxId_get(){
     $this->response($this->Estudiante_model->getMaxId());
   }
+
+  function index_post(){
+    $input = $this->input->post();
+    $this->Estudiante_model->post($input);
+    $this->response(['Estudiante Ingresado', Rest_Controller::HTTP_OK]);
+  }
+
 }
 
 
