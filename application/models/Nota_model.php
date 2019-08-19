@@ -80,4 +80,30 @@ class Nota_model extends CI_Model {
     $this->db->where('idnota', $id);
     $this->db->delete('nota');
   }
+
+  function getIds(){
+    /*
+    guarda los id de las materias existentes en un array 
+    y lo devuleve al metodo generarNotas del EstudianteController
+    */
+   $this->db->select('idmateria');
+   return $this->db->get('materia')->result();
+  }
+
+  function generateNotas($idEstu)
+  {
+     
+    /*
+    *funcion que se ejecuta cuando se ingresa un estudiante, se reciven 
+    *dos parametros el id del estudiante recien ingresado y las materias 
+    *existentes den la base de datos y con eso inicializa las notas del 
+    *estudiante en la base de datos y les asigna el valor 0
+    */
+      $sql = "INSERT INTO nota(idnota, idestudiante, idmateria, nota_p1, nota_p2, nota_p3, nota_p4) VALUES (NULL,".$idEstu['MAX(idestudiante)']."
+      ,  1, 0, 0, 0, 0)";
+
+      $this->db->query($sql);
+    
+
+  }
 }

@@ -39,7 +39,7 @@ class Estudiante_model extends CI_Model {
   function getMaxId(){
     #devuelve el ultimo id ingresado
     $sql = "SELECT MAX(idestudiante) FROM estudiante";
-    return $this->db->query($sql);
+    return $this->db->query($sql)->row();
   }
 
   function post($data){
