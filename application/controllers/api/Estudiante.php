@@ -47,15 +47,13 @@ class Estudiante extends REST_Controller
     $this->response($this->Estudiante_model->getMaxId());
   }
 
-  function generarNotas_get(){
+  function generarNotas_post(){
     //recibe el id del estudiante recien inscrito y lo mando al modelo a la funcion generateNotas
-    //$materiasj = $this->Nota_model->getIds();
-    $idEstuj = $this->Estudiante_model->getMaxId();
-    //$materias = json_decode($materiasj);
-    $idEstuj = null;
-    
-    $this->Nota_model->generateNotas($idEstu);
-    $this->response(['CREO QUE FUNCIONO',REST_Controller::HTTP_OK]);
+    $materias = $this->Nota_model->getIds();
+    $idEstu = $this->Estudiante_model->getMaxId();
+    $id = get_object_vars($idEstu);
+    $this->Nota_model->generateNotas($id, $materias);
+    $this->response('TODO SALIO BIEN');
   }
 
   function index_post(){
@@ -74,7 +72,7 @@ class Estudiante extends REST_Controller
       ];
     //metodo que ingresa datos en el modelo
     $this->Estudiante_model->post($data);
-    $this->generarNotas_get();
+    $this->generarNotas_post();
     //se devuelve un mensaje y el estado ok de la peticion
     $this->response(['Estudiante Ingresado', Rest_Controller::HTTP_OK]);
   }
