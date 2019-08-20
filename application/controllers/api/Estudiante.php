@@ -68,7 +68,14 @@ class Estudiante extends REST_Controller
      */
     $data = [
         'nombre' => $this->post('nombre'),
-        'apellidos' => $this->post('apellidos')
+        'apellidos' => $this->post('apellidos'),
+        'fecha_nacimiento' =>$this->post('fecha_nacimiento'),
+        'telefono' => $this->post('telefono'),
+        'email' => $this->post('email'),
+        'direccion' => $this->post('direccion'),
+        'anio' => $this->post('anio'),
+        'seccion' => $this->post('seccion'),
+        'centro_escolar' => $this->post('centro_escolar')
       ];
     //metodo que ingresa datos en el modelo
     $this->Estudiante_model->post($data);
