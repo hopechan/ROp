@@ -84,6 +84,39 @@ class Estudiante extends REST_Controller
     $this->response(['Estudiante Ingresado', Rest_Controller::HTTP_OK]);
   }
 
+  function borrar_delete($id)
+  { 
+    //recibe un id y lo manda a la funcion delete del Estudiante_model
+    $this->Estudiante_model->delete($id);
+    $this->response('Estudiante eliminado con exito', REST_Controller::HTTP_OK);
+  }
+
+  function getById_get($id)
+  {
+    //reibe un id y lo manda a la funcion getById al Estudiante_model
+    $estudiante = $this->Estudiante_model->getById($id);
+    $this->response($estudiante, REST_Controller::HTTP_OK);
+  }
+
+  function actualizar_put()
+  {
+    $data = 
+    [
+      'idestudiante' => $this->put('idestudiante'),
+      'nombre' => $this->put('nombre'),
+      'apellidos' => $this->put('apellidos'),
+      'fecha_nacimiento' => $this->put('fecha_nacimiento'),
+      'telefono' => $this->put('telefono'),
+      'email' => $this->put('email'),
+      'direccion' => $this->put('direccion'),
+      'anio' => $this->put('anio'),
+      'seccion' => $this->put('seccion'),
+      'centro_escolar' => $this->put('centro_escolar')
+    ];
+
+    $this->Estudiante_model->update($data);
+    $this->response('Estudiante Actualizado con Exito', REST_Controller::HTTP_OK);
+  }
 }
 
 

@@ -52,4 +52,11 @@ class Estudiante_model extends CI_Model {
     $this->db->where('idestudiante', $id);
     $this->db->delete('estudiante');
   }
+
+  function update($data)
+  {
+    #recive un array con los datos a ser actualizados
+    $this->db->where('idestudiante', $data['idestudiante']);
+    $this->db->update('estudiante', $data);
+  }
 }
