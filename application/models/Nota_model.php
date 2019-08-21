@@ -133,4 +133,11 @@ class Nota_model extends CI_Model {
       return ($dato['idestudiante'] != 0 && $dato['promedio'] != 0);
     });
   }
+
+  function updateNota($data)
+  {
+    //recibe un array de Nota controller y actualiza el registro de una nota en la db
+    $this->db->where('idnota', $data['idnota']);
+    $this->db->update('nota', $data);
+  }
 }

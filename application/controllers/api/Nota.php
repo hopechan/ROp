@@ -36,15 +36,33 @@ class Nota extends REST_Controller{
     $this->response($this->Nota_model->buscar($_POST['filtro']));
   }
 
-  function promedios_get($tipo = 0, $class = 0){
-    $notas = json_decode(json_encode($this->Nota_model->getNotasByTipo($tipo, $class)), true);
-    $final = $this->Nota_model->limpiarArray($this->Nota_model->calcularPromedios($notas, 5));
-    $this->response($final, REST_Controller::HTTP_OK);
+  function promedios_get(){
+    $this->response($this->Nota_model->promedios($this->Nota_model->getNotasByTipo(1, 2018), 5), REST_Controller::HTTP_OK);
   }
 
-  //url del metodo http://localhost/ROp/api/Nota/notasPorTipo/tipo/class
-  //metodo funcionando al 100% real no fake
-  function notasPorTipo_get($tipo = 0, $class = 0){
-    $this->response($this->Nota_model->getNotasByTipo($tipo, $class));
+  function actualizar_put()
+  {
+    /*
+    * Recibe por PUT los datos del registro de una nota actualizado
+    */
+    $data = 
+    [
+      'idnota' => $this->put('idnota'),
+      'idestudiante' => $this->put('idestudiante'),
+      'idmateria' => $this->put('idmateria'),
+      'nota_p1' => $this->put('nota_p1'),
+      'nota_p2' => $this->put('nota_p2'),
+      'nota_p3' => $this->put('nota_p3'),
+      'nota_p4' => $this->put('nota_p4')
+    ];
+
+    $this->Nota_model->updateNota($data);
+    $this->response('Nota Actualizada con Exito', REST_Controller::HTTP_OK);
+  }
+
+  function borrar_delete($id)
+  {
+    $this->Nota_model->delete($id);
+    $this->response('Nota eliminada con exito', REST_Controller::HTTP_OK);
   }
 }

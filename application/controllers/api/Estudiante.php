@@ -100,6 +100,10 @@ class Estudiante extends REST_Controller
 
   function actualizar_put()
   {
+    /*
+    * crea un array asociativo de los datos recividos via post y los envia al modelo 
+    * al metodo update
+    */
     $data = 
     [
       'idestudiante' => $this->put('idestudiante'),
