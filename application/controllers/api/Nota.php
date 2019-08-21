@@ -36,8 +36,8 @@ class Nota extends REST_Controller{
     $this->response($this->Nota_model->buscar($_POST['filtro']));
   }
 
-  function promedios_get(){
-    $notas = json_decode(json_encode($this->Nota_model->getNotasByTipo(1, 2017)), true);
+  function promedios_get($tipo = 0, $class = 0){
+    $notas = json_decode(json_encode($this->Nota_model->getNotasByTipo($tipo, $class)), true);
     $final = $this->Nota_model->limpiarArray($this->Nota_model->calcularPromedios($notas, 5));
     $this->response($final, REST_Controller::HTTP_OK);
   }
