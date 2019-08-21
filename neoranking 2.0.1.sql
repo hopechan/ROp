@@ -222,7 +222,7 @@ DROP TABLE IF EXISTS `tipo`;
 CREATE TABLE `tipo` (
   `idtipo` int(11) NOT NULL,
   `tipo` varchar(45) NOT NULL,
-  `descripcion` varchar(45) NOT NULL
+  `descripcion` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -232,7 +232,7 @@ CREATE TABLE `tipo` (
 INSERT INTO `tipo` (`idtipo`, `tipo`, `descripcion`) VALUES
 (1, 'CCGK', 'Materias impartidas en el proyecto oportunida'),
 (2, 'Centro Escolar', 'Materias impartidas por el ministerio de educ'),
-(6, 'Certificaciones', 'Evaluaciones dentro del proyecto Oportunidade');
+(3, 'Certificaciones', 'Evaluaciones dentro del proyecto Oportunidade');
 
 -- --------------------------------------------------------
 
