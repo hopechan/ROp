@@ -125,7 +125,29 @@ class Nota_model extends CI_Model {
         array_push($datos, $dato);
     }
     return $datos;
-    //return array_unique($datos, SORT_REGULAR);
+  }
+
+  function rankingFinal($promCCGK, $promCE, $promCerti){
+    $lista = array_merge($promCCGK, $promCE, $promCerti);
+    $last = end($lista);
+    $id = $last['idestudiante'];
+    $suma = 0;
+    $ranking = [];
+    $idest = 0;
+    $nombre = '';
+    for ($i=1; $i <= $id; $i++) {
+      foreach ($lista as $l ) {
+        if ($l['idestudiante'] == $i) {
+          $suma += $l['promedio'];
+          $idest = $l['idestudiante'];
+          $nombre = $l['estudiante'];
+        }
+      }
+      $pos = ['idestudiante' => $idest,'estudiante' => $nombre,'promedio' => round($suma/3, 1)];
+      $suma = 0;
+      array_push($ranking, $pos);
+    }
+    return $ranking;
   }
 
   function limpiarArray($data){

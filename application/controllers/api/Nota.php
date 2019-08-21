@@ -65,4 +65,18 @@ class Nota extends REST_Controller{
     $this->Nota_model->delete($id);
     $this->response('Nota eliminada con exito', REST_Controller::HTTP_OK);
   }
+  
+  function ranking_get($class = 0){
+    $finalCCGK = $this->Nota_model->limpiarArray($this->Nota_model->calcularPromedios(json_decode(json_encode($this->Nota_model->getNotasByTipo(1, $class)), true), 5));
+    $finalCE = $this->Nota_model->limpiarArray($this->Nota_model->calcularPromedios(json_decode(json_encode($this->Nota_model->getNotasByTipo(2, $class)), true), 4));
+    $finalCerti = $this->Nota_model->limpiarArray($this->Nota_model->calcularPromedios(json_decode(json_encode($this->Nota_model->getNotasByTipo(3, $class)), true), 5));
+    $listaFinal = $this->Nota_model->limpiarArray($this->Nota_model->rankingFinal($finalCCGK, $finalCE, $finalCerti));
+    $this->response($listaFinal, REST_Controller::HTTP_OK);
+  }
+
+  //url del metodo http://localhost/ROp/api/Nota/notasPorTipo/tipo/class
+  //metodo funcionando al 100% real no fake
+  function notasPorTipo_get($tipo = 0, $class = 0){
+    $this->response($this->Nota_model->getNotasByTipo($tipo, $class));
+  }
 }
