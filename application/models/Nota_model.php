@@ -86,13 +86,11 @@ class Nota_model extends CI_Model {
     guarda los id de las materias existentes en un array 
     y lo devuleve al metodo generarNotas del EstudianteController
     */
-   $this->db->select('idmateria');
-   return $this->db->get('materia')->result();
+    $this->db->select('idmateria');
+    return $this->db->get('materia')->result();
   }
 
-  function generateNotas($id, $materia)
-  {
-     
+  function generateNotas($id, $materia){
     /*
     *funcion que se ejecuta cuando se ingresa un estudiante, se reciven 
     *dos parametros el id del estudiante recien ingresado y las materias 
@@ -105,6 +103,34 @@ class Nota_model extends CI_Model {
                 VALUES (null, ".$id['MAX(idestudiante)'].", ".$materia[$i]->idmateria.", 0, 0, 0, 0)";
         $this->db->query($sql);
       }
+  }
 
+  function calcularPromedios($notas, $divisor){
+    $last = end($notas);
+    $id = $last['idestudiante'];
+    $suma = 0;
+    $datos = [];
+    $idest = 0;
+    $nombre = '';
+    for ($i=1; $i <=$id; $i++) {
+        foreach ($notas as $nota ) {
+            if ($nota['idestudiante'] == $i) {
+                $suma += $nota['promedio'];
+                $idest = $nota['idestudiante'];
+                $nombre = $nota['estudiante'];
+            }
+        }
+        $dato = ['idestudiante' => $idest,'estudiante' => $nombre,'promedio' => $suma/$divisor];
+        $suma = 0;
+        array_push($datos, $dato);
+    }
+    return $datos;
+    //return array_unique($datos, SORT_REGULAR);
+  }
+
+  function limpiarArray($data){
+    return array_filter($data, function($dato){
+      return ($dato['idestudiante'] != 0 && $dato['promedio'] != 0);
+    });
   }
 }

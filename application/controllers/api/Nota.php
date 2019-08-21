@@ -23,7 +23,7 @@ class Nota extends REST_Controller{
     $this->load->model('Nota_model');
   }
 
-  public function index_get(){
+  public function index_get($id = 0){
     if(!empty($id)){
       $this->response($this->Nota_model->getById($id), REST_Controller::HTTP_OK);
     }else{
@@ -37,6 +37,14 @@ class Nota extends REST_Controller{
   }
 
   function promedios_get(){
-    $this->response($this->Nota_model->promedios($this->Nota_model->getNotasByTipo(1, 2018), 5), REST_Controller::HTTP_OK);
+    $notas = json_decode(json_encode($this->Nota_model->getNotasByTipo(1, 2017)), true);
+    $final = $this->Nota_model->limpiarArray($this->Nota_model->calcularPromedios($notas, 5));
+    $this->response($final, REST_Controller::HTTP_OK);
+  }
+
+  //url del metodo http://localhost/ROp/api/Nota/notasPorTipo/tipo/class
+  //metodo funcionando al 100% real no fake
+  function notasPorTipo_get($tipo = 0, $class = 0){
+    $this->response($this->Nota_model->getNotasByTipo($tipo, $class));
   }
 }
