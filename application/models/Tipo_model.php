@@ -38,4 +38,10 @@ class Tipo_model extends CI_Model {
     $this->db->where('idtipo', $id);
     $this->db->delete('tipo');
   }
+
+  function update($data){
+    //actualiza un registro basado en el ID
+    $this->db->where('idtipo', $data['idtipo']);
+    $this->db->update('tipo', $data);
+  }
 }

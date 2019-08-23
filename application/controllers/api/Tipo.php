@@ -46,11 +46,11 @@ class Tipo extends REST_Controller
   function index_put()
   {
     $data = [
-      'idtipo' => $this->post('idtipo'),
-      'tipo' => $this->post('tipo'),
-      'descripcion' => $this->post('descripcion')
+      'idtipo' => $this->put('idtipo'),
+      'tipo' => $this->put('tipo'),
+      'descripcion' => $this->put('descripcion')
     ];
-    $this->Tipo_model->put($data); //metodo que ingresa datos en el modelo
+    $this->Tipo_model->update($data); //metodo que ingresa datos en el modelo
     $this->response(['Tipo actualizado', Rest_Controller::HTTP_OK]); //se devuelve un mensaje y el estado ok de la peticion
   }
 }
