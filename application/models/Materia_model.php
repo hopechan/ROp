@@ -35,7 +35,10 @@ class Materia_model extends CI_Model {
 
   function update($data){
     //actualiza un registro basado en el ID
-    $this->db->where('idmateria', $data['idmateria']);
-    $this->db->update('materia', $data);
+    $idmateria=$data['idmateria'];
+    $materia=$data['materia'];
+    $idtipo=$data['idtipo'];
+    $sql = "UPDATE materia SET materia='$materia',idtipo='$idtipo' WHERE idmateria =".$idmateria;
+    return $this->db->query($sql);
   }
 }

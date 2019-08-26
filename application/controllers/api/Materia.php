@@ -47,8 +47,9 @@ class Materia extends REST_Controller
   {
     $data = [
       'idmateria' => $this->put('idmateria'),
-      'materia' => $this->put('materia'),
-      'idtipo' => $this->put('idtipo')
+      'idtipo' => $this->put('idtipo'),
+      'materia' => $this->put('materia')
+      
     ];
     $this->Materia_model->update($data); //metodo que ingresa datos en el modelo
     $this->response(['Materia actualizado', Rest_Controller::HTTP_OK]); //se devuelve un mensaje y el estado ok de la peticion
