@@ -39,7 +39,7 @@ class Estudiante extends REST_Controller
     $this->response($data, REST_Controller::HTTP_OK);
   }
 
-  function getTotal_get(){
+  function totalEstudiantes_get(){
     $this->response($this->Estudiante_model->getTotal());
   }
 

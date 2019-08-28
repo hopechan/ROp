@@ -55,7 +55,6 @@ class Nota extends REST_Controller{
       'nota_p3' => $this->put('nota_p3'),
       'nota_p4' => $this->put('nota_p4')
     ];
-
     $this->Nota_model->updateNota($data);
     $this->response('Nota Actualizada con Exito', REST_Controller::HTTP_OK);
   }
@@ -67,10 +66,10 @@ class Nota extends REST_Controller{
   }
   
   function ranking_get($class = 0){
-    $finalCCGK = $this->Nota_model->limpiarArray($this->Nota_model->calcularPromedios(json_decode(json_encode($this->Nota_model->getNotasByTipo(1, $class)), true), 5));
-    $finalCE = $this->Nota_model->limpiarArray($this->Nota_model->calcularPromedios(json_decode(json_encode($this->Nota_model->getNotasByTipo(2, $class)), true), 4));
-    $finalCerti = $this->Nota_model->limpiarArray($this->Nota_model->calcularPromedios(json_decode(json_encode($this->Nota_model->getNotasByTipo(3, $class)), true), 5));
-    $listaFinal = $this->Nota_model->limpiarArray($this->Nota_model->rankingFinal($finalCCGK, $finalCE, $finalCerti));
+    $finalCCGK = $this->Nota_model->calcularPromedios(json_decode(json_encode($this->Nota_model->getNotasByTipo(1, $class)), true), 5);
+    $finalCE = $this->Nota_model->calcularPromedios(json_decode(json_encode($this->Nota_model->getNotasByTipo(2, $class)), true), 4);
+    $finalCerti = $this->Nota_model->calcularPromedios(json_decode(json_encode($this->Nota_model->getNotasByTipo(3, $class)), true), 5);
+    $listaFinal = $this->Nota_model->rankingFinal($finalCCGK, $finalCE, $finalCerti);
     $this->response($listaFinal, REST_Controller::HTTP_OK);
   }
 
