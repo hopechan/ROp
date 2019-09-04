@@ -84,7 +84,7 @@ class Estudiante extends REST_Controller
     $this->response(['Estudiante Ingresado', Rest_Controller::HTTP_OK]);
   }
 
-  function borrar_delete($id)
+  function index_delete($id)
   { 
     //recibe un id y lo manda a la funcion delete del Estudiante_model
     $this->Estudiante_model->delete($id);
@@ -98,7 +98,7 @@ class Estudiante extends REST_Controller
     $this->response($estudiante, REST_Controller::HTTP_OK);
   }
 
-  function actualizar_put()
+  function index_put()
   {
     /*
     * crea un array asociativo de los datos recividos via post y los envia al modelo 

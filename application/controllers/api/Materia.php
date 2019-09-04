@@ -38,8 +38,13 @@ class Materia extends REST_Controller
   //funcion para borrar un registro
   function index_delete($id)
   {
-    $this->Materia_model->delete($id);
-    $this->response(['Materia eliminada', REST_Controller::HTTP_BAD_REQUEST]);
+    
+    if($this->Materia_model->delete($id)){
+      $this->response('Materia eliminada');
+    }else{
+      $this->response('Materia no eliminada');
+    }
+    
   }
 
   //funcion para editar datos
