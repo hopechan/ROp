@@ -30,6 +30,18 @@ class Estudiante_model extends CI_Model {
     return $this->db->query("SELECT * FROM estudiante WHERE anio = $year")->result();
   }
 
+  function filtrar($filtro){
+    $sql = "SELECT * FROM estudiante WHERE nombre LIKE '%".$filtro."%'
+            OR idestudiante LIKE '%.$filtro.%'
+            OR apellidos LIKE '%".$filtro."%'
+            OR telefono LIKE '%".$filtro."%'
+            OR email LIKE '%".$filtro."%'
+            OR seccion LIKE '%".$filtro."%'
+            OR anio LIKE '%".$filtro."%'
+            OR centro_escolar LIKE '%".$filtro."%'";
+    return $this->db->query($sql)->result();
+  }
+
   function getTotal(){
     #devuelve el total de registros guardados en la db
     $sql = "SELECT COUNT(idestudiante) as total FROM estudiante";
