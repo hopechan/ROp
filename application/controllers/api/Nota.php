@@ -40,6 +40,18 @@ class Nota extends REST_Controller{
     $this->response($this->Nota_model->promedios($this->Nota_model->getNotasByTipo(1, 2018), 5), REST_Controller::HTTP_OK);
   }
 
+  /**
+   * La url se forma de la siguiente forma
+   * http://localhost/ROp/api/nota/notasPorMateria/año/tipo/materia
+   */
+  function notasPorMateria_get($anio = 0, $tipo = 0, $materia = ""){
+    if (!empty($tipo) && !empty($materia)) {
+      $this->response($this->Nota_model->getByMateria($anio, $tipo, $materia), REST_Controller::HTTP_OK);
+    } else {
+      $this->response('Datos no encontrados', REST_Controller::HTTP_NOT_FOUND);
+    }
+  }
+
   function actualizar_put()
   {
     /*

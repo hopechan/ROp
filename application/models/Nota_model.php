@@ -65,6 +65,17 @@ class Nota_model extends CI_Model {
     return $this->db->query($sql)->result();
   }
 
+  function getByMateria($anio, $tipo, $materia){
+    $sql = "SELECT n.idnota, e.idestudiante, t.tipo, CONCAT(e.nombre, ' ', e.apellidos) as Estudiante, m.materia, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4
+            FROM nota as n
+            INNER JOIN estudiante e on n.idestudiante = e.idestudiante
+            INNER JOIN materia m on n.idmateria = m.idmateria
+            INNER JOIN tipo t on m.idtipo = t.idtipo
+            WHERE e.anio = '".$anio."' AND t.tipo = '".$tipo."' AND m.materia = '".$materia."'
+            ORDER BY e.apellidos ASC";
+    return $this->db->query($sql)->result();
+  }
+
   function obtenerAnio($anio){
     $anioActual = date('Y');
     return $anioActual - $anio;
