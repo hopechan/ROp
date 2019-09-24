@@ -25,9 +25,9 @@ class Estudiante extends REST_Controller
     $this->load->model('Nota_model');
   }
 
-  public function index_get($filtro = 0){
-    if(!empty($filtro)){
-        $data = $this->Estudiante_model->filtrar($filtro);
+  public function index_get($id = 0){
+    if(!empty($id)){
+        $data = $this->Estudiante_model->getById($id);
     }else{
         $data = $this->Estudiante_model->getAll();
     }
@@ -47,8 +47,13 @@ class Estudiante extends REST_Controller
     $this->response($this->Estudiante_model->getMaxId());
   }
 
-  function buscar_get($filtro){
-    $this->response($this->Estudiante_model->filtrar($filtro));
+  function buscar_get($filtro = 0){
+    if (!empty($filtro)) {
+      $this->response($this->Estudiante_model->filtrar($filtro));
+    } else {
+      echo "No hay registros";
+    }
+    
   }
 
   function generarNotas_post(){

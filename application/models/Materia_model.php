@@ -41,4 +41,9 @@ class Materia_model extends CI_Model {
     $sql = "UPDATE materia SET materia='$materia',idtipo='$idtipo' WHERE idmateria =".$idmateria;
     return $this->db->query($sql);
   }
+
+  function materiasPorTipo($tipo)
+  {
+    # code...
+  }
 }
