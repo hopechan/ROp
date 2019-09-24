@@ -19,7 +19,7 @@ class Materia_model extends CI_Model {
 
   function getById($id){
     //devuelve un solo registro basado en el id que recibe
-    return $this->db->query("SELECT * FROM materia WHERE idmateria = $id")->row();
+    return $this->db->query("SELECT m.*, t.tipo FROM materia as m INNER JOIN tipo t on m.idtipo = t.idtipo WHERE m.idmateria = $id")->row();
   }
 
   function post($data){
