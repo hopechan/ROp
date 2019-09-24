@@ -21,7 +21,11 @@ class Tipo extends REST_Controller
     } else {
       $data = $this->Tipo_model->getAll();
     }
-    $this->response($data, REST_Controller::HTTP_OK);
+    if ($data == true) {
+      $this->response($data, REST_Controller::HTTP_OK);
+    } else {
+      $this->response("Resultado no encontrado", REST_Controller::HTTP_NOT_FOUND);
+    }
   }
 
   //funcion para agregar datos
@@ -38,8 +42,15 @@ class Tipo extends REST_Controller
   //funcion para borrar un registro
   function index_delete($id)
   {
-    $this->Tipo_model->delete($id);
-    $this->response(['Tipo eliminado', REST_Controller::HTTP_BAD_REQUEST]);
+    if (!empty($id)==true) {
+      if ($this->Tipo_model->delete($id) === true) {
+        $this->response(['Tipo eliminado', REST_Controller::HTTP_OK]);
+      } else {
+        $this->response(['Tipo no eliminado'], REST_Controller::HTTP_METHOD_NOT_ALLOWED);
+      }
+    }else{
+      $this->response(['Tipo no encontrado'], REST_Controller::HTTP_NOT_FOUND);
+    }
   }
 
   //funcion para editar datos
