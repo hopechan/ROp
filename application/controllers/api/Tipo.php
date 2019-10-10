@@ -45,8 +45,6 @@ class Tipo extends REST_Controller
     if (!empty($id)==true) {
       if ($this->Tipo_model->delete($id) === true) {
         $this->response(['Tipo eliminado', REST_Controller::HTTP_OK]);
-      } else {
-        $this->response(['Tipo no eliminado'], REST_Controller::HTTP_METHOD_NOT_ALLOWED);
       }
     }else{
       $this->response(['Tipo no encontrado'], REST_Controller::HTTP_NOT_FOUND);
