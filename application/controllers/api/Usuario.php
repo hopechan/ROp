@@ -12,7 +12,7 @@ include_once(APPPATH . 'libraries/Format.php');
  * @package   ROp
  * @category  Controller REST
  * @author    Esperanza Dueñas <da13002@ues.edu.sv>
- * @link      https://ROp/api/estudiante
+ * @link      https://ROp/api/usuario
  *
  */
 
@@ -37,13 +37,68 @@ class Usuario extends REST_Controller{
         ];
         $this->Usuario_model->post($data);
     }
-    //metodos para acceder a la api
+
+    private function verificarPassword($password, $hash){return (password_verify($password, $hash)) ?  true: false;}
+    private function verificarUsuario($email, $password){
+        $dataDB = $this->db->get_where("usuarios", ['email'=>$email])->row_array();
+        if ($this->verificarPassword($password, $dataDB['password']) == true && $email == $dataDB['email']) {
+            return parent::HTTP_OK;
+        }else{
+            return parent::HTTP_NOT_FOUND;
+        }
+    }
+
+    private function cabeceraAutenticacion(){
+        //devuelve (si existe) el token sino su return sera false
+        $headers = $this->input->request_headers();
+        $token = $headers['Authorization'];
+        return $token;
+    }
+
+    private function sinToken(){
+        //esta funcion se ejecutara siempre que no exista un token
+        $status = parent::HTTP_UNAUTHORIZED;
+        $response = ['status' => $status, 'msg' => 'Acceso no autorizado'];
+        $this->response($response, $status);
+    }
+
+    /*metodos para acceder a la api*/
+
     public function index_get($id = null){
         $respuesta = (empty($id)) ? $this->obtenerRegistros() : $this->obtenerRegistro($id);
         $this->response($respuesta, REST_Controller::HTTP_OK);
     }
 
-    public function index_post(){}
-    public function index_delete(){}
-    public function index_put(){}
+    //index_post sirve para logearse y crear el token
+    public function index_post(){
+        $estado = $this->verificarUsuario($this->post('email'), $this->post('password'));
+        $token = $this->cabeceraAutenticacion();
+        if ($estado == parent::HTTP_OK) {
+            //$this->response("Bienvenido", parent::HTTP_OK);
+            try {
+                //se verifica que el token sea valido
+                $auth = AUTHORIZATION::validateToken($token);
+                //si no es valido devolver la respuesta que no tiene autorizacion
+                if ($auth === false) {
+                    $this->sinToken();
+                }else{
+                    //se uso un operador ternario para que el codigo sea mas limpio
+                    //si se recibe un parametro se devulve el registro que coincida 
+                    //sino devuelve todos los registros de la db
+                    $respuesta = (!empty($id)) ? $this->obtenerUnRegistro($id):$this->obtenerTodosLosRegistros();
+                    $this->response($respuesta, REST_Controller::HTTP_OK);
+                }
+            }catch (Exception $e) {
+                $this->sinToken();
+            }
+        } else {
+            $this->response("El email o la contraseña son incorrectos", parent::HTTP_OK);
+        }
+    }
+
+    //registro_post sirve para crear un nuevo usuario
+    public function registro_post(){
+        $this->crearRegistro();
+        $this->response("Registro creado", REST_Controller::HTTP_CREATED);
+    }
 }

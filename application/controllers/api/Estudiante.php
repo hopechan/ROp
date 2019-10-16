@@ -16,9 +16,8 @@ include_once(APPPATH . 'libraries/Format.php');
  *
  */
 
-class Estudiante extends REST_Controller
-{
-    
+class Estudiante extends REST_Controller{
+  
   public function __construct(){
     parent::__construct();
     $this->load->model('Estudiante_model');
