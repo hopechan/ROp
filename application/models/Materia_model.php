@@ -42,8 +42,8 @@ class Materia_model extends CI_Model {
     return $this->db->query($sql);
   }
 
-  function materiasPorTipo($tipo)
-  {
-    # code...
+  function materiasConTipo(){
+    $sql = "SELECT m.idmateria, t.idtipo, CONCAT(m.materia, '-', t.tipo) as materia FROM materia as m INNER JOIN tipo as t WHERE t.idtipo = m.idtipo";
+    return $this->db->query($sql)->result();
   }
 }

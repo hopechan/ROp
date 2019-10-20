@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author    da13002@ues.edu.sv
  *
  */
-
+http://localhost/ROp/api/Nota/2
 class Nota_model extends CI_Model {
 
   public function __construct(){
@@ -25,7 +25,7 @@ class Nota_model extends CI_Model {
   function getById($id){
     //devuelve un solo registro basado en el id que recibe
     return $this->db->query("SELECT n.idnota, n.idestudiante,e.nombre,e.apellidos,n.idmateria, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4, m.materia,m.idmateria
-            FROM NOTA AS n
+            FROM nota AS n
             INNER JOIN estudiante as e ON e.idestudiante = n.idestudiante
             INNER JOIN materia as m ON m.idmateria = n.idmateria
             WHERE n.idnota = $id")->row();
@@ -66,7 +66,7 @@ class Nota_model extends CI_Model {
   }
 
   function getByMateria($anio, $tipo, $materia){
-    $sql = "SELECT n.idnota, e.idestudiante, t.tipo, CONCAT(e.nombre, ' ', e.apellidos) as Estudiante, m.materia, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4
+    $sql = "SELECT n.idnota, e.idestudiante, m.idmateria, t.tipo, CONCAT(e.nombre, ' ', e.apellidos) as Estudiante, m.materia, n.nota_p1, n.nota_p2, n.nota_p3, n.nota_p4
             FROM nota as n
             INNER JOIN estudiante e on n.idestudiante = e.idestudiante
             INNER JOIN materia m on n.idmateria = m.idmateria
@@ -167,10 +167,12 @@ class Nota_model extends CI_Model {
     });
   }
 
-  function updateNota($data)
+  function updateNota($id, $data)
   {
+    //return $id;
     //recibe un array de Nota controller y actualiza el registro de una nota en la db
-    $this->db->where('idnota', $data['idnota']);
+    $this->db->where('idnota', $id);
     $this->db->update('nota', $data);
+    //echo $data['nota_p1'];
   }
 }

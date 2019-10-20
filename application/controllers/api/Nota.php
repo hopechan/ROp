@@ -52,23 +52,20 @@ class Nota extends REST_Controller{
     }
   }
 
-  function actualizar_put()
-  {
+  function index_put($id = 0){
     /*
     * Recibe por PUT los datos del registro de una nota actualizado
     */
-    $data = 
-    [
-      'idnota' => $this->put('idnota'),
-      'idestudiante' => $this->put('idestudiante'),
+    $data = [
       'idmateria' => $this->put('idmateria'),
       'nota_p1' => $this->put('nota_p1'),
       'nota_p2' => $this->put('nota_p2'),
       'nota_p3' => $this->put('nota_p3'),
       'nota_p4' => $this->put('nota_p4')
     ];
-    $this->Nota_model->updateNota($data);
-    $this->response('Nota Actualizada con Exito', REST_Controller::HTTP_OK);
+    //var_dump($data);
+    $this->Nota_model->updateNota($id, $data);
+    $this->response("Notas actualizadas", REST_Controller::HTTP_OK);
   }
 
   function borrar_delete($id)

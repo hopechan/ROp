@@ -24,6 +24,10 @@ class Materia extends REST_Controller
     $this->response($data, REST_Controller::HTTP_OK);
   }
 
+  public function materiasConTipo_get(){
+    $this->response($this->Materia_model->materiasConTipo(), REST_Controller::HTTP_OK);
+  }
+
   //funcion para agregar datos
   function index_post()
   {
